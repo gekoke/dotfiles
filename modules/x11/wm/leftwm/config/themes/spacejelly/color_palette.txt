@@ -1,0 +1,10 @@
+bg: 0f161e
+fg: dfdfdf
+fga: ffffff
+
+gr: 00fb94
+rd: ff2332
+pk: fd6363
+bl: 2e5691
+yl: ffd808
+pl: ff52f1
