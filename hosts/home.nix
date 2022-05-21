@@ -6,6 +6,7 @@
       ../modules/x11
       ../modules/shell
       ../modules/terminal
+      ../modules/browser
       ../modules/themes/gtk
       ../modules/programs
 
