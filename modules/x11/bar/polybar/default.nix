@@ -30,7 +30,11 @@ let
     click-middle = ${playerctl}/bin/playerctl --player=spotify previous 
   '';
 in {
+  
+  imports = [ ../../../fonts/icomoon-feather-ttf ];
+
   fonts.fontconfig.enable = true;
+
   home.packages = with pkgs;
     [
       playerctl
