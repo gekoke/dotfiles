@@ -17,28 +17,30 @@ let
 
   polybarSpotifyScript = ./config/scripts/spotify_status.py;
 
+  feather-icons = pkgs.callPackage ../../../../packages/icomoon-feather-ttf { };
+
   spotifyModule = ''
     [module/spotify]
     type = custom/script
     interval = 1
-    format-prefix = "  "
+    format-prefix = " "
     format-prefix-foreground = ''${color.red}
     format = <label>
-    exec = ${pythonWithDeps}/bin/python ${polybarSpotifyScript} -t 70 -f '{play_pause} {artist} • {song}' -p '  ,  '
+    exec = ${pythonWithDeps}/bin/python ${polybarSpotifyScript} -t 70 -f '{play_pause} {artist} • {song}' -p ','
     click-left = ${playerctl}/bin/playerctl --player=spotify play-pause 
     click-right = ${playerctl}/bin/playerctl --player=spotify next 
     click-middle = ${playerctl}/bin/playerctl --player=spotify previous 
   '';
 in {
-  fonts.fontconfig.enable = true;
-
   home.packages = with pkgs;
     [
       playerctl
 
       material-icons
+      feather-icons
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];  
+  fonts.fontconfig.enable = true;
   
   services = {
     polybar = {
