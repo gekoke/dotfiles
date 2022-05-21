@@ -7,8 +7,8 @@
       ../modules/shell
       ../modules/terminal
       ../modules/browser
-      ../modules/themes/gtk
       ../modules/programs
+      ../modules/themes/gtk
 
       ../modules/services/gpg
     ];
@@ -20,8 +20,6 @@
 
     packages = with pkgs;
       [
-        qutebrowser
-        brave
         bitwarden
         neofetch
         spotify

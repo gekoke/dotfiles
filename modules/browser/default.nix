@@ -1,6 +1,12 @@
 let
   defaultBrowserDesktopFile = "org.qutebrowser.qutebrowser.desktop";
 in {
+  imports =
+    [
+      ./brave
+      ./qutebrowser
+    ];
+
   xdg.mime.enable = true;
   xdg.mimeApps = {
       enable = true;
