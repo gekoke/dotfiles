@@ -28,7 +28,6 @@
 
       shellAliases = {
         ll = "ls -l";
-        ra = "ranger";
       };
     };
   };
