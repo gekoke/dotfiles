@@ -49,7 +49,6 @@
 
   imports =
     [
-      ../modules/system/fontconfig
       ../modules/system/services/xserver
       ../modules/system/services/lightdm
     ];
