@@ -3,5 +3,6 @@
     [
       ./git
       ./ranger
+      ./lazygit
     ];
 }
