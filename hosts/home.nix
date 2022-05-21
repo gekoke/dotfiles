@@ -24,6 +24,7 @@
         bitwarden
         neofetch
         spotify
+        coreutils
       ];
     
     sessionVariables = {
