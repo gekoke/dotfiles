@@ -27,7 +27,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../modules/hardware/nvidia
+      ../../modules/system/hardware/nvidia
     ];
 
   boot.kernelParams =
@@ -36,9 +36,6 @@
       #  "video=HDMI-0:1920x1080@239.96"
       "video=HDMI-0:1920x1080"
     ];
-
-  networking = {
-  };
 
   services.xserver.displayManager.sessionCommands = ''
     xrandr --output HDMI-0 --mode 1920x1080 --rate 239.96 &
