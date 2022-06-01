@@ -35,12 +35,3 @@ echo "LoadTheme $SCRIPTPATH/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
 if [ -x "$(command -v feh)" ]; then
   feh --bg-scale $SCRIPTPATH/background.jpg
 fi
-
-
-#boot a polybar for each monitor
-cd ${SCRIPTPATH}/polybar
-polybar -m | sed s/:.*// | tac | while read -r monitor
-do 
-  monitor=$monitor polybar -c config.ini main &> /dev/null &
-done
-
