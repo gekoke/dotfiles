@@ -28,6 +28,7 @@
     [
       ./hardware-configuration.nix
       ../../modules/system/hardware/nvidia
+      ../../modules/system/services/steam
     ];
 
   boot.kernelParams =
