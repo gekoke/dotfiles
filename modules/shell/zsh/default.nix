@@ -1,9 +1,18 @@
-{ ... }:
+{ lib, ... }:
 {
   programs = {
     starship = {
       enable = true;
       enableZshIntegration = true;
+      settings = {
+        add_newline = false;
+        hostname = {
+          ssh_only = false;
+        };
+        username = {
+          show_always = true;
+        };
+      };
     };
     
     fzf = {
