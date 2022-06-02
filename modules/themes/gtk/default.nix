@@ -10,9 +10,5 @@
       size = 22;
     };
   };
-
-  gtk = {
-    enable = true;
-  };
 }
 
