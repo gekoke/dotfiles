@@ -1,10 +1,18 @@
 { pkgs, ... }:
 {
-  gtk = {
-    enable = true;
-    theme = {
-      name = "SolArc-Dark";
-      package = pkgs.solarc-gtk-theme;
+  home = {
+    pointerCursor = {
+      x11.enable = true;
+      gtk.enable = true;
+
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 22;
     };
   };
+
+  gtk = {
+    enable = true;
+  };
 }
+
