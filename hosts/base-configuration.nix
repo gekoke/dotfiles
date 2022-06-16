@@ -52,7 +52,6 @@
   imports =
     [
       ../modules/system/services/xserver
-      ../modules/system/services/lightdm
     ];
 
   programs.dconf.enable = true;
