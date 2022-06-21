@@ -5,4 +5,7 @@
   programs.zsh.shellAliases = {
     lg = "lazygit";
   };
+  programs.fish.shellAliases = {
+    lg = "lazygit";
+  };
 }

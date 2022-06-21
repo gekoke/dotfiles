@@ -14,4 +14,7 @@
   programs.zsh.shellAliases = {
     ra = "ranger";
   };
+  programs.fish.shellAliases = {
+    ra = "ranger";
+  };
 }
