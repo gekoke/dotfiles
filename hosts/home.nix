@@ -11,6 +11,8 @@
       ../modules/themes/gtk
 
       ../modules/services/gpg
+
+      ../modules/editors/neovim
     ];
 
   home = {
@@ -27,7 +29,7 @@
       ];
     
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
     };
   };
 
