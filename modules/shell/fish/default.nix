@@ -1,5 +1,15 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
+  home.packages = with pkgs;
+  [
+    lolcat
+    neofetch
+    boxes
+    fortune
+  ];
+
+  xdg.configFile."fish/conf.d/".source = ./config/conf.d;
+
   programs = {
     fzf = {
       enable = true;
@@ -17,6 +27,5 @@
 
   home.sessionVariables = {
     fish_prompt_pwd_dir_length = 0;
-    fish_greeting = "";
   };
 }
