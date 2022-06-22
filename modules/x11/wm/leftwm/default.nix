@@ -5,7 +5,7 @@ in
 {
   imports =
     [
-      ./home.nix
+      ../../../programs/rofi
     ];
 
    xdg.configFile."leftwm/".source = ./config;

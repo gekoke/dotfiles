@@ -30,7 +30,7 @@ key = "n"
 
 [[keybind]]
 command = "Execute"
-value = "rofi -show run"
+value = "rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/launchers/colorful/style_2.rasi"
 modifier = ["modkey"]
 key = "p"
 
