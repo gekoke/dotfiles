@@ -24,7 +24,6 @@
       [
         bitwarden
         neofetch
-        spotify
         coreutils
       ];
     
