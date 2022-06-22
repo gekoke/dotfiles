@@ -1,7 +1,10 @@
 {
+  console.useXkbConfig = true;
+
   services.xserver = {
     enable = true;
-    layout = "us";
+    layout = "ee";
+    xkbVariant = "us";
     libinput.enable = true;
 
     windowManager.leftwm.enable = true;
