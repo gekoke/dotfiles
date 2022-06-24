@@ -25,6 +25,7 @@
         bitwarden
         neofetch
         coreutils
+        tldr
       ];
     
     sessionVariables = {
