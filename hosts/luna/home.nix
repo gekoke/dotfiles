@@ -6,4 +6,9 @@
       discord
       teamspeak_client
     ];
+
+  programs.git = {
+    userName = "gekoke";
+    userEmail = "gekoke@lazycantina.xyz";
+  };
 }
