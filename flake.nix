@@ -1,5 +1,5 @@
 {
-  description = "My NixOS system configurations";
+  description = "My Nix system configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -15,7 +15,7 @@
       user = "geko";
       location = "$HOME/.setup";
     in {
-      nixosConfigurations = (
+      configurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager user location;

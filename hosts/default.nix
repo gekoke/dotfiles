@@ -1,10 +1,8 @@
 { lib, inputs, nixpkgs, home-manager, user, location, ... }:
 
 let
-  system = "x86_64-linux";
-
   pkgs = import nixpkgs {
-    inherit system;
+    system = "x86_64-linux";
     config.allowUnfree = true;
   };
 
@@ -12,7 +10,8 @@ let
 in
 {
   luna = lib.nixosSystem {
-    inherit system;
+    system = "x86_64-linux";
+
     specialArgs = { inherit inputs user location; };
     modules =
       [
@@ -28,6 +27,15 @@ in
           };
         }
       ];
+  };
+
+  orion = inputs.home-manager.lib.homeManagerConfiguration {
+    configuration = ./orion/default.nix;
+    system = "x86_64-linux";
+    homeDirectory = "/home/${user}";
+    username = "${user}";
+    stateVersion = "22.05";
+    pkgs = pkgs;
   };
 }
 
