@@ -1,6 +1,14 @@
 { config, lib, pkgs, ... }:
 
 { 
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+    settings = {
+      auto-optimise-store = true;
+    };
+  };
+
   imports = 
     [
       ../../modules/shell/fish
