@@ -3,7 +3,7 @@
 { 
   imports = 
     [
-      ../../modules/shell
+      ../../modules/shell/fish
       ../../modules/programs
             
       ../../modules/services/gpg
@@ -24,6 +24,8 @@
       EDITOR = "nvim";
     };
   };
+
+  modules.fish.enableFlashyPrompt = false;
 
   programs = {
     home-manager.enable = true;
