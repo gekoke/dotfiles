@@ -37,13 +37,21 @@ in {
           enable = true;
 
           shellAliases = {
-            ll = "ls -l";
+            ls = "exa --icons";
+            la = "exa -a --icons";
+            ll = "exa -l";
+            i = "grep -i";
+            x = "grep";
           };
         };
       };
 
-      home.sessionVariables = {
-        fish_prompt_pwd_dir_length = 0;
+      home = {
+        packages = with pkgs; [ exa ];
+
+        sessionVariables = {
+          fish_prompt_pwd_dir_length = 0;
+        };
       };
     })
   ]);
