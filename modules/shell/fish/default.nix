@@ -2,11 +2,16 @@
 with lib;
 let
   cfg = config.modules.fish;
+  exaIconsOption = if cfg.enableFileIcons then "--icons" else "";
 in {
   options.modules.fish = {
     enableFlashyPrompt = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
+    };
+    enableFileIcons = mkOption {
+      type = types.bool;
+      default = true;
     };
   };
 
@@ -37,9 +42,9 @@ in {
           enable = true;
 
           shellAliases = {
-            ls = "exa --icons";
-            la = "exa -a --icons";
-            ll = "exa -l";
+            ls = "exa ${exaIconsOption}";
+            la = "exa -a ${exaIconsOption}";
+            ll = "exa -l ${exaIconsOption}";
             i = "grep -i";
             x = "grep";
           };

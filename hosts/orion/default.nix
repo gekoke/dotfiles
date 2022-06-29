@@ -25,7 +25,10 @@
     };
   };
 
-  modules.fish.enableFlashyPrompt = false;
+  modules.fish = {
+    enableFlashyPrompt = false;
+    enableFileIcons = false;
+  };
 
   programs = {
     home-manager.enable = true;
