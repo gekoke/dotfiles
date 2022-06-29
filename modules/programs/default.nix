@@ -9,6 +9,6 @@
     
   home.packages = with pkgs;
     [
-      ncpamixer
+      comma
     ];
 }
