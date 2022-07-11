@@ -15,7 +15,7 @@
       user = "geko";
       location = "$HOME/.setup";
     in {
-      configurations = (
+      nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs home-manager user location;
