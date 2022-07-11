@@ -11,6 +11,7 @@
       ../modules/themes/gtk
       ../modules/services/gpg
       ../modules/editors/neovim
+      ../modules/editors/code
     ];
 
   home = {
