@@ -4,14 +4,12 @@
   imports = 
     [
       ../modules/x11
-      ../modules/shell
       ../modules/terminal
+      ../modules/shell
       ../modules/browser
       ../modules/programs
       ../modules/themes/gtk
-
       ../modules/services/gpg
-
       ../modules/editors/neovim
     ];
 
@@ -36,4 +34,6 @@
   programs = {
     home-manager.enable = true;
   };
+
+  modules.fish.enable = true;
 }

@@ -34,6 +34,7 @@
   };
 
   modules.fish = {
+    enable = true;
     enableFlashyPrompt = false;
     enableFileIcons = false;
   };

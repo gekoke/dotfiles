@@ -5,6 +5,7 @@ let
   exaIconsOption = if cfg.enableFileIcons then "--icons" else "";
 in {
   options.modules.fish = {
+    enable = mkEnableOption "Fish shell";
     enableFlashyPrompt = mkOption {
       type = types.bool;
       default = true;
@@ -15,7 +16,7 @@ in {
     };
   };
 
-  config = (mkMerge [
+  config = mkIf cfg.enable (mkMerge [
     (mkIf (cfg.enableFlashyPrompt) {
       home.packages = with pkgs;
         [
