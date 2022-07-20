@@ -37,4 +37,8 @@
   };
 
   modules.fish.enable = true;
+  modules.code = {
+    enable = true;
+    enableRust = true;
+  };
 }
