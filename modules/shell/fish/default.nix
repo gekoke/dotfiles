@@ -6,14 +6,8 @@ let
 in {
   options.modules.fish = {
     enable = mkEnableOption "Fish shell";
-    enableFlashyPrompt = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    enableFileIcons = mkOption {
-      type = types.bool;
-      default = true;
-    };
+    enableFlashyPrompt = mkEnableOption "Enable flashy shell prompt with neofetch, figlet et al";
+    enableFileIcons = mkEnableOption "Enable icons when using ls (exa)";
   };
 
   config = mkIf cfg.enable (mkMerge [
