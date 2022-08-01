@@ -22,6 +22,8 @@ let
 
   functionality = with pkgs.vimPlugins; [
     vim-airline
+    alpha-nvim
+
     (plugin "lewis6991/gitsigns.nvim")
   ];
 in {
