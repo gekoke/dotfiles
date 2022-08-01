@@ -29,3 +29,5 @@ vim.g.leader = " "
 local colorscheme = "gruvbox"
 vim.cmd("colorscheme " .. colorscheme)
 
+require("gitsigns").setup()
+
