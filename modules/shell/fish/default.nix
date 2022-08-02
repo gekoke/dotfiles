@@ -42,6 +42,7 @@ in {
             ll = "exa -l ${exaIconsOption}";
             i = "grep -i";
             x = "grep";
+            cal = "ncal -b -M -A2";
           };
         };
       };
