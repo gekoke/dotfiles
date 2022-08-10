@@ -49,12 +49,17 @@ in {
             i = "grep -i";
             x = "grep";
             cal = "ncal -b -M -A2";
+            dl = "trash";
+            rm = "echo 'Are you sure mate'";
           };
         };
       };
 
       home = {
-        packages = with pkgs; [exa];
+        packages = with pkgs; [
+          exa
+          trash-cli
+        ];
 
         sessionVariables = {
           fish_prompt_pwd_dir_length = 0;
