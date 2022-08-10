@@ -15,6 +15,7 @@
     ../modules/services/gpg
     ../modules/editors/neovim
     ../modules/editors/code
+    ../scripts
   ];
 
   home = {

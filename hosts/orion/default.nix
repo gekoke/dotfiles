@@ -18,6 +18,7 @@
 
     ../../modules/services/gpg
     ../../modules/editors/neovim
+    ../../scripts
   ];
 
   home = {
