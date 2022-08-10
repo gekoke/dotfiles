@@ -10,18 +10,22 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
-    let
-      user = "geko";
-      location = "$HOME/.setup";
-    in {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  }: let
+    user = "geko";
+    location = "$HOME/.setup";
+  in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
 
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager user location;
-        }
-      );
-    };
+    nixosConfigurations = (
+      import ./hosts {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager user location;
+      }
+    );
+  };
 }

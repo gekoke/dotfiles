@@ -1,13 +1,17 @@
-{ pkgs, lib, ... }:
-let
-  pluginGit = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = ref;
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      ref = ref;
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  pluginGit = ref: repo:
+    pkgs.vimUtils.buildVimPluginFrom2Nix {
+      pname = "${lib.strings.sanitizeDerivationName repo}";
+      version = ref;
+      src = builtins.fetchGit {
+        url = "https://github.com/${repo}.git";
+        ref = ref;
+      };
     };
-  };
 
   plugin = pluginGit "HEAD";
 
@@ -38,9 +42,8 @@ in {
         EOF
       '';
     };
- 
+
     fish.shellAliases.v = "nvim";
     zsh.shellAliases.v = "nvim";
-  };  
-} 
-
+  };
+}

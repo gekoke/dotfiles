@@ -1,6 +1,10 @@
-{ pkgs, lib, config, ... }:
-with lib;
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.modules.code;
 in {
   options.modules.code = {
@@ -12,14 +16,14 @@ in {
   };
 
   config = mkIf cfg.enable (mkMerge [
-    ({
+    {
       programs.vscode = {
         enable = true;
         extensions = with pkgs.vscode-extensions; [
           arrterian.nix-env-selector
         ];
       };
-    })
+    }
 
     (mkIf (cfg.enableRust) {
       programs.vscode.extensions = with pkgs.vscode-extensions; [
@@ -27,5 +31,4 @@ in {
       ];
     })
   ]);
-} 
-
+}

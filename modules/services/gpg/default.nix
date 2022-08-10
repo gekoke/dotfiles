@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.gpg = {
     enable = true;
     settings = {
@@ -10,6 +9,6 @@
   services.gpg-agent = {
     enable = true;
   };
-  
-  home.packages = with pkgs; [ pinentry ];
+
+  home.packages = with pkgs; [pinentry];
 }

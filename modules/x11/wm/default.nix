@@ -1,8 +1,5 @@
-{ ... }:
-{
-  imports =
-    [
-      ./leftwm
-    ];
+{...}: {
+  imports = [
+    ./leftwm
+  ];
 }
-

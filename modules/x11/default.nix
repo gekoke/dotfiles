@@ -1,15 +1,17 @@
-{ config, lib, pkgs, ... }:
 {
-  imports =
-    [
-      ./wm
-      ./compositor
-      ./wallpaper
-      ./bar
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./wm
+    ./compositor
+    ./wallpaper
+    ./bar
+  ];
 
   xsession.enable = true;
-
 
   programs = {
     fish.shellAliases = {
@@ -22,4 +24,3 @@
     };
   };
 }
-

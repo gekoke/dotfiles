@@ -1,9 +1,14 @@
-
-{ config, lib, pkgs, inputs, user, location, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  user,
+  location,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
-  
+
   system.stateVersion = "22.05";
 
   nix = {
@@ -16,7 +21,7 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
     shell = pkgs.fish;
   };
 
@@ -25,29 +30,27 @@
     grub = {
       enable = true;
       efiSupport = true;
-      devices = [ "nodev" ];
+      devices = ["nodev"];
       useOSProber = true;
     };
   };
 
-  environment.systemPackages = with pkgs;
-    [
-      vim
-      wget
-      curl
-      htop
-      git
-    ];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    curl
+    htop
+    git
+  ];
 
   services.gnome.gnome-keyring.enable = true;
 
   time.timeZone = "Europe/Tallinn";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  imports =
-    [
-      ../modules/system/services/xserver
-    ];
+  imports = [
+    ../modules/system/services/xserver
+  ];
 
   programs.dconf.enable = true;
 

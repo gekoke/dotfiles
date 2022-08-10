@@ -1,3 +1,3 @@
 {
-  imports = [ ./polybar ];
+  imports = [./polybar];
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs = {
     alacritty = {
       enable = true;
@@ -16,11 +15,10 @@
       };
     };
   };
-    
+
   home = {
-    packages = with pkgs;
-      [
-        (nerdfonts.override { fonts = [ "Iosevka" ]; })
-      ];  
+    packages = with pkgs; [
+      (nerdfonts.override {fonts = ["Iosevka"];})
+    ];
   };
 }

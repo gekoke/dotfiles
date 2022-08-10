@@ -1,8 +1,5 @@
-{ ... }:
-{
-  imports =
-    [
-      ./alacritty
-    ];
+{...}: {
+  imports = [
+    ./alacritty
+  ];
 }
-

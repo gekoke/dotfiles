@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
-{ 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
@@ -9,25 +12,23 @@
     };
   };
 
-  imports = 
-    [
-      ../../modules/shell/fish
-      ../../modules/programs
-            
-      ../../modules/services/gpg
-      ../../modules/editors/neovim
-    ];
+  imports = [
+    ../../modules/shell/fish
+    ../../modules/programs
+
+    ../../modules/services/gpg
+    ../../modules/editors/neovim
+  ];
 
   home = {
     stateVersion = "22.05";
 
-    packages = with pkgs;
-      [
-        neofetch
-        coreutils
-        tldr
-      ];
-    
+    packages = with pkgs; [
+      neofetch
+      coreutils
+      tldr
+    ];
+
     sessionVariables = {
       EDITOR = "nvim";
     };

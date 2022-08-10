@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs = {
     starship = {
       enable = true;
@@ -14,7 +13,7 @@
         };
       };
     };
-    
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -29,10 +28,10 @@
       history = {
         size = 100000000;
       };
-      
+
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" ];
+        plugins = ["git"];
       };
 
       shellAliases = {

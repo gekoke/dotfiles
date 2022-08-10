@@ -1,10 +1,8 @@
-{ ... }:
-{
-    services.picom = {
-      enable = true;
-      experimentalBackends = true;  # For kawase blur
-    };
+{...}: {
+  services.picom = {
+    enable = true;
+    experimentalBackends = true; # For kawase blur
+  };
 
-    xdg.configFile."picom/picom.conf".source = ./picom.conf;
+  xdg.configFile."picom/picom.conf".source = ./picom.conf;
 }
-

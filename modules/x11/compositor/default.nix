@@ -1,4 +1,3 @@
-{ ... }:
-{
-  imports = [ ./picom ];
+{...}: {
+  imports = [./picom];
 }
