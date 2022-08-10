@@ -15,6 +15,8 @@
       user = "geko";
       location = "$HOME/.setup";
     in {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
