@@ -3,18 +3,6 @@
   lib,
   ...
 }: let
-  pluginGit = ref: repo:
-    pkgs.vimUtils.buildVimPluginFrom2Nix {
-      pname = "${lib.strings.sanitizeDerivationName repo}";
-      version = ref;
-      src = builtins.fetchGit {
-        url = "https://github.com/${repo}.git";
-        ref = ref;
-      };
-    };
-
-  plugin = pluginGit "HEAD";
-
   themes = with pkgs.vimPlugins; [
     gruvbox
   ];
@@ -27,8 +15,7 @@
   functionality = with pkgs.vimPlugins; [
     vim-airline
     alpha-nvim
-
-    (plugin "lewis6991/gitsigns.nvim")
+    gitsigns-nvim
   ];
 in {
   programs = {
