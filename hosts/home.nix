@@ -8,7 +8,6 @@
   imports = [
     ../config/x11
     ../config/terminal
-    ../config/shell
     ../config/browser
     ../config/programs
     ../config/themes/gtk

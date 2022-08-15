@@ -15,7 +15,6 @@
   imports = [
     ../../modules
 
-    ../../config/shell/fish
     ../../config/programs
     ../../config/services/gpg
 
