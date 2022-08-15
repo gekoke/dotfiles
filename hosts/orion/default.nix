@@ -14,11 +14,10 @@
 
   imports = [
     ../../modules
+    ../../scripts
 
     ../../config/programs
     ../../config/services/gpg
-
-    ../../scripts
   ];
 
   home = {
@@ -35,13 +34,14 @@
     };
   };
 
-  modules.fish = {
-    enable = true;
-    enableFlashyPrompt = false;
-    enableFileIcons = false;
+  modules = {
+    fish = {
+      enable = true;
+      enableFlashyPrompt = false;
+      enableFileIcons = false;
+    };
+    neovim.enable = true;
   };
-
-  modules.neovim.enable = true;
 
   programs = {
     home-manager.enable = true;
