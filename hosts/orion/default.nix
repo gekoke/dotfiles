@@ -13,11 +13,12 @@
   };
 
   imports = [
+    ../../modules
+
     ../../config/shell/fish
     ../../config/programs
-
     ../../config/services/gpg
-    ../../config/editors/neovim
+
     ../../scripts
   ];
 
@@ -40,6 +41,8 @@
     enableFlashyPrompt = false;
     enableFileIcons = false;
   };
+
+  modules.neovim.enable = true;
 
   programs = {
     home-manager.enable = true;

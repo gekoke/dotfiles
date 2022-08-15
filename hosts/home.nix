@@ -13,7 +13,6 @@
     ../config/programs
     ../config/themes/gtk
     ../config/services/gpg
-    ../config/editors/neovim
     ../config/editors/code
     ../scripts
   ];
@@ -40,8 +39,11 @@
   };
 
   modules.fish.enable = true;
+
   modules.code = {
     enable = true;
     enableRust = true;
   };
+
+  modules.neovim.enable = true;
 }
