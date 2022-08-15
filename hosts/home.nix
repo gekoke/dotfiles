@@ -6,15 +6,15 @@
   ...
 }: {
   imports = [
-    ../modules/x11
-    ../modules/terminal
-    ../modules/shell
-    ../modules/browser
-    ../modules/programs
-    ../modules/themes/gtk
-    ../modules/services/gpg
-    ../modules/editors/neovim
-    ../modules/editors/code
+    ../config/x11
+    ../config/terminal
+    ../config/shell
+    ../config/browser
+    ../config/programs
+    ../config/themes/gtk
+    ../config/services/gpg
+    ../config/editors/neovim
+    ../config/editors/code
     ../scripts
   ];
 

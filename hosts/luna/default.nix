@@ -30,8 +30,8 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/hardware/nvidia
-    ../../modules/system/services/steam
+    ../../config/system/hardware/nvidia
+    ../../config/system/services/steam
   ];
 
   boot.kernelParams = [

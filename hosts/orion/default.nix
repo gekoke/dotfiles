@@ -13,11 +13,11 @@
   };
 
   imports = [
-    ../../modules/shell/fish
-    ../../modules/programs
+    ../../config/shell/fish
+    ../../config/programs
 
-    ../../modules/services/gpg
-    ../../modules/editors/neovim
+    ../../config/services/gpg
+    ../../config/editors/neovim
     ../../scripts
   ];
 

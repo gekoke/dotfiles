@@ -49,7 +49,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   imports = [
-    ../modules/system/services/xserver
+    ../config/system/services/xserver
   ];
 
   programs.dconf.enable = true;
