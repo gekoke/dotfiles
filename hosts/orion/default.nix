@@ -14,7 +14,6 @@
 
   imports = [
     ../../modules
-    ../../scripts
 
     ../../config/programs
     ../../config/services/gpg
@@ -41,6 +40,8 @@
       enableFileIcons = false;
     };
     neovim.enable = true;
+    scripts.enable = true;
+    comma.enable = true;
   };
 
   programs = {

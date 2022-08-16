@@ -13,7 +13,6 @@
     ../config/themes/gtk
     ../config/services/gpg
     ../config/editors/code
-    ../scripts
   ];
 
   home = {
