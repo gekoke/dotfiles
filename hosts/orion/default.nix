@@ -39,7 +39,11 @@
       enableFlashyPrompt = false;
       enableFileIcons = false;
     };
-    neovim.enable = true;
+    neovim = {
+      enable = true;
+      enableNix = true;
+      colorscheme = "gruvbox";
+    };
     scripts.enable = true;
     comma.enable = true;
   };

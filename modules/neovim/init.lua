@@ -26,9 +26,3 @@ vim.o.signcolumn = "yes"
 
 vim.g.leader = " "
 
-local colorscheme = "gruvbox"
-vim.cmd("colorscheme " .. colorscheme)
-
-require("gitsigns").setup()
-require("alpha").setup(require "alpha.themes.dashboard".config)
-

@@ -12,7 +12,8 @@
     ../config/programs
     ../config/themes/gtk
     ../config/services/gpg
-    ../config/editors/code
+
+    ../modules
   ];
 
   home = {
@@ -36,12 +37,15 @@
     home-manager.enable = true;
   };
 
-  modules.fish.enable = true;
-
-  modules.code = {
-    enable = true;
-    enableRust = true;
+  modules = {
+    fish.enable = true;
+    code = {
+      enable = true;
+      enableRust = true;
+    };
+    neovim = {
+      enable = true;
+      enableNix = true;
+    };
   };
-
-  modules.neovim.enable = true;
 }
