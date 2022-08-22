@@ -4,5 +4,6 @@
     ./fish
     ./scripts
     ./comma
+    ./code
   ];
 }
