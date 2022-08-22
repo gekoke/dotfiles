@@ -3,6 +3,7 @@
   inputs,
   nixpkgs,
   home-manager,
+  nix-doom-emacs,
   user,
   location,
   ...
@@ -29,7 +30,11 @@ in {
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {inherit user;};
         home-manager.users.${user} = {
-          imports = [(import ./home.nix)] ++ [(import ./luna/home.nix)];
+          imports = [
+            ./home.nix
+            ./luna/home.nix
+            nix-doom-emacs.hmModule
+          ];
         };
       }
     ];
@@ -38,6 +43,7 @@ in {
   orion = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = nixpkgs.legacyPackages."x86_64-linux";
     modules = [
+      nix-doom-emacs.hmModule
       ./orion/default.nix
       {
         home = {
