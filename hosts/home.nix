@@ -46,6 +46,10 @@
     neovim = {
       enable = true;
       enableNix = true;
+      colorscheme = "gruvbox";
     };
+
+    comma.enable = true;
+    emacs.enable = true;
   };
 }
