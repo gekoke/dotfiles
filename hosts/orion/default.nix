@@ -19,7 +19,10 @@
     ../../config/services/gpg
   ];
 
+  xdg.enable = true;
+
   home = {
+
     stateVersion = "22.05";
 
     packages = with pkgs; [

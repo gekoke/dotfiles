@@ -50,7 +50,6 @@ in {
             x = "grep";
             cal = "ncal -b -M -A2";
             dl = "trash";
-            rm = "echo 'Are you sure mate'";
           };
         };
       };

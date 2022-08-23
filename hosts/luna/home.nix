@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  xdg.enable = true;
+
   home.packages = with pkgs; [
     spotify
     discord

@@ -4,8 +4,11 @@
   ...
 }:
 with lib; let
+  scriptDir = ".user-scripts";
   cfg = config.modules.scripts;
-  moveToScriptDir = mapAttrs' (k: v: nameValuePair ("Scripts/" + k) v);
+
+  moveToScriptDir = mapAttrs' (n: v: nameValuePair "${scriptDir}/${n}" v);
+
   defaultScripts = {
     "" = {
       source = ./Scripts;
@@ -25,6 +28,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.file = moveToScriptDir (cfg.script // defaultScripts);
+    home = {
+      file = moveToScriptDir (cfg.script // defaultScripts);
+      sessionPath = [ "$HOME/${scriptDir}" ];
+    };
   };
 }
