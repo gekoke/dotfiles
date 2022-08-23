@@ -28,27 +28,29 @@
   in {
     formatter.x86_64-linux = pkgs.alejandra;
 
-    luna = pkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations = {
+      luna = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
 
-      specialArgs = { inherit inputs user location; };
-      modules = [
-        ./hosts/luna
-        ./hosts/base-configuration.nix
+        specialArgs = { inherit inputs user location; };
+        modules = [
+          ./hosts/luna
+          ./hosts/base-configuration.nix
 
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit user; };
-          home-manager.users.${user} = {
-            imports = [
-              ./home.nix
-              ./luna/home.nix
-            ];
-          };
-        }
-      ];
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit user; };
+            home-manager.users.${user} = {
+              imports = [
+                ./home.nix
+                ./luna/home.nix
+              ];
+            };
+          }
+        ];
+      };
     };
 
     orion = inputs.home-manager.lib.homeManagerConfiguration {
