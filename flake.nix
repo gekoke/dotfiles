@@ -44,8 +44,8 @@
             home-manager.extraSpecialArgs = { inherit user; };
             home-manager.users.${user} = {
               imports = [
-                ./home.nix
-                ./luna/home.nix
+                ./hosts/home.nix
+                ./hosts/luna/home.nix
               ];
             };
           }
