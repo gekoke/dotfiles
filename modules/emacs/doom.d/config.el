@@ -48,6 +48,11 @@
 (map! :leader "g c r" #'magit-commit-reword)
 (map! :leader "g n" #'magit-init)
 (map! :leader "r a" #'dired-jump)
+(map! :map ranger-mode-map
+      :m  "; ;" 'dired-create-empty-file)
+(map! :localleader
+      (:map ranger-mode-map
+      "k" #'dired-create-directory))
 
 ;; Modeline
 (setq display-time-default-load-average nil)
