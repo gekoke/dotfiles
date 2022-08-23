@@ -55,3 +55,6 @@
 ;; Matrix client
 (package! plz :recipe (:host github :repo "alphapapa/plz.el"))
 (package! ement :recipe (:host github :repo "alphapapa/ement.el"))
+
+;; Ranger
+(package! ranger)

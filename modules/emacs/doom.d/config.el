@@ -38,6 +38,9 @@
 (setq doom-theme 'doom-gruvbox)
 (setq display-line-numbers-type 'relative)
 
+;; Ranger
+(ranger-override-dired-mode t)
+
 ;; Keybindings
 (map! :leader "x" #'kill-current-buffer)
 (map! :leader "g c a" #'magit-commit-amend)
