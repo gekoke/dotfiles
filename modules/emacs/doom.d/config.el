@@ -47,6 +47,7 @@
 (map! :leader "g c e" #'magit-commit-extend)
 (map! :leader "g c r" #'magit-commit-reword)
 (map! :leader "g n" #'magit-init)
+(map! :leader "r a" #'dired-jump)
 
 ;; Modeline
 (setq display-time-default-load-average nil)
