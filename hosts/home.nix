@@ -5,6 +5,8 @@
   user,
   ...
 }: {
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ../config/x11
     ../config/terminal

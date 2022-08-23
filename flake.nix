@@ -35,12 +35,10 @@
         specialArgs = { inherit inputs user location; };
         modules = [
           ./hosts/luna
-          ./hosts/base-configuration.nix
+          ./hosts/base-configuration.nix 
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit user inputs; };
             home-manager.users.${user} = {
               imports = [
