@@ -16,6 +16,8 @@ in {
   config = mkIf cfg.enable {
     nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
+    xdg.enable = true;
+
     home = {
       packages = with pkgs; [
         doomSetupScript
