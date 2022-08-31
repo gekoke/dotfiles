@@ -54,7 +54,7 @@ in {
       ];
 
       sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
-      shellAliases."e" = "emacs";
+      shellAliases."e" = "doom run";
     };
 
     fonts.fontconfig.enable = true;
