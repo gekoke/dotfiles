@@ -50,7 +50,6 @@
     };
     emacs.enable = true;
 
-    scripts.enable = true;
     comma.enable = true;
   };
 

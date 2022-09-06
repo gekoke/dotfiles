@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 filename="index-x86_64-$(uname | tr A-Z a-z)"
 mkdir -p ~/.cache/nix-index
 cd ~/.cache/nix-index

@@ -6,19 +6,18 @@
 }:
 with lib; let
   cfg = config.modules.comma;
+  nixIndexUpdateScript = pkgs.writeShellScriptBin "nixindex" (builtins.readFile ./update-nix-index.sh);
 in {
-  imports = [../scripts];
-
   options.modules.comma = {
     enable = mkEnableOption "Comma program";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [comma];
+    home.packages = with pkgs; [
+      comma
 
-    modules.scripts.script."update-nix-index.sh" = {
-      source = ./update-nix-index.sh;
-      executable = true;
-    };
+      wget # Script dependency
+      nixIndexUpdateScript
+    ];
   };
 }
