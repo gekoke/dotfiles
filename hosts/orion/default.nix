@@ -50,6 +50,7 @@
     };
     emacs.enable = true;
 
+    org.enable = true;
     comma.enable = true;
   };
 
