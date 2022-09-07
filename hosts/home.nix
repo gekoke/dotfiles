@@ -50,8 +50,9 @@
       enableNix = true;
       colorscheme = "gruvbox";
     };
-
-    comma.enable = true;
     emacs.enable = true;
+
+    org.enable = true;
+    comma.enable = true;
   };
 }
