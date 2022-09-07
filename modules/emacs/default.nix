@@ -2,7 +2,9 @@
 with lib;
 let
   cfg = config.modules.emacs;
+
   doomConfigRepo = "https://github.com/gekoke/doom-emacs-config";
+
   doomSetupScript = pkgs.writeShellScriptBin "doominit" ''
     git clone --depth=1 --single-branch https://github.com/doomemacs/doomemacs "$XDG_CONFIG_HOME/emacs"
     git clone ${doomConfigRepo} "$XDG_CONFIG_HOME/doom"

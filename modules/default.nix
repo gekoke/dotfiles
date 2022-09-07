@@ -5,5 +5,6 @@
     ./comma
     ./code
     ./emacs
+    ./org
   ];
 }
