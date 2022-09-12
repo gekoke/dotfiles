@@ -1,6 +1,11 @@
-{ config, lib, pkgs, inputs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib; let
   cfg = config.modules.emacs;
 
   doomConfigRepo = "https://github.com/gekoke/doom-emacs-config";
@@ -16,7 +21,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+    nixpkgs.overlays = [inputs.emacs-overlay.overlay];
 
     xdg.enable = true;
 
@@ -41,24 +46,24 @@ in {
         doomSetupScript
 
         ## Emacs itself
-        binutils       # native-comp needs 'as', provided by this
+        binutils # native-comp needs 'as', provided by this
         # 29 + pgtk + native-comp
         ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages
-          (epkgs: [ epkgs.vterm ]))
+          (epkgs: [epkgs.vterm]))
 
         ## Doom dependencies
         git
         (ripgrep.override {withPCRE2 = true;})
-        gnutls              # for TLS connectivity
+        gnutls # for TLS connectivity
 
         ## Optional dependencies
-        fd                  # faster projectile indexing
-        imagemagick         # for image-dired
-        zstd                # for undo-fu-session/undo-tree compression
+        fd # faster projectile indexing
+        imagemagick # for image-dired
+        zstd # for undo-fu-session/undo-tree compression
 
         ## Module dependencies
         # :checkers spell
-        (aspellWithDicts (ds: with ds; [ en en-computers en-science ]))
+        (aspellWithDicts (ds: with ds; [en en-computers en-science]))
         # :tools editorconfig
         editorconfig-core-c # per-project style config
         # :tools lookup & :lang org +roam
@@ -71,11 +76,10 @@ in {
         emacs-all-the-icons-fonts
       ];
 
-      sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
+      sessionPath = ["${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin"];
       shellAliases."e" = "doom run";
     };
 
     fonts.fontconfig.enable = true;
   };
 }
-

@@ -32,14 +32,14 @@
       luna = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        specialArgs = { inherit inputs user location; };
+        specialArgs = {inherit inputs user location;};
         modules = [
           ./hosts/luna
-          ./hosts/base-configuration.nix 
+          ./hosts/base-configuration.nix
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = { inherit user inputs; };
+            home-manager.extraSpecialArgs = {inherit user inputs;};
             home-manager.users.${user} = {
               imports = [
                 ./hosts/home.nix
@@ -53,7 +53,7 @@
 
     orion = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = {inherit inputs;};
       modules = [
         ./hosts/orion
         {

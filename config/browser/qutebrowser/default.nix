@@ -1,6 +1,5 @@
-{pkgs, ...}:
-let
-  pythonDependencies = python-packages: with python-packages; [ adblock ];
+{pkgs, ...}: let
+  pythonDependencies = python-packages: with python-packages; [adblock];
 in {
   home.packages = with pkgs; [
     qutebrowser

@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.modules.org;
   bw-cli = pkgs.bitwarden-cli;
   orgInitScript = pkgs.writeShellScriptBin "orginit" ''
