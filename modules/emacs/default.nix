@@ -21,8 +21,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [inputs.emacs-overlay.overlay];
-
     xdg.enable = true;
 
     programs.emacs.enable = true;
