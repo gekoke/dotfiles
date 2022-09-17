@@ -25,22 +25,6 @@ in {
 
     xdg.enable = true;
 
-    # Encrypted chats for ement
-    services.pantalaimon = {
-      enable = true;
-      settings = {
-        Default = {
-          LogLevel = "Debug";
-          SSL = true;
-        };
-        local-matrix = {
-          Homeserver = "https://matrix.org";
-          ListenAddress = "127.0.0.1";
-          ListenPort = 8008;
-        };
-      };
-    };
-
     home = {
       packages = with pkgs; [
         doomSetupScript
