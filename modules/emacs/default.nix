@@ -25,15 +25,17 @@ in {
 
     xdg.enable = true;
 
+    programs.emacs.enable = true;
+
     home = {
       packages = with pkgs; [
         doomSetupScript
 
         ## Emacs itself
-        binutils # native-comp needs 'as', provided by this
-        # 29 + pgtk + native-comp
-        ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages
-          (epkgs: [epkgs.vterm]))
+        #binutils # native-comp needs 'as', provided by this
+        ## 29 + pgtk + native-comp
+        #((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages
+        #  (epkgs: [epkgs.vterm]))
 
         ## Doom dependencies
         git
