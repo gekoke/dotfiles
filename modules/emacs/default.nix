@@ -23,17 +23,21 @@ in {
   config = mkIf cfg.enable {
     xdg.enable = true;
 
-    programs.emacs.enable = true;
+    programs.emacs = {
+      enable = true;
+      extraPackages = epkgs: with epkgs; [ vterm ];
+    };
 
     home = {
+      # Vterm compile
+      sessionVariables.CC = "make";
+
       packages = with pkgs; [
         doomSetupScript
 
-        ## Emacs itself
-        #binutils # native-comp needs 'as', provided by this
-        ## 29 + pgtk + native-comp
-        #((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages
-        #  (epkgs: [epkgs.vterm]))
+        # Vterm dependency
+        gnumake
+        cmake
 
         ## Doom dependencies
         git
