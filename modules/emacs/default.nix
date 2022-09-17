@@ -13,7 +13,7 @@ with lib; let
   doomSetupScript = pkgs.writeShellScriptBin "doominit" ''
     git clone --depth=1 --single-branch https://github.com/doomemacs/doomemacs "$XDG_CONFIG_HOME/emacs"
     git clone ${doomConfigRepo} "$XDG_CONFIG_HOME/doom"
-    doom sync -u
+    doom install
   '';
 in {
   options.modules.emacs = {
