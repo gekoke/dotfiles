@@ -7,5 +7,6 @@
     ./emacs
     ./org
     ./flameshot
+    ./dunst
   ];
 }
