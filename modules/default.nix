@@ -6,5 +6,6 @@
     ./code
     ./emacs
     ./org
+    ./flameshot
   ];
 }

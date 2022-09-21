@@ -54,5 +54,6 @@
 
     org.enable = true;
     comma.enable = true;
+    flameshot.enable = true;
   };
 }
