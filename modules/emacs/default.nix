@@ -50,6 +50,7 @@ in {
         zstd # for undo-fu-session/undo-tree compression
 
         ## Module dependencies
+        pandoc # Markdown
         # :checkers spell
         (aspellWithDicts (ds: with ds; [en en-computers en-science]))
         # :tools editorconfig
