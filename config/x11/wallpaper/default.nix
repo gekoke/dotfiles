@@ -1,9 +1,5 @@
-{pkgs, ...}: let
-  wallpaper = ./wallpapers/spacejelly.jpg;
-in {
-  programs.feh.enable = true;
-
-  xsession.initExtra = ''
-    ${pkgs.feh}/bin/feh --bg-scale ${wallpaper}
-  '';
+{pkgs, ...}:
+{
+  services.xserver.enable = true;
+  xdg.dataFile.".background-image" = ./wallpapers/spacejelly.jpg;
 }
