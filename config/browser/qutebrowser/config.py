@@ -16,6 +16,7 @@ config.bind('<Ctrl-I>', 'forward', mode='normal')
 config.bind('<Ctrl-Shift-L>', ':spawn --userscript qute-bitwarden --auto-lock=36000', mode='insert')
 
 # c.hints.chars = "arstneiovm"
+c.hints.chars = "asdqwe"
 
 # When to show the autocompletion window.
 # Valid values:
