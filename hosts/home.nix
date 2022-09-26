@@ -40,7 +40,11 @@
   };
 
   modules = {
-    fish.enable = true;
+    fish = {
+      enable = true;
+      enableFlashyPrompt = true;
+      enableFileIcons = true;
+    };
     code = {
       enable = true;
       enableRust = true;
