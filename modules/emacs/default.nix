@@ -63,6 +63,13 @@ in {
         #beancount
         #unstable.fava  # HACK Momentarily broken on nixos-unstable
         emacs-all-the-icons-fonts
+      (nerdfonts.override {
+        fonts = [
+          "Iosevka"
+          "FiraCode"
+          "JetBrainsMono"
+        ];
+      })
       ];
 
       sessionPath = ["${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin"];
