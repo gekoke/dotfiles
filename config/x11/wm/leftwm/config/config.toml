@@ -35,12 +35,6 @@ modifier = ["modkey"]
 key = "p"
 
 [[keybind]]
-command = "Execute"
-value = "alacritty"
-modifier = ["modkey"]
-key = "apostrophe"
-
-[[keybind]]
 command = "CloseWindow"
 modifier = ["modkey"]
 key = "c"

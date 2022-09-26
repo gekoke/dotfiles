@@ -21,4 +21,9 @@
       (nerdfonts.override {fonts = ["Iosevka"];})
     ];
   };
+
+  services.sxhkd = {
+    enable = true;
+    keybindings."super + apostrophe" = "alacritty";
+  };
 }
