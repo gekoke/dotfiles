@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, user, ...}: let
   theme = "spacejelly";
 in {
   imports = [
@@ -7,6 +7,6 @@ in {
 
   xdg.configFile."leftwm/".source = ./config;
   xsession.initExtra = ''
-    ${pkgs.leftwm}/bin/leftwm-command "LoadTheme ~/.config/leftwm/${theme}/theme.toml"
+    leftwm-command "LoadTheme /home/${user}/.config/leftwm/themes/${theme}/theme.toml"
   '';
 }
