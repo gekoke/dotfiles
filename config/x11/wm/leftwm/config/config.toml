@@ -9,7 +9,7 @@ layouts = [
     # "MainAndDeck",
     # "GridHorizontal",
     # "EvenHorizontal",
-    # "EvenVertical",
+    "EvenVertical",
     # "Fibonacci",
     # "CenterMain",
     # "CenterMainBalanced",
@@ -22,11 +22,6 @@ scratchpad = []
 disable_current_tag_swap = true
 focus_behaviour = "Sloppy"
 focus_new_windows = true
-
-[[keybind]]
-command = "ToggleFullScreen"
-modifier = ["modkey"]
-key = "n"
 
 [[keybind]]
 command = "Execute"
@@ -102,6 +97,18 @@ key = "k"
 command = "FocusWindowDown"
 modifier = ["modkey"]
 key = "j"
+
+[[keybind]]
+command = "ToggleFullScreen"
+modifier = ["modkey"]
+key = "f"
+
+
+[[keybind]]
+command = "SetLayout"
+value = "EvenVertical"
+modifier = ["modkey"]
+key = "v"
 
 [[keybind]]
 command = "SetLayout"
