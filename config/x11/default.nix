@@ -7,7 +7,6 @@
   imports = [
     ./wm
     ./compositor
-    ./wallpaper
     ./bar
   ];
 

@@ -1,5 +1,5 @@
 {pkgs, ...}:
 {
-  services.xserver.enable = true;
-  xdg.dataFile.".background-image" = ./wallpapers/spacejelly.jpg;
+  xsession.enable = true;
+  home.file.".background-image".source = ./wallpapers/spacejelly.jpg;
 }
