@@ -5,6 +5,7 @@
     spotify
     discord
     teamspeak_client
+    signal-desktop
   ];
 
   programs.git = {
