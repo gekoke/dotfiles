@@ -13,6 +13,7 @@
 
   xsession.enable = true;
 
+  home.packages = with pkgs; [xclip];
   programs = {
     fish.shellAliases = {
       cb = "xclip -sel clip";
