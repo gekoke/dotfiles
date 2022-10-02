@@ -24,6 +24,7 @@ in {
           plugins = with pkgs.vimPlugins; [
             # Themes
             gruvbox
+            nord-vim
 
             # Functionality
             vim-airline

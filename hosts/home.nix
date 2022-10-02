@@ -57,7 +57,7 @@
     neovim = {
       enable = true;
       enableNix = true;
-      colorscheme = "gruvbox";
+      colorscheme = "nord";
     };
     emacs.enable = true;
     org.enable = true;
