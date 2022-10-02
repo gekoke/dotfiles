@@ -18,6 +18,8 @@ config.bind('<Ctrl-Shift-L>', ':spawn --userscript qute-bitwarden --auto-lock=36
 # c.hints.chars = "arstneiovm"
 c.hints.chars = "asdqwe"
 
+c.editor.command = ['alacritty', '-e', 'nvim', '{}']
+
 # When to show the autocompletion window.
 # Valid values:
 #   - always: Whenever a completion is available.
