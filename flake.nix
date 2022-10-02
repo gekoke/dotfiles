@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = github:nix-community/NUR;
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -13,6 +14,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nur,
     home-manager,
     ...
   }: let
@@ -39,6 +41,7 @@
             home-manager.extraSpecialArgs = {inherit user inputs;};
             home-manager.users.${user} = {
               imports = [
+                nur.nixosModules.nur
                 ./hosts/home.nix
                 ./hosts/luna/home.nix
               ];

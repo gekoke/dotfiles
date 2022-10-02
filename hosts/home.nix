@@ -10,7 +10,6 @@
   imports = [
     ../config/x11
     ../config/terminal
-    ../config/browser
     ../config/programs
     ../config/themes/gtk
     ../config/services/gpg
@@ -40,6 +39,12 @@
   };
 
   modules = {
+    browsers = {
+      enable = true;
+      default = "qutebrowser";
+      qutebrowser.enable = true;
+      firefox.enable = true;
+    };
     fish = {
       enable = true;
       enableFlashyPrompt = true;
@@ -55,7 +60,6 @@
       colorscheme = "gruvbox";
     };
     emacs.enable = true;
-
     org.enable = true;
     comma.enable = true;
     flameshot.enable = true;

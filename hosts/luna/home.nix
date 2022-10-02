@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  xdg.enable = true;
+  imports = [
+    ../../modules
+  ];
 
   home.packages = with pkgs; [
     spotify

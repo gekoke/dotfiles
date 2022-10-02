@@ -40,10 +40,7 @@
     "video=HDMI-0:1920x1080"
   ];
 
-  xsession.initExtra = ''
+  services.xserver.displayManager.sessionCommands = ''
     xrandr --output HDMI-0 --mode 1920x1080 --rate 239.96 &
   '';
-  #services.xserver.displayManager.sessionCommands = ''
-   # xrandr --output HDMI-0 --mode 1920x1080 --rate 239.96 &
-  #'';
 }

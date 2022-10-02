@@ -8,5 +8,6 @@
     ./org
     ./flameshot
     ./dunst
+    ./browsers
   ];
 }
