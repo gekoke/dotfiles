@@ -73,4 +73,4 @@ c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack
 c.content.blocking.method = 'both'
 
 c.content.javascript.enabled = False
-
+c.content.cookies.accept = "never"
