@@ -5,11 +5,13 @@
 
       settings = {
         window = {
-          opacity = 0.8;
+          opacity = 0.82;
+          background = "#dddef1";
         };
         font = {
           normal = {
-            family = "Iosevka Nerd Font";
+            family = "JetBrainsMono Nerd Font";
+            style = "semibold";
           };
         };
       };
@@ -18,7 +20,12 @@
 
   home = {
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      (nerdfonts.override {
+        fonts = [
+          "Iosevka"
+          "JetBrainsMono"
+        ];
+      })
     ];
   };
 
