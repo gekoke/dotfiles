@@ -10,7 +10,7 @@
           };
         };
         window = {
-          opacity = 1;
+          opacity = 0.84;
         };
         font = {
           normal = {
