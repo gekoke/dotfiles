@@ -4,9 +4,13 @@
       enable = true;
 
       settings = {
+        colors = {
+          primary = {
+            background = "#2E3440";
+          };
+        };
         window = {
-          opacity = 0.82;
-          background = "#dddef1";
+          opacity = 1;
         };
         font = {
           normal = {
