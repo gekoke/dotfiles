@@ -35,10 +35,12 @@ c.completion.show = "always"
 
 
 # Set default search engine
-c.url.searchengines = { "DEFAULT": "https://search.brave.com/search?q={}" }
+c.url.searchengines = {
+    "DEFAULT": "https://www.startpage.com/do/dsearch?query={}&prfe=3cb118d43fb13f55197200f3c961232b5ec7ca40b97f5d90b9b0c07d6e1072a9a86eed1a502f6604607a11415ad58d0263056b08d1b20ddc6c8c8305e0edfca6e016a000f041ffccb8280b30"
+}
 
 # Set home page
-c.url.default_page = "https://search.brave.com/"
+c.url.default_page = "https://www.startpage.com/do/mypage.pl?prfe=3cb118d43fb13f55197200f3c961232b5ec7ca40b97f5d90b9b0c07d6e1072a9a86eed1a502f6604607a11415ad58d0263056b08d1b20ddc6c8c8305e0edfca6e016a000f041ffccb8280b30"
 
 # Whether quitting the application requires a confirmation.
 # Valid values:
