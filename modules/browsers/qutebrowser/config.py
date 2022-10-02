@@ -19,7 +19,12 @@ config.bind('ww', 'edit-url', mode='normal')
 # c.hints.chars = "arstneiovm"
 c.hints.chars = "asdqwe"
 
+# External programs
 c.editor.command = ['alacritty', '-e', 'nvim', '{}']
+c.fileselect.handler = "external"
+c.fileselect.single_file.command = ['alacritty', '-e', 'ranger', '--choosefiles={}']
+c.fileselect.multiple_files.command = ['alacritty', '-e', 'ranger', '--choosefiles={}']
+c.fileselect.folder.command = ['alacritty', '-e', 'ranger', '--choosefiles={}']
 
 # When to show the autocompletion window.
 # Valid values:
