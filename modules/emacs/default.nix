@@ -65,8 +65,6 @@ in {
         emacs-all-the-icons-fonts
       (nerdfonts.override {
         fonts = [
-          "Iosevka"
-          "FiraCode"
           "JetBrainsMono"
         ];
       })
