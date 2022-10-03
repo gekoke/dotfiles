@@ -8,6 +8,7 @@
     ./wm
     ./compositor
     ./bar
+    ./wallpaper
   ];
 
   xsession.enable = true;
