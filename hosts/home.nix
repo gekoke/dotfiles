@@ -64,5 +64,6 @@
     comma.enable = true;
     flameshot.enable = true;
     dunst.enable = true;
+    mediakeys.enable = true;
   };
 }

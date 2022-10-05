@@ -9,5 +9,6 @@
     ./flameshot
     ./dunst
     ./browsers
+    ./media
   ];
 }
