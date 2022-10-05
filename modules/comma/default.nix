@@ -1,13 +1,13 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.comma;
   nixIndexUpdateScript = pkgs.writeShellScriptBin "nixindex" (builtins.readFile ./update-nix-index.sh);
-in {
+in
+{
   options.modules.comma = {
     enable = mkEnableOption "Comma program";
   };

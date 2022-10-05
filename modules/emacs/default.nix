@@ -1,9 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ config
+, lib
+, pkgs
+, inputs
+, ...
 }:
 with lib; let
   cfg = config.modules.emacs;
@@ -15,7 +14,8 @@ with lib; let
     git clone ${doomConfigRepo} "$XDG_CONFIG_HOME/doom"
     doom install
   '';
-in {
+in
+{
   options.modules.emacs = {
     enable = mkEnableOption "Whether to enable Doom Emacs";
   };
@@ -41,7 +41,7 @@ in {
 
         ## Doom dependencies
         git
-        (ripgrep.override {withPCRE2 = true;})
+        (ripgrep.override { withPCRE2 = true; })
         gnutls # for TLS connectivity
 
         ## Optional dependencies
@@ -52,7 +52,7 @@ in {
         ## Module dependencies
         pandoc # Markdown
         # :checkers spell
-        (aspellWithDicts (ds: with ds; [en en-computers en-science]))
+        (aspellWithDicts (ds: with ds; [ en en-computers en-science ]))
         # :tools editorconfig
         editorconfig-core-c # per-project style config
         # :tools lookup & :lang org +roam
@@ -63,14 +63,14 @@ in {
         #beancount
         #unstable.fava  # HACK Momentarily broken on nixos-unstable
         emacs-all-the-icons-fonts
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
+        (nerdfonts.override {
+          fonts = [
+            "JetBrainsMono"
+          ];
+        })
       ];
 
-      sessionPath = ["${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin"];
+      sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
       shellAliases."e" = "doom run";
     };
 

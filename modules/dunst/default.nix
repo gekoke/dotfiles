@@ -1,12 +1,12 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.dunst;
-in {
+in
+{
   options.modules.dunst = {
     enable = mkEnableOption "Dunst program";
   };

@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.picom = {
     enable = true;
     experimentalBackends = true; # For kawase blur

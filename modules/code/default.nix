@@ -1,12 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.code;
-in {
+in
+{
   options.modules.code = {
     enable = mkEnableOption "VSCode";
     enableRust = mkOption {

@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
   imports = [
     ./wm
@@ -13,7 +12,7 @@
 
   xsession.enable = true;
 
-  home.packages = with pkgs; [xclip];
+  home.packages = with pkgs; [ xclip ];
   programs = {
     fish.shellAliases = {
       cb = "xclip -sel clip";

@@ -1,13 +1,13 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib;
 let
   cfg = config.modules.browsers.firefox;
-in {
+in
+{
   options.modules.browsers.firefox = {
     enable = mkEnableOption "Firefox module";
   };
@@ -116,8 +116,8 @@ in {
           "browser.newtab.preload" = false;
           "browser.newtabpage.directory.ping" = "";
           "browser.newtabpage.directory.source" = "data:text/plain,{}";
-          "browser.disableResetPrompt" = true;  # "Looks like you haven't started Firefox in a while."
-          "browser.onboarding.enabled" = false;  # "New to Firefox? Let's get started!" tour
+          "browser.disableResetPrompt" = true; # "Looks like you haven't started Firefox in a while."
+          "browser.onboarding.enabled" = false; # "New to Firefox? Let's get started!" tour
           "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
           "extensions.pocket.enabled" = false;
           "extensions.shield-recipe-client.enabled" = false;

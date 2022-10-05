@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.gpg = {
     enable = true;
     settings = {
@@ -10,5 +10,5 @@
     enable = true;
   };
 
-  home.packages = with pkgs; [pinentry];
+  home.packages = with pkgs; [ pinentry ];
 }

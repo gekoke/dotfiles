@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.mediakeys;
@@ -14,7 +13,8 @@ with lib; let
   mediavolumedown = pkgs.writeShellScriptBin "mediavolumedown" ''
     playerctl volume ${toString volumeStep}- && dunstify "Media volume decreased -> $(playerctl volume)" -r ${toString notificationId}
   '';
-in {
+in
+{
   imports = [
     ../dunst
   ];

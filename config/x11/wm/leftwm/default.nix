@@ -1,6 +1,8 @@
-{pkgs, user, ...}: let
+{ pkgs, user, ... }:
+let
   theme = "spacejelly";
-in {
+in
+{
   imports = [
     ../../../programs/rofi
   ];

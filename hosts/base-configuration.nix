@@ -1,11 +1,10 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  user,
-  location,
-  ...
+{ config
+, lib
+, pkgs
+, inputs
+, user
+, location
+, ...
 }: {
   nixpkgs.config.allowUnfree = true;
 
@@ -21,7 +20,7 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     shell = pkgs.fish;
   };
 
@@ -30,7 +29,7 @@
     grub = {
       enable = true;
       efiSupport = true;
-      devices = ["nodev"];
+      devices = [ "nodev" ];
       useOSProber = true;
     };
   };

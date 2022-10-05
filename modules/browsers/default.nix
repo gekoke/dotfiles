@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.browsers;
@@ -11,7 +10,8 @@ with lib; let
     brave = "brave-browser.desktop";
     firefox = "firefox.desktop";
   };
-in {
+in
+{
   imports = [
     ./firefox
     ./brave

@@ -1,7 +1,7 @@
-{
-  lib,
-  stdenv,
-  fetchurl,
+{ lib
+, stdenv
+, fetchurl
+,
 }:
 stdenv.mkDerivation rec {
   pname = "icomoon-feather-ttf";
@@ -21,8 +21,8 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Icomoon feather font";
     homepage = "https://github.com/feathericons/feather";
-    license = [licenses.mit];
-    maintainers = with maintainers; [gekoke];
+    license = [ licenses.mit ];
+    maintainers = with maintainers; [ gekoke ];
     platforms = platforms.all;
   };
 }

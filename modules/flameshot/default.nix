@@ -1,18 +1,18 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.flameshot;
-in {
+in
+{
   options.modules.flameshot = {
     enable = mkEnableOption "Flameshot program";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [flameshot];
+    home.packages = with pkgs; [ flameshot ];
     services.sxhkd = {
       enable = true;
       keybindings = {

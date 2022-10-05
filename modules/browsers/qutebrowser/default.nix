@@ -1,13 +1,13 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.browsers.qutebrowser;
-  pythonDependencies = python-packages: with python-packages; [adblock];
-in {
+  pythonDependencies = python-packages: with python-packages; [ adblock ];
+in
+{
   options.modules.browsers.qutebrowser = {
     enable = mkEnableOption "Qutebrowser module";
   };

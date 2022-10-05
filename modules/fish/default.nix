@@ -1,8 +1,7 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.fish;
@@ -10,7 +9,8 @@ with lib; let
     if cfg.enableFileIcons
     then "--icons"
     else "";
-in {
+in
+{
   options.modules.fish = {
     enable = mkEnableOption "Fish shell";
     enableFlashyPrompt = mkEnableOption "Enable flashy shell prompt with neofetch, figlet et al";

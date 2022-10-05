@@ -1,12 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.neovim;
-in {
+in
+{
   options.modules.neovim = {
     enable = mkEnableOption "NeoVim editor";
     enableNix = mkEnableOption "Nix language support";
@@ -50,23 +50,23 @@ in {
     }
 
     (mkIf cfg.enableNix {
-      home.packages = with pkgs; [rnix-lsp];
+      home.packages = with pkgs; [ rnix-lsp ];
       programs.neovim = {
-        plugins = with pkgs.vimPlugins; [vim-nix];
+        plugins = with pkgs.vimPlugins; [ vim-nix ];
         extraConfig = "luafile ${builtins.toString ./nix.lua}";
       };
     })
 
     (mkIf true {
       programs.neovim = {
-        plugins = with pkgs.vimPlugins; [alpha-nvim];
+        plugins = with pkgs.vimPlugins; [ alpha-nvim ];
         extraConfig = "luafile ${builtins.toString ./alpha-nvim.lua}";
       };
     })
 
     (mkIf true {
       programs.neovim = {
-        plugins = with pkgs.vimPlugins; [gitsigns-nvim];
+        plugins = with pkgs.vimPlugins; [ gitsigns-nvim ];
         extraConfig = "luafile ${builtins.toString ./gitsigns-nvim.lua}";
       };
     })

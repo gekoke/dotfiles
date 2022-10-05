@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  lib,
-  user,
-  ...
+{ config
+, pkgs
+, lib
+, user
+, ...
 }: {
   nix = {
     gc = {
