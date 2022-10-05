@@ -38,6 +38,13 @@
     home-manager.enable = true;
   };
 
+  services = {
+    unclutter = {
+      enable = true;
+      timeout = 5;
+    };
+  };
+
   modules = {
     browsers = {
       enable = true;

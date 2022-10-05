@@ -11,7 +11,7 @@ with lib; let
   mediavolumeup = pkgs.writeShellScriptBin "mediavolumeup" ''
     playerctl volume ${toString volumeStep}+ && dunstify "Media volume increased -> $(playerctl volume)" -r ${toString notificationId}
   '';
-  mediavolumedown = pkgs.writeShellScriptBin "mediavolumeup" ''
+  mediavolumedown = pkgs.writeShellScriptBin "mediavolumedown" ''
     playerctl volume ${toString volumeStep}- && dunstify "Media volume decreased -> $(playerctl volume)" -r ${toString notificationId}
   '';
 in {
