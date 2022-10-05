@@ -33,6 +33,8 @@ in {
     services.sxhkd = {
       enable = true;
       keybindings = {
+        "super + shift + minus" = "playerctl next";
+        "super + shift + equal" = "playerctl play-pause";
         "super + shift + bracketleft" = "mediavolumedown";
         "super + shift + bracketright" = "mediavolumeup";
       };
