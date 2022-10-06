@@ -10,5 +10,6 @@
     ./dunst
     ./browsers
     ./media
+    ./email
   ];
 }

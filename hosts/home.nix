@@ -71,5 +71,6 @@
     flameshot.enable = true;
     dunst.enable = true;
     mediakeys.enable = true;
+    email.enable = true;
   };
 }
