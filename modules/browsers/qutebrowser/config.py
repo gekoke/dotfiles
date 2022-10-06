@@ -19,6 +19,8 @@ config.bind('ww', 'edit-url', mode='normal')
 # c.hints.chars = "arstneiovm"
 c.hints.chars = "asdqwe"
 
+c.input.media_keys = False
+
 # External programs
 c.editor.command = ['alacritty', '-e', 'nvim', '{}']
 c.fileselect.handler = "external"

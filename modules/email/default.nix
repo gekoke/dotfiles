@@ -24,10 +24,6 @@ in {
         personal = {
           primary = true;
           address = "gekoke@lazycantina.xyz";
-          aliases = [
-            "mailbox@lazycantina.xyz"
-            "gekoke@lazycantina.xyz"
-          ];
           smtp.host = "smtp.fastmail.com";
           imap.host = "imap.fastmail.com";
           userName = "mailbox@lazycantina.xyz";
