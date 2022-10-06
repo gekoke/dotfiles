@@ -15,7 +15,10 @@ in {
     programs = {
       mu.enable = true;
       mbsync.enable = true;
-      msmtp.enable = true;
+      notmuch = {
+        enable = true;
+        hooks.preNew = "mbsync -a";
+      };
       emacs.extraPackages = epkgs: with pkgs; [ pkgs.mu ];
     };
 
@@ -30,20 +33,32 @@ in {
           userName = "mailbox@lazycantina.xyz";
           passwordCommand = "cat ~/.mailpass";
           mu.enable = true;
+          notmuch.enable = true;
           mbsync = {
             enable = true;
             create = "maildir";
+          };
+          imapnotify = {
+            enable = true;
+            boxes = map (box: "personal/" + box) [
+              "Archive"
+              "Bills"
+              "Drafts"
+              "Inbox"
+              "Sent"
+              "Spam"
+              "Trash"
+            ];
+            onNotify = "touch ~/worked1fil && ${pkgs.isync}/bin/mbsync -a";
+            onNotifyPost = "touch ~/workedfile && ${pkgs.notmuch}/bin/notmuch new && ${pkgs.libnotify}/bin/notify-send 'New mail arrived'";
           };
         };
       };
     };
 
     services = {
-      mbsync = {
-        enable = true;
-        preExec = "${pkgs.isync}/bin/mbsync -Ha";
-        postExec = "${pkgs.mu}/bin/mu index -m ${config.accounts.email.maildirBasePath}";
-      };
+      imapnotify.enable = true;
+      mbsync.enable = true;
     };
   };
 }
