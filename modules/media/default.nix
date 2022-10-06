@@ -20,7 +20,7 @@ in
   ];
 
   options.modules.mediakeys = {
-    enable = mkEnableOption "Media keys";
+    enable = mkEnableOption "media keys";
   };
 
   config = mkIf cfg.enable {

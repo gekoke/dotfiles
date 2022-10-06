@@ -19,7 +19,7 @@ in
   ];
 
   options.modules.browsers = {
-    enable = mkEnableOption "Browser module";
+    enable = mkEnableOption "browser module";
     default = mkOption {
       type = types.str;
       default = "qutebrowser";

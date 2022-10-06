@@ -13,7 +13,7 @@ with lib; let
 in
 {
   options.modules.org = {
-    enable = mkEnableOption "Whether to set up Org mode directory";
+    enable = mkEnableOption "Org mode directory";
   };
 
   config = mkIf cfg.enable {

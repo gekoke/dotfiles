@@ -8,7 +8,7 @@ with lib; let
 in
 {
   options.modules.neovim = {
-    enable = mkEnableOption "NeoVim editor";
+    enable = mkEnableOption "NeoVim";
     enableNix = mkEnableOption "Nix language support";
     colorscheme = mkOption {
       type = types.str;

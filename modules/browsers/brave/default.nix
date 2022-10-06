@@ -8,7 +8,7 @@ with lib; let
 in
 {
   options.modules.browsers.brave = {
-    enable = mkEnableOption "Brave module";
+    enable = mkEnableOption "Brave";
   };
 
   config = mkIf cfg.enable {

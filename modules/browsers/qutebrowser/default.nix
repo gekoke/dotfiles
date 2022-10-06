@@ -9,7 +9,7 @@ with lib; let
 in
 {
   options.modules.browsers.qutebrowser = {
-    enable = mkEnableOption "Qutebrowser module";
+    enable = mkEnableOption "Qutebrowser";
   };
 
   config = mkIf cfg.enable {

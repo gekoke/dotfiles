@@ -8,7 +8,7 @@ with lib; let
 in
 {
   options.modules.flameshot = {
-    enable = mkEnableOption "Flameshot program";
+    enable = mkEnableOption "Flameshot";
   };
 
   config = mkIf cfg.enable {

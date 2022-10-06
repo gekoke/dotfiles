@@ -17,7 +17,7 @@ with lib; let
 in
 {
   options.modules.emacs = {
-    enable = mkEnableOption "Whether to enable Doom Emacs";
+    enable = mkEnableOption "Doom Emacs";
   };
 
   config = mkIf cfg.enable {

@@ -8,7 +8,7 @@ with lib; let
 in
 {
   options.modules.dunst = {
-    enable = mkEnableOption "Dunst program";
+    enable = mkEnableOption "Dunst";
   };
 
   config = mkIf cfg.enable {
