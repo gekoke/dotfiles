@@ -14,6 +14,18 @@ with lib; let
     git clone ${doomConfigRepo} "$XDG_CONFIG_HOME/doom"
     doom install
   '';
+
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive)
+      scheme-basic
+      dvisvgm
+      dvipng # For preview and export as html
+      wrapfig
+      amsmath
+      ulem
+      hyperref
+      capt-of;
+  });
 in
 {
   options.modules.emacs = {
@@ -25,7 +37,10 @@ in
 
     programs.emacs = {
       enable = true;
-      extraPackages = epkgs: with epkgs; [ vterm ];
+      extraPackages = epkgs: with epkgs; [
+        vterm
+        melpaStablePackages.pdf-tools
+      ];
     };
 
     home = {
@@ -57,9 +72,9 @@ in
         editorconfig-core-c # per-project style config
         # :tools lookup & :lang org +roam
         sqlite
+
         # :lang latex & :lang org (latex previews)
-        #texlive.combined.scheme-medium
-        # :lang beancount
+        tex
 
         # Nix
         nixpkgs-fmt
