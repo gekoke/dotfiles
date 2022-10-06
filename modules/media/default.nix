@@ -25,18 +25,13 @@ in
 
   config = mkIf cfg.enable {
     modules.dunst.enable = true;
-    home.packages = with pkgs; [
-      playerctl
-      mediavolumeup
-      mediavolumedown
-    ];
     services.sxhkd = {
       enable = true;
       keybindings = {
-        "super + shift + minus" = "playerctl next";
-        "super + shift + equal" = "playerctl play-pause";
-        "super + shift + bracketleft" = "mediavolumedown";
-        "super + shift + bracketright" = "mediavolumeup";
+        "super + shift + minus" = "${pkgs.playerctl}/bin/playerctl next";
+        "super + shift + equal" = "${pkgs.playerctl}/bin/playerctl play-pause";
+        "super + shift + bracketleft" = "${mediavolumedown}/bin/mediavolumedown";
+        "super + shift + bracketright" = "${mediavolumeup}/bin/mediavolumeup";
       };
     };
   };
