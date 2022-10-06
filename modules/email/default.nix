@@ -23,6 +23,7 @@ in {
       accounts = {
         personal = {
           primary = true;
+          realName = "gekoke";
           address = "gekoke@lazycantina.xyz";
           smtp.host = "smtp.fastmail.com";
           imap.host = "imap.fastmail.com";
