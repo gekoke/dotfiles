@@ -13,11 +13,11 @@
 
   outputs =
     inputs @ { self
-    , nixpkgs
-    , nur
-    , home-manager
-    , ...
-    }:
+             , nixpkgs
+             , nur
+             , home-manager
+             , ...
+             }:
     let
       user = "geko";
       location = "$HOME/.setup";
@@ -25,25 +25,28 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
-    in
-    {
+
+      mylib = import ./lib { lib = nixpkgs.lib; };
+      prefs = import ./preferences.nix { lib = nixpkgs.lib; mylib = mylib; };
+    in {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
 
       nixosConfigurations = {
         luna = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = { inherit inputs user location; };
+          specialArgs = { inherit inputs user location mylib; };
           modules = [
             ./hosts/luna
             ./hosts/base-configuration.nix
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit user inputs; };
+              home-manager.extraSpecialArgs = { inherit inputs user location; };
               home-manager.users.${user} = {
                 imports = [
                   nur.nixosModules.nur
+                  prefs
                   ./hosts/home.nix
                   ./hosts/luna/home.nix
                 ];
