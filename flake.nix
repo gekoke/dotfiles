@@ -31,6 +31,8 @@
     in {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
 
+      shells = import ./shells { pkgs = pkgs; };
+
       nixosConfigurations = {
         luna = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
