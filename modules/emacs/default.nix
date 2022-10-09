@@ -15,17 +15,19 @@ with lib; let
     doom install
   '';
 
-  tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive)
+  tex = pkgs.texlive.combine {
+    inherit
+      (pkgs.texlive)
       scheme-basic
       dvisvgm
-      dvipng # For preview and export as html
+      dvipng# For preview and export as html
       wrapfig
       amsmath
       ulem
       hyperref
-      capt-of;
-  });
+      capt-of
+      ;
+  };
 in
 {
   options.modules.emacs = {
@@ -37,10 +39,11 @@ in
 
     programs.emacs = {
       enable = true;
-      extraPackages = epkgs: with epkgs; [
-        vterm
-        melpaStablePackages.pdf-tools
-      ];
+      extraPackages = epkgs:
+        with epkgs; [
+          vterm
+          melpaStablePackages.pdf-tools
+        ];
     };
 
     home = {

@@ -1,8 +1,8 @@
 { lib }:
-with lib;
-let
+with lib; let
   inherit self;
-in rec {
+in
+rec {
   isRGBHex = value: !isNull (builtins.match "#[[:xdigit:]]{6}|[[:xdigit:]]{6}" value);
 
   palette = mkOptionType {

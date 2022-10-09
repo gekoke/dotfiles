@@ -1,10 +1,14 @@
-{ lib, pkgs, config, ... }:
+{ lib
+, pkgs
+, config
+, ...
+}:
 with lib;
-with builtins;
-let
+with builtins; let
   p = config.prefs.style.palette;
   theme = ./styles/style_2.rasi;
-in {
+in
+{
   programs.rofi = {
     enable = true;
     theme = theme;

@@ -1,5 +1,4 @@
-{ pkgs, ...}:
-{
+{ pkgs, ... }: {
   haskellShell = pkgs.mkShell {
     name = "Haskell";
     packages = with pkgs; [

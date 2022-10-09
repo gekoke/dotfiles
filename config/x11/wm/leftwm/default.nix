@@ -1,4 +1,7 @@
-{ pkgs, user, ... }:
+{ pkgs
+, user
+, ...
+}:
 let
   theme = "spacejelly";
 in

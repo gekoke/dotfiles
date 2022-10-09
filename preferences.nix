@@ -1,9 +1,12 @@
-{ lib, mylib, ... }:
+{ lib
+, mylib
+, ...
+}:
 with lib;
-with mylib;
-let
+with mylib; let
   inherit (mylib.color) palette;
-in {
+in
+{
   options.prefs = {
     style = {
       palette = mkOption {

@@ -1,6 +1,7 @@
 { lib }:
 let
   callLib = file: import file { lib = lib; };
-in {
+in
+{
   color = callLib ./color.nix;
 }

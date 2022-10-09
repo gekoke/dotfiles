@@ -6,7 +6,8 @@
 with lib; let
   cfg = config.modules.email;
   mailDir = "~/.maildir";
-in {
+in
+{
   options.modules.email = {
     enable = mkEnableOption "email";
   };
