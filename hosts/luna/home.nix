@@ -8,6 +8,7 @@
     discord
     teamspeak_client
     signal-desktop
+    element-desktop
   ];
 
   programs.git = {
