@@ -11,5 +11,6 @@
     ./browsers
     ./media
     ./email
+    ./netutils
   ];
 }

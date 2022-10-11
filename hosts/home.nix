@@ -72,5 +72,6 @@
     dunst.enable = true;
     mediakeys.enable = true;
     email.enable = true;
+    netutils.enable = true;
   };
 }
