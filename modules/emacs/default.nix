@@ -81,6 +81,7 @@ in
 
         # Nix
         nixpkgs-fmt
+        rnix-lsp
 
         #beancount
         #unstable.fava  # HACK Momentarily broken on nixos-unstable

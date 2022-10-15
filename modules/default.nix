@@ -12,5 +12,6 @@
     ./media
     ./email
     ./netutils
+    ./dev
   ];
 }

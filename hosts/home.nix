@@ -45,6 +45,9 @@
   };
 
   modules = {
+    dev = {
+      haskell.enable = true;
+    };
     browsers = {
       enable = true;
       default = "qutebrowser";
@@ -56,15 +59,12 @@
       enableFlashyPrompt = true;
       enableFileIcons = true;
     };
-    code = {
-      enable = true;
-      enableRust = true;
-    };
     neovim = {
       enable = true;
       enableNix = true;
       colorscheme = "nord";
     };
+
     emacs.enable = true;
     org.enable = true;
     comma.enable = true;
