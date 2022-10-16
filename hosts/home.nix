@@ -47,6 +47,7 @@
   modules = {
     dev = {
       haskell.enable = true;
+      csharp.enable = true;
     };
     browsers = {
       enable = true;
