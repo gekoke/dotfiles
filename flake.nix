@@ -2,6 +2,7 @@
   description = "My Nix system configurations";
 
   inputs = {
+    nixpkgs-stable.url = github:nixos/nixpkgs/nixos-22.05;
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
     nur.url = github:nix-community/NUR;
 
@@ -11,6 +12,7 @@
 
   outputs =
     inputs @ { self
+    , nixpkgs-stable
     , nixpkgs
     , nur
     , home-manager
@@ -46,7 +48,7 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit inputs user location; };
+              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs-stable; };
               home-manager.users.${user} = {
                 imports = [
                   nur.nixosModules.nur

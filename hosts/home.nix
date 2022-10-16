@@ -49,6 +49,7 @@
       haskell.enable = true;
       csharp.enable = true;
     };
+    code.enable = true;
     browsers = {
       enable = true;
       default = "qutebrowser";

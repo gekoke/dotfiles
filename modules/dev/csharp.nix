@@ -1,6 +1,7 @@
 { pkgs
 , lib
 , config
+, nixpkgs-stable
 , ...
 }:
 with lib; let
@@ -14,6 +15,8 @@ in {
     home.packages = with pkgs; [
       dotnet-sdk_6
       omnisharp-roslyn
+
+      nixpkgs-stable.mono6
     ];
   };
 }
