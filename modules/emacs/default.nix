@@ -53,6 +53,9 @@ in
       packages = with pkgs; [
         doomSetupScript
 
+        # For installing some LSP servers
+        unzip
+
         # Vterm dependency
         gnumake
         cmake
