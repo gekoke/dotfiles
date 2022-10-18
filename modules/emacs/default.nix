@@ -32,10 +32,17 @@ in
 {
   options.modules.emacs = {
     enable = mkEnableOption "Doom Emacs";
+    nixAdvice = mkOption {
+      type = types.attrs;
+      default = {
+        supportedFeatures = [];
+      };
+    };
   };
 
   config = mkIf cfg.enable {
     xdg.enable = true;
+    xdg.configFile."doom/nix-advice.json".text = builtins.toJSON cfg.nixAdvice;
 
     programs.emacs = {
       enable = true;
