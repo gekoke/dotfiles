@@ -4,4 +4,5 @@ let
 in
 {
   color = callLib ./color.nix;
+  file = callLib ./file.nix;
 }

@@ -1,0 +1,1 @@
+(doom! :lang nix)

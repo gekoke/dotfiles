@@ -46,7 +46,7 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs; };
+              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mylib; };
               home-manager.users.${user} = {
                 imports = [
                   nur.nixosModules.nur

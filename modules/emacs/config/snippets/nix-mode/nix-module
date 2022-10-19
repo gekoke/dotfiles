@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: nix-module
+# key: /m
+# --
+{ pkgs
+, lib
+, config
+, ...
+}:
+with lib; let
+  cfg = config.${1:module-name};$3
+in {
+  options.$1 = {
+    enable = mkEnableOption "${2:Module description}";$4
+  };
+
+  config = mkIf cfg.enable {
+    $0
+  };
+}

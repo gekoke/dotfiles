@@ -18,7 +18,6 @@ in {
     home.packages = with pkgs; [
       cfg.ghcPackage
       cabal-install
-      haskell-language-server
     ];
   };
 }

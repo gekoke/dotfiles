@@ -28,14 +28,10 @@
       tldr
     ];
 
-    sessionVariables = {
-      EDITOR = "nvim";
-    };
+    sessionVariables.EDITOR = "nvim";
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs.home-manager.enable = true;
 
   services = {
     unclutter = {
@@ -45,9 +41,11 @@
   };
 
   modules = {
+    graphical.enable = true;
     dev = {
-      haskell.enable = true;
+      nix.enable = true;
       c.enable = true;
+      prolog.enable = true;
     };
     code.enable = true;
     browsers = {

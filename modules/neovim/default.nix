@@ -49,7 +49,7 @@ in
       };
     }
 
-    (mkIf cfg.enableNix {
+    (mkIf config.modules.dev.nix.enable {
       home.packages = with pkgs; [ rnix-lsp ];
       programs.neovim = {
         plugins = with pkgs.vimPlugins; [ vim-nix ];
@@ -57,18 +57,18 @@ in
       };
     })
 
-    (mkIf true {
+    {
       programs.neovim = {
         plugins = with pkgs.vimPlugins; [ alpha-nvim ];
         extraConfig = "luafile ${builtins.toString ./alpha-nvim.lua}";
       };
-    })
+    }
 
-    (mkIf true {
+    {
       programs.neovim = {
         plugins = with pkgs.vimPlugins; [ gitsigns-nvim ];
         extraConfig = "luafile ${builtins.toString ./gitsigns-nvim.lua}";
       };
-    })
+    }
   ]);
 }
