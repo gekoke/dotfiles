@@ -7,6 +7,7 @@
 }:
 with lib; let
   inherit (mylib.file) readFileOrNil;
+  inherit (mylib.core) mkMergeIf;
 
   cfg = config.modules.emacs;
 
@@ -39,8 +40,7 @@ with lib; let
       };
     };
   };
-in
-{
+in {
   options.modules.emacs = {
     enable = mkEnableOption "Doom Emacs";
   };
@@ -84,18 +84,21 @@ in
       };
     }
 
-    ({
-      home = {
-        packages = with pkgs; [
-          cmake
-          gnumake
-          clang
-        ];
-        sessionVariables.CC = "clang";
-      };
-    } // (loadFeature "vterm"))
+    (mkMerge [
+      {
+        home = {
+          packages = with pkgs; [
+            cmake
+            gnumake
+            clang
+          ];
+          sessionVariables.CC = "clang";
+        };
+      }
+      (loadFeature "vterm")
+    ])
 
-    (mkIf config.modules.graphical.enable
+    (mkIf config.modules.graphical.enable (mkMerge [
       {
         fonts.fontconfig.enable = true;
 
@@ -108,21 +111,26 @@ in
             ];
           })
         ];
+      }
+      (loadFeature "pdf")
+    ]))
 
-      } // (loadFeature "pdf"))
-
-    (mkIf config.modules.dev.nix.enable
+    (mkMergeIf config.modules.dev.nix.enable [
       {
         home.packages = with pkgs; [
           rnix-lsp
           nixpkgs-fmt
         ];
-      } // (loadFeature "nix"))
+      }
+      (loadFeature "nix")
+    ])
 
-    (mkIf config.modules.dev.c.enable
+    (mkMergeIf config.modules.dev.c.enable [
       {
         xdg.configFile."doom/config.el".text = "(setq lsp-clangd-binary-path \"${pkgs.clang}/bin/clang\")";
-      } // (loadFeature "c"))
+      }
+      (loadFeature "c")
+    ])
 
     (mkIf config.modules.email.enable (loadFeature "mu4e"))
 

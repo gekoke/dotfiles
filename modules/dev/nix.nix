@@ -10,11 +10,4 @@ in
   options.modules.dev.nix = {
     enable = mkEnableOption "Nix dev support";
   };
-
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      rnix-lsp
-      nixpkgs-fmt
-    ];
-  };
 }
