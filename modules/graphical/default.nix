@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.graphical;
-in {
+in
+{
   options.modules.graphical = {
     enable = mkEnableOption "graphical environment support";
   };

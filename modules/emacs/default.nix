@@ -17,16 +17,16 @@ with lib; let
 
   tex = pkgs.texlive.combine {
     inherit
-    (pkgs.texlive)
-    scheme-basic
-    dvisvgm
-    dvipng # For preview and export as HTML
-    wrapfig
-    amsmath
-    ulem
-    hyperref
-    capt-of
-    ;
+      (pkgs.texlive)
+      scheme-basic
+      dvisvgm
+      dvipng# For preview and export as HTML
+      wrapfig
+      amsmath
+      ulem
+      hyperref
+      capt-of
+      ;
   };
 
   loadFeature = name: {
@@ -62,23 +62,23 @@ in
 
       home = {
         packages = with pkgs; [
-	        doomSetupScript
+          doomSetupScript
           # Doom dependencies
           git
           (ripgrep.override { withPCRE2 = true; })
-          gnutls                                                          # for TLS connectivity
+          gnutls # for TLS connectivity
 
           # Optional dependencies
-          fd                                                              # faster projectile indexing
-          imagemagick                                                     # for image-dired
-          zstd                                                            # for undo-fu-session/undo-tree compression
+          fd # faster projectile indexing
+          imagemagick # for image-dired
+          zstd # for undo-fu-session/undo-tree compression
 
           # Module dependencies
-          pandoc                                                          # Markdown
-          tex                                                             # :lang latex & :lang org (latex previews)
+          pandoc # Markdown
+          tex # :lang latex & :lang org (latex previews)
           (aspellWithDicts (ds: with ds; [ en en-computers en-science ])) # :checkers spell
-          editorconfig-core-c                                             # :tools editorconfig
-          sqlite                                                          # :tools lookup & :lang org +roam
+          editorconfig-core-c # :tools editorconfig
+          sqlite # :tools lookup & :lang org +roam
         ];
         sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
       };
@@ -95,31 +95,34 @@ in
       };
     } // (loadFeature "vterm"))
 
-    (mkIf config.modules.graphical.enable {
-      fonts.fontconfig.enable = true;
+    (mkIf config.modules.graphical.enable
+      {
+        fonts.fontconfig.enable = true;
 
-      home.packages = with pkgs; [
-        emacs-all-the-icons-fonts
-        (nerdfonts.override {
-          fonts = [
-            "JetBrainsMono"
-            "FiraCode"
-          ];
-        })
-      ];
+        home.packages = with pkgs; [
+          emacs-all-the-icons-fonts
+          (nerdfonts.override {
+            fonts = [
+              "JetBrainsMono"
+              "FiraCode"
+            ];
+          })
+        ];
 
-    } // (loadFeature "pdf"))
+      } // (loadFeature "pdf"))
 
-    (mkIf config.modules.dev.nix.enable {
-      home.packages = with pkgs; [
-        rnix-lsp
-        nixpkgs-fmt
-      ];
-    } // (loadFeature "nix"))
+    (mkIf config.modules.dev.nix.enable
+      {
+        home.packages = with pkgs; [
+          rnix-lsp
+          nixpkgs-fmt
+        ];
+      } // (loadFeature "nix"))
 
-    (mkIf config.modules.dev.c.enable {
-      xdg.configFile."doom/config.el".text = "(setq lsp-clangd-binary-path \"${pkgs.clang}/bin/clang\")";
-    } // (loadFeature "c"))
+    (mkIf config.modules.dev.c.enable
+      {
+        xdg.configFile."doom/config.el".text = "(setq lsp-clangd-binary-path \"${pkgs.clang}/bin/clang\")";
+      } // (loadFeature "c"))
 
     (mkIf config.modules.email.enable (loadFeature "mu4e"))
 

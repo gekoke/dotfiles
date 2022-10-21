@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.dev.haskell;
-in {
+in
+{
   options.modules.dev.haskell = {
     enable = mkEnableOption "Haskell dev support";
     ghcPackage = mkOption {

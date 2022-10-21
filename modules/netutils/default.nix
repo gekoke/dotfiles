@@ -8,7 +8,8 @@ with lib; let
   pclose = pkgs.writeShellScriptBin "pclose" (builtins.readFile ./pclose.sh);
 
   cfg = config.modules.netutils;
-in {
+in
+{
   options.modules.netutils = {
     enable = mkEnableOption "net utilities";
   };

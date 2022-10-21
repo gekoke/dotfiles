@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.dev.prolog;
-in {
+in
+{
   options.modules.dev.prolog = {
     enable = mkEnableOption "SWI-Prolog support";
   };
