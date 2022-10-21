@@ -29,7 +29,7 @@ in
       enable = true;
       keybindings = {
         "super + shift + minus" = "${pkgs.playerctl}/bin/playerctl next";
-        "super + shift + equal" = "${pkgs.playerctl}/bin/playerctl play-pause";
+        "super + shift + plus" = "${pkgs.playerctl}/bin/playerctl play-pause";
         "super + shift + bracketleft" = "${mediavolumedown}/bin/mediavolumedown";
         "super + shift + bracketright" = "${mediavolumeup}/bin/mediavolumeup";
       };
