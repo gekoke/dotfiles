@@ -23,6 +23,9 @@ in
       profiles."default" = {
         bookmarks = { };
         settings = {
+          # --- Preferences ---
+          "media.hardwaremediakeys.enabled" = false;
+
           # --- Appearance ---
           "devtools.theme" = "dark";
           "browser.theme.dark-private-windows" = true;
