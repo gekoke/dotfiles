@@ -16,15 +16,8 @@
 
   networking = {
     hostName = "luna";
-
     wireless.enable = false;
-
-    useDHCP = false; # Deprecated - set to false, then override to true per interface
-    interfaces = {
-      enp7s0 = {
-        useDHCP = true;
-      };
-    };
+    useDHCP = true;
   };
 
   imports = [
