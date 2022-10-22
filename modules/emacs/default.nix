@@ -21,7 +21,7 @@ with lib; let
       (pkgs.texlive)
       scheme-basic
       dvisvgm
-      dvipng# For preview and export as HTML
+      dvipng # For preview and export as HTML
       wrapfig
       amsmath
       ulem
@@ -45,18 +45,16 @@ in {
     enable = mkEnableOption "Doom Emacs";
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config = mkMergeIf cfg.enable [
+    (loadFeature "base-config")
     {
       programs.emacs.enable = true;
 
       xdg = {
         enable = true;
-        configFile = {
-          "doom/init.el".text = builtins.readFile ./config/init.el;
-          "doom/packages.el".text = builtins.readFile ./config/packages.el;
-          "doom/config.el".text = builtins.readFile ./config/config.el;
-          "doom/custom.el".source = ./config/custom.el;
-          "doom/snippets".source = ./config/snippets;
+        configFile."doom/" = {
+          source = ./config;
+          recursive = true;
         };
       };
 
@@ -98,7 +96,9 @@ in {
       (loadFeature "vterm")
     ])
 
-    (mkIf config.modules.graphical.enable (mkMerge [
+    (mkIf (!config.modules.graphical.enable) (loadFeature "ranger"))
+
+    (mkMergeIf config.modules.graphical.enable [
       {
         fonts.fontconfig.enable = true;
 
@@ -113,7 +113,9 @@ in {
         ];
       }
       (loadFeature "pdf")
-    ]))
+      (loadFeature "ranger+icons")
+    ])
+
 
     (mkMergeIf config.modules.dev.nix.enable [
       {
@@ -135,5 +137,5 @@ in {
     (mkIf config.modules.email.enable (loadFeature "mu4e"))
 
     (mkIf config.modules.dev.prolog.enable (loadFeature "prolog"))
-  ]);
+  ];
 }
