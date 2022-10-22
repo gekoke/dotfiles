@@ -5,10 +5,8 @@
 , inputs
 , ...
 }:
-with lib; let
-  inherit (mylib.file) readFileOrNil;
-  inherit (mylib.core) mkMergeIf;
-
+with lib;
+with mylib; let
   cfg = config.modules.emacs;
 
   doomSetupScript = pkgs.writeShellScriptBin "doominit" ''

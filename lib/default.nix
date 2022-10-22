@@ -1,9 +1,18 @@
 { lib }:
+
 let
-  callLib = file: import file { lib = lib; };
+  inherit (lib) makeExtensible attrValues foldr;
+  inherit (modules) mapModules;
+
+  modules = import ./modules.nix {
+    inherit lib;
+    self.attrs = import ./attrs.nix { inherit lib; self = {}; };
+  };
+
+  mylib = makeExtensible (self:
+    mapModules ./. (file: import file { inherit self lib; })
+  );
 in
-{
-  core = callLib ./core.nix;
-  color = callLib ./color.nix;
-  file = callLib ./file.nix;
-}
+mylib.extend
+  (self: super:
+    foldr (a: b: a // b) {} (attrValues super))

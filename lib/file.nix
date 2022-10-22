@@ -1,4 +1,4 @@
-{ lib }:
+{ lib, ... }:
 let
   inherit (builtins) pathExists readFile;
 in
