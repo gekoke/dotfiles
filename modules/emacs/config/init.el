@@ -176,6 +176,4 @@
        ;;literate
        (default +bindings +smartparens))
 
-(let ((temp-init "~/.config/doom/temp-init.el"))
-  (if (file-exists-p temp-init)
-      (load! temp-init)))
+(load! "~/.config/doom/temp-init.el" nil t)

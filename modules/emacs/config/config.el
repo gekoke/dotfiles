@@ -113,6 +113,4 @@
 ;; Latex
 (setq org-latex-compiler "lualatex")
 
-(let ((temp-config "~/.config/doom/temp-config.el"))
-  (if (file-exists-p temp-config)
-      (load! temp-config)))
+(load! "~/.config/doom/temp-config.el" nil t)
