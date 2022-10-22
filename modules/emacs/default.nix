@@ -40,7 +40,8 @@ with lib; let
       };
     };
   };
-in {
+in
+{
   options.modules.emacs = {
     enable = mkEnableOption "Doom Emacs";
   };
