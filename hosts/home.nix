@@ -46,6 +46,7 @@
       nix.enable = true;
       c.enable = true;
       prolog.enable = true;
+      haskell.enable = true;
     };
     code.enable = true;
     browsers = {

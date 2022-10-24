@@ -16,16 +16,16 @@ with mylib; let
 
   tex = pkgs.texlive.combine {
     inherit
-      (pkgs.texlive)
-      scheme-basic
-      dvisvgm
-      dvipng # For preview and export as HTML
-      wrapfig
-      amsmath
-      ulem
-      hyperref
-      capt-of
-      ;
+    (pkgs.texlive)
+    scheme-basic
+    dvisvgm
+    dvipng # For preview and export as HTML
+    wrapfig
+    amsmath
+    ulem
+    hyperref
+    capt-of
+    ;
   };
 
   loadFeature = name: {
@@ -60,22 +60,23 @@ in
       home = {
         packages = with pkgs; [
           doomSetupScript
+
           # Doom dependencies
           git
           (ripgrep.override { withPCRE2 = true; })
-          gnutls # for TLS connectivity
+          gnutls                                                          # for TLS connectivity
 
           # Optional dependencies
-          fd # faster projectile indexing
-          imagemagick # for image-dired
-          zstd # for undo-fu-session/undo-tree compression
+          fd                                                              # faster projectile indexing
+          imagemagick                                                     # for image-dired
+          zstd                                                            # for undo-fu-session/undo-tree compression
 
           # Module dependencies
-          pandoc # Markdown
-          tex # :lang latex & :lang org (latex previews)
+          pandoc                                                          # Markdown
+          tex                                                             # :lang latex & :lang org (latex previews)
           (aspellWithDicts (ds: with ds; [ en en-computers en-science ])) # :checkers spell
-          editorconfig-core-c # :tools editorconfig
-          sqlite # :tools lookup & :lang org +roam
+          editorconfig-core-c                                             # :tools editorconfig
+          sqlite                                                          # :tools lookup & :lang org +roam
         ];
         sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
       };
@@ -83,16 +84,18 @@ in
 
     (mkMerge [
       {
+        programs.emacs.extraPackages = epkgs: with epkgs; [ vterm ];
         home = {
           packages = with pkgs; [
             cmake
             gnumake
-            clang
           ];
-          sessionVariables.CC = "clang";
+          sessionVariables.CC = "make";
         };
       }
       (loadFeature "vterm")
+      # TODO Use Doom emacs straight package! for vterm
+      # See: https://github.com/NixOS/nixpkgs/issues/194929
     ])
 
     (mkIf (!config.modules.graphical.enable) (loadFeature "ranger"))
@@ -136,5 +139,16 @@ in
     (mkIf config.modules.email.enable (loadFeature "mu4e"))
 
     (mkIf config.modules.dev.prolog.enable (loadFeature "prolog"))
+
+    (mkMergeIf config.modules.dev.haskell.enable [
+      {
+        home.packages = with pkgs; [
+          config.modules.dev.haskell.ghcPackage
+          cabal-install
+          haskell-language-server
+        ];
+      }
+      (loadFeature "haskell")
+    ])
   ];
 }
