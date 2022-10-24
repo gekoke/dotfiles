@@ -10,7 +10,7 @@ let
   userModules = builtins.readFile ./config/user_modules.ini;
 
   spotifyModulePythonDeps = python-packages: with python-packages; [ dbus-python ];
-  pythonWithDeps = pkgs.python38.withPackages spotifyModulePythonDeps;
+  pythonWithDeps = pkgs.python39.withPackages spotifyModulePythonDeps;
 
   playerctl = pkgs.playerctl;
 
