@@ -15,5 +15,6 @@
     ./netutils
     ./dev
     ./graphical
+    ./windowmanagers
   ];
 }

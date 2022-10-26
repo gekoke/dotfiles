@@ -7,6 +7,9 @@
     xkbVariant = "us";
     libinput.enable = true;
 
-    windowManager.leftwm.enable = true;
+    windowManager = {
+      leftwm.enable = true;
+      awesome.enable = true;
+    };
   };
 }

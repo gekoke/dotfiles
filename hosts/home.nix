@@ -41,7 +41,9 @@
   };
 
   modules = {
+    windowmanagers.awesome.enable = true;
     graphical.enable = true;
+
     dev = {
       nix.enable = true;
       c.enable = true;

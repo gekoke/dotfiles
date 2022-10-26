@@ -1,0 +1,15 @@
+{ lib
+, config
+, ...
+}:
+with lib; let
+  cfg = config.modules.windowmanagers.awesome;
+in {
+  options.modules.windowmanagers.awesome = {
+    enable = mkEnableOption "awesomewm";
+  };
+
+  config = mkIf cfg.enable {
+    xsession.windowManager.awesome.enable = true;
+  };
+}
