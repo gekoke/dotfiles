@@ -113,9 +113,11 @@ in
             ];
           })
         ];
+
+        programs.emacs.extraPackages = epkgs: with epkgs; [ pdf-tools ];
       }
-      (loadFeature "pdf")
       (loadFeature "ranger+icons")
+      (loadFeature "pdf")
     ])
 
 

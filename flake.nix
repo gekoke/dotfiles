@@ -51,6 +51,7 @@
                 imports = [
                   nur.nixosModules.nur
                   prefs
+                  ./modules
                   ./hosts/home.nix
                   ./hosts/luna/home.nix
                 ];

@@ -12,8 +12,6 @@
     ../config/programs
     ../config/themes/gtk
     ../config/services/gpg
-
-    ../modules
   ];
 
   home = {
