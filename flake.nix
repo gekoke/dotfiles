@@ -60,20 +60,5 @@
           ];
         };
       };
-
-      orion = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/orion
-          {
-            home = {
-              homeDirectory = "/home/${user}";
-              username = "${user}";
-              stateVersion = "22.05";
-            };
-          }
-        ];
-      };
     };
 }
