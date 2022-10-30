@@ -47,6 +47,7 @@
       c.enable = true;
       prolog.enable = true;
       haskell.enable = true;
+      python.enable = true;
     };
     code.enable = true;
     browsers = {

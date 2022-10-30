@@ -142,6 +142,15 @@ in
 
     (mkIf config.modules.dev.prolog.enable (loadFeature "prolog"))
 
+    (mkMergeIf config.modules.dev.python.enable [
+      {
+        home.packages = [
+          (pkgs.python39.withPackages (p: with p; [python-lsp-server]))
+        ];
+      }
+      (loadFeature "python")
+    ])
+
     (mkMergeIf config.modules.dev.haskell.enable [
       {
         home.packages = with pkgs; [

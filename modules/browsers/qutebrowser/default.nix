@@ -24,7 +24,7 @@ in
       '';
     };
     home.packages = with pkgs; [
-      (python38.withPackages pythonDependencies)
+      (python39.withPackages pythonDependencies)
     ];
   };
 }
