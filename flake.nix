@@ -19,21 +19,16 @@
     let
       user = "geko";
       location = "$HOME/.setup";
+
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
 
       mylib = import ./lib { lib = nixpkgs.lib; };
-      prefs = import ./preferences.nix {
-        lib = nixpkgs.lib;
-        mylib = mylib;
-      };
     in
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
-
-      shells = import ./shells { pkgs = pkgs; };
 
       nixosConfigurations = {
         luna = nixpkgs.lib.nixosSystem {
@@ -41,21 +36,28 @@
 
           specialArgs = { inherit inputs user location mylib; };
           modules = [
-            ./hosts/luna
-            ./hosts/base-configuration.nix
+            ./hosts/luna/default.nix
+            ./hosts/luna/hardware-configuration.nix
+            ./modules/sys
+            ./modules/options.nix
 
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mylib; };
-              home-manager.users.${user} = {
+              home-manager.users."geko" = {
                 imports = [
                   nur.nixosModules.nur
-                  prefs
-                  ./modules
-                  ./hosts/home.nix
                   ./hosts/luna/home.nix
+                  ./modules/hm
+                  ./modules/options.nix
+                  {
+                    modules.graphical.enable = true;
+                  }
                 ];
               };
+            }
+            {
+              modules.graphical.enable = true;
             }
           ];
         };
