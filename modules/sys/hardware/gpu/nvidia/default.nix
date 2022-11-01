@@ -18,7 +18,7 @@ in {
     services.xserver = {
       videoDrivers = [ "nvidia" ];
       displayManager.sessionCommands = ''
-        nvidia-settings --assign="DigitalVibrance=${cfg.digitalVibrance}" &
+        nvidia-settings --assign="DigitalVibrance=${toString cfg.digitalVibrance}" &
       '';
     };
   };

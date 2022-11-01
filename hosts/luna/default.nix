@@ -8,7 +8,10 @@
 }: {
   modules = {
     loginmanagers.lightdm.enable = true;
-    hardware.gpu.nvidia.digitalVibrance = 1023;
+    hardware.gpu.nvidia = {
+      enable = true;
+      digitalVibrance = 1023;
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
