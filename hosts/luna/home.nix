@@ -13,8 +13,8 @@
       stateVersion = "22.05";
 
       keyboard = {
-        layout = "ee";
-        variant = "us";
+        layout = "us";
+        variant = "ee";
       };
 
       packages = with pkgs; [
