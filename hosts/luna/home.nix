@@ -94,6 +94,7 @@
       services = {
         mediakeys.enable = true;
         email.enable = true;
+        picom.enable = true;
       };
 
       style.pointer.enable = true;
