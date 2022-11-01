@@ -20,5 +20,10 @@ in {
 
   config = mkIf cfg.enable {
     home.sessionVariables.TERM = cfg.default;
+
+    services.sxhkd = {
+      enable = true;
+      keybindings."super + apostrophe" = "${config.modules.terminals.default}";
+    };
   };
 }

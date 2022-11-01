@@ -74,7 +74,10 @@
         firefox.enable = true;
       };
 
-      terminals.alacritty.enable = true;
+      terminals = {
+        enable = true;
+        alacritty.enable = true;
+      };
 
       shells.fish = {
         enable = true;
