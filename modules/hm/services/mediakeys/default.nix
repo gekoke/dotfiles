@@ -25,9 +25,9 @@ in
       keybindings = {
         "super + shift + bracketleft" = "${pkgs.playerctl}/bin/playerctl previous";
         "super + shift + bracketright" = "${pkgs.playerctl}/bin/playerctl next";
-        "super + shift + plus" = "${pkgs.playerctl}/bin/playerctl play-pause";
-        "super + shift + o" = "${mediavolumedown}/bin/mediavolumedown";
-        "super + shift + p" = "${mediavolumeup}/bin/mediavolumeup";
+        "super + shift + p" = "${pkgs.playerctl}/bin/playerctl play-pause";
+        "super + shift + minus" = "${mediavolumedown}/bin/mediavolumedown";
+        "super + shift + plus" = "${mediavolumeup}/bin/mediavolumeup";
       };
     };
   };
