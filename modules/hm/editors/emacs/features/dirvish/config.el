@@ -17,6 +17,8 @@
         "-l --almost-all --human-readable --group-directories-first --no-group")
   (map! :leader "r a" #'dirvish)
   (map! :leader "o p" #'dirvish-side)
+  (map! :localleader "k" #'dired-create-directory)
+  (map! :localleader "f" #'dired-create-empty-file)
   (map! :map dirvish-mode-map
         :n "h"   #'dired-up-directory
         :n "q"   #'dirvish-quit
