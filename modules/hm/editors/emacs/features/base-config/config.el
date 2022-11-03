@@ -11,8 +11,8 @@
 
 ;; Modeline
 (setq display-time-default-load-average nil)
-(setq display-time-format "%H:%M")
-(display-time-mode 1)
+;; (setq display-time-format "%H:%M")
+;; (display-time-mode 1)
 
 ;; Dired
 (after! dired
