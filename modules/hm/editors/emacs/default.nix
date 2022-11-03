@@ -149,6 +149,8 @@ in
       (loadFeature "pdf")
     ])
 
+    (mkIf config.programs.rtorrent.enable (loadFeature "mentor"))
+
     (mkMergeIf config.modules.dev.nix.enable [
       {
         home.packages = with pkgs; [
