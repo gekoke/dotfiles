@@ -15,7 +15,7 @@ in {
   options.modules.editors = {
     enable = mkEnableOption "text editors";
     default = mkOption {
-      type = types.default;
+      type = types.str;
       default = "nvim";
     };
   };

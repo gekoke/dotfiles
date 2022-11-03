@@ -59,6 +59,8 @@
       };
 
       editors = {
+        enable = true;
+        default = "nvim";
         neovim = {
           enable = true;
           enableNix = true;
