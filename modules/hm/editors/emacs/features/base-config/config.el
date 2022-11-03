@@ -1,9 +1,8 @@
 ;; Font
 (setq doom-font
       (font-spec
-       :family "Iosevka Term"
-       :size 15
-       :weight 'semi-bold))
+       :family "JetBrainsMono Nerd Font"
+       :size 12))
 
 ;; Theme
 (setq doom-theme 'doom-nord)
