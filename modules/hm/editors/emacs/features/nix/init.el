@@ -1,1 +1,1 @@
-(doom! :lang nix)
+(doom! :lang (nix +lsp))

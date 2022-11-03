@@ -98,29 +98,56 @@ in
       # See: https://github.com/NixOS/nixpkgs/issues/194929
     ])
 
-    (mkIf (!config.modules.graphical.enable) (loadFeature "ranger"))
+    # Dirvish
+    (mkMerge [
+      {
+        home.packages = with pkgs;  [
+          fd        # As a faster alternative to find
+          mediainfo # For audio/video metadata generation
+          gnutar    # For archive files preview
+          unzip
+        ];
+      }
+      (mkIf config.modules.graphical.enable {
+        home.packages = with pkgs; [
+          imagemagick       # For image preview
+          ffmpegthumbnailer # For video preview
+          xpdf              # For PDF preview
+        ];
+        nixpkgs.config.permittedInsecurePackages = [
+          "xpdf-4.04"
+        ];
+      })
+      (loadFeature "dirvish")
+    ])
+
+    # Ranger
+    # (mkMerge [
+    #     xdg.configFile."doom/init.el".text = "(doom! :emacs (dired +ranger ${if config.modules.graphical.enable then "+icons" else ""})";
+    #     (loadFeature "ranger")
+    # ])
+
+    (mkIf config.modules.graphical.enable {
+      fonts.fontconfig.enable = true;
+
+      home.packages = with pkgs; [
+        emacs-all-the-icons-fonts
+        (nerdfonts.override {
+          fonts = [
+            "JetBrainsMono"
+            "FiraCode"
+            "Iosevka"
+          ];
+        })
+      ];
+    })
 
     (mkMergeIf config.modules.graphical.enable [
       {
-        fonts.fontconfig.enable = true;
-
-        home.packages = with pkgs; [
-          emacs-all-the-icons-fonts
-          (nerdfonts.override {
-            fonts = [
-              "JetBrainsMono"
-              "FiraCode"
-              "Iosevka"
-            ];
-          })
-        ];
-
         programs.emacs.extraPackages = epkgs: with epkgs; [ pdf-tools ];
       }
-      (loadFeature "ranger+icons")
       (loadFeature "pdf")
     ])
-
 
     (mkMergeIf config.modules.dev.nix.enable [
       {

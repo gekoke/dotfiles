@@ -19,10 +19,6 @@
   (setq delete-by-moving-to-trash t)
   (setq large-file-warning-threshold nil))
 
-;; Ranger
-(after! (dired ranger)
-  (setq ranger-override-dired 'ranger))
-
 ;; Workspaces
 ;;; Disable new workspace being created when reconnecting to emacs daemon
 (after! persp-mode
@@ -55,16 +51,10 @@
 ;; Keybindings
 (map! :leader "x" #'kill-current-buffer)
 (map! :leader "r l" #'align-regexp)
-(map! :leader "r a" #'dired-jump)
 (map! :leader "v" #'magit-status)
 (map! :leader "V" #'magit-status-here)
 (map! :leader "e" #'+vertico/switch-workspace-buffer)
 (map! :leader "E" #'switch-to-buffer)
-(map! :map ranger-mode-map
-      :m  "; ;" 'dired-create-empty-file)
-(map! :localleader
-      (:map ranger-mode-map
-            "k" #'dired-create-directory))
 (map! :map vterm-mode-map "C-c C-w" #'evil-window-next)
 
 ;; Org
