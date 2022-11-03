@@ -55,6 +55,8 @@
 (map! :leader "e" #'+vertico/switch-workspace-buffer)
 (map! :leader "E" #'switch-to-buffer)
 (map! :map vterm-mode-map "C-c C-w" #'evil-window-next)
+; Workaround as dirvish seems to break the default of 'doom/find-file-in-private-config'
+(map! :leader "f p" #'doom/open-private-config)
 
 ;; Org
 (after! org
