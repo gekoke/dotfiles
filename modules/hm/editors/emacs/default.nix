@@ -161,5 +161,16 @@ in
       }
       (loadFeature "haskell")
     ])
+
+    (mkMergeIf config.modules.dev.lua.enable [
+      (let
+        lsp = pkgs.sumneko-lua-language-server;
+      in
+      {
+        home.packages = [ lsp ];
+        xdg.configFile."doom/config.el".text = "(setq lsp-clients-lua-language-server-bin \"${lsp}/bin/lua-language-server\")";
+      })
+      (loadFeature "lua")
+    ])
   ];
 }

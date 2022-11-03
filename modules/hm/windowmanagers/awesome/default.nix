@@ -10,6 +10,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    modules.dev.lua.enable = true;
     xsession = {
       enable = true;
       windowManager.awesome.enable = true;
