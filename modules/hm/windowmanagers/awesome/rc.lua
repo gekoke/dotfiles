@@ -2,6 +2,9 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+package.loaded["awful.hotkeys_popup.keys.tmux"] = {}    -- Disable showing tmux and screen binds
+package.loaded["awful.hotkeys_popup.keys.screen"] = {}
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
