@@ -38,6 +38,9 @@
   };
 
   boot = {
+    tmpOnTmpfs     = true;
+    tmpOnTmpfsSize = "20%";
+
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
