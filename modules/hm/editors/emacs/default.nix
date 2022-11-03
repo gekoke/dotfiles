@@ -110,6 +110,7 @@ in
             fonts = [
               "JetBrainsMono"
               "FiraCode"
+              "Iosevka"
             ];
           })
         ];
