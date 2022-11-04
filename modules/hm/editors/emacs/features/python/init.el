@@ -1,1 +1,1 @@
-(doom! :lang python)
+(doom! :lang (python +lsp))
