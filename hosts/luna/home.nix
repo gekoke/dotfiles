@@ -56,6 +56,7 @@
         prolog.enable = true;
         haskell.enable = true;
         python.enable = true;
+        lua.enable = true;
       };
 
       editors = {
