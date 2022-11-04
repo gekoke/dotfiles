@@ -195,10 +195,12 @@ in
     (mkMergeIf config.modules.dev.lua.enable [
       (let
         lsp = pkgs.sumneko-lua-language-server;
-      in
-      {
+      in {
         home.packages = [ lsp ];
-        xdg.configFile."doom/config.el".text = "(setq lsp-clients-lua-language-server-bin \"${lsp}/bin/lua-language-server\")";
+        xdg.configFile."doom/config.el".text = ''
+          (after! lsp-mode
+            (setq lsp-clients-lua-language-server-bin "${lsp}/bin/lua-language-server"))
+        '';
       })
       (loadFeature "lua")
     ])
