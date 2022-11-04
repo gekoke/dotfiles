@@ -4,6 +4,7 @@
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
    '(("h" "~/"                          "Home")
      ("d" "~/Downloads/"                "Downloads")
+     ("c" "~/.config/"                  "Config")
      ("t" "~/.local/share/Trash/files/" "Trash")))
   :config
   (dirvish-peek-mode)
