@@ -22,7 +22,7 @@ in {
             };
           };
           window = {
-            opacity = 1;
+            opacity = 0.88;
           };
           font = {
             normal = {
