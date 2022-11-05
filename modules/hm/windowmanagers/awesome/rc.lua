@@ -46,7 +46,6 @@ do
 end
 -- }}}
 
--- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
@@ -79,9 +78,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
 
--- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -93,12 +90,10 @@ myawesomemenu = {
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
@@ -208,12 +203,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
 
--- {{{ Mouse bindings
--- }}}
-
--- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -405,7 +395,6 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
--- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -451,14 +440,8 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 }
--- }}}
 
--- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -478,21 +461,36 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c)
+    c.border_color = beautiful.border_focus
+end)
+client.connect_signal("unfocus", function(c)
+    c.border_color = beautiful.border_normal
+end)
 
--- Disable maximized clients borders
+beautiful.useless_gap = 8
+beautiful.gap_single_client = true
+beautiful.border_width = 2
+
+-- Disable borders sometimes
 screen.connect_signal("arrange", function (s)
-    local max = s.selected_tag.layout.name == "max"
     for _, c in pairs(s.clients) do
-        if max and not c.floating or c.maximized then
+        local layout_max = s.selected_tag.layout.name == "max"
+        local no_border  = layout_max or #s.tiled_clients <= 1 or c.maximized or c.focused and not c.floating
+        if no_border then
             c.border_width = 0
         else
             c.border_width = beautiful.border_width
         end
     end
 end)
--- }}}
 
-beautiful.useless_gap = 8
-beautiful.gap_single_client = true
+-- Rounded corners
+client.connect_signal("property::geometry", function(c)
+    local rounded    = not (c.maximized or c.fullscreen)
+    if rounded then
+        c.shape = gears.shape.rounded_rect
+    else
+        c.shape = gears.shape.rect
+    end
+end)
