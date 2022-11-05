@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
+    mynixpkgs.url = github:gekoke/nixpkgs/master;
     nur.url = github:nix-community/NUR;
 
     home-manager.url = github:nix-community/home-manager;
@@ -12,6 +13,7 @@
   outputs =
     inputs @ { self
     , nixpkgs
+    , mynixpkgs
     , nur
     , home-manager
     , ...
@@ -21,6 +23,11 @@
       location = "$HOME/.setup";
 
       pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+
+      mypkgs = import mynixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -43,7 +50,7 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mylib; };
+              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mypkgs mylib; };
               home-manager.users."geko" = {
                 imports = [
                   nur.nixosModules.nur

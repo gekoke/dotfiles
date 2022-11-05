@@ -21,6 +21,22 @@
         "type": "github"
       }
     },
+    "mynixpkgs": {
+      "locked": {
+        "lastModified": 1667696605,
+        "narHash": "sha256-XR+2C9w1q3hzmUzcScYWfA2bEmWISLiMVgtZlrNdziM=",
+        "owner": "gekoke",
+        "repo": "nixpkgs",
+        "rev": "a8d44286e5650315b7b391e6a12ef3637364287d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gekoke",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1666539104,
@@ -55,6 +71,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "mynixpkgs": "mynixpkgs",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
       }
