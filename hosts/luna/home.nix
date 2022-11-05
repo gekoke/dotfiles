@@ -8,8 +8,15 @@ with lib;
 {
   config = mkMerge [
     {
-      home.packages = with pkgs; [ python2 ];
-      programs.pywal.enable = true;
+      home.packages = with pkgs; [
+        pywal
+        (pkgs.writeShellScriptBin "wml" ''
+          # Force wal to use feh, since it's correctly patched
+          # in the pywal Nix package
+          XDG_CURRENT_DESKTOP="none"
+          wal "$@"
+        '')
+      ];
     }
     {
       nixpkgs.config.allowUnfree = true;
