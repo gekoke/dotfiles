@@ -23,6 +23,10 @@ in {
           };
           window = {
             opacity = 0.88;
+            padding = {
+              x = 4;
+              y = 4;
+            };
           };
           font = {
             normal = {
