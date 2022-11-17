@@ -61,6 +61,37 @@
             }
           ];
         };
+
+        sol = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = { inherit inputs user location mylib; };
+          modules = [
+            ./hosts/sol/default.nix
+            ./hosts/sol/hardware-configuration.nix
+            ./modules/sys
+            ./modules/options.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mylib; };
+              home-manager.users."geko" = {
+                imports = [
+                  nur.nixosModules.nur
+                  ./hosts/sol/home.nix
+                  ./modules/hm
+                  ./modules/options.nix
+                  {
+                    modules.graphical.enable = true;
+                  }
+                ];
+              };
+            }
+            {
+              modules.graphical.enable = true;
+            }
+          ];
+        };
       };
     };
 }
