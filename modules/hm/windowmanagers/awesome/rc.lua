@@ -470,7 +470,7 @@ end)
 
 beautiful.useless_gap = 8
 beautiful.gap_single_client = true
-beautiful.border_width = 2
+beautiful.border_width = 1
 
 -- Disable borders sometimes
 screen.connect_signal("arrange", function (s)
