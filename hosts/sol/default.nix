@@ -65,6 +65,7 @@
   services = {
     xserver = {
       enable = true;
+      libinput.enable = true;
       windowManager.awesome.enable = true;
     };
     gnome.gnome-keyring.enable = true;
@@ -84,7 +85,6 @@
 
   networking = {
     hostName = "sol";
-    wireless.enable = false;
-    useDHCP = true;
+    networkmanager.enable = true;
   };
 }
