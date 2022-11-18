@@ -18,14 +18,14 @@
         "-l --almost-all --human-readable --group-directories-first --no-group")
   (map! :leader "r a" #'dirvish)
   (map! :leader "o p" #'dirvish-side)
-  (map! :localleader "k" #'dired-create-directory)
-  (map! :localleader "f" #'dired-create-empty-file)
   (map! :map dirvish-mode-map
+        :localleader "k" #'dired-create-directory
+        :localleader "f" #'dired-create-empty-file
         :n "h"   #'dired-up-directory
         :n "q"   #'dirvish-quit
         :n "l"   #'dired-find-file
         :n "v"   #'dirvish-vc-menu
-        :n "a"   #'dirvish-quick-access
+        :n "k"   #'dirvish-quick-access
         :n "f"   #'dirvish-file-info-menu
         :n "s"   #'dirvish-quicksort
         :n "C-i" #'dirvish-history-go-forward
