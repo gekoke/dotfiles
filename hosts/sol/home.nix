@@ -92,7 +92,6 @@ with lib;
 
         shells.fish = {
           enable = true;
-          enableFlashyPrompt = true;
           enableFileIcons = true;
         };
 
