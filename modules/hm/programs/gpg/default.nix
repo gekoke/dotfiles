@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.programs.gpg;
-in {
+in
+{
   options.modules.programs.gpg = {
     enable = mkEnableOption "GPG";
   };

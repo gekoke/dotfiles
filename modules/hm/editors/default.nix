@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.editors;
-in {
+in
+{
   imports = [
     ./emacs
     ./neovim

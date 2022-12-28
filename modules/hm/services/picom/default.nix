@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.services.picom;
-in {
+in
+{
   options.modules.services.picom = {
     enable = mkEnableOption "picom compositor";
   };

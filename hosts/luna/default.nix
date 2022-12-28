@@ -50,7 +50,7 @@
   swapDevices = [ ];
 
   boot = {
-    tmpOnTmpfs     = true;
+    tmpOnTmpfs = true;
     tmpOnTmpfsSize = "20%";
 
     loader = {
@@ -79,8 +79,8 @@
       enable = true;
       windowManager.awesome.enable = true;
       displayManager.sessionCommands = ''
-      xrandr --output HDMI-0 --mode 1920x1080 --rate 239.96 &
-    '';
+        xrandr --output HDMI-0 --mode 1920x1080 --rate 239.96 &
+      '';
     };
     gnome.gnome-keyring.enable = true;
   };

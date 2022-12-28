@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.programs.git;
-in {
+in
+{
   options.modules.programs.git = {
     enable = mkEnableOption "git version control";
   };

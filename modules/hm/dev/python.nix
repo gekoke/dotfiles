@@ -11,6 +11,5 @@ in
     enable = mkEnableOption "Python support";
   };
 
-  config = mkIf cfg.enable {
-  };
+  config = mkIf cfg.enable { };
 }

@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.hardware.gpu.nvidia;
-in {
+in
+{
   options.modules.hardware.gpu.nvidia = {
     enable = mkEnableOption "NVidia support";
     digitalVibrance = mkOption {

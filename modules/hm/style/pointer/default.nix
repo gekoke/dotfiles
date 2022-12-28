@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.style.pointer;
-in {
+in
+{
   options.modules.style.pointer = {
     enable = mkEnableOption "pointer theme";
   };

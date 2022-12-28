@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.dev.lua;
-in {
+in
+{
   options.modules.dev.lua = {
     enable = mkEnableOption "Lua dev support";
   };

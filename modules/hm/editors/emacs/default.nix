@@ -16,16 +16,16 @@ with mylib; let
 
   tex = pkgs.texlive.combine {
     inherit
-    (pkgs.texlive)
-    scheme-basic
-    dvisvgm
-    dvipng # For preview and export as HTML
-    wrapfig
-    amsmath
-    ulem
-    hyperref
-    capt-of
-    ;
+      (pkgs.texlive)
+      scheme-basic
+      dvisvgm
+      dvipng# For preview and export as HTML
+      wrapfig
+      amsmath
+      ulem
+      hyperref
+      capt-of
+      ;
   };
 
   loadFeature = name: {
@@ -64,19 +64,19 @@ in
           # Doom dependencies
           git
           (ripgrep.override { withPCRE2 = true; })
-          gnutls                                                          # for TLS connectivity
+          gnutls # for TLS connectivity
 
           # Optional dependencies
-          fd                                                              # faster projectile indexing
-          imagemagick                                                     # for image-dired
-          zstd                                                            # for undo-fu-session/undo-tree compression
+          fd # faster projectile indexing
+          imagemagick # for image-dired
+          zstd # for undo-fu-session/undo-tree compression
 
           # Module dependencies
-          pandoc                                                          # Markdown
-          tex                                                             # :lang latex & :lang org (latex previews)
+          pandoc # Markdown
+          tex # :lang latex & :lang org (latex previews)
           (aspellWithDicts (ds: with ds; [ en en-computers en-science ])) # :checkers spell
-          editorconfig-core-c                                             # :tools editorconfig
-          sqlite                                                          # :tools lookup & :lang org +roam
+          editorconfig-core-c # :tools editorconfig
+          sqlite # :tools lookup & :lang org +roam
         ];
         sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
       };
@@ -102,17 +102,17 @@ in
     (mkMerge [
       {
         home.packages = with pkgs;  [
-          fd        # As a faster alternative to find
+          fd # As a faster alternative to find
           mediainfo # For audio/video metadata generation
-          gnutar    # For archive files preview
+          gnutar # For archive files preview
           unzip
         ];
       }
       (mkIf config.modules.graphical.enable {
         home.packages = with pkgs; [
-          imagemagick       # For image preview
+          imagemagick # For image preview
           ffmpegthumbnailer # For video preview
-          xpdf              # For PDF preview
+          xpdf # For PDF preview
         ];
         nixpkgs.config.permittedInsecurePackages = [
           "xpdf-4.04"
@@ -175,7 +175,7 @@ in
     (mkMergeIf config.modules.dev.python.enable [
       {
         home.packages = [
-          (pkgs.python39.withPackages (p: with p; [python-lsp-server]))
+          (pkgs.python39.withPackages (p: with p; [ python-lsp-server ]))
         ];
       }
       (loadFeature "python")
@@ -193,15 +193,18 @@ in
     ])
 
     (mkMergeIf config.modules.dev.lua.enable [
-      (let
-        lsp = pkgs.sumneko-lua-language-server;
-      in {
-        home.packages = [ lsp ];
-        xdg.configFile."doom/config.el".text = ''
-          (after! lsp-mode
-            (setq lsp-clients-lua-language-server-bin "${lsp}/bin/lua-language-server"))
-        '';
-      })
+      (
+        let
+          lsp = pkgs.sumneko-lua-language-server;
+        in
+        {
+          home.packages = [ lsp ];
+          xdg.configFile."doom/config.el".text = ''
+            (after! lsp-mode
+              (setq lsp-clients-lua-language-server-bin "${lsp}/bin/lua-language-server"))
+          '';
+        }
+      )
       (loadFeature "lua")
     ])
   ];

@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.terminals.alacritty;
-in {
+in
+{
   options.modules.terminals.alacritty = {
     enable = mkEnableOption "Alacritty terminal emulator";
   };

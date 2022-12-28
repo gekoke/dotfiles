@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.terminals;
-in {
+in
+{
   imports = [
     ./alacritty
   ];

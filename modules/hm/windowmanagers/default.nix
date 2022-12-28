@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.hom.windowmanagers;
-in {
+in
+{
   imports = [
     ./awesome
   ];

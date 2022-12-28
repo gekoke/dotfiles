@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.loginmanagers.lightdm;
-in {
+in
+{
   options.modules.loginmanagers.lightdm = {
     enable = mkEnableOption "lightdm login manager";
   };

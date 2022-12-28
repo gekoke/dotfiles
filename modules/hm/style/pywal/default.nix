@@ -13,7 +13,8 @@ with lib; let
     wal "$@"
     pywalfox update
   '';
-in {
+in
+{
   options.modules.style.pywal = {
     enable = mkEnableOption "pywal warpper";
   };

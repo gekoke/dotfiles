@@ -4,7 +4,8 @@
 }:
 with lib; let
   cfg = config.modules.windowmanagers.awesome;
-in {
+in
+{
   options.modules.windowmanagers.awesome = {
     enable = mkEnableOption "awesomewm";
   };

@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.shells.zsh;
-in {
+in
+{
   options.modules.shells.zsh = {
     enable = mkEnableOption "Module description";
   };

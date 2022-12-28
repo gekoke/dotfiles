@@ -5,7 +5,8 @@
 }:
 with lib; let
   cfg = config.modules.programs.ranger;
-in {
+in
+{
   options.modules.programs.ranger = {
     enable = mkEnableOption "ranger file manager";
   };
