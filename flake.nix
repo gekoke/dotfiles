@@ -38,6 +38,8 @@
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
 
       nixosConfigurations = {
+        livecd = import ./modules/livecd.nix { pkgs = nixpkgs; };
+
         luna = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
