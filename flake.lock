@@ -23,11 +23,11 @@
     },
     "mynixpkgs": {
       "locked": {
-        "lastModified": 1667696605,
-        "narHash": "sha256-XR+2C9w1q3hzmUzcScYWfA2bEmWISLiMVgtZlrNdziM=",
+        "lastModified": 1668614124,
+        "narHash": "sha256-trMuxh1zEIgbVr4n4eUav6PnrEgxiBxHHSW3L3yTQSI=",
         "owner": "gekoke",
         "repo": "nixpkgs",
-        "rev": "a8d44286e5650315b7b391e6a12ef3637364287d",
+        "rev": "e213f8c329429cac1715a86eec617a93783bb99c",
         "type": "github"
       },
       "original": {
