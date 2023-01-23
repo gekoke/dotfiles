@@ -124,12 +124,6 @@ in
       (loadFeature "dirvish")
     ])
 
-    # Ranger
-    # (mkMerge [
-    #     xdg.configFile."doom/init.el".text = "(doom! :emacs (dired +ranger ${if config.modules.graphical.enable then "+icons" else ""})";
-    #     (loadFeature "ranger")
-    # ])
-
     (mkIf config.modules.graphical.enable {
       fonts.fontconfig.enable = true;
 
