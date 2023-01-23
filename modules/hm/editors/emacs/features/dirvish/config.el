@@ -25,7 +25,7 @@
         :n "q"   #'dirvish-quit
         :n "l"   #'dired-find-file
         :n "v"   #'dirvish-vc-menu
-        :n "k"   #'dirvish-quick-access
+        :n "a"   #'dirvish-quick-access
         :n "f"   #'dirvish-file-info-menu
         :n "s"   #'dirvish-quicksort
         :n "C-i" #'dirvish-history-go-forward
