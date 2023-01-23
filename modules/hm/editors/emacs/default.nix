@@ -77,6 +77,9 @@ in
           (aspellWithDicts (ds: with ds; [ en en-computers en-science ])) # :checkers spell
           editorconfig-core-c # :tools editorconfig
           sqlite # :tools lookup & :lang org +roam
+
+          # My base-config
+          direnv
         ];
         sessionPath = [ "${config.home.sessionVariables.XDG_CONFIG_HOME}/emacs/bin" ];
       };
