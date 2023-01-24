@@ -123,6 +123,7 @@ in
           "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
           "extensions.pocket.enabled" = false;
           "extensions.shield-recipe-client.enabled" = false;
+          "full-screen-api.warning.timeout" = 0; # Disable "You're in fullscreen" message
         };
       };
     };
