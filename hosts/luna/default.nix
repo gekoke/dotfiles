@@ -37,6 +37,18 @@
     shell = pkgs.fish;
   };
 
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      runAs = "root";
+      groups = [ "wheel" ];
+      commands = [{
+        command = "/run/current-system/sw/bin/nixos-rebuild";
+        options = [ "NOPASSWD" ];
+      }];
+    }];
+  };
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
