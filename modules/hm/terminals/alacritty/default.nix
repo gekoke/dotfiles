@@ -31,8 +31,8 @@ in
           };
           cursor = {
             style = {
-              shape          = "Beam";
-              blinking       = "Always";
+              shape = "Beam";
+              blinking = "Always";
               blink_interval = 750;
             };
             vi_mode_style = {
