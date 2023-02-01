@@ -16,6 +16,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # For lutris
+  hardware.opengl.driSupport32Bit = true;
+
   system.stateVersion = "22.05";
 
   nix = {

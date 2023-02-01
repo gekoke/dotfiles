@@ -29,6 +29,11 @@ with lib;
         teamspeak_client
         signal-desktop
         element-desktop
+
+        ajour
+        lutris
+
+        brave
       ];
     };
 
