@@ -6,11 +6,11 @@
 }:
 with lib; let
   cfg = config.modules.style.pywal;
-  wml = pkgs.writeShellScriptBin "wml" ''
+  walWrapper = pkgs.writeShellScriptBin "wal" ''
     # Force wal to use feh, since it's correctly patched
     # in the pywal Nix package
     XDG_CURRENT_DESKTOP="none"
-    wal "$@"
+    ${pkgs.pywal}/bin/wal "$@"
     pywalfox update
   '';
 in
@@ -21,9 +21,12 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      pywal
-      wml
+      walWrapper
       mypkgs.python3Packages.pywalfox
     ];
+
+    programs.fish.shellInit = ''
+      wal -R > /dev/null
+    '';
   };
 }

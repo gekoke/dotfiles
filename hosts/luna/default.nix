@@ -113,6 +113,7 @@
     hostName = "luna";
     wireless.enable = false;
     useDHCP = true;
-    firewall.allowedTCPPorts = [ 10543 ]; # For serving files
+    firewall.allowedTCPPorts = [ 4000
+                                 10543 ]; # For serving files
   };
 }
