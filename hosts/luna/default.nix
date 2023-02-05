@@ -97,7 +97,12 @@
     gnome.gnome-keyring.enable = true;
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    ssh = {
+      startAgent = true;
+    };
+    dconf.enable = true;
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -113,7 +118,6 @@
     hostName = "luna";
     wireless.enable = false;
     useDHCP = true;
-    firewall.allowedTCPPorts = [ 4000
-                                 10543 ]; # For serving files
+    firewall.allowedTCPPorts = [ 10543 ]; # For serving files
   };
 }
