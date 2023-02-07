@@ -34,6 +34,8 @@ with lib;
         lutris
 
         brave
+
+        pavucontrol
       ];
     };
 
