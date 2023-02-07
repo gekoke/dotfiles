@@ -16,6 +16,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.docker.enable = true;
+
   # For lutris
   hardware.opengl.driSupport32Bit = true;
 
@@ -36,7 +38,10 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.fish;
   };
 
