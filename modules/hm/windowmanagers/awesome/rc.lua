@@ -472,6 +472,9 @@ beautiful.useless_gap = 8
 beautiful.gap_single_client = true
 beautiful.border_width = 1
 
+beautiful.notification_max_width = 120
+beautiful.notification_max_height = 36
+
 -- Disable borders sometimes
 screen.connect_signal("arrange", function (s)
     for _, c in pairs(s.clients) do
