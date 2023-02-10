@@ -36,6 +36,8 @@ with lib;
         brave
 
         pavucontrol
+
+        docker-compose
       ];
     };
 
