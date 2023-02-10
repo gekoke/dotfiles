@@ -38,6 +38,8 @@ with lib;
         pavucontrol
 
         docker-compose
+
+        xclip
       ];
     };
 
