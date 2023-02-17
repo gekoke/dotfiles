@@ -170,11 +170,7 @@ in
     (mkIf config.modules.dev.prolog.enable (loadFeature "prolog"))
 
     (mkMergeIf config.modules.dev.python.enable [
-      {
-        home.packages = [
-          (pkgs.python39.withPackages (p: with p; [ python-lsp-server ]))
-        ];
-      }
+      { home.packages = with config.modules.dev.python.packages; [ python-lsp-server ]; }
       (loadFeature "python")
     ])
 
@@ -206,11 +202,7 @@ in
     ])
 
     (mkMerge [
-      {
-        home.packages = with pkgs; [
-          (pkgs.python39.withPackages (p: with p; [ rst2pdf ]))
-        ];
-      }
+      { home.packages = with config.modules.dev.python.packages; [ rst2pdf ]; }
       (loadFeature "rst")
     ])
   ];
