@@ -11,7 +11,6 @@ with lib; let
     # in the pywal Nix package
     XDG_CURRENT_DESKTOP="none"
     ${pkgs.pywal}/bin/wal "$@"
-    pywalfox update
   '';
 in
 {
@@ -24,9 +23,5 @@ in
       walWrapper
       mypkgs.python3Packages.pywalfox
     ];
-
-    programs.fish.shellInit = ''
-      wal -R > /dev/null
-    '';
   };
 }
