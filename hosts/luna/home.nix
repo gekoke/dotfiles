@@ -40,6 +40,7 @@ with lib;
         docker-compose
 
         xclip
+        vscode
       ];
     };
 
