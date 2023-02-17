@@ -41,6 +41,7 @@ with lib;
 
         xclip
         vscode
+        config.modules.dev.python.packages.docutils
       ];
     };
 
