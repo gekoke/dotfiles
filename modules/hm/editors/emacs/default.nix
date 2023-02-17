@@ -204,5 +204,14 @@ in
       )
       (loadFeature "lua")
     ])
+
+    (mkMerge [
+      {
+        home.packages = with pkgs; [
+          (pkgs.python39.withPackages (p: with p; [ rst2pdf ]))
+        ];
+      }
+      (loadFeature "rst")
+    ])
   ];
 }
