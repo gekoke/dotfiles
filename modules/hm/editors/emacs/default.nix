@@ -74,7 +74,7 @@ in
           # Module dependencies
           pandoc # Markdown
           tex # :lang latex & :lang org (latex previews)
-          (aspellWithDicts (ds: with ds; [ en en-computers en-science ])) # :checkers spell
+          (aspellWithDicts (ds: with ds; [ en en-computers en-science et ])) # :checkers spell
           editorconfig-core-c # :tools editorconfig
           sqlite # :tools lookup & :lang org +roam
 
