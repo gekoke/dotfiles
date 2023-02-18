@@ -205,5 +205,15 @@ in
       { home.packages = with config.modules.dev.python.packages; [ rst2pdf ]; }
       (loadFeature "rst")
     ])
+
+    (mkMerge [
+      {
+        programs.java = {
+          enable = true;
+          package = pkgs.jdk17;
+        };
+      }
+      (loadFeature "java")
+    ])
   ];
 }
