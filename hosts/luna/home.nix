@@ -2,6 +2,7 @@
 , lib
 , pkgs
 , user
+, devenv
 , ...
 }:
 with lib;
@@ -38,6 +39,7 @@ with lib;
         pavucontrol
 
         docker-compose
+        devenv.packages.x86_64-linux.devenv
 
         xclip
         vscode

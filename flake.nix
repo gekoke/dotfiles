@@ -8,6 +8,8 @@
 
     home-manager.url = github:nix-community/home-manager;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    devenv.url = github:cachix/devenv/latest;
   };
 
   outputs =
@@ -16,6 +18,7 @@
     , mynixpkgs
     , nur
     , home-manager
+    , devenv
     , ...
     }:
     let
@@ -52,7 +55,7 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mypkgs mylib; };
+              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mypkgs mylib devenv; };
               home-manager.users."geko" = {
                 imports = [
                   nur.nixosModules.nur
