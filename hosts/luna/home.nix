@@ -21,6 +21,7 @@ with lib;
       };
 
       packages = with pkgs; [
+        cowsay
         bitwarden
         neofetch
         coreutils
