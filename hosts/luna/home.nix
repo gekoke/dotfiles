@@ -50,10 +50,6 @@ with lib;
 
     programs = {
       home-manager.enable = true;
-      git = {
-        userName = "gekoke";
-        userEmail = "gekoke@lazycantina.xyz";
-      };
       mpv.enable = true;
       rtorrent.enable = true;
     };
