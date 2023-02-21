@@ -5,7 +5,6 @@
 }:
 with lib; let
   cfg = config.modules.services.email;
-  mailDir = "~/.maildir";
 in
 {
   options.modules.services.email = {
@@ -24,6 +23,10 @@ in
 
     accounts.email = {
       accounts = {
+        school = {
+          realName = "Gregor Grigorjan";
+          address = "grgrig@ttu.ee";
+        };
         personal = {
           primary = true;
           realName = "gekoke";
