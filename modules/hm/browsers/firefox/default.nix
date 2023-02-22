@@ -14,13 +14,13 @@ in
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      extensions = with config.nur.repos.rycee.firefox-addons; [
-        privacy-badger
-        ublock-origin
-        vimium
-        bitwarden
-      ];
       profiles."default" = {
+        extensions = with config.nur.repos.rycee.firefox-addons; [
+          privacy-badger
+          ublock-origin
+          vimium
+          bitwarden
+        ];
         bookmarks = { };
         settings = {
           # --- Preferences ---
