@@ -18,6 +18,9 @@ with lib;
       keyboard = {
         layout = "ee";
         variant = "us";
+        options = [
+          "caps:ctrl_modifier"
+        ];
       };
 
       packages = with pkgs; [
