@@ -44,6 +44,7 @@ with lib;
 
         docker-compose
         devenv.packages.x86_64-linux.devenv
+        poetry
 
         xclip
         vscode
