@@ -215,5 +215,8 @@ in
       }
       (loadFeature "java")
     ])
+
+    (loadFeature "javascript")
+    (loadFeature "web")
   ];
 }
