@@ -23,6 +23,12 @@
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override "main"))
 
+;; Company
+(use-package! company
+  :config
+  (setq company-idle-delay 0.0)
+  (setq company-minimum-prefix-length 1))
+
 ;; Calendar
 (setq calendar-week-start-day 1)
 (setq calendar-holidays
