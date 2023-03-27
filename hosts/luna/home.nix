@@ -49,6 +49,7 @@ with lib;
         xclip
         vscode
         config.modules.dev.python.packages.docutils
+        jetbrains.idea-community
       ];
     };
 
