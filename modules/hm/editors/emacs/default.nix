@@ -212,6 +212,7 @@ in
           enable = true;
           package = pkgs.jdk17;
         };
+        home.packages = with pkgs; [ gradle ];
       }
       (loadFeature "java")
     ])
