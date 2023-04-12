@@ -470,7 +470,7 @@ end)
 
 beautiful.useless_gap = 8
 beautiful.gap_single_client = true
-beautiful.border_width = 1
+beautiful.border_width = 2
 
 beautiful.notification_max_width = 120
 beautiful.notification_max_height = 36
@@ -489,11 +489,11 @@ screen.connect_signal("arrange", function (s)
 end)
 
 -- Rounded corners
-client.connect_signal("property::geometry", function(c)
-    local rounded    = not (c.maximized or c.fullscreen)
-    if rounded then
-        c.shape = gears.shape.rounded_rect
-    else
-        c.shape = gears.shape.rect
-    end
-end)
+-- client.connect_signal("property::geometry", function(c)
+--     local rounded    = not (c.maximized or c.fullscreen)
+--     if rounded then
+--         c.shape = gears.shape.rounded_rect
+--     else
+--         c.shape = gears.shape.rect
+--     end
+-- end)
