@@ -1,8 +1,8 @@
 ;; Font
 (setq doom-font
       (font-spec
-       :family "JetBrainsMono Nerd Font"
-       :size 14))
+       :family "FiraCode Nerd Font Mono"
+       :size 12))
 
 ;; Theme
 (setq doom-theme 'doom-nord)
