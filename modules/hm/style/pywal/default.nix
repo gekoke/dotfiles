@@ -15,13 +15,17 @@ with lib; let
 in
 {
   options.modules.style.pywal = {
-    enable = mkEnableOption "pywal warpper";
+    enable = mkEnableOption "pywal wrapper";
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       walWrapper
       mypkgs.python3Packages.pywalfox
+    ];
+
+    modules.browsers.firefox.extraExtensions = with config.nur.repos.rycee.firefox-addons; [
+      pywalfox
     ];
   };
 }
