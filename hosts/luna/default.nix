@@ -78,6 +78,7 @@
   swapDevices = [ ];
 
   boot = {
+    supportedFilesystems = [ "ntfs" ]; # Allow interacting with (including mounting) NTFS filesystems
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
