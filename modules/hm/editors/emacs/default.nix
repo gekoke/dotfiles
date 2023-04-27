@@ -25,6 +25,7 @@ with mylib; let
       ulem
       hyperref
       capt-of
+      minted
       ;
   };
 
