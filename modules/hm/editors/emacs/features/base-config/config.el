@@ -1,7 +1,7 @@
 ;; Font
 (setq doom-font
       (font-spec
-       :family "FiraCode Nerd Font Mono"
+       :family "Hack Nerd Font Mono"
        :size 12))
 
 ;; Theme
