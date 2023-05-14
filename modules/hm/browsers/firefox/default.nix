@@ -25,6 +25,7 @@ in
           ublock-origin
           vimium
           bitwarden
+          sponsorblock
         ] ++ cfg.extraExtensions;
         settings = {
           "media.hardwaremediakeys.enabled" = false;     # Disable media keys in Firefox - conflicts with Spotify etc. when audio is playing in browser
