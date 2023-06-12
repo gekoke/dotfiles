@@ -1,4 +1,4 @@
-;; Fon-t
+; Fon-t
 (setq doom-font
       (font-spec
        :family "FiraCode Nerd Font"
@@ -109,5 +109,15 @@
 
 ;; Latex
 (setq org-latex-compiler "lualatex")
+
+;; Miniframe
+(use-package! mini-frame
+  :init
+  (custom-set-variables
+    '(mini-frame-show-parameters
+      '((top . 0.3)
+        (width . 0.5)
+        (left . 0.5))))
+   (mini-frame-mode))
 
 (load! "~/.config/doom/temp-config.el" nil t)
