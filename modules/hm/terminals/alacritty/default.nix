@@ -34,11 +34,12 @@ in
             style = {
               shape = "Beam";
               blinking = "Always";
-              blink_interval = 750;
             };
             vi_mode_style = {
               shape = "Block";
+              blinking = "Never";
             };
+            blink_interval = 750;
           };
           font = {
             normal = {
