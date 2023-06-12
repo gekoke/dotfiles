@@ -29,6 +29,7 @@ in
               y = 4;
             };
           };
+          selection.save_to_clipboard = true;
           cursor = {
             style = {
               shape = "Beam";
