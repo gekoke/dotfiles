@@ -1,7 +1,6 @@
 (package! git-auto-commit-mode)
 (package! org-contacts)
 (package! olivetti)
-(package! mini-frame)
 
 ;; Fix for https://github.com/doomemacs/doomemacs/issues/6425
 (package! transient
