@@ -1,0 +1,16 @@
+{ config, lib, pkgs, ... }:
+with lib;
+let cfg = config.plusultra.desktop.addons.swaylock;
+in
+{
+  options.plusultra.desktop.addons.swaylock = {
+    enable = mkEnableOption "swaylock lock menu";
+  };
+
+  config = mkIf cfg.enable {
+    plusultra.home.packages = [ pkgs.swaylock-effects ];
+    security.pam.services.swaylock.text = ''
+      auth include login
+    '';
+  };
+}

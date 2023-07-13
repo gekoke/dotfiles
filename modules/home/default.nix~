@@ -1,0 +1,39 @@
+{ options, config, lib, inputs, ... }:
+
+with lib;
+let cfg = config.plusultra.home;
+in
+{
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  options.plusultra.home = with types; {
+    file = mkOpt attrs { }
+      "A set of files to be managed by home-manager's <option>home.file</option>";
+    configFile = mkOpt attrs { }
+      "A set of files to be managed by home-manager's <option>xdg.configFile</option>";
+    packages = mkOpt (listOf package) [ ] "Packages to pass to <option>home.packages</option>";
+    programs = mkOpt attrs { } "Attributes to pass to <option>home.programs</option>";
+    extraOptions = mkOpt attrs { } "Options to pass directly to home-manager";
+  };
+
+  config = {
+    plusultra.home.extraOptions = {
+      xdg.enable = true;
+      xdg.configFile = mkAliasDefinitions options.plusultra.home.configFile;
+
+      home.stateVersion = config.system.stateVersion;
+      home.file = mkAliasDefinitions options.plusultra.home.file;
+      home.packages = mkAliasDefinitions options.plusultra.home.packages;
+
+      programs = mkAliasDefinitions options.plusultra.home.programs;
+    };
+
+    home-manager = {
+      useUserPackages = true;
+
+      users.${config.plusultra.user.name} = mkAliasDefinitions options.plusultra.home.extraOptions;
+    };
+  };
+}
