@@ -1,109 +1,69 @@
 {
-  description = "My Nix system configurations";
+  description = "Haiku";
 
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
-    mynixpkgs.url = github:gekoke/nixpkgs/master;
-    nur.url = github:nix-community/NUR;
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    home-manager.url = github:nix-community/home-manager;
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    snowfall-lib.url = "github:snowfallorg/lib";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
+    # FIXME: can be removed after https://github.com/gytis-ivaskevicius/flake-utils-plus/pull/134 is merged
+    flake-utils-plus-fix.url = "github:ravensiris/flake-utils-plus/ravensiris/fix-devshell-legacy-packages";
+    snowfall-lib.inputs.flake-utils-plus.follows = "flake-utils-plus-fix";
+
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "unstable";
+
+    nur.url = "github:nix-community/NUR";
+
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    devenv.url = github:cachix/devenv/latest;
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-contrib.url = "github:hyprwm/contrib";
+    hyprland-contrib.inputs.nixpkgs.follows = "unstable";
+
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    stylix.url = "github:danth/stylix";
+
+    base16.url = "github:SenchoPens/base16.nix";
   };
 
-  outputs =
-    inputs @ { self
-    , nixpkgs
-    , mynixpkgs
-    , nur
-    , home-manager
-    , devenv
-    , ...
-    }:
+  outputs = inputs:
     let
-      user = "geko";
-      location = "$HOME/.setup";
-
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
+      lib = inputs.snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
       };
-
-      mypkgs = import mynixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-
-      mylib = import ./lib { lib = nixpkgs.lib; };
     in
-    {
-      formatter.x86_64-linux = pkgs.nixpkgs-fmt;
+      lib.mkFlake {
+        package-namespace = "plusultra";
 
-      nixosConfigurations = {
-        livecd = import ./modules/livecd.nix { pkgs = nixpkgs; };
+        systems.modules = with inputs; [
+          nur.nixosModules.nur
+          agenix.nixosModules.default
+        ];
 
-        luna = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        overlays = with inputs; [
+          emacs-overlay.overlays.default
+          hyprland.overlays.hyprland-extras
+        ];
 
-          specialArgs = { inherit inputs user location mylib; };
-          modules = [
-            ./hosts/luna/default.nix
-            ./hosts/luna/hardware-configuration.nix
-            ./modules/sys
-            ./modules/options.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mypkgs mylib devenv; };
-              home-manager.users."geko" = {
-                imports = [
-                  nur.nixosModules.nur
-                  ./hosts/luna/home.nix
-                  ./modules/hm
-                  ./modules/options.nix
-                  {
-                    modules.graphical.enable = true;
-                  }
-                ];
-              };
-            }
-            {
-              modules.graphical.enable = true;
-            }
+        channels-config = {
+          allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+            "nvidia-x11"
+            "nvidia-settings"
+          ];
+          permittedInsecurePackages = [
+            "xpdf-4.04"
           ];
         };
 
-        sol = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = { inherit inputs user location mylib; };
-          modules = [
-            ./hosts/sol/default.nix
-            ./hosts/sol/hardware-configuration.nix
-            ./modules/sys
-            ./modules/options.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = { inherit inputs user location nixpkgs mylib; };
-              home-manager.users."geko" = {
-                imports = [
-                  nur.nixosModules.nur
-                  ./hosts/sol/home.nix
-                  ./modules/hm
-                  ./modules/options.nix
-                  {
-                    modules.graphical.enable = true;
-                  }
-                ];
-              };
-            }
-            {
-              modules.graphical.enable = true;
-            }
-          ];
-        };
+        formatter.x86_64-linux = (import inputs.nixpkgs { system = "x86_64-linux"; }).pkgs.nixpkgs-fmt;
       };
-    };
 }
