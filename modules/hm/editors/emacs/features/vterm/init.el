@@ -1,1 +1,0 @@
-(doom! :term vterm)
