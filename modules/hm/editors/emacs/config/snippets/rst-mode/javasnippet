@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: javasnippet
-# key: jsn
-# --
-.. code-block:: java
-
-    $0
