@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: (current time)
-# key: tim
-# uuid: tim
-# --
-`(format-time-string "%FT%T%z")`

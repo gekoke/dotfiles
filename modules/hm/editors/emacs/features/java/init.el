@@ -1,1 +1,0 @@
-(doom! :lang (java +lsp))
