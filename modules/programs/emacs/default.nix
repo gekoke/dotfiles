@@ -36,7 +36,7 @@ in
       # LSP optimizations
       environment.sessionVariables.LSP_USE_PLISTS = "true";
 
-      fonts.fonts = with pkgs; [
+      fonts.packages = with pkgs; [
         # all-the-icons
         emacs-all-the-icons-fonts
       ];
