@@ -15,5 +15,9 @@ in
       then inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
       else abort "only supports Hyprland - set 'hyprlandSupport' module option to true"
     )];
+
+    plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
+      bind = SUPER SHIFT, S, exec, grimblast copy area
+    '';
   };
 }
