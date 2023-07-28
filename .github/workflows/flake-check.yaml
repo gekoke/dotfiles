@@ -1,11 +1,11 @@
 name: nix flake check
 
 on:
-  push:
   pull_request:
 
 jobs:
   nix-flake-check:
+    name: check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
