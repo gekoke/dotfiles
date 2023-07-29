@@ -569,10 +569,4 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   "x" #'kill-current-buffer
   "z" #'bury-buffer)
 
-(defun gg/nixos-config-rebuild ()
-  (interactive)
-  (async-shell-command "sudo nixos-rebuild switch --flake ~/.snowfall#$HOST && echo 'Done!'"))
-
-(gg/leader "n" #'gg/nixos-config-rebuild)
-
 (load custom-file 'noerror)
