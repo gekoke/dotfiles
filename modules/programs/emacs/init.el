@@ -395,7 +395,7 @@
 (use-package consult-projectile
   :general
   (gg/leader
-    "SPC" #'consult-projectile
+    "SPC" #'consult-projectile-find-file
     "b" #'consult-projectile-switch-to-buffer
     "B" #'consult-buffer)
   (general-def projectile-command-map
