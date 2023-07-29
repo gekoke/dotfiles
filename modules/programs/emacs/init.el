@@ -393,7 +393,6 @@
     "A" #'projectile-find-other-file))
 
 (use-package consult-projectile
-  
   :general
   (gg/leader
     "SPC" #'consult-projectile
@@ -411,6 +410,10 @@
     "TAB" '(:keymap persp-key-map :which-key "Perspective"))
   :config
   (persp-mode 1))
+
+(use-package direnv
+ :config
+ (direnv-mode))
 
 (use-package cape
   :init

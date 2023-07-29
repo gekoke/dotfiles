@@ -18,6 +18,7 @@ in
       programs = {
         emacs = enabled; 
         firefox = enabled;
+        direnv = enabled;
       };
     };
   };
