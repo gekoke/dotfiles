@@ -83,12 +83,14 @@
   :config
   (remember-last-theme-enable))
 
+(set-frame-font "JetBrainsMono Nerd Font 13" nil t)
+
 (use-package ligature
   :load-path "path-to-ligature-repo"
   :config
   (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
                                        "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
-                                       "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!==" "lmao!"
+                                       "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
                                        ">>=" ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
   (global-ligature-mode nil))
 
