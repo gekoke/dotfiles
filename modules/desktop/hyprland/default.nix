@@ -26,6 +26,11 @@ in
         nvidiaPatches = config.plusultra.hardware.nvidia.enable;
       };
 
+      xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
+
       plusultra = {
         desktop = {
           hyprland.extraHomeManagerOptions = {
