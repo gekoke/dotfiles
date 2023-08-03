@@ -67,7 +67,7 @@
   :init
   (doom-modeline-mode 1)
   :custom
-  ((doom-modeline-height 30)
+  ((doom-modeline-height 42)
    (doom-modeline-indent-info t)
    (doom-modeline-modal-icon nil)
    (doom-modeline-display-default-persp-name t)
