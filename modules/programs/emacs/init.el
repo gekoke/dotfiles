@@ -83,7 +83,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-frame-font "JetBrainsMono Nerd Font 13" nil t)
+(set-frame-font "VictorMono Nerd Font Mono Bold 12" t t)
 
 (use-package ligature
   :load-path "path-to-ligature-repo"
