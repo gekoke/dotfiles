@@ -23,7 +23,7 @@ with lib;
 
         fonts = {
           sizes = {
-            desktop = 13;
+            desktop = 10;
             terminal = 13;
             popups = 10;
           };
