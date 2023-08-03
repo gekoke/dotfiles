@@ -3,6 +3,7 @@ with lib;
 let cfg = config.plusultra.desktop.addons.swaylock;
 in
 {
+  # TODO: add theming
   options.plusultra.desktop.addons.swaylock = {
     enable = mkEnableOption "swaylock lock menu";
   };
