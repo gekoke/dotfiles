@@ -14,6 +14,7 @@ in
     extraConfig = mkOpt str "" "Extra Hyprland configuration";
   };
 
+  # TODO: add OBS/screen recording support
   config =
     mkIf cfg.enable {
       nix.settings = {
