@@ -14,6 +14,7 @@ in
       font-awesome
     ];
 
+    # TODO: add MPD support
     plusultra.home.programs.waybar = {
       enable = true;
       package = if cfg.hyprlandSupport
