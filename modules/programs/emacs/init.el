@@ -358,6 +358,8 @@
   (gg/leader
     "v" #'magit-status))
 
+;; TODO: add forge support
+
 (use-package magit-todos
   :after magit
   :init
