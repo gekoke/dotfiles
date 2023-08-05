@@ -39,7 +39,8 @@
 (setq display-line-numbers-type 'relative)
 (dolist (hook '(prog-mode-hook
                 conf-mode-hook
-                js-json-mode-hook))
+                js-json-mode-hook
+                text-mode-hook))
   (add-hook hook (lambda () (display-line-numbers-mode 1))))
 
 (setq-default indent-tabs-mode nil)
