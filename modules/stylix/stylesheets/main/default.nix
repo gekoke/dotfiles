@@ -85,9 +85,11 @@ with lib;
 
         decoration {
             rounding = ${toString rounding};
-            blur = true
-            blur_size = 8
-            blur_passes = 3
+            blur {
+                enabled = true
+                size = 8
+                passes = 3
+            }
         }
 
         bezier = overshot, 0.05, 0.9, 0.1, 1.1
