@@ -25,12 +25,6 @@ in
           bitwarden
           sponsorblock
         ] ++ cfg.extraExtensions;
-        userChrome = ''
-          :root {
-              --tab-min-height: 16 !important;
-              --tab-max-height: 16 !important;
-          }
-        '';
         settings = {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userChrome.css
           "media.hardwaremediakeys.enabled" = false; # Disable media keys in Firefox - conflicts with Spotify etc. when audio is playing in browser
