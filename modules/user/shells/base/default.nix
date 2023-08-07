@@ -24,10 +24,6 @@ with lib;
       i = "grep -i";
       x = "grep";
       dl = "trash";
-      rm = "rm -I";
-      cp = "cp -n";
-      mv = "mv -n";
-      ln = "ln -i";
     };
   };
 }
