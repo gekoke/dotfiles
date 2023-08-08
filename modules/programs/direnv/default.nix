@@ -9,6 +9,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.programs.direnv = enabled // { nix-direnv = enabled; };
+    plusultra.home.sessionVariables."DIRENV_LOG_FORMAT" = "";
+    plusultra.home.programs.direnv = {
+      enable = true;
+      nix-direnv = enabled;
+    };
   };
 }
