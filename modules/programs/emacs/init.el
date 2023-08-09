@@ -311,6 +311,10 @@
   :config
   (set-face-attribute 'diredfl-dir-name nil :bold t))
 
+(use-package dired
+  :ensure nil
+  :hook (dired-mode . dired-omit-mode))
+
 (use-package corfu
   :custom
   (completion-ignore-case t)
