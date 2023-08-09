@@ -65,5 +65,12 @@ in
 	        ".emacs.d/early-init.el".text = earlyInitText;
 	      };
       };
+
+      age.secrets.emacsAuthinfo = {
+        file = ./authinfo.age;
+        owner = config.plusultra.user.name;
+        path = "${config.users.users.${config.plusultra.user.name}.home}/.authinfo";
+        mode = "700";
+      };
     };
 }
