@@ -20,6 +20,7 @@ with lib;
         enable = true;
         syntaxHighlighting = enabled;
         enableAutosuggestions = true;
+        autocd = true;
         history = {
           size = I64_MAX; # In memory 
           save = I64_MAX; # Saved to file
