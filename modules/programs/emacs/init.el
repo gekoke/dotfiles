@@ -199,6 +199,7 @@
   :after evil
   :custom
   (evil-collection-magit-use-z-for-folds t)
+  (forge-add-default-bindings nil)
   :config
   (evil-collection-init))
 
@@ -359,7 +360,10 @@
   (gg/leader
     "v" #'magit-status))
 
-;; TODO: add forge support
+(use-package forge
+  :after magit
+  :custom
+  (forge-owned-accounts '(("gekoke"))))
 
 (use-package magit-todos
   :after magit

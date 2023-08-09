@@ -10,7 +10,8 @@ in
     enable = mkEnableOption "git version control";
     userName = mkOpt types.str user.fullName "The name to configure git with";
     userEmail = mkOpt types.str user.primaryEmailAddress "The email to configure git with";
-    signingKey = mkOpt types.str "D55B9940B30A04A2" "The key ID to sign commits with.";
+    signingKey = mkOpt types.str "D55B9940B30A04A2" "The key ID to sign commits with";
+    githubUsername = mkOpt types.str "gekoke" "The GitHub username to use";
   };
 
   config = mkIf cfg.enable {
@@ -26,6 +27,7 @@ in
           init.defaultBranch = "main";
           pull.rebase = true;
           push.autoSetupRemote = true;
+          github.user = cfg.githubUsername;
         };
       };
     };
