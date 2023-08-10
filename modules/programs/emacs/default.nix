@@ -42,7 +42,6 @@ in
       ];
 
       plusultra.home.packages = with pkgs; [
-        yaml-language-server
         # dirvish
         fd imagemagick ffmpegthumbnailer mediainfo gnutar unzip xpdf
         # consult
@@ -54,8 +53,12 @@ in
         # lsp-haskell
         haskell-language-server
         ghc
+        # YAML
+        yaml-language-server
         # html-mode, css-mode etc
         nodePackages.vscode-langservers-extracted
+        # JS/TS
+        nodePackages.typescript-language-server
       ];
 
       plusultra.home = {

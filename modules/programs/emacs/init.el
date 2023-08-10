@@ -569,6 +569,16 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
     :keymap 'emmet-mode-map
     "TAB" #'gg/indent-or-yas-or-emmet-expand))
 
+(use-package typescript-ts-mode
+  :ensure nil
+  :mode "\\.ts\\'"
+  :hook (typescript-ts-mode . lsp-deferred))
+
+(use-package tsx-ts-mode
+  :ensure nil
+  :mode "\\.tsx\\'"
+  :hook (tsx-ts-mode . lsp-deferred))
+
 (use-package age
   :demand t
   :custom
