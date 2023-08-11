@@ -236,9 +236,11 @@
   :custom
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
    `(("h" "~/"                                     "Home")
+     ("x" "~/Documents/"                           "Documents")
      ("d" "~/Downloads/"                           "Downloads")
      ("p" "~/Pictures"                             "Pictures")
      ("t" "~/.local/share/Trash/files/"            "Trash")
+     ("r" "/"                                      "/")
      ("m"  ,(concat "/run/media/" user-login-name) "Removable Media")))
 
   (dirvish-emerge-groups
