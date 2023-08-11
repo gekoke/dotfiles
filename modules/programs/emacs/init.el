@@ -225,6 +225,12 @@
   :init
   (global-evil-matchit-mode 1))
 
+(use-package link-hint
+  :general
+  (gg/leader
+    "L o" #'link-hint-open-link
+    "L c" #'link-hint-copy-link))
+
 (use-package pdf-tools
   :init
   (pdf-tools-install))
