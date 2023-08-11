@@ -27,6 +27,6 @@ in
       exfat
     ];
 
-    environment.shellAliases."v" = "nvim";
+    plusultra.home.shellAliases."v" = "nvim";
   };
 }
