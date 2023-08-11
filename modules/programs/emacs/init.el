@@ -626,4 +626,13 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   "x" #'kill-current-buffer
   "z" #'bury-buffer)
 
+(gg/leader
+  :keymaps 'smerge-mode-map
+  "m" '(:ignore t :which-key "Merge") 
+  "m u" #'smerge-keep-upper
+  "m l" #'smerge-keep-lower
+  "m t" #'smerge-keep-current
+  "m b" #'smerge-keep-all)
+
+
 (load custom-file 'noerror)
