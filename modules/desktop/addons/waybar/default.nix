@@ -84,5 +84,14 @@ in
 
       Install.WantedBy = [ "graphical-session.target" ];
     };
+
+    # FIXME: when https://github.com/nix-community/home-manager/issues/2064 is resolved
+    plusultra.home.extraOptions.systemd.user.targets.tray = {
+      Unit = {
+        Description = "Fake tray service to appease incorrectly written systemd services";
+        Requires = [ "graphical-session-pre.target" ];
+        Restart = "always";
+      };
+    };
   };
 }

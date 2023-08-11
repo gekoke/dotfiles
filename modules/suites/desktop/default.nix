@@ -15,6 +15,8 @@ in
 
       programs.alacritty = enabled;
 
+      services.udiskie = enabled;
+
       hardware = {
         storage = enabled;
         networking = enabled;

@@ -235,10 +235,11 @@
   (dirvish-override-dired-mode)
   :custom
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
-   '(("h" "~/"                          "Home")
-     ("d" "~/Downloads/"                "Downloads")
-     ("t" "~/.local/share/Trash/files/" "Trash")
-     ("p" "~/Pictures"                  "Pictures")))
+   `(("h" "~/"                                     "Home")
+     ("d" "~/Downloads/"                           "Downloads")
+     ("p" "~/Pictures"                             "Pictures")
+     ("t" "~/.local/share/Trash/files/"            "Trash")
+     ("m"  ,(concat "/run/media/" user-login-name) "Removable Media")))
 
   (dirvish-emerge-groups
    '(("Recent files" (predicate . recent-files-2h))
