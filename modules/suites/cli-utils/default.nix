@@ -24,6 +24,7 @@ in
       neovim
       btop
       pmount
+      exfat
     ];
 
     environment.shellAliases."v" = "nvim";
