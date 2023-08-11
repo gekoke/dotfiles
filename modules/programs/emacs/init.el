@@ -193,7 +193,10 @@
   (evil-mode 1)
   :general
   (gg/leader
-    "s" #'save-buffer))
+    "s" #'save-buffer)
+  (general-def
+    :states 'insert
+    "RET" #'default-indent-new-line))
 
 (use-package evil-collection
   :after evil
