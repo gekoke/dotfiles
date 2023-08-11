@@ -15,10 +15,13 @@ in
       mode = "700";
     };
 
+    plusultra.home.services.ssh-agent = enabled;
     plusultra.home.programs.ssh = {
       enable = true;
       includes = [ config.age.secrets.privateSshConfig.path ];
       extraConfig = ''
+        Host *
+          AddKeysToAgent yes
         Host github.com
           IdentitiesOnly yes
       '';
