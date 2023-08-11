@@ -9,11 +9,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    fonts.packages = with pkgs; [
-      # Icons in default configs
-      font-awesome
-    ];
-
     # TODO: add MPD support
     plusultra.home.programs.waybar = {
       enable = true;
