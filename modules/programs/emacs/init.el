@@ -366,12 +366,18 @@
     "o" #'vterm-toggle))
 
 (use-package magit
+  :hook (magit-log-mode . magit-diff-show-or-scroll-up)
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
   :general
   (gg/leader
-    "v" #'magit-status))
+    "v" #'magit-status)
+  (general-def
+    :states '(normal visual)
+    :keymaps 'magit-log-mode-map
+    "k" #'magit-section-backward-sibling
+    "j" #'magit-section-forward-sibling))
 
 (use-package forge
   :after magit
