@@ -116,13 +116,10 @@
   :init
   (vertico-mode)
   :custom
-  (vertico-cycle t))
-
-(use-package emacs
-  :after vertico
+  (enable-recursive-minibuffers t)
   ;; Hide commands in M-x which do not work in the current mode.
   (read-extended-command-predicate #'command-completion-default-include-p)
-  (recursive-minibuffers t))
+  (vertico-cycle t))
 
 (use-package all-the-icons)
 ;; This MUST come before the `marginalia' definition.
