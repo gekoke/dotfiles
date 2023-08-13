@@ -536,6 +536,14 @@
   :custom
   (lsp-haskell-server-path (executable-find "haskell-language-server-wrapper")))
 
+(use-package markdown-mode
+  :ensure nil
+  :custom
+  (markdown-fontify-code-blocks-natively t)
+  :config
+  (add-to-list 'markdown-code-lang-modes '("py" . python-mode))
+  (add-to-list 'markdown-code-lang-modes '("python" . python-mode)))
+
 (use-package web-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
