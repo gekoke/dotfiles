@@ -462,6 +462,10 @@
 
 (use-package cape
   :init
+  (setq-default completion-at-point-functions (list
+                                               #'cape-file
+                                               #'cape-dabbrev
+                                               #'cape-keyword))
   (defun gg/setup-elisp-mode-capf ()
     (setq-local completion-at-point-functions (list
                               (cape-capf-nonexclusive #'elisp-completion-at-point)
