@@ -225,6 +225,15 @@
   :init
   (global-evil-matchit-mode 1))
 
+(use-package evil-mc
+  :init
+  (global-evil-mc-mode 1)
+  :general
+  (general-def
+    :states 'normal
+    "C-J" #'evil-mc-make-and-goto-next-match
+    "C-K" #'evil-mc-make-and-goto-prev-match))
+
 (use-package link-hint
   :general
   (gg/leader
@@ -533,7 +542,7 @@
 
 (use-package haskell-mode
   :after markdown-mode
-  :config
+  :init
   (add-to-list 'markdown-code-lang-modes '("hs" . haskell-mode))
   (add-to-list 'markdown-code-lang-modes '("haskell" . haskell-mode)))
 
