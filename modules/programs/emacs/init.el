@@ -646,5 +646,8 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   "m t" #'smerge-keep-current
   "m b" #'smerge-keep-all)
 
+(gg/leader
+  "r" '(:ignore t :which-key "Regex")
+  "r l" #'align-regexp)
 
 (load custom-file 'noerror)
