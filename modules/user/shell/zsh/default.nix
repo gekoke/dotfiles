@@ -1,21 +1,17 @@
 { config, pkgs, lib, ... }:
 with lib;
+let cfg = config.plusultra.user.shell.zsh;
+in
 {
-  options.plusultra.user.shells.zsh = {
+  options.plusultra.user.shell.zsh = {
     enable = mkEnableOption "ZSH shell";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     programs.zsh = enabled;
     users.users.${config.plusultra.user.name}.shell = pkgs.zsh;
-    environment.pathsToLink = [ "/share/zsh" ];
 
     plusultra.home.programs = {
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-
       zsh = {
         enable = true;
         syntaxHighlighting = enabled;

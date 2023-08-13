@@ -12,9 +12,10 @@ in
   };
 
   config = {
-    plusultra.user.shells = {
+    plusultra.user.shell = {
       base = enabled;
       zsh = enabled;
+      atuin = enabled;
     };
 
     plusultra.home.extraOptions.xdg.userDirs = enabled // { createDirectories = true; };

@@ -1,14 +1,15 @@
-{ pkgs, lib, ... }:
-
+{ config, pkgs, lib, ... }:
 with lib;
+let cfg = config.plusultra.user.shell.zsh;
+in
 {
-  options.plusultra.user.shells.base = {
+  options.plusultra.user.shell.base = {
     enable = mkEnableOption "base shell configurations";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     plusultra.home.programs = {
-      starship = enabled; 
+      starship = enabled;
       exa = {
         enable = true;
         enableAliases = true;
