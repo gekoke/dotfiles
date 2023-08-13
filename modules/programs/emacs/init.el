@@ -545,7 +545,6 @@
   (lsp-haskell-server-path (executable-find "haskell-language-server-wrapper")))
 
 (use-package markdown-mode
-  :ensure nil
   :custom
   (markdown-fontify-code-blocks-natively t)
   :config
