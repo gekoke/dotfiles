@@ -531,7 +531,11 @@
 (use-package nix-mode
   :hook (nix-mode . lsp-deferred))
 
-(use-package haskell-mode)
+(use-package haskell-mode
+  :after markdown-mode
+  :config
+  (add-to-list 'markdown-code-lang-modes '("hs" . haskell-mode))
+  (add-to-list 'markdown-code-lang-modes '("haskell" . haskell-mode)))
 
 (use-package lsp-haskell
   :defer t
