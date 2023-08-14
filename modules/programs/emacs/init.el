@@ -467,8 +467,10 @@
   (persp-mode 1))
 
 (use-package direnv
- :config
- (direnv-mode))
+  :custom
+  (direnv-always-show-summary nil)
+  :config
+  (direnv-mode))
 
 (use-package cape
   :init
