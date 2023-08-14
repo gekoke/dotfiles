@@ -74,7 +74,7 @@ in
       Service = {
         ExecStart = "${config.plusultra.home.programs.waybar.package}/bin/waybar";
         ExecReload = "${pkgs.coreutils}/bin/pkill -SIGUSR2 waybar";
-        Restart = "on-failure";
+        Restart = "always";
       };
 
       Install.WantedBy = [ "graphical-session.target" ];
