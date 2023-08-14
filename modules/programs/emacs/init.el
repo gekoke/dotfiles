@@ -666,4 +666,11 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
 
+(defun gg/nix-fetch ()
+  "Fetch source from URL and paste corresponding Nix fetching code in the buffer."
+  (interactive)
+  (message "Fetching...")
+  (let ((url (read-string "Enter source URL: ")))
+    (shell-command (concat "nix run nixpkgs#nurl -- " url " 2>/dev/null") t)))
+
 (load custom-file 'noerror)
