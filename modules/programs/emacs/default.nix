@@ -50,6 +50,8 @@ in
         nil nixpkgs-fmt
         # age
         rage
+        # parinfer-rust-mode
+        parinfer-rust
         # lsp-haskell
         haskell-language-server
         ghc
@@ -62,7 +64,13 @@ in
       ];
 
       plusultra.home = {
-	      programs.emacs = enabled // { package = emacsPackage; };
+	      programs.emacs = {
+          enable = true;
+          package = emacsPackage;
+          extraConfig = ''
+            (setq parinfer-rust-library "${pkgs.parinfer-rust}/lib/libparinfer_rust.so")
+          '';
+        };
 	      file = {
 	        ".emacs.d/init.el".source = ./init.el;
 	        ".emacs.d/early-init.el".text = earlyInitText;

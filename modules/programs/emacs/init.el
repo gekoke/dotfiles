@@ -44,7 +44,6 @@
   (add-hook hook (lambda () (display-line-numbers-mode 1))))
 
 (setq-default indent-tabs-mode nil)
-(electric-pair-mode t)
 (show-paren-mode 1)
 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
@@ -479,10 +478,10 @@
                                                #'cape-keyword))
   (defun gg/setup-elisp-mode-capf ()
     (setq-local completion-at-point-functions (list
-                              (cape-capf-nonexclusive #'elisp-completion-at-point)
-                              #'cape-file
-                              #'cape-dabbrev
-                              #'cape-keyword)))
+                                               (cape-capf-nonexclusive #'elisp-completion-at-point)
+                                               #'cape-file
+                                               #'cape-dabbrev
+                                               #'cape-keyword)))
   :hook
   (emacs-lisp-mode . gg/setup-elisp-mode-capf)
   :custom
@@ -531,6 +530,9 @@
   (general-def
     :states 'normal
     "g h" #'lsp-ui-doc-glance))
+
+(use-package parinfer-rust-mode
+  :hook emacs-lisp-mode)
 
 (use-package lsp-nix
   :ensure lsp-mode
