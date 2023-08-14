@@ -232,6 +232,10 @@
     "C-J" #'evil-mc-make-and-goto-next-match
     "C-K" #'evil-mc-make-and-goto-prev-match))
 
+(use-package evil-nerd-commenter
+  :init
+  (evilnc-default-hotkeys))
+
 (use-package link-hint
   :general
   (gg/leader
