@@ -33,7 +33,7 @@
 (recentf-mode 1)
 (savehist-mode 1)
 (global-auto-revert-mode 1)
-(set-fringe-mode 8)
+(set-fringe-mode 4)
 (column-number-mode)
 
 (setq display-line-numbers-type 'relative)
