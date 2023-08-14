@@ -50,6 +50,13 @@ with lib;
         };
       };
 
+      plusultra.desktop.addons.waybar.style = ''
+        * {
+            border: none;
+            border-radius: 0;
+        }
+      '';
+
       plusultra.desktop.addons.dunst.settings = {
         global = {
           width = 360;

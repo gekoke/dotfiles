@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 with lib;
 let cfg = config.plusultra.desktop.addons.waybar;
 in
@@ -6,12 +6,14 @@ in
   options.plusultra.desktop.addons.waybar = with types; {
     enable = mkEnableOption "Waybar bar";
     hyprlandSupport = mkEnableOption "Hyprland support in Waybar";
+    style = mkOpt (nullOr (either path lines)) null "Waybar CSS style";
   };
 
   config = mkIf cfg.enable {
     # TODO: add MPD support
     plusultra.home.programs.waybar = {
       enable = true;
+      style = mkAliasDefinitions options.plusultra.desktop.addons.waybar.style; 
       package = if cfg.hyprlandSupport
                 then inputs.hyprland.packages.${pkgs.system}.waybar-hyprland
                 else pkgs.waybar;
