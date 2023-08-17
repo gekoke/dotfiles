@@ -30,6 +30,8 @@
     stylix.url = "github:danth/stylix";
 
     base16.url = "github:SenchoPens/base16.nix";
+
+    pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
   };
 
   outputs = inputs:

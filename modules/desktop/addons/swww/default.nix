@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 with lib;
 let cfg = config.plusultra.desktop.addons.swww;
 in
@@ -7,22 +7,27 @@ in
     enable = mkEnableOption "swww";
   };
 
-  config = mkIf cfg.enable {
-    plusultra.home.packages = [ pkgs.swww ];
+  config =
+    let
+      # FIXME: remove when image automatically loading on startup is fixed
+      swww = (import inputs.pinned-swww { system = pkgs.system; }).swww;
+    in
+    mkIf cfg.enable {
+      plusultra.home.packages = [ swww ];
 
-    plusultra.home.extraOptions.systemd.user.services.swww = {
-      Unit = {
-        Description = "swww";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
+      plusultra.home.extraOptions.systemd.user.services.swww = {
+        Unit = {
+          Description = "swww";
+          PartOf = [ "graphical-session.target" ];
+          After = [ "graphical-session.target" ];
+        };
+
+        Service = {
+          ExecStart = "${swww}/bin/swww-daemon";
+          Restart = "always";
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
       };
-
-      Service = {
-        ExecStart = "${pkgs.swww}/bin/swww-daemon";
-        Restart = "always";
-      };
-
-      Install.WantedBy = [ "graphical-session.target" ];
     };
-  };
 }

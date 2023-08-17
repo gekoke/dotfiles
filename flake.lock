@@ -467,6 +467,22 @@
         "type": "github"
       }
     },
+    "pinned-swww": {
+      "locked": {
+        "lastModified": 1684612454,
+        "narHash": "sha256-15vluZKXxC76FqAryST1QrUVE7Xlwkrs7lrPTQGYIz0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8bf3e834daedadc6d0f4172616b2bdede1109c48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8bf3e834daedadc6d0f4172616b2bdede1109c48",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -480,6 +496,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nur": "nur",
+        "pinned-swww": "pinned-swww",
         "snowfall-lib": "snowfall-lib",
         "stylix": "stylix"
       }
