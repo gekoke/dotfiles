@@ -14,6 +14,7 @@ in
       flags = [ "--disable-up-arrow" ];
       settings = {
         inline_height = 30;
+        style = "compact";
       };
     };
 
