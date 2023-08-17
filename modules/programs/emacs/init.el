@@ -577,6 +577,10 @@
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 
+(use-package impatient-mode
+  :after web-mode
+  :hook (web-mode . impatient-mode))
+
 (use-package lsp-html
   :ensure nil
   :defer t
