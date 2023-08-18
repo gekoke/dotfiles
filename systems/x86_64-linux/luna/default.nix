@@ -12,6 +12,9 @@ with lib;
   system.stateVersion = "23.05";
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [8000];
+    allowedTCPPorts = [
+      8000
+      8080
+    ];
   };
 }
