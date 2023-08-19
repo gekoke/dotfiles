@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, inputs, ... }:
+{ options, config, lib, pkgs, ... }:
 with lib;
 let cfg = config.plusultra.desktop.addons.waybar;
 in
@@ -14,9 +14,7 @@ in
     plusultra.home.programs.waybar = {
       enable = true;
       style = mkAliasDefinitions options.plusultra.desktop.addons.waybar.style; 
-      package = if cfg.hyprlandSupport
-                then inputs.hyprland.packages.${pkgs.system}.waybar-hyprland
-                else pkgs.waybar;
+      package = pkgs.waybar.override { hyprlandSupport = cfg.hyprlandSupport; };
       settings.mainBar =
         let
           commonConfig = {
@@ -37,29 +35,14 @@ in
           hyprlandConfig = {
             layer = "top";
             modules-left = [
-              "wlr/workspaces"
+              "hyprland/workspaces"
             ];
             modules-center = [
               "hyprland/window"
             ];
-
-            "wlr/workspaces" = {
-              sort-by-number = true;
-              persistent_workspaces = {
-                "1" = "[]";
-                "2" = "[]";
-                "3" = "[]";
-                "4" = "[]";
-                "5" = "[]";
-                "6" = "[]";
-                "7" = "[]";
-                "8" = "[]";
-                "9" = "[]";
-                "10" = "[]";
-              };
-              on-scroll-up = "hyprctl dispatch workspace +1";
-              on-scroll-down = "hyprctl dispatch workspace -1";
-              on-click = "activate";
+            "hyprland/workspaces" = {
+              "format" = "{name}";
+              "persistent_workspaces"."*" = 10;
             };
           };
         in
