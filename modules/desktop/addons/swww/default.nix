@@ -7,6 +7,8 @@ in
     enable = mkEnableOption "swww";
   };
 
+  # TODO: add wallpaper picker script that pipes
+  # wallpaper package images to rofi
   config =
     let
       # FIXME: remove when image automatically loading on startup is fixed
