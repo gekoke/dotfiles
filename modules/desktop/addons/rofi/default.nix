@@ -12,6 +12,7 @@ in
     plusultra.home.programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
+      extraConfig.show-icons = true;
     };
 
     plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
