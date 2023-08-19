@@ -71,12 +71,6 @@ with lib;
         };
       };
 
-      plusultra.home.sessionVariables = {
-        SWWW_TRANSITION_FPS = 255;
-        SWWW_TRANSITION_TYPE = "wipe";
-        SWWW_TRANSITION_BEZIER = "0.86,0.0,0.07,1.0";
-      };
-
       # TODO: remove hardcoded gradient colors
       plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
         layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
