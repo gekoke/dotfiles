@@ -10,6 +10,8 @@ with lib;
       borderSize = 1;
     in
     {
+      plusultra.stylix.extraHomeManagerOptions.targets.emacs = disabled;
+
       plusultra.stylix.extraOptions = {
         polarity = "dark";
         image = "${pkgs.wallpapers}/share/wallpapers/purplewildlife.jpg";
