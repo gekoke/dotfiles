@@ -19,7 +19,10 @@
 (setq create-lockfiles nil)
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "emacs-backups"))))
 (setq auto-save-file-name-transforms `((".*" ,(concat user-emacs-directory "emacs-autosaves") t)))
-(use-package undo-tree :custom
+
+(use-package undo-tree
+  :custom
+  (undo-tree-enable-undo-in-region t)
   (undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "undo-tree-history")))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
