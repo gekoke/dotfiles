@@ -9,7 +9,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.packages = [ pkgs.swaylock-effects ];
+    plusultra.home.programs.swaylock = enabled // { package = pkgs.swaylock-effects; };
     security.pam.services.swaylock.text = ''
       auth include login
     '';
