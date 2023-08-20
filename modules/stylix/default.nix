@@ -15,6 +15,6 @@ with lib;
     plusultra.stylix.stylesheets.main = enabled;
 
     stylix = mkAliasDefinitions options.plusultra.stylix.extraOptions;
-    plusultra.home.extraOptions.stylix = mkAliasDefinitions options.plusultra.stylix.extraOptions;
+    plusultra.home.extraOptions.stylix = mkAliasDefinitions options.plusultra.stylix.extraHomeManagerOptions;
   };
 }
