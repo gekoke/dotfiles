@@ -24,7 +24,7 @@ in
 
       programs.hyprland = {
         enable = true;
-        nvidiaPatches = config.plusultra.hardware.nvidia.enable;
+        enableNvidiaPatches = config.plusultra.hardware.nvidia.enable;
       };
 
       xdg.portal = {
@@ -36,7 +36,7 @@ in
         desktop = {
           hyprland.extraHomeManagerOptions = {
             enable = true;
-            nvidiaPatches = config.plusultra.hardware.nvidia.enable;
+            enableNvidiaPatches = config.plusultra.hardware.nvidia.enable;
             extraConfig =
               let
                 masterMonocleCommand = ''
