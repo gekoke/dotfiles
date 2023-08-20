@@ -2,8 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
     # FIXME: can be removed after https://github.com/gytis-ivaskevicius/flake-utils-plus/pull/134 is merged
@@ -51,7 +49,6 @@
 
         overlays = with inputs; [
           emacs-overlay.overlays.default
-          hyprland.overlays.hyprland-extras
         ];
 
         channels-config = {
