@@ -11,10 +11,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xserver.displayManager.sessionCommands = ''
-      nvidia-settings --assign="DigitalVibrance=${toString cfg.digitalVibranceLevel}" &
-    '';
-
     hardware = {
       opengl = {
         enable = true;
@@ -30,10 +26,5 @@ in
         powerManagement = enabled;
       };
     };
-
-    # Allows all VRAM to be saved when suspending, not just some
-    boot.extraModprobeConfig = ''
-      options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp/nvidia-vidmem
-    '';
   };
 }
