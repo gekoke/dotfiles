@@ -10,6 +10,9 @@ with lib;
   plusultra.roles.workstation = enabled;
 
   system.stateVersion = "23.05";
+
+  boot.loader.grub.gfxmodeEfi = "1920x1080";
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
