@@ -52,6 +52,8 @@ with lib;
         };
       };
 
+      plusultra.stylix.extraHomeManagerOptions.targets.swaylock.useImage = false;
+
       plusultra.desktop.addons.waybar.style = ''
         * {
             border: none;
