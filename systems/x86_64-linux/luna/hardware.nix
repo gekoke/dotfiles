@@ -9,5 +9,4 @@ with lib;
   ];
 
   plusultra.hardware.nvidia = enabled;
-  boot.kernelParams = [ "video=HDMI-0:1920x1080@239.964005" ];
 }
