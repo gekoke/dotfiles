@@ -10,16 +10,23 @@ in
 
   config = mkIf cfg.enable {
     plusultra = {
+      nix = enabled;
       suites = {
-        common = enabled;
         desktop = enabled;
         cli-utils = enabled;
       };
+      security = {
+        gpg = enabled;
+        sudo = enabled;
+      };
       programs = {
+        git = enabled; 
+        ssh = enabled;
         emacs = enabled; 
         firefox = enabled;
         direnv = enabled;
       };
+      system.boot = enabled;
     };
   };
 }
