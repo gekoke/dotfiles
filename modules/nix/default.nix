@@ -4,7 +4,7 @@ with lib;
 let cfg = config.plusultra.nix;
 in {
   options.plusultra.nix = with types; {
-    enable = mkOpt bool true "Whether to manage Nix configuration";
+    enable = mkEnableOption "Nix configuration";
   };
 
   config = mkIf cfg.enable {

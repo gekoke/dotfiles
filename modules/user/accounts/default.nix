@@ -4,10 +4,10 @@ let cfg = config.plusultra.user.accounts;
 in
 {
   options.plusultra.user.accounts = with types; {
-    enabled = mkOpt bool true "whether to enable user accounts configuration";
+    enable = mkEnableOption "user accounts configuration";
   };
 
-  config = mkIf cfg.enabled {
+  config = mkIf cfg.enable {
     plusultra.home.extraOptions.accounts.email.accounts = {
       ${config.plusultra.user.fullName} = {
         primary = true;

@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     plusultra = {
       nix = enabled;
+      user = enabled // { accounts = enabled; };
       suites = {
         desktop = enabled;
         cli-utils = enabled;
