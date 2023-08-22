@@ -18,7 +18,7 @@ in
       profiles."default" = {
         name = "Default";
         isDefault = true;
-        extensions = with config.nur.repos.rycee.firefox-addons; [
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           privacy-badger
           ublock-origin
           vimium

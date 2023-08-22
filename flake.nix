@@ -43,7 +43,6 @@
         package-namespace = "plusultra";
 
         systems.modules = with inputs; [
-          nur.nixosModules.nur
           agenix.nixosModules.default
           {
             nix.settings = {
@@ -61,6 +60,7 @@
 
         overlays = with inputs; [
           emacs-overlay.overlays.default
+          nur.overlay
         ];
 
         channels-config = {
