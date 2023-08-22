@@ -10,17 +10,5 @@ in
 
   config = mkIf cfg.enable {
     boot.supportedFilesystems = [ "ntfs" ];
-
-    fileSystems."/" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-    };
-
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-label/BOOT";
-      fsType = "vfat";
-    };
-
-    swapDevices = [ ];
   };
 }

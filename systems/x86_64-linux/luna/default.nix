@@ -1,15 +1,19 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 
 with lib;
 {
-  imports = [
-    ./hardware.nix
-    ./hardware-generated.nix
+  imports = with inputs.nixos-hardware.nixosModules; [
+    ./hardware-configuration.nix
+    common-pc
+    common-pc-ssd
+    common-cpu-intel-kaby-lake
+    common-gpu-nvidia-nonprime
   ];
 
-  plusultra.roles.workstation = enabled;
-
-  system.stateVersion = "23.05";
+  plusultra = {
+    hardware.nvidia = enabled;
+    roles.workstation = enabled;
+  };
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
@@ -20,4 +24,6 @@ with lib;
       8080
     ];
   };
+
+  system.stateVersion = "23.11";
 }
