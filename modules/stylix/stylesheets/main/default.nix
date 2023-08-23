@@ -71,6 +71,13 @@ with lib;
         }
       '';
 
+      plusultra.stylix.extraHomeManagerOptions.targets.rofi = disabled;
+      plusultra.desktop.addons.rofi.rofi-collection.launcher = {
+        enable = true;
+        type = 1;
+        style = 6;
+      };
+
       plusultra.desktop.addons.dunst.settings = {
         global = {
           width = 360;
@@ -87,7 +94,7 @@ with lib;
 
       # TODO: remove hardcoded gradient colors
       plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
-        layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
+        layerrule = blur, (waybar|notifications|gtk-layer-shell)
 
         general {
             gaps_out = 10

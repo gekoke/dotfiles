@@ -472,6 +472,22 @@
         "type": "github"
       }
     },
+    "rofi-collection": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691161432,
+        "narHash": "sha256-n7AclYqYcX1EvPnpvlzO09Z3Qsr5RPt4BSTtaYwFLrU=",
+        "owner": "adi1090x",
+        "repo": "rofi",
+        "rev": "0c54044bfdf6a8bcf5710b4f8a5fc55c41a536b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adi1090x",
+        "repo": "rofi",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -485,6 +501,7 @@
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "pinned-swww": "pinned-swww",
+        "rofi-collection": "rofi-collection",
         "snowfall-lib": "snowfall-lib",
         "stylix": "stylix"
       }
