@@ -28,9 +28,10 @@ in
       recursive = true;
     };
 
+    # TODO: make alt-tab bind for hyprland
     plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
       bind = SUPER, P, exec, pkill rofi || rofi -show drun
-      bind = SUPER SHIFT, P, exec, pkill rofi || rofi -show window
+      bind = SUPER SHIFT, P, exec, rofi -show window -kb-cancel "Alt+Escape,Escape" -kb-accept-entry "!Alt-Tab,!Alt+Alt_L,Return" -kb-row-down "Alt+Tab,Down" -kb-row-up "Alt+ISO_Left_Tab,Up" -selected-row 1
     '';
   };
 }
