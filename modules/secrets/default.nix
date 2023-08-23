@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  # FIXME: make this a proper module
+  # TODO: make this a proper module
   config = {
     age.identityPaths =
       let
