@@ -231,8 +231,10 @@
   :general
   (general-def
     :states 'normal
-    "C-J" #'evil-mc-make-and-goto-next-match
-    "C-K" #'evil-mc-make-and-goto-prev-match))
+    "C-j" #'evil-mc-make-cursor-move-next-line
+    "C-k" #'evil-mc-make-cursor-move-prev-line
+    "C-S-j" #'evil-mc-make-and-goto-next-match
+    "C-S-k" #'evil-mc-make-and-goto-prev-match))
 
 (use-package evil-nerd-commenter
   :init
