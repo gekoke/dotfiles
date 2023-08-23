@@ -10,6 +10,7 @@ with lib;
       borderSize = 1;
     in
     {
+      plusultra.stylix.extraOptions.targets.grub = disabled;
       plusultra.stylix.extraHomeManagerOptions.targets.emacs = disabled;
 
       plusultra.stylix.extraOptions = {
