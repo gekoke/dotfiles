@@ -17,6 +17,12 @@ in
   # TODO: add OBS/screen recording support
   config =
     mkIf cfg.enable {
+      environment.systemPackages = with pkgs; [
+        libsForQt5.qt5.qtwayland
+        libsForQt5.qt5ct
+        libva
+      ];
+
       programs.hyprland = {
         enable = true;
         enableNvidiaPatches = config.plusultra.hardware.nvidia.enable;
@@ -38,8 +44,14 @@ in
                   $kw = master:no_gaps_when_only
                   binde = SUPER, M, exec, hyprctl keyword $kw $(($(hyprctl getoption $kw -j | ${pkgs.jq}/bin/jq '.int') ^ 1))
                 '';
+                nvidiaEnvVars = optionalString config.plusultra.hardware.nvidia.enable ''
+                  env = LIBVA_DRIVER_NAME,nvidia
+                  env = XDG_SESSION_TYPE,wayland
+                  env = GBM_BACKEND,nvidia-drm
+                  env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+                '';
               in
-                builtins.readFile ./hyprland.conf + masterMonocleCommand;
+                builtins.readFile ./hyprland.conf + masterMonocleCommand + nvidiaEnvVars;
           };
           addons = {
             waybar = enabled // { hyprlandSupport = true; };

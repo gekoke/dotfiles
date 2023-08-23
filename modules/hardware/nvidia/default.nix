@@ -23,7 +23,7 @@ in
         # Modesetting is needed for most wayland compositors
         modesetting = enabled;
         # Allows all VRAM to be saved when suspending, not just some
-        powerManagement = enabled;
+        # powerManagement = enabled;
       };
     };
   };
