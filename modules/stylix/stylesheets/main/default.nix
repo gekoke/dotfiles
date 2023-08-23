@@ -120,7 +120,7 @@ with lib;
         bezier = easeOutExpo, 0.19, 1, 0.22, 1
 
         animations {
-            animation = workspaces, 1, 3.5, overshot, slidevert
+            animation = workspaces, 1, 3, easeInOutQuint, slidevert
             animation = windows, 1, 4, easeOutExpo, popin
         }
       '';
