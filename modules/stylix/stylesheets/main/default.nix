@@ -15,13 +15,13 @@ with lib;
 
       plusultra.stylix.extraOptions = {
         polarity = "dark";
-        image = "${pkgs.wallpapers}/share/wallpapers/purplewildlife.jpg";
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+        image = "${pkgs.wallpapers}/share/wallpapers/cyberpunkgirl-inverted.png";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-black.yaml";
 
         opacity = {
-          terminal = 0.75;
+          terminal = 0.85;
           desktop = 0.75;
-          popups = 0.95;
+          popups = 0.90;
         };
 
         fonts = {

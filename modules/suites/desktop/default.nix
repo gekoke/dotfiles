@@ -10,6 +10,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    services.xserver = enabled // { displayManager.gdm = enabled; };
+
     plusultra = {
       desktop.hyprland = enabled;
 
