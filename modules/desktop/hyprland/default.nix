@@ -34,6 +34,8 @@ in
       };
 
       plusultra = {
+        services.udiskie = enabled;
+
         desktop = {
           hyprland.extraHomeManagerOptions = {
             enable = true;
