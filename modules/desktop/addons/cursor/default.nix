@@ -9,11 +9,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.extraOptions.gtk = enabled;
     plusultra.home.extraOptions.home.pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
       size = 22;
+      gtk = enabled;
+      x11 = enabled;
     };
   };
 }
