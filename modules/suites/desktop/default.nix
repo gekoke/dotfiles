@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
@@ -13,7 +13,7 @@ in
     plusultra = {
       desktop.hyprland = enabled;
 
-      programs.alacritty = enabled;
+      programs.kitty = enabled // { enableHotkey = true; };
 
       hardware = {
         storage = enabled;
