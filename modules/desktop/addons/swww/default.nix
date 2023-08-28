@@ -15,6 +15,11 @@ in
     mkIf cfg.enable {
       plusultra.home.packages = [ swww ];
 
+      plusultra.home.file."Pictures/Wallpapers" = {
+        source = "${pkgs.wallpapers}/share/wallpapers";
+        recursive = true;
+      };
+
       plusultra.home.extraOptions.systemd.user.services.swww = {
         Unit = {
           Description = "swww";
