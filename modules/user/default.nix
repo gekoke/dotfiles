@@ -6,8 +6,6 @@ in
   options.plusultra.user = with types; {
     enable = mkEnableOption "default user";
     name = mkOpt str "geko" "The name to use for the user account";
-    fullName = mkOpt str "Gregor Grigorjan" "The full name of the associated person";
-    primaryEmailAddress = mkOpt str "gregor@grigorjan.net" "The primary email address of the associated person";
     extraGroups = mkOpt (listOf str) [ ] "Groups for the user to be assigned to";
   };
 

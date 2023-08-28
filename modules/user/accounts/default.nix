@@ -5,13 +5,15 @@ in
 {
   options.plusultra.user.accounts = with types; {
     enable = mkEnableOption "user accounts configuration";
+    fullName = mkOpt str "Gregor Grigorjan" "The full name of the associated person";
+    primaryEmailAddress = mkOpt str "gregor@grigorjan.net" "The primary email address of the associated person";
   };
 
   config = mkIf cfg.enable {
     plusultra.home.extraOptions.accounts.email.accounts = {
-      ${config.plusultra.user.fullName} = {
+      ${cfg.fullName} = {
         primary = true;
-        address = config.plusultra.user.primaryEmailAddress;
+        address = cfg.primaryEmailAddress;
       };
     };
   };
