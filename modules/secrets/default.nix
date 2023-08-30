@@ -6,6 +6,6 @@
       let
         home = config.users.users.${config.plusultra.user.name}.home;
       in
-        [ "${home}/.ssh/id_ed25519" ];
+      [ "${home}/.ssh/id_ed25519" ];
   };
 }

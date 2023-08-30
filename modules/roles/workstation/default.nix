@@ -21,9 +21,9 @@ in
         sudo = enabled;
       };
       programs = {
-        git = enabled; 
+        git = enabled;
         ssh = enabled;
-        emacs = enabled; 
+        emacs = enabled;
         firefox = enabled;
         direnv = enabled;
       };

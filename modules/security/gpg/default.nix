@@ -21,7 +21,8 @@ in
       services.gpg-agent =
         let
           ttlInSeconds = 8 * 60 * 60;
-        in {
+        in
+        {
           enable = true;
           pinentryFlavor = "gnome3";
           defaultCacheTtl = ttlInSeconds;

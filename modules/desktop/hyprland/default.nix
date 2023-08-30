@@ -53,7 +53,7 @@ in
                   env = __GLX_VENDOR_LIBRARY_NAME,nvidia
                 '';
               in
-                builtins.readFile ./hyprland.conf + masterMonocleCommand + nvidiaEnvVars;
+              builtins.readFile ./hyprland.conf + masterMonocleCommand + nvidiaEnvVars;
           };
           addons = {
             waybar = enabled // { hyprlandSupport = true; };

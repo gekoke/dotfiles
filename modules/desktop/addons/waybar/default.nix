@@ -13,7 +13,7 @@ in
     # TODO: add MPD support
     plusultra.home.programs.waybar = {
       enable = true;
-      style = mkAliasDefinitions options.plusultra.desktop.addons.waybar.style; 
+      style = mkAliasDefinitions options.plusultra.desktop.addons.waybar.style;
       package = pkgs.waybar.override { hyprlandSupport = cfg.hyprlandSupport; };
       settings.mainBar =
         let
@@ -46,7 +46,7 @@ in
             };
           };
         in
-          recursiveUpdate hyprlandConfig commonConfig;
+        recursiveUpdate hyprlandConfig commonConfig;
     };
 
     plusultra.home.extraOptions.systemd.user.services.waybar = {
