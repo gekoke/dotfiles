@@ -472,6 +472,22 @@
         "type": "github"
       }
     },
+    "ranger-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691165140,
+        "narHash": "sha256-6JEhyU08QEkGdRW2L00ynRaoaaR5PaiVUccEUbtTQuU=",
+        "owner": "alexanderjeurissen",
+        "repo": "ranger_devicons",
+        "rev": "de64ab26fb581c00a803381d522c6b3e48b79415",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alexanderjeurissen",
+        "repo": "ranger_devicons",
+        "type": "github"
+      }
+    },
     "rofi-collection": {
       "flake": false,
       "locked": {
@@ -501,6 +517,7 @@
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "pinned-swww": "pinned-swww",
+        "ranger-devicons": "ranger-devicons",
         "rofi-collection": "rofi-collection",
         "snowfall-lib": "snowfall-lib",
         "stylix": "stylix"

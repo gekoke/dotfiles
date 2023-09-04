@@ -17,7 +17,10 @@ in
       group = "root";
     };
 
-    elementary.programs.comma = enabled;
+    elementary.programs = {
+      comma = enabled;
+      ranger = enabled;
+    };
 
     elementary.home.packages = with pkgs; [
       tldr
@@ -27,6 +30,9 @@ in
       exfat
     ];
 
-    elementary.home.shellAliases."v" = "nvim";
+    elementary.home.shellAliases = {
+      "v" = "nvim";
+      "ra" = "ranger";
+    };
   };
 }

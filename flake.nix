@@ -32,6 +32,9 @@
     rofi-collection.url = "github:adi1090x/rofi";
     rofi-collection.flake = false;
 
+    ranger-devicons.url = "github:alexanderjeurissen/ranger_devicons";
+    ranger-devicons.flake = false;
+
     pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
   };
 
@@ -42,40 +45,40 @@
         src = ./.;
       };
     in
-      lib.mkFlake {
-        package-namespace = "elementary";
+    lib.mkFlake {
+      package-namespace = "elementary";
 
-        systems.modules = with inputs; [
-          agenix.nixosModules.default
-          {
-            nix.settings = {
-              substituters = [
-                "https://nix-community.cachix.org"
-                "https://hyprland.cachix.org" 
-              ];
-              trusted-public-keys = [
-                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" 
-              ];
-            };
-          }
+      systems.modules = with inputs; [
+        agenix.nixosModules.default
+        {
+          nix.settings = {
+            substituters = [
+              "https://nix-community.cachix.org"
+              "https://hyprland.cachix.org"
+            ];
+            trusted-public-keys = [
+              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+              "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+            ];
+          };
+        }
+      ];
+
+      overlays = with inputs; [
+        emacs-overlay.overlays.default
+        nur.overlay
+      ];
+
+      channels-config = {
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+          "nvidia-x11"
+          "nvidia-settings"
         ];
-
-        overlays = with inputs; [
-          emacs-overlay.overlays.default
-          nur.overlay
+        permittedInsecurePackages = [
+          "xpdf-4.04"
         ];
-
-        channels-config = {
-          allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-            "nvidia-x11"
-            "nvidia-settings"
-          ];
-          permittedInsecurePackages = [
-            "xpdf-4.04"
-          ];
-        };
-
-        formatter.x86_64-linux = (import inputs.nixpkgs { system = "x86_64-linux"; }).pkgs.nixpkgs-fmt;
       };
+
+      formatter.x86_64-linux = (import inputs.nixpkgs { system = "x86_64-linux"; }).pkgs.nixpkgs-fmt;
+    };
 }
