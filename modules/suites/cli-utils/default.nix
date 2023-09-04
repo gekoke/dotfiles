@@ -17,9 +17,9 @@ in
       group = "root";
     };
 
+    elementary.programs.comma = enabled;
+
     elementary.home.packages = with pkgs; [
-      nix-index
-      comma
       tldr
       neovim
       btop
