@@ -9,7 +9,10 @@ in
 
   config = mkIf cfg.enable {
     elementary.home.programs = {
-      starship = enabled;
+      starship = {
+        enable = true;
+        settings.username.show_always = true;
+      };
       exa = {
         enable = true;
         enableAliases = true;
