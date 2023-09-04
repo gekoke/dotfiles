@@ -16,7 +16,7 @@ in
       programs.kitty = enabled // { enableHotkey = true; };
 
       hardware = {
-        storage = enabled;
+        filesystems = enabled;
         networking = enabled;
         audio = enabled;
       };
