@@ -1,15 +1,15 @@
 { config, lib, pkgs, ... }:
 with lib;
-let cfg = config.plusultra.programs.kitty;
+let cfg = config.elementary.programs.kitty;
 in
 {
-  options.plusultra.programs.kitty = {
+  options.elementary.programs.kitty = {
     enable = mkEnableOption "Kitty terminal emulator";
     enableHotkey = mkEnableOption "hotkey for Kitty";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.programs.kitty = {
+    elementary.home.programs.kitty = {
       enable = true;
       settings = {
         enable_audio_bell = false;
@@ -19,14 +19,14 @@ in
       };
     };
 
-    plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = mkIf cfg.enableHotkey ''
+    elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = mkIf cfg.enableHotkey ''
       binde = SUPER, apostrophe, exec, kitty
     '';
 
     assertions = [
       {
         message = "enableHotkey can only be enabled for 0 or 1 terminal emulators";
-        assertion = cfg.enableHotkey -> !config.plusultra.programs.alacritty.enableHotkey;
+        assertion = cfg.enableHotkey -> !config.elementary.programs.alacritty.enableHotkey;
       }
     ];
   };

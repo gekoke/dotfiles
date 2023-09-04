@@ -1,18 +1,18 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.plusultra.programs.firefox;
+let cfg = config.elementary.programs.firefox;
 in
 {
-  options.plusultra.programs.firefox = with types; {
+  options.elementary.programs.firefox = with types; {
     enable = mkEnableOption "Firefox";
     extraExtensions = mkOpt (listOf package) [ ] "Extra extensions to add to Firefox";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
+    elementary.home.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
 
-    plusultra.home.programs.firefox = {
+    elementary.home.programs.firefox = {
       enable = true;
       package = pkgs.firefox-wayland;
       profiles."default" = {

@@ -6,7 +6,7 @@ with lib;
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  options.plusultra.home = with types; {
+  options.elementary.home = with types; {
     file = mkOpt attrs { }
       "A set of files to be managed by home-manager's <option>home.file</option>";
     configFile = mkOpt attrs { }
@@ -21,26 +21,26 @@ with lib;
   };
 
   config = {
-    plusultra.home.extraOptions = {
+    elementary.home.extraOptions = {
       systemd.user.startServices = true;
 
       xdg.enable = true;
-      xdg.configFile = mkAliasDefinitions options.plusultra.home.configFile;
+      xdg.configFile = mkAliasDefinitions options.elementary.home.configFile;
 
       home.stateVersion = config.system.stateVersion;
-      home.file = mkAliasDefinitions options.plusultra.home.file;
-      home.packages = mkAliasDefinitions options.plusultra.home.packages;
-      home.sessionVariables = mkAliasDefinitions options.plusultra.home.sessionVariables;
-      home.shellAliases = mkAliasDefinitions options.plusultra.home.shellAliases;
+      home.file = mkAliasDefinitions options.elementary.home.file;
+      home.packages = mkAliasDefinitions options.elementary.home.packages;
+      home.sessionVariables = mkAliasDefinitions options.elementary.home.sessionVariables;
+      home.shellAliases = mkAliasDefinitions options.elementary.home.shellAliases;
 
-      programs = mkAliasDefinitions options.plusultra.home.programs;
-      services = mkAliasDefinitions options.plusultra.home.services;
+      programs = mkAliasDefinitions options.elementary.home.programs;
+      services = mkAliasDefinitions options.elementary.home.services;
     };
 
     home-manager = {
       useUserPackages = true;
 
-      users.${config.plusultra.user.name} = mkAliasDefinitions options.plusultra.home.extraOptions;
+      users.${config.elementary.user.name} = mkAliasDefinitions options.elementary.home.extraOptions;
     };
   };
 }

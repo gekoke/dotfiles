@@ -1,16 +1,16 @@
 { config, lib, pkgs, inputs, ... }:
 
 with lib;
-let cfg = config.plusultra.desktop.addons.screenshot;
+let cfg = config.elementary.desktop.addons.screenshot;
 in
 {
-  options.plusultra.desktop.addons.screenshot = {
+  options.elementary.desktop.addons.screenshot = {
     enable = mkEnableOption "screenshots";
     hyprlandSupport = mkEnableOption "Hyprland screenshot support";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.packages = [
+    elementary.home.packages = [
       (
         if cfg.hyprlandSupport
         then inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
@@ -18,7 +18,7 @@ in
       )
     ];
 
-    plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
+    elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
       bind = SUPER SHIFT, S, exec, grimblast copy area
     '';
   };

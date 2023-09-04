@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.plusultra.suites.cli-utils;
+  cfg = config.elementary.suites.cli-utils;
 in
 {
-  options.plusultra.suites.cli-utils = with types; {
+  options.elementary.suites.cli-utils = with types; {
     enable = mkEnableOption "CLI utilities";
   };
 
@@ -17,7 +17,7 @@ in
       group = "root";
     };
 
-    plusultra.home.packages = with pkgs; [
+    elementary.home.packages = with pkgs; [
       nix-index
       comma
       tldr
@@ -27,6 +27,6 @@ in
       exfat
     ];
 
-    plusultra.home.shellAliases."v" = "nvim";
+    elementary.home.shellAliases."v" = "nvim";
   };
 }

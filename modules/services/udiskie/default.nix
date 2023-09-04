@@ -1,15 +1,15 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.services.udiskie;
+let cfg = config.elementary.services.udiskie;
 in
 {
-  options.plusultra.services.udiskie = with types; {
+  options.elementary.services.udiskie = with types; {
     enable = mkEnableOption "udiskie";
   };
 
   config = mkIf cfg.enable {
     services.udisks2 = enabled;
-    plusultra.home.services.udiskie = enabled;
+    elementary.home.services.udiskie = enabled;
   };
 }

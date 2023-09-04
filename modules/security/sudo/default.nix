@@ -1,9 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.plusultra.security.sudo;
+let cfg = config.elementary.security.sudo;
 in
 {
-  options.plusultra.security.sudo = {
+  options.elementary.security.sudo = {
     enable = mkEnableOption "sudo configuration";
   };
 

@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.hardware.audio;
+let cfg = config.elementary.hardware.audio;
 in
 {
-  options.plusultra.hardware.audio = {
+  options.elementary.hardware.audio = {
     enable = mkEnableOption "audio";
   };
 
@@ -20,14 +20,14 @@ in
 
     hardware.pulseaudio.enable = mkForce false;
 
-    plusultra.user.extraGroups = [ "audio" ];
+    elementary.user.extraGroups = [ "audio" ];
 
-    plusultra.home.packages = with pkgs; [
+    elementary.home.packages = with pkgs; [
       pavucontrol
       easyeffects
     ];
 
-    plusultra.home.services.mpd.extraConfig = ''
+    elementary.home.services.mpd.extraConfig = ''
       audio_output {
         type "pipewire"
         name "pipewire_mpd_output"

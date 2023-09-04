@@ -1,12 +1,12 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.plusultra.programs.git;
-  gpg = config.plusultra.security.gpg;
-  user = config.plusultra.user;
+  cfg = config.elementary.programs.git;
+  gpg = config.elementary.security.gpg;
+  user = config.elementary.user;
 in
 {
-  options.plusultra.programs.git = with types; {
+  options.elementary.programs.git = with types; {
     enable = mkEnableOption "git version control";
     userName = mkOpt types.str user.accounts.fullName "The name to configure git with";
     userEmail = mkOpt types.str user.accounts.primaryEmailAddress "The email to configure git with";
@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home = {
+    elementary.home = {
       programs.git = {
         enable = true;
         inherit (cfg) userName userEmail;

@@ -1,14 +1,14 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.plusultra.desktop.addons.wlogout;
+let cfg = config.elementary.desktop.addons.wlogout;
 in
 {
-  options.plusultra.desktop.addons.wlogout = {
+  options.elementary.desktop.addons.wlogout = {
     enable = mkEnableOption "wlogout logout program";
   };
 
   config = mkIf cfg.enable {
-    plusultra = {
+    elementary = {
       home.programs.wlogout.enable = true;
 
       desktop = {

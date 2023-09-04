@@ -1,17 +1,17 @@
 { config, pkgs, lib, ... }:
 with lib;
-let cfg = config.plusultra.user.shell.zsh;
+let cfg = config.elementary.user.shell.zsh;
 in
 {
-  options.plusultra.user.shell.zsh = {
+  options.elementary.user.shell.zsh = {
     enable = mkEnableOption "ZSH shell";
   };
 
   config = mkIf cfg.enable {
     programs.zsh = enabled;
-    users.users.${config.plusultra.user.name}.shell = pkgs.zsh;
+    users.users.${config.elementary.user.name}.shell = pkgs.zsh;
 
-    plusultra.home.programs = {
+    elementary.home.programs = {
       zsh = {
         enable = true;
         syntaxHighlighting = enabled;

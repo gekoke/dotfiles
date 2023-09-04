@@ -1,15 +1,15 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.roles.workstation;
+let cfg = config.elementary.roles.workstation;
 in
 {
-  options.plusultra.roles.workstation = with types; {
+  options.elementary.roles.workstation = with types; {
     enable = mkEnableOption "the workstation role";
   };
 
   config = mkIf cfg.enable {
-    plusultra = {
+    elementary = {
       nix = enabled;
       user = enabled // { accounts = enabled; };
       suites = {

@@ -1,16 +1,16 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.plusultra.programs.alacritty;
+let cfg = config.elementary.programs.alacritty;
 in
 {
-  options.plusultra.programs.alacritty = {
+  options.elementary.programs.alacritty = {
     enable = mkEnableOption "Alacritty terminal emulator";
     enableHotkey = mkEnableOption "hotkey for Alacritty";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.programs.alacritty.enable = true;
-    plusultra.home.programs.alacritty.settings = {
+    elementary.home.programs.alacritty.enable = true;
+    elementary.home.programs.alacritty.settings = {
       window = {
         padding = {
           x = 4;
@@ -30,14 +30,14 @@ in
       };
     };
 
-    plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = mkIf cfg.enableHotkey ''
+    elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = mkIf cfg.enableHotkey ''
       binde = SUPER, apostrophe, exec, alacritty
     '';
 
     assertions = [
       {
         message = "enableHotkey can only be enabled for 0 or 1 terminal emulators";
-        assertion = cfg.enableHotkey -> !config.plusultra.programs.kitty.enableHotkey;
+        assertion = cfg.enableHotkey -> !config.elementary.programs.kitty.enableHotkey;
       }
     ];
   };

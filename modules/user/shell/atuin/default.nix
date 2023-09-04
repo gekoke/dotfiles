@@ -1,14 +1,14 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.plusultra.user.shell.atuin;
+let cfg = config.elementary.user.shell.atuin;
 in
 {
-  options.plusultra.user.shell.atuin = {
+  options.elementary.user.shell.atuin = {
     enable = mkEnableOption "Atuin";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.programs.atuin = {
+    elementary.home.programs.atuin = {
       enable = true;
       enableZshIntegration = true;
       flags = [ "--disable-up-arrow" ];
@@ -20,8 +20,8 @@ in
 
     age.secrets.atuinKey = {
       file = ./key.age;
-      owner = config.plusultra.user.name;
-      path = "${config.users.users.${config.plusultra.user.name}.home}/.local/share/atuin/key";
+      owner = config.elementary.user.name;
+      path = "${config.users.users.${config.elementary.user.name}.home}/.local/share/atuin/key";
       mode = "700";
     };
   };

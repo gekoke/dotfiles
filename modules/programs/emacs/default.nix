@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
-let cfg = config.plusultra.programs.emacs;
+let cfg = config.elementary.programs.emacs;
 in
 {
-  options.plusultra.programs.emacs = {
+  options.elementary.programs.emacs = {
     enable = mkEnableOption "GNU Emacs";
   };
 
@@ -36,7 +36,7 @@ in
         emacs-all-the-icons-fonts
       ];
 
-      plusultra.home.packages = with pkgs; [
+      elementary.home.packages = with pkgs; [
         # dirvish
         fd
         imagemagick
@@ -65,7 +65,7 @@ in
         nodePackages.typescript-language-server
       ];
 
-      plusultra.home = {
+      elementary.home = {
         programs.emacs = {
           enable = true;
           package = emacsPackage;
@@ -81,8 +81,8 @@ in
 
       age.secrets.emacsAuthinfo = {
         file = ./authinfo.age;
-        owner = config.plusultra.user.name;
-        path = "${config.users.users.${config.plusultra.user.name}.home}/.authinfo";
+        owner = config.elementary.user.name;
+        path = "${config.users.users.${config.elementary.user.name}.home}/.authinfo";
         mode = "700";
       };
     };

@@ -10,7 +10,7 @@ with lib;
     common-gpu-nvidia-nonprime
   ];
 
-  plusultra = {
+  elementary = {
     hardware.nvidia = enabled;
     roles.workstation = enabled;
   };

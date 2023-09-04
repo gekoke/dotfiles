@@ -2,15 +2,15 @@
 
 with lib;
 let
-  cfg = config.plusultra.suites.desktop;
+  cfg = config.elementary.suites.desktop;
 in
 {
-  options.plusultra.suites.desktop = with types; {
+  options.elementary.suites.desktop = with types; {
     enable = mkEnableOption "common desktop configuration";
   };
 
   config = mkIf cfg.enable {
-    plusultra = {
+    elementary = {
       desktop.hyprland = enabled;
 
       programs.kitty = enabled // { enableHotkey = true; };

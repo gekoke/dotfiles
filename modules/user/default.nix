@@ -1,22 +1,22 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.plusultra.user;
+let cfg = config.elementary.user;
 in
 {
-  options.plusultra.user = with types; {
+  options.elementary.user = with types; {
     enable = mkEnableOption "default user";
     name = mkOpt str "geko" "The name to use for the user account";
     extraGroups = mkOpt (listOf str) [ ] "Groups for the user to be assigned to";
   };
 
   config = mkIf cfg.enable {
-    plusultra.user.shell = {
+    elementary.user.shell = {
       base = enabled;
       zsh = enabled;
       atuin = enabled;
     };
 
-    plusultra.home.extraOptions.xdg.userDirs = enabled // { createDirectories = true; };
+    elementary.home.extraOptions.xdg.userDirs = enabled // { createDirectories = true; };
 
     users.users.${cfg.name} = {
       inherit (cfg) name;

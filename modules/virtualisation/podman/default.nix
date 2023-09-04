@@ -1,16 +1,16 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.plusultra.virtualisation.podman;
+let cfg = config.elementary.virtualisation.podman;
 in
 {
-  options.plusultra.virtualisation.podman = {
+  options.elementary.virtualisation.podman = {
     enable = mkEnableOption "Podman";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.packages = [ pkgs.podman-compose ];
-    plusultra.home.extraOptions.shellAliases."docker-compose" = "podman-compose";
+    elementary.home.packages = [ pkgs.podman-compose ];
+    elementary.home.extraOptions.shellAliases."docker-compose" = "podman-compose";
     virtualisation.podman = enabled // { dockerCompat = true; };
   };
 }

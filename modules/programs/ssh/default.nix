@@ -1,22 +1,22 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.programs.ssh;
+let cfg = config.elementary.programs.ssh;
 in
 {
-  options.plusultra.programs.ssh = {
+  options.elementary.programs.ssh = {
     enable = mkEnableOption "ssh client configuration";
   };
 
   config = mkIf cfg.enable {
     age.secrets.privateSshConfig = {
       file = ./private-ssh-config.age;
-      owner = config.plusultra.user.name;
+      owner = config.elementary.user.name;
       mode = "700";
     };
 
-    plusultra.home.services.ssh-agent = enabled;
-    plusultra.home.programs.ssh = {
+    elementary.home.services.ssh-agent = enabled;
+    elementary.home.programs.ssh = {
       enable = true;
       includes = [ config.age.secrets.privateSshConfig.path ];
       extraConfig = ''

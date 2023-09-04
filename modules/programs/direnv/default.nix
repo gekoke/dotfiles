@@ -1,14 +1,14 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.programs.direnv;
+let cfg = config.elementary.programs.direnv;
 in
 {
-  options.plusultra.programs.direnv = with types; {
+  options.elementary.programs.direnv = with types; {
     enable = mkEnableOption "direnv";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.programs.direnv = enabled // { nix-direnv = enabled; };
+    elementary.home.programs.direnv = enabled // { nix-direnv = enabled; };
   };
 }

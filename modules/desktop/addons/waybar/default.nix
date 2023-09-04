@@ -1,9 +1,9 @@
 { options, config, lib, pkgs, ... }:
 with lib;
-let cfg = config.plusultra.desktop.addons.waybar;
+let cfg = config.elementary.desktop.addons.waybar;
 in
 {
-  options.plusultra.desktop.addons.waybar = with types; {
+  options.elementary.desktop.addons.waybar = with types; {
     enable = mkEnableOption "Waybar bar";
     hyprlandSupport = mkEnableOption "Hyprland support in Waybar";
     style = mkOpt (nullOr (either path lines)) null "Waybar CSS style";
@@ -11,9 +11,9 @@ in
 
   config = mkIf cfg.enable {
     # TODO: add MPD support
-    plusultra.home.programs.waybar = {
+    elementary.home.programs.waybar = {
       enable = true;
-      style = mkAliasDefinitions options.plusultra.desktop.addons.waybar.style;
+      style = mkAliasDefinitions options.elementary.desktop.addons.waybar.style;
       package = pkgs.waybar.override { hyprlandSupport = cfg.hyprlandSupport; };
       settings.mainBar =
         let
@@ -49,7 +49,7 @@ in
         recursiveUpdate hyprlandConfig commonConfig;
     };
 
-    plusultra.home.extraOptions.systemd.user.services.waybar = {
+    elementary.home.extraOptions.systemd.user.services.waybar = {
       Unit = {
         Description = "Waybar bar";
         PartOf = [ "graphical-session.target" ];
@@ -57,7 +57,7 @@ in
       };
 
       Service = {
-        ExecStart = "${config.plusultra.home.programs.waybar.package}/bin/waybar";
+        ExecStart = "${config.elementary.home.programs.waybar.package}/bin/waybar";
         ExecReload = "${pkgs.coreutils}/bin/pkill -SIGUSR2 waybar";
         Restart = "always";
       };
@@ -66,7 +66,7 @@ in
     };
 
     # FIXME: when https://github.com/nix-community/home-manager/issues/2064 is resolved
-    plusultra.home.extraOptions.systemd.user.targets.tray = {
+    elementary.home.extraOptions.systemd.user.targets.tray = {
       Unit = {
         Description = "Fake tray service to appease incorrectly written systemd services";
         Requires = [ "graphical-session-pre.target" ];

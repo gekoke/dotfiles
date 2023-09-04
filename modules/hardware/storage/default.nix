@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.hardware.storage;
+let cfg = config.elementary.hardware.storage;
 in
 {
-  options.plusultra.hardware.storage = with types; {
+  options.elementary.hardware.storage = with types; {
     enable = mkEnableOption "common filesystem and storage support";
   };
 

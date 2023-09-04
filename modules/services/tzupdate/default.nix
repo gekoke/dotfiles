@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.services.tzupdate;
+let cfg = config.elementary.services.tzupdate;
 in
 {
-  options.plusultra.services.tzupdate = with types; {
+  options.elementary.services.tzupdate = with types; {
     enable = mkEnableOption "automatic timezone updates";
   };
 

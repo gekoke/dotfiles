@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.system.boot;
+let cfg = config.elementary.system.boot;
 in
 {
-  options.plusultra.system.boot = with types; {
+  options.elementary.system.boot = with types; {
     enable = mkEnableOption "automatic bootloader support";
   };
 

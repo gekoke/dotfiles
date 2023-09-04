@@ -1,15 +1,15 @@
 { options, config, pkgs, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.hardware.networking;
+let cfg = config.elementary.hardware.networking;
 in
 {
-  options.plusultra.hardware.networking = with types; {
+  options.elementary.hardware.networking = with types; {
     enable = mkEnableOption "networking support";
   };
 
   config = mkIf cfg.enable {
-    plusultra.user.extraGroups = [ "networkmanager" ];
+    elementary.user.extraGroups = [ "networkmanager" ];
     networking.networkmanager.enable = true;
   };
 }

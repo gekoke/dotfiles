@@ -43,7 +43,7 @@
       };
     in
       lib.mkFlake {
-        package-namespace = "plusultra";
+        package-namespace = "elementary";
 
         systems.modules = with inputs; [
           agenix.nixosModules.default

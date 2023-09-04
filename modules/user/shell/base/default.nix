@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 with lib;
-let cfg = config.plusultra.user.shell.zsh;
+let cfg = config.elementary.user.shell.zsh;
 in
 {
-  options.plusultra.user.shell.base = {
+  options.elementary.user.shell.base = {
     enable = mkEnableOption "base shell configurations";
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.programs = {
+    elementary.home.programs = {
       starship = enabled;
       exa = {
         enable = true;
@@ -17,11 +17,11 @@ in
       };
     };
 
-    plusultra.home.packages = with pkgs; [
+    elementary.home.packages = with pkgs; [
       gnugrep
       trash-cli
     ];
-    plusultra.home.shellAliases = {
+    elementary.home.shellAliases = {
       i = "grep -i";
       x = "grep";
       dl = "trash";

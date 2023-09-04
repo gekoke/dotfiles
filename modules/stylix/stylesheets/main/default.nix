@@ -2,7 +2,7 @@
 
 with lib;
 {
-  options.plusultra.stylix.stylesheets.main.enable = mkEnableOption "main stylesheet";
+  options.elementary.stylix.stylesheets.main.enable = mkEnableOption "main stylesheet";
 
   config =
     let
@@ -10,10 +10,10 @@ with lib;
       borderSize = 1;
     in
     {
-      plusultra.stylix.extraOptions.targets.grub = disabled;
-      plusultra.stylix.extraHomeManagerOptions.targets.emacs = disabled;
+      elementary.stylix.extraOptions.targets.grub = disabled;
+      elementary.stylix.extraHomeManagerOptions.targets.emacs = disabled;
 
-      plusultra.stylix.extraOptions = {
+      elementary.stylix.extraOptions = {
         polarity = "dark";
         image = "${pkgs.wallpapers}/share/wallpapers/cyberpunkgirl-inverted.png";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-black.yaml";
@@ -53,9 +53,9 @@ with lib;
         };
       };
 
-      plusultra.stylix.extraHomeManagerOptions.targets.swaylock.useImage = false;
+      elementary.stylix.extraHomeManagerOptions.targets.swaylock.useImage = false;
 
-      plusultra.desktop.addons.waybar.style = ''
+      elementary.desktop.addons.waybar.style = ''
         * {
             border: none;
             border-radius: 0;
@@ -72,14 +72,14 @@ with lib;
         }
       '';
 
-      plusultra.stylix.extraHomeManagerOptions.targets.rofi = disabled;
-      plusultra.desktop.addons.rofi.rofi-collection.launcher = {
+      elementary.stylix.extraHomeManagerOptions.targets.rofi = disabled;
+      elementary.desktop.addons.rofi.rofi-collection.launcher = {
         enable = true;
         type = 1;
         style = 6;
       };
 
-      plusultra.desktop.addons.dunst.settings = {
+      elementary.desktop.addons.dunst.settings = {
         global = {
           width = 360;
           height = 110;
@@ -94,7 +94,7 @@ with lib;
       };
 
       # TODO: remove hardcoded gradient colors
-      plusultra.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
+      elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
         layerrule = blur, (waybar|notifications|gtk-layer-shell)
 
         general {

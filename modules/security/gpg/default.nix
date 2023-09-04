@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.plusultra.security.gpg;
+  cfg = config.elementary.security.gpg;
 in
 {
-  options.plusultra.security.gpg = with types; {
+  options.elementary.security.gpg = with types; {
     enable = mkEnableOption "gnupg";
   };
 
@@ -15,7 +15,7 @@ in
       dbus.packages = [ pkgs.gcr ];
     };
 
-    plusultra.home = {
+    elementary.home = {
       programs.gpg = enabled;
       packages = [ pkgs.pinentry.gnome3 ];
       services.gpg-agent =

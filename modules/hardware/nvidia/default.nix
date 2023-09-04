@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 with lib;
-let cfg = config.plusultra.hardware.nvidia;
+let cfg = config.elementary.hardware.nvidia;
 in
 {
-  options.plusultra.hardware.nvidia = with types; {
+  options.elementary.hardware.nvidia = with types; {
     enable = mkEnableOption "NVIDIA configuration";
     digitalVibranceLevel =
       mkOpt (ints.between - 1024 1023) 1023 "Digital vibrance level - integer between -1024 and 1023 (both inclusive)";
