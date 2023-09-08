@@ -39,6 +39,7 @@ in
         desktop = {
           hyprland.extraHomeManagerOptions = {
             enable = true;
+            recommendedEnvironment = true;
             enableNvidiaPatches = config.elementary.hardware.nvidia.enable;
             extraConfig =
               let
