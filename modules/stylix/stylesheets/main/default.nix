@@ -75,8 +75,8 @@ with lib;
       elementary.stylix.extraHomeManagerOptions.targets.rofi = disabled;
       elementary.desktop.addons.rofi.rofi-collection.launcher = {
         enable = true;
-        type = 1;
-        style = 6;
+        type = 4;
+        style = 5;
       };
 
       elementary.desktop.addons.dunst.settings = {
@@ -95,7 +95,7 @@ with lib;
 
       # TODO: remove hardcoded gradient colors
       elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
-        layerrule = blur, (waybar|notifications|gtk-layer-shell)
+        layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
 
         general {
             gaps_out = 10
