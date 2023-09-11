@@ -49,19 +49,6 @@ in
             modules-center = [ "hyprland/window" ];
             "hyprland/workspaces" = {
               "format" = "{name}";
-              # for persistent_workspaces, [] means 'all outputs'
-              "persistent_workspaces" = {
-                "1" = [ ];
-                "2" = [ ];
-                "3" = [ ];
-                "4" = [ ];
-                "5" = [ ];
-                "6" = [ ];
-                "7" = [ ];
-                "8" = [ ];
-                "9" = [ ];
-                "10" = [ ];
-              };
             };
           };
         in
