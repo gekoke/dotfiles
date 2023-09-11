@@ -34,6 +34,10 @@ in
       };
 
       elementary = {
+        programs.nwg-displays = {
+          enable = true;
+          enableHyprlandIntegration = true;
+        };
         services.udiskie = enabled;
 
         desktop = {
