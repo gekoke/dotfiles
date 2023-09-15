@@ -13,8 +13,8 @@ in
         package = pkgs.emacs29-pgtk;
         config = ./init.el;
         alwaysEnsure = true;
-        override = final: prev: {
-          lsp-mode = prev.melpaPackages.lsp-mode.overrideAttrs (old: {
+        override = _final: prev: {
+          lsp-mode = prev.melpaPackages.lsp-mode.overrideAttrs (_old: {
             LSP_USE_PLISTS = "true";
           });
         };

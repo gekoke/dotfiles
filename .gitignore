@@ -1,2 +1,4 @@
 /result
 .projectile
+/.direnv/
+.pre-commit-config.yaml

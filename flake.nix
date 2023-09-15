@@ -8,6 +8,13 @@
     flake-utils-plus-fix.url = "github:ravensiris/flake-utils-plus/ravensiris/fix-devshell-legacy-packages";
     snowfall-lib.inputs.flake-utils-plus.follows = "flake-utils-plus-fix";
 
+    systems.url = "github:nix-systems/default";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+
+    nix-pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -47,41 +54,59 @@
         inherit inputs;
         src = ./.;
       };
-    in
-    lib.mkFlake {
-      package-namespace = "elementary";
 
-      systems.modules = with inputs; [
-        agenix.nixosModules.default
+      eachSystem' = lib.genAttrs (import inputs.systems);
+      eachSystem = fn:
+        eachSystem' (system:
+          let
+            pkgs = import inputs.nixpkgs { inherit system; };
+          in
+          fn system pkgs);
+    in
+    lib.recursiveUpdate
+      (lib.mkFlake
         {
-          nix.settings = {
-            substituters = [
-              "https://nix-community.cachix.org"
-              "https://hyprland.cachix.org"
+          package-namespace = "elementary";
+
+          systems.modules = with inputs; [
+            agenix.nixosModules.default
+            {
+              nix.settings = {
+                substituters = [
+                  "https://nix-community.cachix.org"
+                  "https://hyprland.cachix.org"
+                ];
+                trusted-public-keys = [
+                  "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                  "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+                ];
+              };
+            }
+          ];
+
+          overlays = with inputs; [
+            emacs-overlay.overlays.default
+            nur.overlay
+          ];
+
+          channels-config = {
+            allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+              "nvidia-x11"
+              "nvidia-settings"
             ];
-            trusted-public-keys = [
-              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-              "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+            permittedInsecurePackages = [
+              "xpdf-4.04"
             ];
           };
-        }
-      ];
 
-      overlays = with inputs; [
-        emacs-overlay.overlays.default
-        nur.overlay
-      ];
-
-      channels-config = {
-        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-          "nvidia-x11"
-          "nvidia-settings"
-        ];
-        permittedInsecurePackages = [
-          "xpdf-4.04"
-        ];
-      };
-
-      formatter.x86_64-linux = (import inputs.nixpkgs { system = "x86_64-linux"; }).pkgs.nixpkgs-fmt;
-    };
+          formatter = eachSystem (_: pkgs: pkgs.nixpkgs-fmt);
+        })
+      (inputs.flake-parts.lib.mkFlake { inherit inputs; }
+        {
+          systems = (import inputs.systems);
+          imports = [
+            ./checks.nix
+            ./dev-shells.nix
+          ];
+        });
 }

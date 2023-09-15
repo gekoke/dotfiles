@@ -1,4 +1,4 @@
-{ options, config, pkgs, lib, ... }:
+{ options, config, lib, ... }:
 
 with lib;
 let cfg = config.elementary.hardware.networking;
