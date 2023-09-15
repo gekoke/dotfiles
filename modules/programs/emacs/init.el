@@ -651,6 +651,8 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   :mode "\\.tsx\\'"
   :hook (tsx-ts-mode . lsp-deferred))
 
+(use-package feature-mode)
+
 (use-package age
   :demand t
   :custom
