@@ -20,6 +20,7 @@ in
         };
         extraEmacsPackages = epkgs: with epkgs; [
           treesit-grammars.with-all-grammars
+          pkgs.kanagawa-theme
         ];
       };
       earlyInitText = readFiles [
