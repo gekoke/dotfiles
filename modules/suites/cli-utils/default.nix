@@ -32,7 +32,6 @@ in
 
     elementary.home.shellAliases = {
       "v" = "nvim";
-      "ra" = "ranger";
     };
   };
 }

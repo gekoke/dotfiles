@@ -20,5 +20,7 @@ in
       source = inputs.ranger-devicons.outPath;
       recursive = true;
     };
+
+    elementary.home.shellAliases."ra" = "ranger";
   };
 }
