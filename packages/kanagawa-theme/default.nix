@@ -4,23 +4,23 @@
 , ...
 }:
 emacsPackages.trivialBuild rec {
-   pname = "kanagawa-theme";
-   version = "2023-09-15";
+  pname = "kanagawa-theme";
+  version = "2023-09-15";
 
-   src = fetchFromGitHub {
-     owner = "konrad1977";
-     repo = "kanagawa-emacs";
-     rev = "d6e590948b72330905ebc65226f55b250c496429";
-     hash = "sha256-/vMjvsNXKktiX1a7gtkkbwvAeC3wPGtzExuMf0YXo1w=";
-   };
+  src = fetchFromGitHub {
+    owner = "konrad1977";
+    repo = "kanagawa-emacs";
+    rev = "d6e590948b72330905ebc65226f55b250c496429";
+    hash = "sha256-/vMjvsNXKktiX1a7gtkkbwvAeC3wPGtzExuMf0YXo1w=";
+  };
 
-   buildInputs = propagatedUserEnvPkgs; 
+  buildInputs = propagatedUserEnvPkgs;
 
-   propagatedUserEnvPkgs = [ emacsPackages.autothemer ];
+  propagatedUserEnvPkgs = [ emacsPackages.autothemer ];
 
-   meta = with lib; {
-     homepage = "https://github.com/konrad1977/kanagawa-emacs";
-     description = "A theme inspired by the colors of the famous painting by Katsushika Hokusa";
-     license = licenses.agpl3Plus;
-   };
+  meta = with lib; {
+    homepage = "https://github.com/konrad1977/kanagawa-emacs";
+    description = "A theme inspired by the colors of the famous painting by Katsushika Hokusa";
+    license = licenses.agpl3Plus;
+  };
 }
