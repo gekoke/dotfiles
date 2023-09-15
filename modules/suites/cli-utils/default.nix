@@ -18,7 +18,6 @@ in
     };
 
     elementary.programs = {
-      comma = enabled;
       ranger = enabled;
       neovim = enabled;
     };
