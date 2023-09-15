@@ -20,18 +20,14 @@ in
     elementary.programs = {
       comma = enabled;
       ranger = enabled;
+      neovim = enabled;
     };
 
     elementary.home.packages = with pkgs; [
       tldr
-      neovim
       btop
       pmount
       exfat
     ];
-
-    elementary.home.shellAliases = {
-      "v" = "nvim";
-    };
   };
 }
