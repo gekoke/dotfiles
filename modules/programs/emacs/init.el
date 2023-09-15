@@ -240,6 +240,15 @@
   :init
   (evilnc-default-hotkeys))
 
+(use-package evil-textobj-tree-sitter
+  :general
+  (general-def
+    :keymaps 'evil-outer-text-objects-map
+    "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+  (general-def
+    :keymaps 'evil-inner-text-objects-map
+    "f" (evil-textobj-tree-sitter-get-textobj "function.inner")))
+
 (use-package link-hint
   :general
   (gg/leader
