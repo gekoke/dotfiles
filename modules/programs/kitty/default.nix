@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 with lib;
 let cfg = config.elementary.programs.kitty;
 in
@@ -9,13 +9,15 @@ in
   };
 
   config = mkIf cfg.enable {
+    elementary.home.programs.neovim = enabled;
+
     elementary.home.programs.kitty = {
       enable = true;
       settings = {
         enable_audio_bell = false;
         update_check_interval = 0;
         confirm_os_window_close = 0;
-        scrollback_pager = "${getExe pkgs.neovim} -c 'setlocal relativenumber clipboard=unnamedplus' -c 'autocmd VimEnter * normal G' -";
+        scrollback_pager = "nvim -c 'autocmd VimEnter * normal G' -";
       };
     };
 
