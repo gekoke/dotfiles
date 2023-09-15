@@ -520,7 +520,8 @@
         "ranger-devicons": "ranger-devicons",
         "rofi-collection": "rofi-collection",
         "snowfall-lib": "snowfall-lib",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "snowfall-lib": {
@@ -615,6 +616,26 @@
         "repo": "wlroots",
         "rev": "717ded9bb0191ea31bf4368be32e7a15fe1b8294",
         "type": "gitlab"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1691847782,
+        "narHash": "sha256-o442oJ4F6tcPYmd6wiC/lnjiq7r8ANa4vPpMGB3/MKk=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "ec1cf6abbf017bd17c3e24e8dddbefe4b445b569",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "type": "github"
       }
     },
     "xdph": {
