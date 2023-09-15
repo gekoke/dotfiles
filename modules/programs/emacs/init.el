@@ -387,7 +387,7 @@
 (use-package vterm-toggle
   :general
   (gg/leader
-    "o" #'vterm-toggle))
+    "o" #'vterm-toggle-cd))
 
 (use-package magit
   :hook (magit-log-mode . magit-diff-show-or-scroll-up)
