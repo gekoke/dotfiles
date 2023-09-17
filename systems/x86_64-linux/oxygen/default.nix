@@ -24,6 +24,7 @@ with lib;
       userName = "Mari0nM";
       userEmail = "?";
       signingKey = null;
+      signByDefault = false;
       githubUsername = "Mari0nM";
     };
   };
