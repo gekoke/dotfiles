@@ -5,8 +5,8 @@ in
 {
   options.elementary.user.accounts = with types; {
     enable = mkEnableOption "user accounts configuration";
-    fullName = mkOpt str "Gregor Grigorjan" "The full name of the associated person";
-    primaryEmailAddress = mkOpt str "gregor@grigorjan.net" "The primary email address of the associated person";
+    fullName = mkOpt (nullOr str) "Gregor Grigorjan" "The full name of the associated person";
+    primaryEmailAddress = mkOpt (nullOr str) "gregor@grigorjan.net" "The primary email address of the associated person";
   };
 
   config = mkIf cfg.enable {

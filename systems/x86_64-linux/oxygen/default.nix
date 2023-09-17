@@ -6,27 +6,27 @@ with lib;
     ./hardware-configuration.nix
     common-pc
     common-pc-ssd
-    common-cpu-intel-kaby-lake
+    common-cpu-intel
     common-gpu-nvidia-nonprime
   ];
 
   elementary = {
     hardware.nvidia = enabled;
     roles.workstation = enabled;
-    secrets = enabled;
+    user = {
+      name = "gato";
+      accounts = {
+        fullName = "";
+        primaryEmailAddress = null;
+      };
+    };
+    programs.git = {
+      userName = "Mari0nM";
+      userEmail = "?";
+      signingKey = null;
+      githubUsername = "Mari0nM";
+    };
   };
-
-  boot.loader.grub.gfxmodeEfi = "1920x1080";
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      8000
-      8080
-    ];
-  };
-
-  system.stateVersion = "23.11";
 
   elementary.home.packages =
     let

@@ -1,7 +1,13 @@
-{ config, ... }:
+{ config, lib, ... }:
+with lib;
+let cfg = config.elementary.security.sudo;
+in
 {
-  # TODO: make this a proper module
-  config = {
+  options.elementary.secrets = {
+    enable = mkEnableOption "secrets management with agenix";
+  };
+
+  config = mkIf cfg.enable {
     age.identityPaths =
       let
         home = config.users.users.${config.elementary.user.name}.home;
