@@ -22,6 +22,7 @@ in
       };
 
       system.keyboard = enabled;
+      services.tzupdate = enabled;
     };
   };
 }
