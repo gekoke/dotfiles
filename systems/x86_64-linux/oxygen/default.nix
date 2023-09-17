@@ -41,4 +41,6 @@ with lib;
         }));
     in
     [ infraCourseAnsible ];
+
+  system.stateVersion = "23.11";
 }
