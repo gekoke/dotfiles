@@ -43,4 +43,7 @@ with lib;
     [ infraCourseAnsible ];
 
   system.stateVersion = "23.11";
+
+  hardware.bluetooth = enabled;
+  services.blueman = enabled;
 }
