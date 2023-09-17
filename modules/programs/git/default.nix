@@ -2,7 +2,6 @@
 with lib;
 let
   cfg = config.elementary.programs.git;
-  gpg = config.elementary.security.gpg;
   user = config.elementary.user;
 in
 {
@@ -11,6 +10,7 @@ in
     userName = mkOpt str user.accounts.fullName "The name to configure git with";
     userEmail = mkOpt str user.accounts.primaryEmailAddress "The email to configure git with";
     signingKey = mkOpt (nullOr str) "D55B9940B30A04A2" "The key ID to sign commits with";
+    signByDefault = mkOpt bool true "Whether to sign Git commits using GPG";
     githubUsername = mkOpt str "gekoke" "The GitHub username to use";
   };
 
@@ -21,7 +21,7 @@ in
         inherit (cfg) userName userEmail;
         signing = {
           key = cfg.signingKey;
-          signByDefault = mkIf gpg.enable true;
+          signByDefault = cfg.signByDefault;
         };
         extraConfig = {
           init.defaultBranch = "main";

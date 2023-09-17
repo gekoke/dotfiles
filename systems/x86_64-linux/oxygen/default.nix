@@ -24,6 +24,7 @@ with lib;
       userName = "Mari0nM";
       userEmail = "?";
       signingKey = null;
+      signByDefault = false;
       githubUsername = "Mari0nM";
     };
   };
@@ -40,4 +41,6 @@ with lib;
         }));
     in
     [ infraCourseAnsible ];
+
+  system.stateVersion = "23.11";
 }
