@@ -14,6 +14,7 @@
           deadnix.enable = true;
           nixpkgs-fmt.enable = true;
           shellcheck.enable = true;
+          statix.enable = true;
         };
         settings.deadnix.edit = true;
       };
