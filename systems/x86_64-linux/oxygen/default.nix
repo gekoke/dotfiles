@@ -16,15 +16,15 @@ with lib;
     user = {
       name = "gato";
       accounts = {
-        fullName = "";
-        primaryEmailAddress = null;
+        fullName = "Marion Martin";
+        primaryEmailAddress = "marion@marionmartin.net";
       };
     };
     programs.git = {
       userName = "Mari0nM";
-      userEmail = "?";
-      signingKey = null;
-      signByDefault = false;
+      userEmail = "marion@marionmartin.net";
+      signingKey = "FB2EB18FF2432FBB";
+      signByDefault = true;
       githubUsername = "Mari0nM";
     };
   };
