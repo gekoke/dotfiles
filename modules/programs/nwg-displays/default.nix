@@ -1,7 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
-let cfg = config.elementary.programs.nwg-displays;
+let
+  cfg = config.elementary.programs.nwg-displays;
+  package = (import inputs.nwg-displays-with-desktop-file { inherit (pkgs) system; }).pkgs.nwg-displays;
 in
 {
   options.elementary.programs.nwg-displays = {
@@ -11,7 +13,7 @@ in
 
   config = mkIf cfg.enable {
     elementary.home.packages = [
-      (pkgs.nwg-displays.override { hyprlandSupport = cfg.enableHyprlandIntegration; })
+      (package.override { hyprlandSupport = cfg.enableHyprlandIntegration; })
     ];
 
     elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = mkIf cfg.enableHyprlandIntegration ''

@@ -47,6 +47,8 @@
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
+    nwg-displays-with-desktop-file.url = "github:gekoke/nixpkgs/gekoke/nwg-displays";
+
     pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
   };
 

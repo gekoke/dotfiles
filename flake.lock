@@ -619,6 +619,22 @@
         "type": "github"
       }
     },
+    "nwg-displays-with-desktop-file": {
+      "locked": {
+        "lastModified": 1694438352,
+        "narHash": "sha256-PjgEiTAd8CbEISn+TtMHGThDMF+yVNA9JSlYGjMbaiU=",
+        "owner": "gekoke",
+        "repo": "nixpkgs",
+        "rev": "c393a35723416dc13a5a513ff9990eadecc98fea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gekoke",
+        "ref": "gekoke/nwg-displays",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pinned-swww": {
       "locked": {
         "lastModified": 1684612454,
@@ -681,6 +697,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nur": "nur",
+        "nwg-displays-with-desktop-file": "nwg-displays-with-desktop-file",
         "pinned-swww": "pinned-swww",
         "ranger-devicons": "ranger-devicons",
         "rofi-collection": "rofi-collection",
