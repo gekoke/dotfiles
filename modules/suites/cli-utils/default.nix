@@ -27,6 +27,10 @@ in
       btop
       pmount
       exfat
+      wget
+      python3
     ];
+
+    elementary.home.shellAliases."py" = "python3";
   };
 }
