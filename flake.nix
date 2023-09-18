@@ -45,6 +45,8 @@
     ranger-devicons.url = "github:alexanderjeurissen/ranger_devicons";
     ranger-devicons.flake = false;
 
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+
     pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
   };
 
@@ -90,10 +92,7 @@
           ];
 
           channels-config = {
-            allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-              "nvidia-x11"
-              "nvidia-settings"
-            ];
+            allowUnfree = true;
             permittedInsecurePackages = [
               "xpdf-4.04"
             ];

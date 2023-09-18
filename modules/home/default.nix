@@ -35,6 +35,8 @@ with lib;
 
       programs = mkAliasDefinitions options.elementary.home.programs;
       services = mkAliasDefinitions options.elementary.home.services;
+
+      nixpkgs.config.allowUnfree = true;
     };
 
     home-manager = {

@@ -26,6 +26,7 @@ in
         emacs = enabled;
         firefox = enabled;
         direnv = enabled;
+        spotify = enabled;
       };
       system.boot = enabled;
     };
