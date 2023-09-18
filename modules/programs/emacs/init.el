@@ -46,6 +46,8 @@
                 text-mode-hook))
   (add-hook hook (lambda () (display-line-numbers-mode 1))))
 
+(electric-indent-mode +1)
+(electric-pair-mode +1)
 (setq-default indent-tabs-mode nil)
 (show-paren-mode 1)
 
