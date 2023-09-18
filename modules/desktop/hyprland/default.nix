@@ -50,14 +50,8 @@ in
                   $kw = master:no_gaps_when_only
                   binde = SUPER, M, exec, hyprctl keyword $kw $(($(hyprctl getoption $kw -j | ${pkgs.jq}/bin/jq '.int') ^ 1))
                 '';
-                nvidiaEnvVars = optionalString config.elementary.hardware.nvidia.enable ''
-                  env = LIBVA_DRIVER_NAME,nvidia
-                  env = XDG_SESSION_TYPE,wayland
-                  env = GBM_BACKEND,nvidia-drm
-                  env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-                '';
               in
-              builtins.readFile ./hyprland.conf + masterMonocleCommand + nvidiaEnvVars;
+              builtins.readFile ./hyprland.conf + masterMonocleCommand;
           };
           addons = {
             waybar = enabled // { hyprlandSupport = true; };
