@@ -10,7 +10,7 @@ in
   config =
     let
       # FIXME: remove when image automatically loading on startup is fixed
-      swww = (import inputs.pinned-swww { system = pkgs.system; }).swww;
+      inherit ((import inputs.pinned-swww { inherit (pkgs) system; })) swww;
     in
     mkIf cfg.enable {
       elementary.home.packages = [ swww ];

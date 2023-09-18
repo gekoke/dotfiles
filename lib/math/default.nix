@@ -1,4 +1,4 @@
-{ ... }:
+_:
 rec {
   pow = base: exponent:
     assert builtins.isInt base;

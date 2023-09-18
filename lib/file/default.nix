@@ -1,6 +1,6 @@
 { lib, ... }:
 with lib;
 {
-  readFiles = files:
-    foldl' (txt: file: txt + (builtins.readFile file)) "" files;
+  readFiles =
+    foldl' (txt: file: txt + (builtins.readFile file)) "";
 }

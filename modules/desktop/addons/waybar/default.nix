@@ -17,7 +17,7 @@ in
       package =
         # FIXME: remove when waybar hits v0.9.23
         # Currently using a newer git revision for better persistent workspaces support
-        (pkgs.waybar.override { hyprlandSupport = cfg.hyprlandSupport; }).overrideAttrs (_: {
+        (pkgs.waybar.override { inherit (cfg) hyprlandSupport; }).overrideAttrs (_: {
           version = "v0.9.22-git-a90e27";
           src = pkgs.fetchFromGitHub {
             owner = "Alexays";

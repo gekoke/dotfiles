@@ -10,7 +10,7 @@ in
   config = mkIf cfg.enable {
     age.identityPaths =
       let
-        home = config.users.users.${config.elementary.user.name}.home;
+        inherit (config.users.users.${config.elementary.user.name}) home;
       in
       [ "${home}/.ssh/id_ed25519" ];
   };

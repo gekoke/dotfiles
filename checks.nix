@@ -4,7 +4,7 @@
     inputs.nix-pre-commit-hooks.flakeModule
   ];
 
-  perSystem = { ... }: {
+  perSystem = _: {
     pre-commit = {
       check.enable = true;
 

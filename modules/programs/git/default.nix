@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.elementary.programs.git;
-  user = config.elementary.user;
+  inherit (config.elementary) user;
 in
 {
   options.elementary.programs.git = with types; {
@@ -21,7 +21,7 @@ in
         inherit (cfg) userName userEmail;
         signing = {
           key = cfg.signingKey;
-          signByDefault = cfg.signByDefault;
+          inherit (cfg) signByDefault;
         };
         extraConfig = {
           init.defaultBranch = "main";
