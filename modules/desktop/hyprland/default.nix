@@ -43,7 +43,6 @@ in
         desktop = {
           hyprland.extraHomeManagerOptions = {
             enable = true;
-            recommendedEnvironment = true;
             enableNvidiaPatches = config.elementary.hardware.nvidia.enable;
             extraConfig =
               let
@@ -77,10 +76,7 @@ in
         };
 
         home.sessionVariables.WLR_NO_HARDWARE_CURSORS = 1;
-        home.extraOptions = {
-          imports = [ inputs.hyprland.homeManagerModules.default ];
-          wayland.windowManager.hyprland = mkAliasDefinitions options.elementary.desktop.hyprland.extraHomeManagerOptions;
-        };
+        home.extraOptions.wayland.windowManager.hyprland = mkAliasDefinitions options.elementary.desktop.hyprland.extraHomeManagerOptions;
       };
     };
 }

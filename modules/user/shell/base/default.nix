@@ -13,7 +13,7 @@ in
         enable = true;
         settings.username.show_always = true;
       };
-      exa = {
+      eza = {
         enable = true;
         enableAliases = true;
         icons = true;
