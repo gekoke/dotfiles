@@ -69,7 +69,11 @@ in
           };
         };
 
-        home.sessionVariables.WLR_NO_HARDWARE_CURSORS = 1;
+        home.sessionVariables = {
+          WLR_NO_HARDWARE_CURSORS = 1;
+          # FIXME: remove when https://github.com/nix-community/home-manager/issues/4486 is fixed
+          NIXOS_OZONE_WL = 1;
+        };
         home.extraOptions.wayland.windowManager.hyprland = mkAliasDefinitions options.elementary.desktop.hyprland.extraHomeManagerOptions;
       };
     };
