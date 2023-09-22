@@ -46,4 +46,11 @@ with lib;
 
   hardware.bluetooth = enabled;
   services.blueman = enabled;
+
+
+  elementary.virtualisation.kvm = {
+    enable = true;
+    platform = "intel";
+
+  };
 }
