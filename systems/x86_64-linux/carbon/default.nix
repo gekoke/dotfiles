@@ -1,4 +1,4 @@
-{ lib, inputs, pkgs, ... }:
+{ lib, inputs, ... }:
 
 with lib;
 {
@@ -27,17 +27,4 @@ with lib;
   };
 
   system.stateVersion = "23.11";
-
-  elementary.home.packages =
-    let
-      infraCourseAnsible = pkgs.python3Packages.toPythonApplication
-        (pkgs.python3Packages.ansible-core.overridePythonAttrs (oldAttrs: rec {
-          version = "2.13.11";
-          src = oldAttrs.src.override {
-            inherit version;
-            hash = "sha256-nqAFlNzutLVoKIUoMqvt7S6IopSgPDlZ2kmaQ+UW9oA=";
-          };
-        }));
-    in
-    [ infraCourseAnsible ];
 }
