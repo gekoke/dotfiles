@@ -51,6 +51,6 @@ with lib;
   elementary.virtualisation.kvm = {
     enable = true;
     platform = "intel";
-
+    vfioIds = [ "10de:2482" "10de:228b" ];
   };
 }
