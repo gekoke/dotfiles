@@ -25,6 +25,11 @@
       fsType = "vfat";
     };
 
+  fileSystems."/windata" =
+    { device = "/dev/disk/by-uuid/2c80b5b4-3d73-4a9a-90e4-aaa27f9605a9";
+      fsType = "ext4";
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
