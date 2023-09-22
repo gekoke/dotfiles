@@ -40,7 +40,10 @@ with lib;
           };
         }));
     in
-    [ infraCourseAnsible ];
+    with pkgs; [
+      infraCourseAnsible
+      discord
+    ];
 
   system.stateVersion = "23.11";
 
