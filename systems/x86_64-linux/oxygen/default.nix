@@ -44,6 +44,7 @@ with lib;
       infraCourseAnsible
       discord
       qbittorrent
+      mpv
     ];
 
   system.stateVersion = "23.11";
