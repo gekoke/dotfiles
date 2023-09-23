@@ -52,6 +52,7 @@ with lib;
   hardware.bluetooth = enabled;
   services.blueman = enabled;
 
+  programs.steam = enabled;
 
   elementary.virtualisation.kvm = {
     enable = true;
