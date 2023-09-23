@@ -43,6 +43,7 @@ with lib;
     with pkgs; [
       infraCourseAnsible
       discord
+      qbittorrent
     ];
 
   system.stateVersion = "23.11";
