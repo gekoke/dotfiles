@@ -19,7 +19,7 @@ in
 
     elementary.programs = {
       ranger = enabled;
-      neovim = enabled;
+      neovim = enabled // { defaultEditor = true; };
     };
 
     elementary.home.packages = with pkgs; [
