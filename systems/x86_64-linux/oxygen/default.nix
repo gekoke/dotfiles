@@ -53,10 +53,4 @@ with lib;
   services.blueman = enabled;
 
   programs.steam = enabled;
-
-  elementary.virtualisation.kvm = {
-    enable = true;
-    platform = "intel";
-    vfioIds = [ "10de:2482" "10de:228b" ];
-  };
 }
