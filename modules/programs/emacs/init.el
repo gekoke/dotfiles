@@ -90,11 +90,7 @@
   :config
   (remember-last-theme-enable))
 
-<<<<<<< HEAD
-(set-frame-font "VictorMono Nerd Font Mono Bold 12" t t)
-=======
-(set-frame-font "VictorMono Nerd Font Mono Bold 12" nil t)
->>>>>>> 56a8f79 (fixup! fix(emacs): add opt-in for electric-pair-mode)
+(set-frame-font "VictorMono Nerd Font:pixelsize=15:weight=semi-bold" nil t)
 
 (use-package ligature
   :config
