@@ -47,9 +47,10 @@
   (add-hook hook (lambda () (display-line-numbers-mode 1))))
 
 (electric-indent-mode +1)
-(electric-pair-mode +1)
 (setq-default indent-tabs-mode nil)
 (show-paren-mode 1)
+
+(electric-pair-mode +1)
 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 
@@ -89,7 +90,11 @@
   :config
   (remember-last-theme-enable))
 
+<<<<<<< HEAD
 (set-frame-font "VictorMono Nerd Font Mono Bold 12" t t)
+=======
+(set-frame-font "VictorMono Nerd Font Mono Bold 12" nil t)
+>>>>>>> 56a8f79 (fixup! fix(emacs): add opt-in for electric-pair-mode)
 
 (use-package ligature
   :config
@@ -548,6 +553,8 @@
     "g h" #'lsp-ui-doc-glance))
 
 (use-package parinfer-rust-mode
+  :custom
+  (parinfer-rust-troublesome-modes ())
   :hook emacs-lisp-mode)
 
 (use-package lsp-nix
