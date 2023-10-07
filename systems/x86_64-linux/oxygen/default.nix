@@ -50,7 +50,15 @@ with lib;
   system.stateVersion = "23.11";
 
   hardware.bluetooth = enabled;
-  services.blueman = enabled;
 
   programs.steam = enabled;
+
+  services = {
+    blueman = enabled;
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
+  };
 }
