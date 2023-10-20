@@ -56,14 +56,6 @@
         src = ./.;
         snowfall.namespace = "elementary";
       };
-
-      eachSystem' = lib.genAttrs (import inputs.systems);
-      eachSystem = fn:
-        eachSystem' (system:
-          let
-            pkgs = import inputs.nixpkgs { inherit system; };
-          in
-          fn system pkgs);
     in
     lib.recursiveUpdate
       (lib.mkFlake
@@ -95,8 +87,6 @@
               "xpdf-4.04"
             ];
           };
-
-          formatter = eachSystem (_: pkgs: pkgs.nixpkgs-fmt);
         })
       (inputs.flake-parts.lib.mkFlake { inherit inputs; }
         {
@@ -104,6 +94,7 @@
           imports = [
             ./checks.nix
             ./dev-shells.nix
+            ./formatter.nix
           ];
         });
 }
