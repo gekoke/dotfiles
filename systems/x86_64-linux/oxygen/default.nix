@@ -40,17 +40,25 @@ with lib;
           };
         }));
     in
-    [ infraCourseAnsible ];
+    with pkgs; [
+      infraCourseAnsible
+      discord
+      qbittorrent
+      mpv
+    ];
 
   system.stateVersion = "23.11";
 
   hardware.bluetooth = enabled;
-  services.blueman = enabled;
 
+  programs.steam = enabled;
 
-  elementary.virtualisation.kvm = {
-    enable = true;
-    platform = "intel";
-
+  services = {
+    blueman = enabled;
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
   };
 }
