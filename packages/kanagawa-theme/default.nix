@@ -18,9 +18,9 @@ emacsPackages.trivialBuild rec {
 
   propagatedUserEnvPkgs = [ emacsPackages.autothemer ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/konrad1977/kanagawa-emacs";
     description = "A theme inspired by the colors of the famous painting by Katsushika Hokusa";
-    license = licenses.agpl3Plus;
+    license = lib.licenses.agpl3Plus;
   };
 }

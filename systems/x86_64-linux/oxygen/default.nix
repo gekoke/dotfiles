@@ -1,6 +1,7 @@
 { lib, inputs, pkgs, ... }:
 
 with lib;
+with lib.elementary;
 {
   imports = with inputs.nixos-hardware.nixosModules; [
     ./hardware-configuration.nix

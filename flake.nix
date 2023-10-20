@@ -57,6 +57,7 @@
       lib = inputs.snowfall-lib.mkLib {
         inherit inputs;
         src = ./.;
+        snowfall.namespace = "elementary";
       };
 
       eachSystem' = lib.genAttrs (import inputs.systems);
@@ -70,9 +71,7 @@
     lib.recursiveUpdate
       (lib.mkFlake
         {
-          package-namespace = "elementary";
-
-          systems.modules = with inputs; [
+          systems.modules.nixos = with inputs; [
             agenix.nixosModules.default
             {
               nix.settings = {
