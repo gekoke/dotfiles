@@ -4,9 +4,6 @@
 
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
-    # FIXME: can be removed after https://github.com/gytis-ivaskevicius/flake-utils-plus/pull/134 is merged
-    flake-utils-plus-fix.url = "github:ravensiris/flake-utils-plus/ravensiris/fix-devshell-legacy-packages";
-    snowfall-lib.inputs.flake-utils-plus.follows = "flake-utils-plus-fix";
 
     systems.url = "github:nix-systems/default";
 
