@@ -71,8 +71,8 @@
     lib.recursiveUpdate
       (lib.mkFlake
         {
-          systems.modules.nixos = with inputs; [
-            agenix.nixosModules.default
+          systems.modules.nixos = [
+            inputs.agenix.nixosModules.default
             {
               nix.settings = {
                 substituters = [
@@ -87,9 +87,9 @@
             }
           ];
 
-          overlays = with inputs; [
-            emacs-overlay.overlays.default
-            nur.overlay
+          overlays = [
+            inputs.emacs-overlay.overlays.default
+            inputs.nur.overlay
           ];
 
           channels-config = {
