@@ -29,8 +29,3 @@ jobs:
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
             ```
-      - name: Create pull request
-        if: ${{ steps.update.outputs.pull-request-number }}
-        run: gh pr merge ${{ steps.update.outputs.pull-request-number }} --auto --squash --delete-branch
-        env:
-          GH_TOKEN: ${{ github.token }}
