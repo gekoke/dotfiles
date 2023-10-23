@@ -2,7 +2,7 @@ name: update flake.lock
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 8 * * 6'
+    - cron: '0 21 1 * *'
 
 jobs:
   lockfile:
@@ -27,4 +27,3 @@ jobs:
             
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
-
