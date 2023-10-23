@@ -13,7 +13,13 @@ with lib.elementary;
   };
 
   config = {
-    elementary.stylix.stylesheets.main = enabled;
+    elementary.stylix = {
+      stylesheets.main = enabled;
+
+      # FIXME: remove when https://github.com/danth/stylix/issues/180 is fixed
+      extraHomeManagerOptions.targets.xfce = disabled;
+    };
+
 
     stylix = mkAliasDefinitions options.elementary.stylix.extraOptions;
     elementary.home.extraOptions.stylix = mkAliasDefinitions options.elementary.stylix.extraHomeManagerOptions;
