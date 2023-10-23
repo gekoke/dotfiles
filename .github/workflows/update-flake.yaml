@@ -16,7 +16,6 @@ jobs:
         id: update
         uses: DeterminateSystems/update-flake-lock@v19
         with:
-          inputs: nixpkgs
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           commit-msg: "chore: update flake.lock"
           pr-title: "Update flake.lock"
@@ -28,4 +27,4 @@ jobs:
             
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
-            ```
+
