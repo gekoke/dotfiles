@@ -33,8 +33,7 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     stylix.url = "github:danth/stylix";
-
-    base16.url = "github:SenchoPens/base16.nix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     rofi-collection.url = "github:adi1090x/rofi";
     rofi-collection.flake = false;
