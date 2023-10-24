@@ -766,8 +766,7 @@
         "snowfall-lib": "snowfall-lib",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "systems": "systems_6",
-        "wrapper-manager": "wrapper-manager"
+        "systems": "systems_6"
       }
     },
     "snowfall-lib": {
@@ -948,26 +947,6 @@
         "repo": "wlroots",
         "rev": "3406c1b17a4a7e6d4e2a7d9c1176affa72bce1bc",
         "type": "gitlab"
-      }
-    },
-    "wrapper-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1696533974,
-        "narHash": "sha256-SYRE2nf/C40G1DZi93EeZTdTyU+5llEjXDI+jGx9pQI=",
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "rev": "d0f2277e1b1e0d95e29015e602991a1cf4e7fcf7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "viperML",
-        "repo": "wrapper-manager",
-        "type": "github"
       }
     },
     "xdph": {
