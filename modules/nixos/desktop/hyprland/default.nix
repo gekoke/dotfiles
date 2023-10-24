@@ -11,15 +11,8 @@ in
     extraConfig = mkOpt str "" "Extra Hyprland configuration";
   };
 
-  # TODO: add OBS/screen recording support
   config =
     mkIf cfg.enable {
-      environment.systemPackages = with pkgs; [
-        libsForQt5.qt5.qtwayland
-        libsForQt5.qt5ct
-        libva
-      ];
-
       programs.hyprland = {
         enable = true;
         enableNvidiaPatches = config.elementary.hardware.nvidia.enable;
