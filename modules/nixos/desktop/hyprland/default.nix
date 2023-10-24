@@ -1,14 +1,10 @@
-{ config, lib, pkgs, inputs, options, ... }:
+{ config, lib, pkgs, options, ... }:
 
 with lib;
 with lib.elementary;
 let cfg = config.elementary.desktop.hyprland;
 in
 {
-  imports = [
-    inputs.hyprland.nixosModules.default
-  ];
-
   options.elementary.desktop.hyprland = with types; {
     enable = mkEnableOption "Hyprland window manager";
     extraHomeManagerOptions = mkOpt attrs { } "Options to pass directly to the Hyprland home-manager module";
