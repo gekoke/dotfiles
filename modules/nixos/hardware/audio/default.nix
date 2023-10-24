@@ -13,7 +13,7 @@ in
     security.rtkit = enabled;
 
     services.pipewire = enabled // {
-      alsa = enabled;
+      alsa = enabled // { support32Bit = true; };
       pulse = enabled;
       jack = enabled;
       wireplumber = enabled;
@@ -21,18 +21,9 @@ in
 
     hardware.pulseaudio.enable = mkForce false;
 
-    elementary.user.extraGroups = [ "audio" ];
-
-    elementary.home.packages = with pkgs; [
-      pavucontrol
-      easyeffects
-    ];
-
-    elementary.home.services.mpd.extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "pipewire_mpd_output"
-      }
-    '';
+    elementary = {
+      home.packages = [ pkgs.pavucontrol ];
+      user.extraGroups = [ "audio" ];
+    };
   };
 }
