@@ -1,4 +1,4 @@
-{ config, lib, pkgs, options, ... }:
+{ config, lib, pkgs, inputs, options, ... }:
 
 with lib;
 with lib.elementary;
@@ -16,6 +16,10 @@ in
       programs.hyprland = {
         enable = true;
         enableNvidiaPatches = config.elementary.hardware.nvidia.enable;
+        # Only using Hyprland flake package for new features
+        # (see https://github.com/hyprwm/Hyprland/issues/1947#issuecomment-1778605392)
+        # FIXME: can be removed after nixpkgs bumps version to v0.31
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       };
 
       xdg.portal = {

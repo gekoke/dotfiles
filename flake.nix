@@ -22,6 +22,9 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
 
