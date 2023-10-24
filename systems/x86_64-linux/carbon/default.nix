@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.elementary;
@@ -15,6 +15,10 @@ with lib.elementary;
     hardware.nvidia = enabled;
     roles.workstation = enabled;
     secrets = enabled;
+    home.packages = [
+      pkgs.zoom-us
+      pkgs.jetbrains.idea-community
+    ];
   };
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
