@@ -12,6 +12,7 @@ with lib.elementary;
   ];
 
   elementary = {
+    virtualisation.docker = enabled;
     hardware.nvidia = enabled;
     roles.workstation = enabled;
     secrets = enabled;
