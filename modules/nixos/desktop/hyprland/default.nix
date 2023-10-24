@@ -20,7 +20,10 @@ in
 
       xdg.portal = {
         enable = true;
-        # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+        # See https://github.com/NixOS/nixpkgs/issues/239886
+        # Enable xdg-desktop-portal-gtk unless we already have it from Gnome DE
+        extraPortals = lib.optionals (!config.services.xserver.desktopManager.gnome.enable) [ pkgs.xdg-desktop-portal-gtk ];
       };
 
       elementary = {
