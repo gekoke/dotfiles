@@ -9,7 +9,10 @@ with lib.elementary;
     mkMerge [
       {
         elementary.stylix.extraOptions.targets.grub = disabled;
-        elementary.stylix.extraHomeManagerOptions.targets.emacs = disabled;
+        elementary.stylix.extraHomeManagerOptions.targets = {
+          emacs = disabled;
+          hyprland = disabled;
+        };
 
         elementary.stylix.extraOptions = {
           polarity = "dark";
