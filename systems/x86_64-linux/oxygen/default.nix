@@ -42,10 +42,17 @@ with lib.elementary;
         }));
     in
     with pkgs; [
-      infraCourseAnsible
       discord
       qbittorrent
       mpv
+
+      signal-desktop
+      librewolf
+
+      vscode
+      infraCourseAnsible
+      ansible-lint
+      ansible-language-server
     ];
 
   system.stateVersion = "23.11";
