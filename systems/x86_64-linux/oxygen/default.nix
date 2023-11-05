@@ -28,6 +28,13 @@ with lib.elementary;
       signByDefault = true;
       githubUsername = "Mari0nM";
     };
+    programs = {
+      alacritty = {
+        enable = true;
+        enableHotkey = true;
+      };
+      kitty.enableHotkey = mkForce false;
+    };
   };
 
   elementary.home.packages =
