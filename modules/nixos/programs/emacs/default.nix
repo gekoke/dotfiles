@@ -49,6 +49,8 @@ in
         xpdf
         # consult
         ripgrep
+        # magit-delta
+        delta
         # lsp-nix
         nil
         nixpkgs-fmt

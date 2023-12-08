@@ -413,6 +413,11 @@
     "k" #'magit-section-backward-sibling
     "j" #'magit-section-forward-sibling))
 
+(use-package magit-delta
+  :hook (magit-mode . magit-delta-mode)
+  :custom
+  (magit-delta-hide-plus-minus-markers nil))
+
 (use-package forge
   :after magit
   :custom
