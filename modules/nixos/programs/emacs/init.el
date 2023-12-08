@@ -90,7 +90,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-frame-font "FiraCode Nerd Font:pixelsize=15:weight=semi-bold" nil t)
+(set-frame-font "Iosevka Nerd Font:pixelsize=16:weight=semi-bold" nil t)
 
 (use-package ligature
   :config
