@@ -283,7 +283,7 @@
 
   (dirvish-mode-line-format '(:left (sort symlink omit) :right (vc-info yank index)))
   (dirvish-header-line-format '(:left (path) :right (free-space)))
-  (dirvish-path-separators (list "  " "  " "  "))
+  (dirvish-path-separators (list "   " "   " "  "))
 
   (delete-by-moving-to-trash t)
 
