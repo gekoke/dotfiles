@@ -73,11 +73,10 @@
   :init
   (doom-modeline-mode 1)
   :custom
-  ((doom-modeline-height 42)
-   (doom-modeline-indent-info t)
-   (doom-modeline-modal-icon nil)
-   (doom-modeline-display-default-persp-name t)
-   (doom-modeline-buffer-file-name-style 'truncate-nil)))
+  (doom-modeline-height 30)
+  (doom-modeline-indent-info t)
+  (doom-modeline-display-default-persp-name t)
+  (doom-modeline-buffer-file-name-style 'truncate-nil))
 
 (setq custom-safe-themes t)
 (use-package doom-themes)
