@@ -481,11 +481,9 @@
   :config
   (persp-mode 1))
 
-(use-package direnv
-  :custom
-  (direnv-always-show-summary nil)
+(use-package envrc
   :config
-  (direnv-mode))
+  (envrc-global-mode))
 
 (use-package cape
   :init
