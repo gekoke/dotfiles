@@ -50,7 +50,11 @@
 (setq-default indent-tabs-mode nil)
 (show-paren-mode 1)
 
-(electric-pair-mode +1)
+(use-package smartparens-mode
+  :ensure smartparens
+  :hook (prog-mode text-mode markdown-mode)
+  :config
+  (require 'smartparens-config))
 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 
