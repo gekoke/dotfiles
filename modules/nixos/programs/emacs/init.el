@@ -79,7 +79,6 @@
   :custom
   (doom-modeline-height 30)
   (doom-modeline-indent-info t)
-  (doom-modeline-display-default-persp-name t)
   (doom-modeline-buffer-file-name-style 'truncate-nil))
 
 (setq custom-safe-themes t)
@@ -93,7 +92,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-frame-font "Iosevka Nerd Font:pixelsize=16:weight=semi-bold" nil t)
+(set-frame-font "Iosevka Nerd Font:pixelsize=15:weight=semi-bold" nil t)
 
 (use-package ligature
   :config
@@ -478,16 +477,6 @@
     "B" #'consult-buffer)
   (general-def projectile-command-map
     "p" #'consult-projectile-switch-project))
-
-(use-package persp-mode
-  :custom
-  (persp-nil-name "main")
-  (persp-auto-resume-time 0.001)
-  :general
-  (gg/leader
-    "TAB" '(:keymap persp-key-map :which-key "Perspective"))
-  :config
-  (persp-mode 1))
 
 (use-package envrc
   :config
