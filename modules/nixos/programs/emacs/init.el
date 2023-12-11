@@ -81,6 +81,15 @@
   (doom-modeline-indent-info t)
   (doom-modeline-buffer-file-name-style 'truncate-nil))
 
+(use-package nyan-mode
+  :after doom-modeline
+  :init
+  (nyan-mode 1)
+  :custom
+  (nyan-animation-frame-interval (/ 1.0 20))
+  (nyan-animate-nyancat nil)
+  (nyan-wavy-trail t))
+
 (use-package dashboard
   :after (consult consult-projectile nerd-icons)
   :demand t
