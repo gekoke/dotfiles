@@ -11,7 +11,7 @@ in
   config =
     let
       emacsPackage = pkgs.emacsWithPackagesFromUsePackage {
-        package = pkgs.emacs29-pgtk;
+        package = pkgs.emacs29-pgtk.override { withImageMagick = true; };
         config = ./init.el;
         alwaysEnsure = true;
         override = _final: prev: {
