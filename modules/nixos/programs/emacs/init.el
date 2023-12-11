@@ -4,6 +4,7 @@
 (setq read-process-output-max (* 1024 1024))
 
 (setq use-package-always-ensure t)
+(setq use-package-always-demand t)
 
 (use-package general
   :config
@@ -52,6 +53,7 @@
 
 (use-package smartparens-mode
   :ensure smartparens
+  :defer t
   :hook (prog-mode text-mode markdown-mode)
   :config
   (require 'smartparens-config))
@@ -680,6 +682,7 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
 
 (use-package tsx-ts-mode
   :ensure nil
+  :defer t
   :mode "\\.tsx\\'"
   :hook (tsx-ts-mode . lsp-deferred))
 
