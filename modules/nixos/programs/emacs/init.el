@@ -225,6 +225,7 @@
   :custom
   (evil-want-keybinding nil)
   (evil-want-C-u-scroll t)
+  (evil-want-minibuffer t)
   (evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
