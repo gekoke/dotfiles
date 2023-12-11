@@ -682,6 +682,9 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   :mode "\\.tsx\\'"
   :hook (tsx-ts-mode . lsp-deferred))
 
+(use-package yaml-mode
+  :mode ("\\.\\(yml\\|yaml\\)\\'"))
+
 (use-package feature-mode)
 
 (use-package age
