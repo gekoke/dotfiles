@@ -70,7 +70,7 @@
 (gg/leader
   "t o" #'gg/set-background-opacity)
 
-(use-package nerd-icons)
+(use-package nerd-icons :demand t)
 
 (use-package doom-modeline
   :after nerd-icons
@@ -80,6 +80,29 @@
   (doom-modeline-height 30)
   (doom-modeline-indent-info t)
   (doom-modeline-buffer-file-name-style 'truncate-nil))
+
+(use-package dashboard
+  :after (consult consult-projectile nerd-icons)
+  :demand t
+  :init
+  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+  (add-hook 'dashboard-after-initialize-hook 'dashboard-jump-to-projects)
+  :custom
+  (dashboard-startup-banner 'logo)
+  (dashboard-set-init-info t)
+  (dashboard-center-content t)
+
+  (dashboard-icon-type 'nerd-icons)
+  (dashboard-display-icons-p t)
+  (dashboard-set-heading-icons t)
+  (dashboard-set-file-icons t)
+
+  (dashboard-items '((recents . 5)
+                     (projects . 5)))
+
+  (dashboard-projects-switch-function 'consult-projectile--file)
+  :config
+  (dashboard-setup-startup-hook))
 
 (setq custom-safe-themes t)
 (use-package doom-themes)
@@ -153,6 +176,7 @@
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
   :after remember-last-theme
+  :demand t
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :custom
   (xref-show-xrefs-function #'consult-xref)
@@ -470,6 +494,7 @@
     "A" #'projectile-find-other-file))
 
 (use-package consult-projectile
+  :demand t
   :general
   (gg/leader
     "SPC" #'consult-projectile
