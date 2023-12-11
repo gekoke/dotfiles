@@ -72,7 +72,7 @@
 (gg/leader
   "t o" #'gg/set-background-opacity)
 
-(use-package nerd-icons :demand t)
+(use-package nerd-icons)
 
 (use-package doom-modeline
   :after nerd-icons
@@ -94,7 +94,6 @@
 
 (use-package dashboard
   :after (consult consult-projectile nerd-icons)
-  :demand t
   :init
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (add-hook 'dashboard-after-initialize-hook 'dashboard-jump-to-projects)
@@ -187,7 +186,6 @@
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
   :after remember-last-theme
-  :demand t
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :custom
   (xref-show-xrefs-function #'consult-xref)
@@ -224,7 +222,6 @@
   (global-undo-tree-mode))
 
 (use-package evil
-  :demand t
   :custom
   (evil-want-keybinding nil)
   (evil-want-C-u-scroll t)
@@ -505,7 +502,6 @@
     "A" #'projectile-find-other-file))
 
 (use-package consult-projectile
-  :demand t
   :general
   (gg/leader
     "SPC" #'consult-projectile
@@ -587,7 +583,6 @@
 (use-package lsp-nix
   :ensure lsp-mode
   :after lsp-mode
-  :demand t
   :custom
   (lsp-nix-nil-formatter ["nixpkgs-fmt"]))
 
@@ -689,7 +684,6 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
 (use-package feature-mode)
 
 (use-package age
-  :demand t
   :custom
   (age-program "rage")
   (age-default-identity "~/.ssh/id_ed25519")
