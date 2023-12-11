@@ -117,9 +117,6 @@
 (setq custom-safe-themes t)
 (use-package doom-themes)
 (use-package catppuccin-theme :custom (catppuccin-flavor 'macchiato))
-(use-package darcula-theme)
-(use-package color-theme-sanityinc-tomorrow)
-(use-package kanagawa-theme :ensure nil)
 
 (use-package remember-last-theme
   :config
