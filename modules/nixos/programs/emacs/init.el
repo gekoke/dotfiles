@@ -49,6 +49,7 @@
 
 (electric-indent-mode +1)
 (setq-default indent-tabs-mode nil)
+(setq-default truncate-lines t)
 (show-paren-mode 1)
 
 (use-package smartparens
