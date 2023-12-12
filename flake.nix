@@ -55,20 +55,19 @@
       };
     in
     lib.recursiveUpdate
-      (lib.mkFlake
-        {
-          systems.modules.nixos = [
-            inputs.agenix.nixosModules.default
-            { nix.settings = import ./settings.nix; }
-          ];
+      (lib.mkFlake {
+        systems.modules.nixos = [
+          inputs.agenix.nixosModules.default
+          { nix.settings = import ./settings.nix; }
+        ];
 
-          overlays = [
-            inputs.emacs-overlay.overlays.default
-            inputs.nur.overlay
-          ];
+        overlays = [
+          inputs.emacs-overlay.overlays.default
+          inputs.nur.overlay
+        ];
 
-          channels-config.allowUnfree = true;
-        })
+        channels-config.allowUnfree = true;
+      })
       (inputs.flake-parts.lib.mkFlake { inherit inputs; }
         {
           systems = import inputs.systems;
