@@ -429,21 +429,14 @@
 
 (use-package magit
   :hook (magit-log-mode . magit-diff-show-or-scroll-up)
-  :init
-  (defun gg/bury-magit-buffer-and-revision ()
-    (interactive)
-    (ignore-errors (magit-log-bury-buffer -1))
-    (magit-mode-bury-buffer))
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
-  (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  (magit-bury-buffer-function #'magit-restore-window-configuration)
+  (magit-revision-show-gravatars t)
+  (magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   :general
   (gg/leader
     "v" #'magit-status)
-  (general-def
-    :states '(normal visual)
-    :keymaps 'magit-mode-map
-    "q" #'gg/bury-magit-buffer-and-revision)
   (general-def
     :states '(normal visual)
     :keymaps 'magit-log-mode-map
