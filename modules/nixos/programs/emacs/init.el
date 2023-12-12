@@ -488,7 +488,8 @@
   (gg/leader
     "g" '(:ignore t :which-key "VC")
     "g s" #'diff-hl-stage-current-hunk
-    "g r" #'diff-hl-revert-hunk))
+    "g r" #'diff-hl-revert-hunk
+    "g h" #'diff-hl-show-hunk))
 
 (use-package hl-todo
   :config
