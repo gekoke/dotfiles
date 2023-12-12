@@ -46,7 +46,6 @@ in
         mediainfo
         gnutar
         unzip
-        xpdf
         # consult
         ripgrep
         # magit-delta

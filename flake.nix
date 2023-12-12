@@ -78,12 +78,7 @@
             inputs.nur.overlay
           ];
 
-          channels-config = {
-            allowUnfree = true;
-            permittedInsecurePackages = [
-              "xpdf-4.04"
-            ];
-          };
+          channels-config.allowUnfree = true;
         })
       (inputs.flake-parts.lib.mkFlake { inherit inputs; }
         {
