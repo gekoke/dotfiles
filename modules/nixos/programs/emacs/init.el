@@ -558,9 +558,9 @@
     "g h" #'lsp-ui-doc-glance))
 
 (use-package parinfer-rust-mode
+  :hook emacs-lisp-mode
   :custom
-  (parinfer-rust-troublesome-modes ())
-  :hook emacs-lisp-mode)
+  (parinfer-rust-troublesome-modes ()))
 
 (use-package lsp-nix
   :ensure lsp-mode
