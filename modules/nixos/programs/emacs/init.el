@@ -436,6 +436,7 @@
 (use-package magit-delta
   :hook (magit-mode . magit-delta-mode)
   :custom
+  (magit-delta-default-dark-theme "OneHalfDark")
   (magit-delta-hide-plus-minus-markers nil))
 
 (use-package forge
