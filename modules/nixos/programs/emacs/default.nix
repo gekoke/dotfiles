@@ -57,15 +57,8 @@ in
         rage
         # parinfer-rust-mode
         parinfer-rust
-        # lsp-haskell
-        haskell-language-server
-        ghc
         # YAML
         yaml-language-server
-        # html-mode, css-mode etc
-        nodePackages.vscode-langservers-extracted
-        # JS/TS
-        nodePackages.typescript-language-server
       ];
 
       elementary.home = {

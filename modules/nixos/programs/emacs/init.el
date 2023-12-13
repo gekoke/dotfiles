@@ -523,13 +523,7 @@
 
 (use-package flycheck
   :init
-  (global-flycheck-mode)
-  :custom
-  (flycheck-indication-mode nil))
-
-(use-package yasnippet
-  :init
-  (yas-global-mode 1))
+  (global-flycheck-mode))
 
 (use-package lsp-mode
   :init
@@ -551,13 +545,11 @@
   (gg/leader lsp-mode-map
     "l" '(:keymap lsp-command-map))
   (general-def lsp-command-map
-    "= r" #'lsp-format-region)
-  :commands lsp)
+    "= r" #'lsp-format-region))
 
 (use-package lsp-ui
   :after lsp-mode
   :hook (prog-mode . lsp-ui-mode)
-  :commands lsp-ui-mode
   :custom
   (lsp-ui-doc-position 'at-point)
   :general
@@ -579,19 +571,6 @@
 (use-package nix-mode
   :hook (nix-mode . lsp-deferred))
 
-(use-package haskell-mode
-  :after markdown-mode
-  :init
-  (add-to-list 'markdown-code-lang-modes '("hs" . haskell-mode))
-  (add-to-list 'markdown-code-lang-modes '("haskell" . haskell-mode)))
-
-(use-package lsp-haskell
-  :defer t
-  :hook
-  (haskell-mode . lsp-deferred)
-  :custom
-  (lsp-haskell-server-path (executable-find "haskell-language-server-wrapper")))
-
 (use-package markdown-mode
   :custom
   (markdown-fontify-code-blocks-natively t)
@@ -610,67 +589,6 @@
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 
-(use-package impatient-mode
-  :after web-mode
-  :hook (web-mode . impatient-mode))
-
-(use-package lsp-html
-  :ensure nil
-  :defer t
-  :hook
-  (html-mode . lsp-deferred))
-
-(use-package css-mode :ensure nil)
-
-(use-package lsp-css
-  :ensure nil
-  :defer t
-  :hook
-  (css-mode . lsp-deferred))
-
-(use-package emmet-mode
-  :hook
-  (html-mode-hook . emmet-mode)
-  (css-mode-hook. emmet-mode)
-  :init
-  (defun gg/indent-or-yas-or-emmet-expand ()
-    "Do-what-I-mean on TAB.
-
-Invokes `indent-for-tab-command' if at or before text bol, `yas-expand' if on a
-snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
-`yas-minor-mode' is enabled or not."
-    (interactive)
-    (call-interactively
-     (cond ((or (<= (current-column) (current-indentation))
-                (not (eolp))
-                (not (or (memq (char-after) (list ?\n ?\s ?\t))
-                         (eobp))))
-            #'indent-for-tab-command)
-           ((require 'yasnippet)
-            (if (yas--templates-for-key-at-point)
-                #'yas-expand
-              #'emmet-expand-yas))
-           (#'emmet-expand-line))))
-  :general
-  (general-def
-    :keymap 'emmet-mode-map
-    :states 'visual
-    "TAB" #'emmet-wrap-with-markup)
-  (general-def 
-    :keymap 'emmet-mode-map
-    "TAB" #'gg/indent-or-yas-or-emmet-expand))
-
-(use-package typescript-ts-mode
-  :ensure nil
-  :mode "\\.ts\\'"
-  :hook (typescript-ts-mode . lsp-deferred))
-
-(use-package tsx-ts-mode
-  :ensure nil
-  :defer t
-  :mode "\\.tsx\\'"
-  :hook (tsx-ts-mode . lsp-deferred))
-
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
 
@@ -685,13 +603,8 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
   (age-file-enable))
 
 (general-def
-  "<escape>" #'keyboard-escape-quit
   "C--" #'text-scale-decrease
   "C-=" #'text-scale-increase)
-
-(general-def
-  :states 'insert
-  "C-." #'completion-at-point)
 
 (gg/leader
   "." #'find-file
@@ -709,12 +622,5 @@ snippet, or `emmet-expand-yas'/`emmet-expand-line', depending on whether
 (gg/leader
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
-
-(defun gg/nix-fetch ()
-  "Fetch source from URL and paste corresponding Nix fetching code in the buffer."
-  (interactive)
-  (message "Fetching...")
-  (let ((url (read-string "Enter source URL: ")))
-    (shell-command (concat "nix run nixpkgs#nurl -- " url " 2>/dev/null") t)))
 
 (load custom-file 'noerror)
