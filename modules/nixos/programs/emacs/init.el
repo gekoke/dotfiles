@@ -99,6 +99,7 @@
   :init
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (add-hook 'dashboard-after-initialize-hook 'dashboard-jump-to-projects)
+  (add-hook 'dashboard-after-initialize-hook (lambda () (setq-local global-hl-line-mode nil)))
   :custom
   (dashboard-startup-banner 'logo)
   (dashboard-set-init-info t)
