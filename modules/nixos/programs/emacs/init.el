@@ -392,17 +392,10 @@
   (completion-ignore-case t)
   (corfu-auto t)
   (corfu-cycle t)
-  (corfu-auto-delay 0)
+  (corfu-auto-delay (/ 1.0 60))
   (corfu-auto-prefix 0)
-
-  (corfu-min-width 40)
-  (corfu-max-width 160)
-
   (corfu-popupinfo-mode t)
-  (corfu-popupinfo-delay '(0.1 . 0.1))
-  (corfu-popupinfo-min-width 50)
-  (corfu-popupinfo-max-width 160)
-  (corfu-popupinfo-max-height 15)
+  (corfu-min-width 30)
   :init
   (global-corfu-mode))
 
