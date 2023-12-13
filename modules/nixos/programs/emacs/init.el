@@ -165,19 +165,18 @@
   (read-extended-command-predicate #'command-completion-default-include-p)
   (vertico-cycle t))
 
-(use-package all-the-icons)
-;; This MUST come before the `marginalia' definition.
-(use-package all-the-icons-completion
-  :after all-the-icons
-  :init
-  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
-
 (use-package marginalia
   :init
   ;; Marginalia must be actived in the :init section
   (marginalia-mode)
   :general
   (general-def minibuffer-local-map "M-A" #'marginalia-cycle))
+
+(use-package nerd-icons-completion
+  :after marginalia
+  :config
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
 (use-package orderless
   :custom
@@ -299,7 +298,7 @@
   (pdf-tools-install))
 
 (use-package dirvish
-  :after all-the-icons
+  :after nerd-icons
   :init
   (dirvish-override-dired-mode)
   :custom
@@ -335,7 +334,7 @@
   (mouse-drag-and-drop-region-cross-program t)
 
   (dirvish-attributes
-        '(all-the-icons file-time file-size subtree-state vc-state git-msg))
+        '(nerd-icons file-time file-size subtree-state vc-state git-msg))
   :general
   (general-def
     :states 'normal
