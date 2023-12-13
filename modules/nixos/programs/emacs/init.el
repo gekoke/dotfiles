@@ -414,6 +414,9 @@
   (gg/leader
     "o" #'vterm-toggle-cd))
 
+;; Don't make new frame for ediff - why would I want that?!
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
 (use-package magit
   :hook (magit-log-mode . magit-diff-show-or-scroll-up)
   :custom
