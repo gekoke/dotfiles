@@ -137,10 +137,6 @@
 
 (global-hl-line-mode 1)
 
-(use-package beacon
-  :custom
-  (beacon-mode 1))
-
 (use-package olivetti
   :init
   (add-hook 'woman-mode-hook 'olivetti-mode)
