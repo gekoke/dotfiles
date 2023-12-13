@@ -415,12 +415,10 @@
   ;; `completion-at-point' is often bound to M-TAB.
   (tab-always-indent 'complete))
 
-(use-package kind-icon
+(use-package nerd-icons-corfu
   :after corfu
-  :custom
-  (kind-icon-default-face 'corfu-default) ; To compute blended backgrounds correctly
-  :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+  :init
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package vterm)
 (use-package vterm-toggle
