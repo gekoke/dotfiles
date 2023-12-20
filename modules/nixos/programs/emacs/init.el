@@ -146,7 +146,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-frame-font "Iosevka Nerd Font:pixelsize=15:weight=normal" nil t)
+(set-frame-font "Iosevka Nerd Font:pixelsize=18:weight=normal" nil t)
 
 (use-package ligature
   :config
