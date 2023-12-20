@@ -27,6 +27,7 @@
 (tooltip-mode -1)
 (menu-bar-mode -1)
 (save-place-mode 1)
+(setq-default cursor-in-non-selected-windows nil)
 (recentf-mode 1)
 (savehist-mode 1)
 (global-auto-revert-mode 1)
