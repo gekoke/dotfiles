@@ -44,6 +44,12 @@
     nwg-displays-with-desktop-file.url = "github:gekoke/nixpkgs/gekoke/nwg-displays";
 
     pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
+
+    ags.url = "github:Aylur/ags";
+
+    aylur-dotfiles.url = "github:gekoke/aylur-dotfiles/main";
+
+    wrapper-manager.url = "github:viperML/wrapper-manager";
   };
 
   outputs = inputs:

@@ -13,6 +13,10 @@ in
 
   config =
     mkIf cfg.enable {
+      environment.systemPackages = [
+        pkgs.gnome.adwaita-icon-theme
+      ];
+
       programs.hyprland = {
         enable = true;
         enableNvidiaPatches = config.elementary.hardware.nvidia.enable;
@@ -31,8 +35,6 @@ in
       };
 
       elementary = {
-        services.udiskie = enabled;
-
         desktop = {
           hyprland.extraHomeManagerOptions = {
             enable = true;
@@ -47,17 +49,9 @@ in
               builtins.readFile ./hyprland.conf + masterMonocleCommand;
           };
           addons = {
-            waybar = enabled // { hyprlandSupport = true; };
-            rofi = enabled;
-            dunst = enabled;
-            wlogout = enabled;
-            avizo = enabled;
+            ags.enable = true;
             unclutter = enabled;
-            swww = enabled;
-            swaylock = enabled;
             clipboard = enabled;
-            keyring = enabled;
-            screenshot = enabled // { hyprlandSupport = true; };
             cursor = enabled;
           };
         };
