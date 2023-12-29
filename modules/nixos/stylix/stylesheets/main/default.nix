@@ -57,16 +57,13 @@ with lib.elementary;
         elementary.stylix.extraHomeManagerOptions.targets.swaylock.useImage = false;
 
         elementary.desktop.addons.waybar.style = ''
-          * {
+          .modules-left * {
               border: none;
               border-radius: 0;
           }
           .modules-left #workspaces button {
               color: @base05;
               transition: border-bottom 0.3s ease-out, background 0.3s ease-out;
-          }
-          #workspaces button.empty {
-              color: @base03;
           }
           .modules-left #workspaces button.active {
               border-bottom: 3px solid @base05;
