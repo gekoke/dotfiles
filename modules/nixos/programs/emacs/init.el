@@ -248,6 +248,7 @@
   (evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
+  (add-to-list 'evil-jumps-ignored-file-patterns ".*/$")
   :general
   (gg/leader
     "s" #'save-buffer))
