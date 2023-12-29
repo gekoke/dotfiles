@@ -7,7 +7,7 @@ in
   options.elementary.desktop.addons.waybar = with types; {
     enable = mkEnableOption "Waybar bar";
     hyprlandSupport = mkEnableOption "Hyprland support in Waybar";
-    style = mkOpt (nullOr (either path lines)) null "Waybar CSS style";
+    style = mkOpt (nullOr (either path lines)) (lib.mkDefault null) "Waybar CSS style";
   };
 
   config = mkIf cfg.enable {
