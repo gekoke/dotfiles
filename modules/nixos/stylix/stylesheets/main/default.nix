@@ -38,7 +38,7 @@ with lib.elementary;
             };
 
             sansSerif = {
-              package = pkgs.dejavu_fonts;
+              package = pkgs.nerdfonts;
               name = "IosevkaTerm Nerd Font";
             };
 
