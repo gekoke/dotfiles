@@ -465,13 +465,13 @@
 
 (use-package blamer
   :custom
-  (blamer-idle-time 0.3)
-  (blamer-min-offset 8)
+  (blamer-idle-time 0.25)
+  (blamer-min-offset 60)
   (blamer-max-commit-message-length 120)
   :custom-face
   (blamer-face ((t :background nil
-                   :weight semi-light
-                   :italic t)))
+                   :weight normal
+                   :italic nil)))
   :config
   (global-blamer-mode 1))
 
