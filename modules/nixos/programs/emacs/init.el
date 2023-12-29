@@ -456,8 +456,25 @@
 
 (use-package magit-delta
   :hook (magit-mode . magit-delta-mode)
+  :init
+  (with-eval-after-load 'magit-delta
+    (set-face-attribute 'magit-diff-added-highlight nil :background "#006000")
+    (set-face-attribute 'magit-diff-added nil :background "#006000")
+    (set-face-attribute 'magit-diff-removed-highlight nil :background "#3f0001")
+    (set-face-attribute 'magit-diff-removed nil :background "#3f0001"))
+
+  (add-hook 'magit-delta-mode-hook
+            (lambda ()
+              (setq face-remapping-alist
+                    (seq-difference face-remapping-alist
+                                    '((magit-diff-removed . default)
+                                      (magit-diff-removed-highlight . default)
+                                      (magit-diff-added . default)
+                                      (magit-diff-added-highlight . default))))))
   :custom
-  (magit-delta-default-dark-theme "OneHalfDark")
+  (magit-delta-default-dark-theme "Monokai Extended")
+  (magit-delta-delta-args '("--color-only"
+                            "--minus-style" "syntax auto"))
   (magit-delta-hide-plus-minus-markers nil))
 
 (use-package forge
@@ -467,8 +484,7 @@
 
 (use-package magit-todos
   :after magit
-  :init
-  (magit-todos-mode))
+  :config (magit-todos-mode 1))
 
 (use-package blamer
   :custom
@@ -577,11 +593,6 @@
   (general-def
     :states 'normal
     "g h" #'lsp-ui-doc-glance))
-
-(use-package parinfer-rust-mode
-  :hook emacs-lisp-mode
-  :custom
-  (parinfer-rust-troublesome-modes ()))
 
 (use-package lsp-nix
   :ensure lsp-mode
