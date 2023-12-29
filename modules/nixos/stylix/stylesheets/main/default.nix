@@ -11,7 +11,6 @@ with lib.elementary;
         elementary.stylix.extraOptions.targets.grub = disabled;
         elementary.stylix.extraHomeManagerOptions.targets = {
           emacs = disabled;
-          hyprland = disabled;
         };
 
         elementary.stylix.extraOptions = {
@@ -101,7 +100,6 @@ with lib.elementary;
 
               border_size = 2
               col.active_border = rgb(f5bde6) rgb(c6a0f6) rgb(8bd5ca) rgb(91d7e3) rgb(7dc4e4) rgb(8aadf4) rgb(b7bdf8)
-              col.inactive_border = rgb(494d64)
           }
 
           decoration {

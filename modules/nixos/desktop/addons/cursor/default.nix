@@ -11,9 +11,9 @@ in
 
   config = mkIf cfg.enable {
     elementary.home.extraOptions.home.pointerCursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 22;
+      package = lib.mkForce pkgs.bibata-cursors;
+      name = lib.mkForce "Bibata-Modern-Ice";
+      size = lib.mkForce 22;
       gtk = enabled;
       x11 = enabled;
     };
