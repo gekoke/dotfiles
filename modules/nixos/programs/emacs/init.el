@@ -448,7 +448,8 @@
   (magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
   :general
   (gg/leader
-    "v" #'magit-status)
+    "v" #'magit-status
+    "g i" #'magit-init)
   (general-def
     :states '(normal visual)
     :keymaps 'magit-log-mode-map
