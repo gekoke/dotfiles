@@ -117,6 +117,7 @@ with lib.elementary;
           animations {
               animation = workspaces, 1, 3, easeInOutQuint, slidevert
               animation = windows, 1, 4, easeOutExpo, popin
+              animation = fade, 1, 3, easeOutExpo
           }
         '';
       }
