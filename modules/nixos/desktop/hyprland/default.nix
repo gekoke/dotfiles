@@ -39,6 +39,11 @@ in
                 '';
               in
               builtins.readFile ./hyprland.conf + masterMonocleCommand;
+            settings = {
+              exec-once = [
+                "${pkgs.swww}/bin/swww init"
+              ];
+            };
           };
           addons = {
             waybar = enabled // { hyprlandSupport = true; };
@@ -47,7 +52,6 @@ in
             wlogout = enabled;
             avizo = enabled;
             unclutter = enabled;
-            swww = enabled;
             swaylock = enabled;
             clipboard = enabled;
             keyring = enabled;
@@ -55,6 +59,8 @@ in
             cursor = enabled;
           };
         };
+
+        home.packages = [ pkgs.swww ];
 
         home.sessionVariables = {
           WLR_NO_HARDWARE_CURSORS = 1;
