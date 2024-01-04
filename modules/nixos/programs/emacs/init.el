@@ -363,6 +363,7 @@
 
   (delete-by-moving-to-trash t)
 
+  (dirvish-show-media-properties t)
   (dirvish-media-auto-cache-threshold '(500 . 8))
 
   (dired-listing-switches
