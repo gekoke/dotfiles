@@ -551,6 +551,7 @@
                                                #'cape-file
                                                #'cape-dabbrev
                                                #'cape-keyword)))
+  (add-hook 'before-save-hook #'lsp-format-buffer)
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
   (lsp-completion-mode . gg/setup-lsp-mode-capf)
