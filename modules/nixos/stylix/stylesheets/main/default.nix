@@ -62,7 +62,7 @@ with lib.elementary;
           }
           .modules-left #workspaces button {
               color: @base05;
-              transition: border-bottom 0.3s ease-out, background 0.3s ease-out;
+              transition: border-bottom 0.15s ease-out, background 0.15s ease-out;
           }
           .modules-left #workspaces button.active {
               border-bottom: 3px solid @base05;
@@ -115,7 +115,7 @@ with lib.elementary;
           bezier = easeOutExpo, 0.19, 1, 0.22, 1
 
           animations {
-              animation = workspaces, 1, 3, easeInOutQuint, slidevert
+              animation = workspaces, 0, 3, easeInOutQuint, slidevert
               animation = windows, 1, 4, easeOutExpo, popin
               animation = fade, 1, 3, easeOutExpo
           }
