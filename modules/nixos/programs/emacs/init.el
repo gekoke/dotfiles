@@ -658,6 +658,8 @@
   "." #'find-file
   "x" #'kill-current-buffer
   "z" #'bury-buffer
+  "E" #'eval-buffer
+  "e" #'eval-region
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
 
