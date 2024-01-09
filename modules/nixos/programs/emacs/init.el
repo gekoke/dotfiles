@@ -431,7 +431,7 @@
   (corfu-auto t)
   (corfu-cycle t)
   (corfu-auto-delay (/ 1.0 60))
-  (corfu-auto-prefix 0)
+  (corfu-auto-prefix 1)
   (corfu-popupinfo-mode t)
   (corfu-min-width 30)
   :init
