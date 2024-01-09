@@ -453,9 +453,16 @@
 
 (use-package vterm)
 (use-package vterm-toggle
+  :init
+  (defun gg/vterm-new ()
+    (interactive)
+    (vterm-toggle--new))
   :general
   (gg/leader
-    "o" #'vterm-toggle-cd))
+    "o o" #'vterm-toggle-cd
+    "o n" #'gg/vterm-new
+    "o j" #'vterm-toggle-forward
+    "o k" #'vterm-toggle-backward))
 
 ;; Don't make new frame for ediff - why would I want that?!
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
