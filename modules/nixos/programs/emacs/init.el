@@ -42,17 +42,10 @@
   (add-hook hook (lambda () (display-line-numbers-mode 1))))
 
 (electric-indent-mode +1)
+(electric-pair-mode +1)
 (setq-default indent-tabs-mode nil)
 (setq-default truncate-lines t)
 (show-paren-mode 1)
-
-(use-package smartparens
-  :hook
-  (prog-mode . smartparens-mode)
-  (text-mode . smartparens-mode)
-  (markdown-mode . smartparens-mode)
-  :config
-  (require 'smartparens-config))
 
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 
