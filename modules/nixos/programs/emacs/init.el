@@ -109,6 +109,8 @@
 (use-package eyebrowse
   :init
   (eyebrowse-mode 1)
+  :custom
+  (eyebrowse-new-workspace #'dashboard-open)
   :general
   (gg/leader
     "<tab> k" 'eyebrowse-prev-window-config
@@ -140,6 +142,7 @@
   :init
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (add-hook 'dashboard-after-initialize-hook 'dashboard-jump-to-projects)
+  (add-hook 'dashboard-mode-hook 'dashboard-jump-to-projects)
   (add-hook 'dashboard-after-initialize-hook (lambda () (setq-local global-hl-line-mode nil)))
   :custom
   (dashboard-startup-banner 'logo)
