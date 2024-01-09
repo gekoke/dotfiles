@@ -21,6 +21,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-message t)
+(setq use-dialog-box nil)
 (setq native-comp-async-report-warnings-errors nil)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
