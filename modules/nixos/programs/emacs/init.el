@@ -127,9 +127,7 @@
   :init
   (nyan-mode 1)
   :custom
-  (nyan-animation-frame-interval (/ 1.0 20))
-  (nyan-animate-nyancat nil)
-  (nyan-wavy-trail t))
+  (nyan-animation-frame-interval (/ 1.0 20)))
 
 (use-package dashboard
   :after (consult consult-projectile nerd-icons)
