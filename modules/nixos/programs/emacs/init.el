@@ -275,6 +275,7 @@
   :custom
   (evil-collection-magit-use-z-for-folds t)
   (forge-add-default-bindings nil)
+  (magit-diff-refine-hunk t)
   :config
   (evil-collection-init))
 
