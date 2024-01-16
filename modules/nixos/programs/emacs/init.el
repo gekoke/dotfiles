@@ -164,7 +164,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-frame-font "JetBrains Mono Nerd Font:pixelsize=15:weight=normal" nil t)
+(set-face-attribute 'default nil :family "IosevkaTerm Nerd Font" :height 100)
 
 (use-package ligature
   :config
@@ -645,7 +645,7 @@
 
 (gg/leader
   :keymaps 'smerge-mode-map
-  "m" '(:ignore t :which-key "Merge") 
+  "m" '(:ignore t :which-key "Merge")
   "m u" #'smerge-keep-upper
   "m l" #'smerge-keep-lower
   "m t" #'smerge-keep-current
@@ -660,4 +660,4 @@
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
 
-(load custom-file 'noerror)
+(load custom-file)
