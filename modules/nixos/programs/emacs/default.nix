@@ -59,15 +59,16 @@ in
         parinfer-rust
         # YAML
         yaml-language-server
+        # HTML, CSS, JSON, Eslint
+        vscode-langservers-extracted
+        # HTML, CSS (emmet)
+        emmet-language-server
       ];
 
       elementary.home = {
         programs.emacs = {
           enable = true;
           package = emacsPackage;
-          extraConfig = ''
-            (setq parinfer-rust-library "${pkgs.parinfer-rust}/lib/libparinfer_rust.so")
-          '';
         };
         file = {
           ".emacs.d/init.el".source = ./init.el;
