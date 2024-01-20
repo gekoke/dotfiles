@@ -17,7 +17,6 @@ with lib.elementary;
     roles.workstation = enabled;
     secrets = enabled;
     home.packages = [
-      pkgs.zoom-us
       pkgs.jetbrains.idea-community
     ];
   };
