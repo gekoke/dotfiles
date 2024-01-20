@@ -465,6 +465,9 @@
 
 (use-package magit
   :hook (magit-log-mode . magit-diff-show-or-scroll-up)
+  :init
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
