@@ -67,6 +67,9 @@ with lib.elementary;
           .modules-left #workspaces button.active {
               border-bottom: 3px solid @base05;
           }
+          .modules-left #workspaces button.urgent {
+              border-bottom: 3px solid @base08;
+          }
         '';
 
         elementary.stylix.extraHomeManagerOptions.targets.rofi = disabled;
