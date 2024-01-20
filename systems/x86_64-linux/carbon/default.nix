@@ -18,6 +18,7 @@ with lib.elementary;
     secrets = enabled;
     home.packages = [
       pkgs.jetbrains.idea-community
+      pkgs.discord
     ];
   };
 
