@@ -19,6 +19,23 @@
   (undo-tree-enable-undo-in-region t)
   (undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "undo-tree-history")))))
 
+(let ((backup-dir "~/.local/state/emacs/backups")
+      (auto-saves-dir "~/.local/state/emacs/autosaves"))
+  (dolist (dir (list backup-dir auto-saves-dir))
+    (when (not (file-directory-p dir))
+      (make-directory dir t)))
+  (setq backup-directory-alist `(("." . ,backup-dir))
+        auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
+        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
+        tramp-backup-directory-alist `((".*" . ,backup-dir))
+        tramp-auto-save-directory auto-saves-dir))
+
+(setq backup-by-copying t    ; Don't delink hardlinks
+      delete-old-versions t  ; Clean up the backups
+      version-control t      ; Use version numbers on backups,
+      kept-new-versions 8    ; keep some new versions
+      kept-old-versions 8)   ; and some old ones, too
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-message t)
 (setq use-dialog-box nil)
