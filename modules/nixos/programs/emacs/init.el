@@ -325,10 +325,6 @@
     "C-S-j" #'evil-mc-make-and-goto-next-match
     "C-S-k" #'evil-mc-make-and-goto-prev-match))
 
-(use-package evil-nerd-commenter
-  :init
-  (evilnc-default-hotkeys))
-
 (use-package evil-textobj-tree-sitter
   :general
   (general-def
