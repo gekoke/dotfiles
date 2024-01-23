@@ -39,6 +39,8 @@
       kept-new-versions 8    ; keep some new versions
       kept-old-versions 8)   ; and some old ones, too
 
+(setq create-lockfiles nil)
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-message t)
 (setq use-dialog-box nil)
