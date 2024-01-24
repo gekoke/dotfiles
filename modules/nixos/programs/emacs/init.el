@@ -62,15 +62,16 @@
                 conf-mode-hook
                 js-json-mode-hook
                 text-mode-hook))
-  (add-hook hook (lambda () (display-line-numbers-mode 1))))
+  (add-hook hook (lambda ()
+                   (display-line-numbers-mode 1)
+                   (hl-line-mode 1)
+                   (hs-minor-mode))))
 
 (electric-indent-mode +1)
 (electric-pair-mode +1)
 (setq-default indent-tabs-mode nil)
 (setq-default truncate-lines t)
 (show-paren-mode 1)
-
-(add-hook 'prog-mode-hook 'hs-minor-mode)
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
@@ -157,7 +158,6 @@
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (add-hook 'dashboard-after-initialize-hook 'dashboard-jump-to-projects)
   (add-hook 'dashboard-mode-hook 'dashboard-jump-to-projects)
-  (add-hook 'dashboard-after-initialize-hook (lambda () (setq-local global-hl-line-mode nil)))
   :custom
   (dashboard-startup-banner 'logo)
   (dashboard-set-init-info t)
@@ -192,8 +192,6 @@
                                        "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
                                        "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
                                        ">>=" ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++")))
-
-(global-hl-line-mode 1)
 
 (use-package olivetti
   :init
