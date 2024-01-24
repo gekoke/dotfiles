@@ -644,7 +644,8 @@
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   :custom
-  (web-mode-auto-open t))
+  (web-mode-auto-open t)
+  (web-mode-auto-indent t))
 
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
