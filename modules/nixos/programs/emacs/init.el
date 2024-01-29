@@ -588,12 +588,25 @@
   :init
   (global-flycheck-mode))
 
+(use-package yasnippet)
+
 (use-package lsp-mode
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
+  (lsp-mode . yas-minor-mode)
+  :init
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-completion-provider :none)
+  :config
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("emmet-language-server" "--stdio"))
+    :activation-fn (lsp-activate-on "html" "css" "scss" "less" "javascriptreact" "typescriptreact")
+    :priority -1
+    :add-on? t
+    :multi-root t
+    :server-id 'emmet-language-server))
   :general
   (gg/leader lsp-mode-map
     "l" '(:keymap lsp-command-map))
