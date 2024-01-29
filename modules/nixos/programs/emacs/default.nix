@@ -14,11 +14,7 @@ in
         package = pkgs.emacs-pgtk.override { withImageMagick = true; };
         config = ./init.el;
         alwaysEnsure = true;
-        override = _final: prev: {
-          lsp-mode = prev.melpaPackages.lsp-mode.overrideAttrs (_old: {
-            LSP_USE_PLISTS = "true";
-          });
-        };
+        override = pkgs.callPackage ./overlay.nix { };
         extraEmacsPackages = epkgs: with epkgs; [
           treesit-grammars.with-all-grammars
           pkgs.elementary.kanagawa-theme
