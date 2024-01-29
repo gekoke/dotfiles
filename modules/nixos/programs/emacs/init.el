@@ -57,14 +57,20 @@
 (column-number-mode)
 
 (setq display-line-numbers-type 'relative)
-(dolist (hook '(prog-mode-hook
-                conf-mode-hook
-                js-json-mode-hook
-                text-mode-hook))
-  (add-hook hook (lambda ()
-                   (display-line-numbers-mode 1)
-                   (hl-line-mode 1)
-                   (hs-minor-mode))))
+
+(add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode 1)))
+(add-hook 'conf-mode-hook (lambda () (display-line-numbers-mode 1)))
+(add-hook 'json-ts-mode-hook (lambda () (display-line-numbers-mode 1)))
+(add-hook 'text-mode-hook (lambda () (display-line-numbers-mode 1)))
+
+(add-hook 'prog-mode-hook (lambda () (hl-line-mode 1)))
+(add-hook 'conf-mode-hook (lambda () (hl-line-mode 1)))
+(add-hook 'json-ts-mode-hook (lambda () (hl-line-mode 1)))
+(add-hook 'text-mode-hook (lambda () (hl-line-mode 1)))
+
+(add-hook 'prog-mode-hook (lambda () (hs-minor-mode 1)))
+(add-hook 'conf-mode-hook (lambda () (hs-minor-mode 1)))
+(add-hook 'json-ts-mode-hook (lambda () (hs-minor-mode 1)))
 
 (electric-indent-mode +1)
 (electric-pair-mode +1)
