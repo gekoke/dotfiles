@@ -59,6 +59,8 @@ in
         vscode-langservers-extracted
         # HTML, CSS (emmet)
         emmet-language-server
+        # Python
+        nodePackages.pyright
       ];
 
       elementary.home = {

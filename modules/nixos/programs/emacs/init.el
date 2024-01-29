@@ -588,6 +588,10 @@
   :init
   (global-flycheck-mode))
 
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode))
+
 (use-package yasnippet)
 
 (use-package lsp-mode
@@ -621,7 +625,12 @@
   :general
   (general-def
     :states 'normal
-    "g h" #'lsp-ui-doc-glance))
+    :keymaps 'lsp-ui-mode-map
+    "g h" #'lsp-ui-doc-glance
+    "g H" #'lsp-ui-doc-focus-frame)
+  (general-def
+    :keymaps 'lsp-ui-doc-frame-mode-map
+    "C-g" #'lsp-ui-doc-unfocus-frame))
 
 (use-package lsp-nix
   :ensure lsp-mode
@@ -631,6 +640,11 @@
 
 (use-package nix-mode
   :hook (nix-mode . lsp-deferred))
+
+(use-package lsp-pyright
+  :hook (python-ts-mode . (lambda ()
+                            (require 'lsp-pyright)
+                            (lsp))))
 
 (use-package markdown-mode
   :custom
