@@ -529,18 +529,6 @@
   :after magit
   :config (magit-todos-mode 1))
 
-(use-package blamer
-  :custom
-  (blamer-idle-time 0.25)
-  (blamer-min-offset 60)
-  (blamer-max-commit-message-length 120)
-  :custom-face
-  (blamer-face ((t :background nil
-                   :weight normal
-                   :italic nil)))
-  :config
-  (global-blamer-mode 1))
-
 (use-package diff-hl
   :custom
   (diff-hl-show-staged-changes nil)
