@@ -213,6 +213,13 @@
   :custom
   (which-key-idle-delay 0.4))
 
+(use-package rg)
+(use-package wgrep)
+
+(use-package embark
+  :general
+  (general-def
+    "M-e" #'embark-export))
 (use-package vertico
   :init
   (vertico-mode)
@@ -262,6 +269,10 @@
     "t" '(:ignore t :which-key "Theme")
     "t h" #'gg/consult-theme-and-remember
     "/" #'consult-ripgrep))
+
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package helpful
   :custom
