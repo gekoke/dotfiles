@@ -633,6 +633,7 @@
   (add-to-list 'markdown-code-lang-modes '("python" . python-mode)))
 
 (use-package web-mode
+  :hook (web-mode . lsp)
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
