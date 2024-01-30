@@ -653,9 +653,8 @@
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'web-mode-engines-alist '("django" . "\\.html\\'"))
-  :custom
-  (web-mode-auto-open t)
-  (web-mode-auto-indent t))
+  (setq web-mode-auto-open t)
+  (setq web-mode-auto-quoting t))
 
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
