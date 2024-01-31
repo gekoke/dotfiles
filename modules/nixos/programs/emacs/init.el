@@ -652,9 +652,10 @@
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'web-mode-engines-alist '("django" . "\\.html\\'"))
-  (setq web-mode-auto-open t)
-  (setq web-mode-auto-quoting t))
+  :custom
+  (web-mode-engines-alist '(("django" . "\\.html\\'")))
+  (web-mode-enable-auto-opening t)
+  (web-mode-enable-auto-quoting t))
 
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
