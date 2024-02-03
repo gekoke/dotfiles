@@ -461,6 +461,9 @@
   (company-idle-delay 0)
   (company-tooltip-align-annotations t)
   (company-abort-on-unique-match nil)
+  (company-frontends '(company-pseudo-tooltip-frontend
+                        company-echo-metadata-frontend
+                        company-quickhelp-frontend))
   (company-backends
    '(company-bbdb
      company-semantic
