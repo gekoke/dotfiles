@@ -652,8 +652,10 @@
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-hook 'web-mode-hook (lambda () (electric-pair-local-mode -1)))
   :custom
-  (web-mode-engines-alist '(("django" . "\\.html\\'")))
+  (web-mode-engines-alist '("django" . "\\\\.html\\\\."))
+  (web-mode-enable-auto-pairing t)
   (web-mode-enable-auto-opening t)
   (web-mode-enable-auto-quoting t))
 
