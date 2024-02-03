@@ -61,6 +61,7 @@ in
         emmet-language-server
         # Python
         nodePackages.pyright
+        ruff-lsp
       ];
 
       elementary.home = {

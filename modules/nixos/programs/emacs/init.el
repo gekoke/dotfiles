@@ -634,6 +634,19 @@
                             (require 'lsp-pyright)
                             (lsp))))
 
+(use-package lsp-ruff-lsp
+  :ensure lsp-mode
+  :after lsp-mode)
+
+(use-package python
+  :ensure nil
+  :init
+  (add-hook 'before-save-hook (lambda ()
+                                (when (and
+                                       (eq major-mode 'python-ts-mode)
+                                       (bound-and-true-p lsp-mode))
+                                  (lsp-format-buffer)))))
+
 (use-package markdown-mode
   :custom
   (markdown-fontify-code-blocks-natively t)
