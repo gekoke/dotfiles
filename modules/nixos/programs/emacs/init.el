@@ -462,8 +462,7 @@
   (company-tooltip-align-annotations t)
   (company-abort-on-unique-match nil)
   (company-frontends '(company-pseudo-tooltip-frontend
-                        company-echo-metadata-frontend
-                        company-quickhelp-frontend))
+                        company-echo-metadata-frontend))
   (company-backends
    '(company-bbdb
      company-semantic
@@ -483,9 +482,8 @@
     :keymaps 'company-mode-map
     "C-." #'company-complete))
 
-(use-package company-quickhelp
-  :init
-  (company-quickhelp-mode))
+(use-package company-box
+  :hook (company-mode . company-box-mode))
 
 (use-package vterm)
 (use-package vterm-toggle
@@ -582,6 +580,14 @@
 (use-package treesit-auto
   :config
   (global-treesit-auto-mode))
+
+(use-package copilot
+  :init
+  (add-hook 'prog-mode-hook 'copilot-mode)
+  :general
+  (general-def copilot-completion-map
+    "TAB" #'copilot-accept-completion
+    "<tab>" #'copilot-accept-completion))
 
 (use-package yasnippet)
 
