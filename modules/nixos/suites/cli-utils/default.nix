@@ -29,7 +29,7 @@ in
       pmount
       exfat
       wget
-      python3
+      python312
     ];
 
     elementary.home.shellAliases."py" = "python3";
