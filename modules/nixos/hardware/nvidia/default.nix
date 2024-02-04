@@ -18,11 +18,11 @@ in
       };
 
       nvidia = {
+        # Modesetting is required
+        modesetting.enable = true;
+        powerManagement.enable = true;
+        open = false;
         nvidiaSettings = true;
-        # Modesetting is needed for most wayland compositors
-        modesetting = enabled;
-        # Allows all VRAM to be saved when suspending, not just some
-        # powerManagement = enabled;
       };
     };
   };
