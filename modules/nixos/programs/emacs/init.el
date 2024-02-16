@@ -657,6 +657,10 @@
                                        (bound-and-true-p lsp-mode))
                                   (lsp-format-buffer)))))
 
+(use-package lsp-java
+  :init
+  :hook (java-ts-mode . lsp))
+
 (use-package markdown-mode
   :custom
   (markdown-fontify-code-blocks-natively t)
