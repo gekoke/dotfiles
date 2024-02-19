@@ -15,8 +15,8 @@ in
         config = ./init.el;
         alwaysEnsure = true;
         override = pkgs.callPackage ./overlay.nix { };
-        extraEmacsPackages = epkgs: with epkgs; [
-          treesit-grammars.with-all-grammars
+        extraEmacsPackages = epkgs: [
+          epkgs.treesit-grammars.with-all-grammars
           pkgs.elementary.kanagawa-theme
         ];
       };
