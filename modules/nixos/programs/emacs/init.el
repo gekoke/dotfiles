@@ -686,6 +686,10 @@
   (web-mode-enable-auto-opening t)
   (web-mode-enable-auto-quoting t))
 
+(use-package lsp-tailwindcss
+  :init
+  (setq lsp-tailwindcss-add-on-mode t))
+
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
 

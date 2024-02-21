@@ -59,6 +59,8 @@ in
         vscode-langservers-extracted
         # HTML, CSS (emmet)
         emmet-language-server
+        # Tailwind CSS
+        nodejs
         # Python
         nodePackages.pyright
         ruff-lsp
