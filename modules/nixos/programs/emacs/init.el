@@ -79,6 +79,20 @@
 (setq-default truncate-lines t)
 (show-paren-mode 1)
 
+(use-package emacs
+  :ensure nil
+  :custom
+  (whitespace-style '(face
+                      trailing
+                      tabs
+                      empty
+                      indention
+                      spaces
+                      space-mark
+                      space-after-tab
+                      space-before-tab
+                      tab-mark)))
+
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
   "Interactively change the current frame's OPACITY."
