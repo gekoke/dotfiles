@@ -498,7 +498,9 @@
     "C-." #'company-complete))
 
 (use-package company-box
-  :hook (company-mode . company-box-mode))
+  :hook (company-mode . company-box-mode)
+  :custom
+  (company-tooltip-maximum-width 80))
 
 (use-package vterm)
 (use-package vterm-toggle
