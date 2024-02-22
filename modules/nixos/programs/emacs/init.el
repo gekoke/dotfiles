@@ -704,6 +704,11 @@
   :init
   (setq lsp-tailwindcss-add-on-mode t))
 
+(use-package emacs
+  :ensure nil
+  :mode
+  ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
+
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
 
