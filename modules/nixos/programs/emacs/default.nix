@@ -18,6 +18,7 @@ in
         extraEmacsPackages = epkgs: [
           epkgs.treesit-grammars.with-all-grammars
           pkgs.elementary.kanagawa-theme
+          pkgs.elementary.indent-bars
         ];
       };
       earlyInitText = readFiles [
