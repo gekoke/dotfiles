@@ -384,6 +384,7 @@
   :after nerd-icons
   :init
   (dirvish-override-dired-mode)
+  (dirvish-side-follow-mode)
   :custom
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
    `(("h" "~/"                                     "Home")
