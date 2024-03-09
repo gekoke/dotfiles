@@ -725,6 +725,15 @@
   :init
   (setq lsp-tailwindcss-add-on-mode t))
 
+(use-package typescript-ts-mode
+  :ensure nil
+  :mode
+  ("\\.ts\\'" . typescript-ts-mode)
+  ("\\.tsx\\'" . tsx-ts-mode)
+  :hook
+  (typescript-ts-mode . lsp)
+  (tsx-ts-mode . lsp))
+
 (use-package emacs
   :ensure nil
   :mode
