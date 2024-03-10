@@ -628,14 +628,6 @@
   :config
   (global-treesit-auto-mode))
 
-(use-package copilot
-  :init
-  (add-hook 'prog-mode-hook 'copilot-mode)
-  :general
-  (general-def copilot-completion-map
-    "TAB" #'copilot-accept-completion
-    "<tab>" #'copilot-accept-completion))
-
 (use-package yasnippet)
 
 (use-package lsp-mode
