@@ -94,6 +94,7 @@
                       tab-mark)))
 
 (use-package indent-bars
+  :ensure nil
   :hook
   (prog-mode . indent-bars-mode)
   (conf-mode . indent-bars-mode)

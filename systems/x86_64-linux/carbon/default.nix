@@ -12,6 +12,10 @@ with lib.elementary;
   ];
 
   elementary = {
+    preferences = {
+      allowLongCompilationTimes = true;
+    };
+
     virtualisation.docker = enabled;
     hardware.nvidia = enabled;
     roles.workstation = enabled;
