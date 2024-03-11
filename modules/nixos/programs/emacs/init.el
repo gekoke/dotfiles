@@ -627,6 +627,7 @@
 
 (use-package treesit-auto
   :config
+  (delete 'yaml treesit-auto-langs) ;; yaml-mode is superior
   (global-treesit-auto-mode))
 
 (use-package yasnippet)
