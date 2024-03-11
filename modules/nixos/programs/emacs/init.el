@@ -189,11 +189,9 @@
   (nyan-animation-frame-interval (/ 1.0 20)))
 
 (use-package dashboard
-  :after (consult consult-projectile nerd-icons)
+  :after (consult nerd-icons)
   :init
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-  (add-hook 'dashboard-after-initialize-hook 'dashboard-jump-to-projects)
-  (add-hook 'dashboard-mode-hook 'dashboard-jump-to-projects)
   :custom
   (dashboard-startup-banner 'logo)
   (dashboard-set-init-info t)
@@ -204,10 +202,7 @@
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons t)
 
-  (dashboard-items '((recents . 5)
-                     (projects . 5)))
-
-  (dashboard-projects-switch-function 'consult-projectile--file)
+  (dashboard-items '())
   :config
   (dashboard-setup-startup-hook))
 
