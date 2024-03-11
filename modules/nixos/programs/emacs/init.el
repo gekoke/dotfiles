@@ -741,6 +741,7 @@
   ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
 (use-package yaml-mode
+  :hook (yaml-mode . lsp)
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
 
 (use-package feature-mode)
