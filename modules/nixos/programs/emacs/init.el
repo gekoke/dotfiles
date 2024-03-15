@@ -696,7 +696,9 @@
 
 (use-package lsp-java
   :init
-  :hook (java-ts-mode . lsp))
+  :hook (java-ts-mode . (lambda ()
+                          (load "lsp-java.el")
+                          (lsp))))
 
 (use-package markdown-mode
   :custom
