@@ -671,10 +671,9 @@
   :custom
   (lsp-nix-nil-formatter ["nixpkgs-fmt"]))
 
-(use-package nix-mode
-  :hook (nix-mode . lsp-deferred))
-
-(use-package nix-ts-mode)
+(use-package nix-ts-mode
+  :mode "\\.nix\\'"
+  :hook (nix-ts-mode . lsp-deferred))
 
 (use-package lsp-pyright
   :hook (python-ts-mode . (lambda ()
