@@ -745,6 +745,10 @@
   :hook (yaml-mode . lsp)
   :mode ("\\.\\(yml\\|yaml\\)\\'"))
 
+(use-package terraform-mode
+  :custom
+  (add-hook 'terraform-mode-hook 'my-terraform-mode-init))
+
 (use-package feature-mode)
 
 (use-package age

@@ -77,6 +77,8 @@ in
         # JavaScript/TypeScript
         nodePackages.typescript
         nodePackages.typescript-language-server
+        # Terraform
+        terraform
       ];
 
       elementary.home = {
