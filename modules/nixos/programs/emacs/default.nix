@@ -79,6 +79,9 @@ in
         nodePackages.typescript-language-server
         # Terraform
         terraform
+        # CSharp
+        omnisharp-roslyn
+        dotnet-sdk_8
       ];
 
       elementary.home = {
@@ -91,6 +94,8 @@ in
             (add-to-list 'lsp-java-vmargs "-javaagent:${pkgs.elementary.lombok-jar}/share/java/lombok.jar")
 
             (setq lsp-clients-typescript-tls-path ${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server)
+
+            (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
           '';
         };
         file = {

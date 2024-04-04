@@ -217,7 +217,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 110 :weight 'semi-bold)
+(set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 130 :weight 'semi-bold)
 
 (use-package ligature
   :config
@@ -623,6 +623,7 @@
 (use-package treesit-auto
   :config
   (delete 'yaml treesit-auto-langs) ;; yaml-mode is superior
+  (delete 'c-sharp treesit-auto-langs) ;; csharp-ts-mode highlighting sucks
   (global-treesit-auto-mode))
 
 (use-package yasnippet)
@@ -735,6 +736,12 @@
   :hook
   (typescript-ts-mode . lsp)
   (tsx-ts-mode . lsp))
+
+(use-package emacs
+  :ensure nil
+  :hook
+  (csharp-mode . lsp)
+  (csharp-ts-mode . lsp))
 
 (use-package emacs
   :ensure nil
