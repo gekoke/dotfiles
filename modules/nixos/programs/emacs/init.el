@@ -656,6 +656,7 @@
   :hook (prog-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-position 'at-point)
+  (lsp-ui-sideline-diagnostic-max-line-length 280)
   :general
   (general-def
     :states 'normal
