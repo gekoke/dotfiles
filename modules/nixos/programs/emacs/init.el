@@ -93,22 +93,6 @@
                       space-before-tab
                       tab-mark)))
 
-(use-package indent-bars
-  :ensure nil
-  :hook
-  (prog-mode . indent-bars-mode)
-  (conf-mode . indent-bars-mode)
-  (json-ts-mode . indent-bars-mode)
-  :init
-  (advice-add 'indent-bars--current-indentation-depth :filter-return
-              (lambda (d) (max 0 (1- d))))
-  :custom
-  (indent-bars-color '(highlight :face-bg t :blend 0.1))
-  (indent-bars-pattern ".")
-  (indent-bars-width-frac 0.1)
-  (indent-bars-pad-frac 0.1)
-  (indent-bars-highlight-current-depth '(:blend 1)))
-
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
   "Interactively change the current frame's OPACITY."
