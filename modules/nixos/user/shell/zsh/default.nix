@@ -16,7 +16,7 @@ in
       zsh = {
         enable = true;
         syntaxHighlighting = enabled;
-        enableAutosuggestions = true;
+        autosuggestion.enable = true;
         autocd = true;
         history = {
           size = I64_MAX; # In memory 
