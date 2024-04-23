@@ -201,7 +201,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 110 :weight 'semi-bold)
+(set-face-attribute 'default nil :family "Fira Code Nerd Font" :height 130 :weight 'normal)
 
 (use-package ligature
   :config
@@ -495,10 +495,9 @@
     :keymaps 'company-mode-map
     "C-." #'company-complete))
 
-(use-package company-box
-  :hook (company-mode . company-box-mode)
-  :custom
-  (company-tooltip-maximum-width 80))
+(use-package company-quickhelp
+  :init
+  (company-quickhelp-mode))
 
 (use-package vterm)
 (use-package vterm-toggle
