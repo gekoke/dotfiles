@@ -25,6 +25,7 @@ in
           epkgs.treesit-grammars.with-all-grammars
           pkgs.elementary.kanagawa-theme
           pkgs.elementary.indent-bars
+          pkgs.elementary.adwaita-dark-theme
         ];
       };
       earlyInitText = readFiles [

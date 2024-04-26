@@ -54,7 +54,6 @@
 (recentf-mode 1)
 (savehist-mode 1)
 (global-auto-revert-mode 1)
-(set-fringe-mode 8)
 (column-number-mode)
 
 (setq display-line-numbers-type 'relative)
@@ -139,7 +138,7 @@
   :init
   (doom-modeline-mode 1)
   :custom
-  (doom-modeline-height 30)
+  (doom-modeline-height 42)
   (doom-modeline-indent-info t)
   (doom-modeline-buffer-file-name-style 'truncate-nil))
 
@@ -196,13 +195,20 @@
 (use-package vscode-dark-plus-theme)
 (use-package ef-themes)
 (use-package apropospriate-theme)
+(use-package adwaita-dark-theme
+  :ensure nil
+  :init
+  (adwaita-dark-theme-arrow-fringe-bmp-enable)
+  (eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)
+  (eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
+  (eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable))
 
 
 (use-package remember-last-theme
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 130 :weight 'semi-bold)
+(set-face-attribute 'default nil :family "Fira Code Nerd Font" :height 110 :weight 'normal)
 
 (use-package ligature
   :config
