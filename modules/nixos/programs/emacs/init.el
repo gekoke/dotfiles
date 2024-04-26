@@ -614,7 +614,6 @@
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
   (lsp-mode . yas-minor-mode)
-  :init
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-completion-provider :none)
