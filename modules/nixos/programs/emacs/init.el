@@ -164,13 +164,6 @@
     "<tab> 8" 'eyebrowse-switch-to-window-config-8
     "<tab> 9" 'eyebrowse-switch-to-window-config-9))
 
-(use-package nyan-mode
-  :after doom-modeline
-  :init
-  (nyan-mode 1)
-  :custom
-  (nyan-animation-frame-interval (/ 1.0 20)))
-
 (use-package dashboard
   :after (consult nerd-icons)
   :init
