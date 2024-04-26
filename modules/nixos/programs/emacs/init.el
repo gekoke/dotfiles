@@ -325,6 +325,7 @@
   (evil-collection-magit-use-z-for-folds t)
   (forge-add-default-bindings nil)
   (magit-diff-refine-hunk t)
+  (magit-status-margin '(t age magit-log-margin-width t 18))
   :config
   (evil-collection-init))
 
