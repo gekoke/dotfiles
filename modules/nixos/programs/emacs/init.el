@@ -140,8 +140,11 @@
   :custom
   (doom-modeline-height 42)
   (doom-modeline-indent-info t)
-  (doom-modeline-buffer-file-name-style 'truncate-nil))
-
+  (doom-modeline-modal-icon nil)
+  (doom-modeline-check-icon nil)
+  (doom-modeline-buffer-state-icon nil)
+  (doom-modeline-buffer-file-name-style 'file-name))
+ 
 (use-package eyebrowse
   :init
   (eyebrowse-mode 1)
