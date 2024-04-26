@@ -601,7 +601,9 @@
 
 (use-package flycheck
   :init
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  :custom
+  (flycheck-indication-mode nil))
 
 (use-package treesit-auto
   :config
