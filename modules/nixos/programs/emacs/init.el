@@ -606,7 +606,7 @@
   :init
   (global-flycheck-mode)
   :custom
-  (flycheck-indication-mode nil))
+  (flycheck-indication-mode 'right-fringe))
 
 (use-package treesit-auto
   :config
