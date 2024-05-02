@@ -202,13 +202,7 @@
 (use-package vscode-dark-plus-theme)
 (use-package ef-themes)
 (use-package apropospriate-theme)
-(use-package adwaita-dark-theme
-  :ensure nil
-  :init
-  (adwaita-dark-theme-arrow-fringe-bmp-enable)
-  (eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)
-  (eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
-  (eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable))
+(use-package adwaita-dark-theme :ensure nil)
 
 
 (use-package remember-last-theme
