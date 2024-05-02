@@ -204,7 +204,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Fira Code Nerd Font" :height 110 :weight 'normal)
+(set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 110 :weight 'normal)
 
 (use-package ligature
   :config
