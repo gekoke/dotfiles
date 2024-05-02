@@ -94,7 +94,7 @@ in
             (setq lsp-java-server-config-dir (concat (file-name-as-directory (xdg-config-home)) "lsp-java/config_linux/")) 
             (add-to-list 'lsp-java-vmargs "-javaagent:${pkgs.elementary.lombok-jar}/share/java/lombok.jar")
 
-            (setq lsp-clients-typescript-tls-path ${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server)
+            (setq lsp-clients-typescript-tls-path "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server")
 
             (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
           '';
