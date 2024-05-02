@@ -80,6 +80,9 @@
 
 (setq even-window-sizes nil)
 
+(gg/leader
+  "r r" #'recompile)
+
 (use-package emacs
   :ensure nil
   :custom
