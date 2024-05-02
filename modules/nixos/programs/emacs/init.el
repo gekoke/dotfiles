@@ -78,6 +78,8 @@
 (setq-default truncate-lines t)
 (show-paren-mode 1)
 
+(setq even-window-sizes nil)
+
 (use-package emacs
   :ensure nil
   :custom
@@ -138,7 +140,7 @@
   :init
   (doom-modeline-mode 1)
   :custom
-  (doom-modeline-height 42)
+  (doom-modeline-height 20)
   (doom-modeline-indent-info t)
   (doom-modeline-modal-icon nil)
   (doom-modeline-check-icon nil)
@@ -290,6 +292,10 @@
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package helpful
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*helpful"
+                 (display-buffer-same-window)))
   :custom
   (help-window-select t)
   :general
@@ -503,7 +509,11 @@
   :init
   (company-quickhelp-mode))
 
-(use-package vterm)
+(use-package vterm
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*vterm*"
+                 (display-buffer-at-bottom))))
 (use-package vterm-toggle
   :init
   (defun gg/vterm-new ()
