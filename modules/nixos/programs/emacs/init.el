@@ -80,6 +80,12 @@
 
 (setq even-window-sizes nil)
 
+
+(add-to-list 'display-buffer-alist
+            '("\\*compilation*"
+              nil
+              (reusable-frames . t)))
+
 (gg/leader
   "r r" #'recompile)
 
