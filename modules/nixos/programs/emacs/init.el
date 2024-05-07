@@ -45,6 +45,7 @@
 (setq inhibit-startup-message t)
 (setq use-dialog-box nil)
 (setq native-comp-async-report-warnings-errors nil)
+(setq initial-scratch-message "")
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
