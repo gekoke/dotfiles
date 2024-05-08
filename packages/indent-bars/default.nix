@@ -6,13 +6,13 @@
 }:
 emacsPackages.trivialBuild rec {
   pname = "indent-bars";
-  version = "8826105";
+  version = "74c08d8";
 
   src = fetchFromGitHub {
     owner = "jdtsmith";
     repo = "indent-bars";
     rev = version;
-    hash = "sha256-usa8xpg2dvXwFcQf8gKSZ+kOy6EGJ+e2mkvGAjEX66o=";
+    hash = "sha256-fTbDjWHO7DRGtlsbU1YXat/lLACxqdXU2tNuZMagkh0=";
   };
 
   packageRequires = [ emacsPackages.compat ];
