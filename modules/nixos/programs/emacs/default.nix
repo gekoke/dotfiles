@@ -56,7 +56,7 @@ in
         delta
         # lsp-nix
         nil
-        nixpkgs-fmt
+        nixfmt-rfc-style
         # age
         rage
         # parinfer-rust-mode

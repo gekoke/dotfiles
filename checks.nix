@@ -12,7 +12,10 @@
         excludes = [ "systems/.*/.*/hardware-configuration.nix" ];
         hooks = {
           deadnix.enable = true;
-          nixpkgs-fmt.enable = true;
+          nixfmt = {
+            enable = true;
+            package = pkgs.nixfmt-rfc-style;
+          };
           shellcheck.enable = true;
           statix.enable = true;
           gitleaks = {

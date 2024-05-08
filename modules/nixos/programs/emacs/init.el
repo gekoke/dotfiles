@@ -673,7 +673,7 @@
   :ensure lsp-mode
   :after lsp-mode
   :custom
-  (lsp-nix-nil-formatter ["nixpkgs-fmt"]))
+  (lsp-nix-nil-formatter ["nixfmt"]))
 
 (use-package nix-ts-mode
   :mode "\\.nix\\'"
