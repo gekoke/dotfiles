@@ -90,6 +90,14 @@
 (gg/leader
   "r r" #'recompile)
 
+(use-package indent-bars
+  :ensure nil
+  :config
+  (require 'indent-bars-ts)
+  :custom
+  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (indent-bars-treesit-support t))
+
 (use-package emacs
   :ensure nil
   :custom
