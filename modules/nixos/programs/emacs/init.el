@@ -105,6 +105,8 @@
                       trailing
                       tabs
                       empty
+                      newline
+                      newline-mark
                       indentation
                       spaces
                       space-mark
