@@ -210,7 +210,8 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 110 :weight 'normal)
+(setq-default line-spacing 0.15)
+(set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 110 :weight 'bold)
 
 (use-package ligature
   :config
