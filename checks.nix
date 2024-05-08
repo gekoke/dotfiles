@@ -9,7 +9,10 @@
         check.enable = true;
 
         settings = {
-          excludes = [ "systems/.*/.*/hardware-configuration.nix" ];
+          excludes = [
+            "systems/.*/.*/hardware-configuration.nix"
+            ".direnv/.*"
+          ];
           hooks = {
             deadnix = {
               enable = true;
