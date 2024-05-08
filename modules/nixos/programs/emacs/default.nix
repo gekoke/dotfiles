@@ -18,12 +18,10 @@ in
     let
       emacsPackage = pkgs.emacsWithPackagesFromUsePackage {
         package =
-          if
-            config.elementary.preferences.allowLongCompilationTimes
-          # FIXME: make this `emacs-unstable-pgtk` once that points to Emacs 30
-          # currently only using `emacs-pgtk` (which points Git master branch)
-          # for Emacs 30 stipple support for `indent-bars`
-          then
+          if config.elementary.preferences.allowLongCompilationTimes then
+            # FIXME: make this `emacs-unstable-pgtk` once that points to Emacs 30
+            # currently only using `emacs-pgtk` (which points to Git master branch)
+            # for Emacs 30 stipple support for `indent-bars`
             pkgs.emacs-pgtk.override { withImageMagick = true; }
           else
             pkgs.emacs29-pgtk;
