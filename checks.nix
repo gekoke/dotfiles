@@ -11,7 +11,12 @@
         settings = {
           excludes = [ "systems/.*/.*/hardware-configuration.nix" ];
           hooks = {
-            deadnix.enable = true;
+            deadnix = {
+              enable = true;
+              settings = {
+                edit = true;
+              };
+            };
             nixfmt = {
               enable = true;
               package = pkgs.nixfmt-rfc-style;
@@ -25,7 +30,6 @@
               pass_filenames = false;
             };
           };
-          settings.deadnix.edit = true;
         };
       };
     };
