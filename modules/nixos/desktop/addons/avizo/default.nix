@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.avizo;
+let
+  cfg = config.elementary.desktop.addons.avizo;
 in
 {
   options.elementary.desktop.addons.avizo = {

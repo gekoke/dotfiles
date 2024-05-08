@@ -1,8 +1,14 @@
-{ options, config, lib, ... }:
+{
+  options,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.hardware.networking;
+let
+  cfg = config.elementary.hardware.networking;
 in
 {
   options.elementary.hardware.networking = with types; {

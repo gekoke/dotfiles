@@ -1,8 +1,15 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.rofi;
+let
+  cfg = config.elementary.desktop.addons.rofi;
 in
 {
   options.elementary.desktop.addons.rofi = with types; {
@@ -20,8 +27,7 @@ in
       enable = true;
       package = pkgs.rofi-wayland;
       extraConfig.show-icons = true;
-      theme = mkIf cfg.rofi-collection.launcher.enable
-        "${inputs.rofi-collection}/files/launchers/type-${toString cfg.rofi-collection.launcher.type}/style-${toString cfg.rofi-collection.launcher.style}.rasi";
+      theme = mkIf cfg.rofi-collection.launcher.enable "${inputs.rofi-collection}/files/launchers/type-${toString cfg.rofi-collection.launcher.type}/style-${toString cfg.rofi-collection.launcher.style}.rasi";
     };
 
     elementary.home.configFile."rofi/colors" = mkIf cfg.rofi-collection.launcher.enable {

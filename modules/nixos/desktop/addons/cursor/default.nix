@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.cursor;
+let
+  cfg = config.elementary.desktop.addons.cursor;
 in
 {
   options.elementary.desktop.addons.cursor = with types; {

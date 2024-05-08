@@ -14,7 +14,9 @@ in
     elementary = {
       desktop.hyprland = enabled;
 
-      programs.kitty = enabled // { enableHotkey = true; };
+      programs.kitty = enabled // {
+        enableHotkey = true;
+      };
 
       hardware = {
         filesystems = enabled;

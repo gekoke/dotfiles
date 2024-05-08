@@ -1,4 +1,9 @@
-{ lib, inputs, pkgs, ... }:
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
@@ -39,16 +44,18 @@ with lib.elementary;
 
   elementary.home.packages =
     let
-      infraCourseAnsible = pkgs.python3Packages.toPythonApplication
-        (pkgs.python3Packages.ansible-core.overridePythonAttrs (oldAttrs: rec {
+      infraCourseAnsible = pkgs.python3Packages.toPythonApplication (
+        pkgs.python3Packages.ansible-core.overridePythonAttrs (oldAttrs: rec {
           version = "2.13.11";
           src = oldAttrs.src.override {
             inherit version;
             hash = "sha256-nqAFlNzutLVoKIUoMqvt7S6IopSgPDlZ2kmaQ+UW9oA=";
           };
-        }));
+        })
+      );
     in
-    with pkgs; [
+    with pkgs;
+    [
       discord
       qbittorrent
       mpv

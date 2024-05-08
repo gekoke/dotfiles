@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.user;
+let
+  cfg = config.elementary.user;
 in
 {
   options.elementary.user = with types; {
@@ -17,7 +18,9 @@ in
       atuin = enabled;
     };
 
-    elementary.home.extraOptions.xdg.userDirs = enabled // { createDirectories = true; };
+    elementary.home.extraOptions.xdg.userDirs = enabled // {
+      createDirectories = true;
+    };
 
     users.users.${cfg.name} = {
       inherit (cfg) name;

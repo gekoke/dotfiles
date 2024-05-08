@@ -1,4 +1,9 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.elementary;

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 with lib;
 with lib.elementary;
 let
@@ -14,9 +20,7 @@ in
 
   config = mkIf cfg.enable {
     elementary.home = {
-      extraOptions.imports = [
-        inputs.spicetify-nix.homeManagerModule
-      ];
+      extraOptions.imports = [ inputs.spicetify-nix.homeManagerModule ];
 
       programs.spicetify = {
         enable = true;

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.unclutter;
+let
+  cfg = config.elementary.desktop.addons.unclutter;
 in
 {
   options.elementary.desktop.addons.unclutter = with types; {

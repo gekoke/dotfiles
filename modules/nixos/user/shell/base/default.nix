@@ -1,7 +1,13 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.user.shell.zsh;
+let
+  cfg = config.elementary.user.shell.zsh;
 in
 {
   options.elementary.user.shell.base = {

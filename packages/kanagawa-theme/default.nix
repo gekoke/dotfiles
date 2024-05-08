@@ -1,7 +1,8 @@
-{ lib
-, emacsPackages
-, fetchFromGitHub
-, ...
+{
+  lib,
+  emacsPackages,
+  fetchFromGitHub,
+  ...
 }:
 emacsPackages.trivialBuild rec {
   pname = "kanagawa-theme";

@@ -1,8 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.hardware.audio;
+let
+  cfg = config.elementary.hardware.audio;
 in
 {
   options.elementary.hardware.audio = {
@@ -13,7 +19,9 @@ in
     security.rtkit = enabled;
 
     services.pipewire = enabled // {
-      alsa = enabled // { support32Bit = true; };
+      alsa = enabled // {
+        support32Bit = true;
+      };
       pulse = enabled;
       jack = enabled;
       wireplumber = enabled;

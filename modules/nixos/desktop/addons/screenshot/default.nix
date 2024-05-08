@@ -1,8 +1,15 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.screenshot;
+let
+  cfg = config.elementary.desktop.addons.screenshot;
 in
 {
   options.elementary.desktop.addons.screenshot = {
@@ -13,9 +20,10 @@ in
   config = mkIf cfg.enable {
     elementary.home.packages = [
       (
-        if cfg.hyprlandSupport
-        then inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-        else abort "only supports Hyprland - set 'hyprlandSupport' module option to true"
+        if cfg.hyprlandSupport then
+          inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+        else
+          abort "only supports Hyprland - set 'hyprlandSupport' module option to true"
       )
     ];
 

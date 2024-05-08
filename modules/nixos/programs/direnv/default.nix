@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.direnv;
+let
+  cfg = config.elementary.programs.direnv;
 in
 {
   options.elementary.programs.direnv = with types; {
@@ -10,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    elementary.home.programs.direnv = enabled // { nix-direnv = enabled; };
+    elementary.home.programs.direnv = enabled // {
+      nix-direnv = enabled;
+    };
   };
 }

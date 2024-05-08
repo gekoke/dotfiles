@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.virtualisation.docker;
+let
+  cfg = config.elementary.virtualisation.docker;
 in
 {
   options.elementary.virtualisation.docker = {

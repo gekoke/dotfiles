@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.system.keyboard;
+let
+  cfg = config.elementary.system.keyboard;
 in
 {
   options.elementary.system.keyboard = with types; {

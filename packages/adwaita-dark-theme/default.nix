@@ -1,7 +1,8 @@
-{ lib
-, emacsPackages
-, fetchgit
-, ...
+{
+  lib,
+  emacsPackages,
+  fetchgit,
+  ...
 }:
 emacsPackages.trivialBuild rec {
   pname = "adwaita-dark-theme";

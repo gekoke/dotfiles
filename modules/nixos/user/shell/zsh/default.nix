@@ -1,7 +1,13 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.user.shell.zsh;
+let
+  cfg = config.elementary.user.shell.zsh;
 in
 {
   options.elementary.user.shell.zsh = {
@@ -19,7 +25,7 @@ in
         autosuggestion.enable = true;
         autocd = true;
         history = {
-          size = I64_MAX; # In memory 
+          size = I64_MAX; # In memory
           save = I64_MAX; # Saved to file
         };
 

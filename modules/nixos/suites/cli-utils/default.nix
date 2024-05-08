@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
@@ -20,7 +25,9 @@ in
 
     elementary.programs = {
       ranger = enabled;
-      neovim = enabled // { defaultEditor = true; };
+      neovim = enabled // {
+        defaultEditor = true;
+      };
     };
 
     elementary.home.packages = with pkgs; [

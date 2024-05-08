@@ -1,7 +1,8 @@
-{ lib
-, emacsPackages
-, fetchFromGitHub
-, ...
+{
+  lib,
+  emacsPackages,
+  fetchFromGitHub,
+  ...
 }:
 emacsPackages.trivialBuild rec {
   pname = "indent-bars";
@@ -14,9 +15,7 @@ emacsPackages.trivialBuild rec {
     hash = "sha256-usa8xpg2dvXwFcQf8gKSZ+kOy6EGJ+e2mkvGAjEX66o=";
   };
 
-  packageRequires = [
-    emacsPackages.compat
-  ];
+  packageRequires = [ emacsPackages.compat ];
 
   meta = {
     homepage = "https://github.com/jdtsmith/indent-bars";

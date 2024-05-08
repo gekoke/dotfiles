@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.wlogout;
+let
+  cfg = config.elementary.desktop.addons.wlogout;
 in
 {
   options.elementary.desktop.addons.wlogout = {

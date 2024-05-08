@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.system.boot;
+let
+  cfg = config.elementary.system.boot;
 in
 {
   options.elementary.system.boot = with types; {

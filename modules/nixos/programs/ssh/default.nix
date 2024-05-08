@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.ssh;
+let
+  cfg = config.elementary.programs.ssh;
 in
 {
   options.elementary.programs.ssh = {

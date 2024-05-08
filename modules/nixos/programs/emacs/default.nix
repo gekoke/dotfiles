@@ -1,7 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.emacs;
+let
+  cfg = config.elementary.programs.emacs;
 in
 {
   options.elementary.programs.emacs = {
@@ -12,12 +18,15 @@ in
     let
       emacsPackage = pkgs.emacsWithPackagesFromUsePackage {
         package =
-          if config.elementary.preferences.allowLongCompilationTimes
+          if
+            config.elementary.preferences.allowLongCompilationTimes
           # FIXME: make this `emacs-unstable-pgtk` once that points to Emacs 30
           # currently only using `emacs-pgtk` (which points Git master branch)
           # for Emacs 30 stipple support for `indent-bars`
-          then pkgs.emacs-pgtk.override { withImageMagick = true; }
-          else pkgs.emacs29-pgtk;
+          then
+            pkgs.emacs-pgtk.override { withImageMagick = true; }
+          else
+            pkgs.emacs29-pgtk;
         config = ./init.el;
         alwaysEnsure = true;
         override = pkgs.callPackage ./overlay.nix { };

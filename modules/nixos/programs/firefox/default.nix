@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.firefox;
+let
+  cfg = config.elementary.programs.firefox;
 in
 {
   options.elementary.programs.firefox = with types; {
@@ -19,13 +25,16 @@ in
       profiles."default" = {
         name = "Default";
         isDefault = true;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          privacy-badger
-          ublock-origin
-          vimium
-          bitwarden
-          sponsorblock
-        ] ++ cfg.extraExtensions;
+        extensions =
+          with pkgs.nur.repos.rycee.firefox-addons;
+          [
+            privacy-badger
+            ublock-origin
+            vimium
+            bitwarden
+            sponsorblock
+          ]
+          ++ cfg.extraExtensions;
         settings = {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable userChrome.css
           "media.hardwaremediakeys.enabled" = false; # Disable media keys in Firefox - conflicts with Spotify etc. when audio is playing in browser

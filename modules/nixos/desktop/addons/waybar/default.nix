@@ -1,7 +1,13 @@
-{ options, config, lib, ... }:
+{
+  options,
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.waybar;
+let
+  cfg = config.elementary.desktop.addons.waybar;
 in
 {
   options.elementary.desktop.addons.waybar = with types; {

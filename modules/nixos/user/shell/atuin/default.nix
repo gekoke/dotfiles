@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.user.shell.atuin;
+let
+  cfg = config.elementary.user.shell.atuin;
 in
 {
   options.elementary.user.shell.atuin = {

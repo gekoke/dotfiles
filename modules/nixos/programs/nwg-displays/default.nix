@@ -1,10 +1,17 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
 let
   cfg = config.elementary.programs.nwg-displays;
-  package = (import inputs.nwg-displays-with-desktop-file { inherit (pkgs) system; }).pkgs.nwg-displays;
+  package =
+    (import inputs.nwg-displays-with-desktop-file { inherit (pkgs) system; }).pkgs.nwg-displays;
 in
 {
   options.elementary.programs.nwg-displays = {

@@ -1,21 +1,30 @@
-{ options, config, lib, inputs, ... }:
+{
+  options,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
 {
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-  ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   options.elementary.home = with types; {
-    file = mkOpt attrs { }
-      "A set of files to be managed by home-manager's <option>home.file</option>";
-    configFile = mkOpt attrs { }
-      "A set of files to be managed by home-manager's <option>xdg.configFile</option>";
+    file = mkOpt attrs { } "A set of files to be managed by home-manager's <option>home.file</option>";
+    configFile =
+      mkOpt attrs { }
+        "A set of files to be managed by home-manager's <option>xdg.configFile</option>";
     packages = mkOpt (listOf package) [ ] "Packages to pass to <option>packages</option>";
     programs = mkOpt attrs { } "Attributes to pass to <option>programs</option>";
     services = mkOpt attrs { } "Attributes to pass to <option>services</option>";
-    sessionVariables = mkOpt (lazyAttrsOf (oneOf [ str path int float ])) { } "Attributes to pass to <option>home.sessionVariables</option>";
+    sessionVariables = mkOpt (lazyAttrsOf (oneOf [
+      str
+      path
+      int
+      float
+    ])) { } "Attributes to pass to <option>home.sessionVariables</option>";
     shellAliases = mkOpt (attrsOf str) { } "Attributes to pass to <option>home.shellAliases</option>";
 
     extraOptions = mkOpt attrs { } "Options to pass directly to home-manager";

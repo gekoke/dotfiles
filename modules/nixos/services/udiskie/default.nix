@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.services.udiskie;
+let
+  cfg = config.elementary.services.udiskie;
 in
 {
   options.elementary.services.udiskie = with types; {

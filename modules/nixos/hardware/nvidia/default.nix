@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.hardware.nvidia;
+let
+  cfg = config.elementary.hardware.nvidia;
 in
 {
   options.elementary.hardware.nvidia = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.services.tzupdate;
+let
+  cfg = config.elementary.services.tzupdate;
 in
 {
   options.elementary.services.tzupdate = with types; {

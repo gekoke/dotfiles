@@ -1,8 +1,14 @@
-{ config, lib, options, ... }:
+{
+  config,
+  lib,
+  options,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.dunst;
+let
+  cfg = config.elementary.desktop.addons.dunst;
 in
 {
   options.elementary.desktop.addons.dunst = with types; {

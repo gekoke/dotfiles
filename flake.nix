@@ -43,7 +43,8 @@
     pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     let
       lib = inputs.snowfall-lib.mkLib {
         inherit inputs;
@@ -65,13 +66,14 @@
 
         channels-config.allowUnfree = true;
       })
-      (inputs.flake-parts.lib.mkFlake { inherit inputs; }
-        {
+      (
+        inputs.flake-parts.lib.mkFlake { inherit inputs; } {
           systems = import inputs.systems;
           imports = [
             ./checks.nix
             ./dev-shells.nix
             ./formatter.nix
           ];
-        });
+        }
+      );
 }

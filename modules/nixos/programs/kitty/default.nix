@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.kitty;
+let
+  cfg = config.elementary.programs.kitty;
 in
 {
   options.elementary.programs.kitty = {

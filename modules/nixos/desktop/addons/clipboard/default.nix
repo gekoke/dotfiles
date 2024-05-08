@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
-let cfg = config.elementary.desktop.addons.clipboard;
+let
+  cfg = config.elementary.desktop.addons.clipboard;
 in
 {
   options.elementary.desktop.addons.clipboard = {

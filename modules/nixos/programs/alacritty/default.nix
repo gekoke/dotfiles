@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.alacritty;
+let
+  cfg = config.elementary.programs.alacritty;
 in
 {
   options.elementary.programs.alacritty = {

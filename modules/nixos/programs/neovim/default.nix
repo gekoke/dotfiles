@@ -1,7 +1,8 @@
 { config, lib, ... }:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.neovim;
+let
+  cfg = config.elementary.programs.neovim;
 in
 {
   options.elementary.programs.neovim = {

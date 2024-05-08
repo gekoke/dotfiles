@@ -1,7 +1,14 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 with lib;
 with lib.elementary;
-let cfg = config.elementary.programs.ranger;
+let
+  cfg = config.elementary.programs.ranger;
 in
 {
   options.elementary.programs.ranger = {
