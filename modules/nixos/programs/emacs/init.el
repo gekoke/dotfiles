@@ -105,7 +105,7 @@
                       trailing
                       tabs
                       empty
-                      indention
+                      indentation
                       spaces
                       space-mark
                       space-after-tab
