@@ -13,10 +13,8 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v1
       - name: Update flake.lock
-        id: update
         uses: DeterminateSystems/update-flake-lock@v19
         with:
-          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           commit-msg: "chore: update flake.lock"
           pr-title: "Update flake.lock"
           pr-labels: |
