@@ -24,3 +24,5 @@ jobs:
             
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
+            ```
+
