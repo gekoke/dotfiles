@@ -1,4 +1,10 @@
-{ config, lib, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 with lib.elementary;
@@ -11,32 +17,35 @@ in
   };
 
   config = mkIf cfg.enable {
-    nix =
-      let
-        users = [
-          "root"
-          config.elementary.user.name
-        ];
-      in
-      {
-        settings =
-          {
-            experimental-features = "nix-command flakes impure-derivations ca-derivations";
-            http-connections = 0; # Unlimited
-            auto-optimise-store = true;
-            trusted-users = users;
-            allowed-users = users;
-          }
-          // (lib.optionalAttrs config.elementary.programs.direnv.enable {
-            keep-outputs = true;
-            keep-derivations = true;
-          });
-
-        gc = {
-          automatic = true;
-          dates = "daily";
-          options = "--delete-older-than 30d";
-        };
+    nix = {
+      registry = {
+        p.flake = inputs.nixpkgs;
+        pkgs.flake = inputs.nixpkgs;
       };
+      settings =
+        let
+          users = [
+            "root"
+            config.elementary.user.name
+          ];
+        in
+        {
+          experimental-features = "nix-command flakes impure-derivations ca-derivations";
+          http-connections = 0; # Unlimited
+          auto-optimise-store = true;
+          trusted-users = users;
+          allowed-users = users;
+        }
+        // (lib.optionalAttrs config.elementary.programs.direnv.enable {
+          keep-outputs = true;
+          keep-derivations = true;
+        });
+
+      gc = {
+        automatic = true;
+        dates = "daily";
+        options = "--delete-older-than 30d";
+      };
+    };
   };
 }
