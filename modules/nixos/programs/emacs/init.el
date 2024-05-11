@@ -87,9 +87,6 @@
               nil
               (reusable-frames . t)))
 
-(gg/leader
-  "r r" #'recompile)
-
 (use-package indent-bars
   :ensure nil
   :config
@@ -610,7 +607,8 @@
   (projectile-track-known-projects-automatically nil)
   :general
   (gg/leader
-    "p" '(:keymap projectile-command-map :which-key "Project"))
+    "p" '(:keymap projectile-command-map :which-key "Project")
+    "r r" #'projectile-repeat-last-command)
   (general-def projectile-command-map
     "a" #'projectile-add-known-project
     "A" #'projectile-find-other-file))
