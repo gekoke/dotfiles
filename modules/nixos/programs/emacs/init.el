@@ -546,6 +546,11 @@
   :init
   (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (defun magit-auto-fetch ()
+    (interactive)
+    (magit-fetch-all ())
+    (forge-pull))
+  (advice-add 'magit-status :after #'magit-auto-fetch)
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
