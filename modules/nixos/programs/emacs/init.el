@@ -324,7 +324,12 @@
   :config
   (global-undo-tree-mode))
 
+(repeat-mode +1)
 (use-package evil
+  :bind
+  (:repeat-map evil-window-resizing-repeat-map
+               (">" . evil-window-increase-width)
+               ("<" . evil-window-decrease-width))
   :custom
   (evil-want-keybinding nil)
   (evil-want-C-u-scroll t)
