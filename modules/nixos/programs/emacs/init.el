@@ -170,6 +170,8 @@
   :custom
   (eyebrowse-new-workspace #'dashboard-open)
   :general
+  (general-def
+    "C-<tab>" 'eyebrowse-last-window-config)
   (gg/leader
     "<tab> k" 'eyebrowse-prev-window-config
     "<tab> j" 'eyebrowse-next-window-config
