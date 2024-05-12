@@ -324,6 +324,8 @@
   :config
   (global-undo-tree-mode))
 
+(winner-mode +1)
+
 (repeat-mode +1)
 (use-package evil
   :bind
@@ -340,7 +342,13 @@
   (add-to-list 'evil-jumps-ignored-file-patterns ".*/$")
   :general
   (gg/leader
-    "s" #'save-buffer))
+    "s" #'save-buffer)
+  (general-def
+    :states '(motion)
+    "C-w u" #'winner-undo
+    "C-w C-u" #'winner-undo
+    "C-w i" #'winner-redo
+    "C-w C-i" #'winner-redo))
 
 (use-package evil-collection
   :after evil
