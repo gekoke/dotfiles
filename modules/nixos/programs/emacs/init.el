@@ -219,7 +219,6 @@
   :config
   (remember-last-theme-enable))
 
-(setq-default line-spacing 0.15)
 (set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 110 :weight 'bold)
 
 (use-package ligature
@@ -570,6 +569,27 @@
     (magit-fetch-all ())
     (forge-pull))
   (advice-add 'magit-status :after #'magit-auto-fetch)
+
+  (defun magit-log-custom-propertize-keywords (_rev msg)
+    (let ((boundary 0))
+      (when (string-match "^\\(?:squash\\|fixup\\)! " msg boundary)
+        (setq boundary (match-end 0))
+        (magit--put-face (match-beginning 0) (1- boundary)
+                         'magit-keyword-squash msg))
+      (when magit-log-highlight-keywords
+        ;; Case [...]
+        (while (string-match "\\[[^[]*?]" msg boundary)
+          (setq boundary (match-end 0))
+          (magit--put-face (match-beginning 0) boundary
+                           'magit-keyword msg))
+        ;; Revert commits
+        (while (string-match "^Revert" msg boundary)
+          (setq boundary (match-end 0))
+          (magit--put-face (match-beginning 0) boundary
+                           'error msg))
+        msg)))
+
+  (advice-add #'magit-log-propertize-keywords :override #'magit-log-custom-propertize-keywords)
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
