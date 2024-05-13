@@ -329,6 +329,10 @@
 (winner-mode +1)
 
 (repeat-mode +1)
+
+(general-def
+  "C-s" #'avy-goto-char)
+
 (use-package evil
   :bind
   (:repeat-map evil-window-resizing-repeat-map
