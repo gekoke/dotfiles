@@ -589,7 +589,6 @@
                            'error msg))
         msg)))
 
-  (advice-add #'magit-log-propertize-keywords :override #'magit-log-custom-propertize-keywords)
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
@@ -598,6 +597,7 @@
   :general
   (gg/leader
     "v" #'magit-status
+    "V" #'magit-status-here
     "g i" #'magit-init)
   (general-def
     :states '(normal visual)
