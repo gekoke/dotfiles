@@ -630,6 +630,7 @@
   :custom
   (diff-hl-show-staged-changes nil)
   (diff-hl-ask-before-revert-hunk nil)
+  (diff-hl-draw-borders nil)
   :init
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode)
