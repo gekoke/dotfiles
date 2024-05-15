@@ -42,6 +42,9 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     pinned-swww.url = "github:NixOS/nixpkgs/8bf3e834daedadc6d0f4172616b2bdede1109c48";
+
+    magit-file-icons.url = "github:gekoke/magit-file-icons";
+    magit-file-icons.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

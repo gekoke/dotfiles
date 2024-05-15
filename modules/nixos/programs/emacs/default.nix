@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -30,6 +31,7 @@ in
         override = pkgs.callPackage ./overlay.nix { };
         extraEmacsPackages = epkgs: [
           epkgs.treesit-grammars.with-all-grammars
+          inputs.magit-file-icons.packages.${pkgs.system}.default
           pkgs.elementary.kanagawa-theme
           pkgs.elementary.indent-bars
           pkgs.elementary.adwaita-dark-theme

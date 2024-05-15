@@ -607,6 +607,11 @@
     "k" #'magit-section-backward-sibling
     "j" #'magit-section-forward-sibling))
 
+(use-package magit-file-icons
+  :ensure nil
+  :config
+  (magit-file-icons-mode))
+
 (use-package forge
   :after magit
   :custom
