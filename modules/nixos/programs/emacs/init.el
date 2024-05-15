@@ -125,6 +125,8 @@
 
 (use-package nerd-icons)
 
+(use-package package-lint)
+
 (dolist (assoc '(("age" nerd-icons-codicon "nf-cod-gist_secret" :face nil)
                  ("apk" nerd-icons-devicon "nf-dev-android" :face nerd-icons-green)
                  ("chs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
