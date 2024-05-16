@@ -496,6 +496,9 @@
     },
     "magit-file-icons": {
       "inputs": {
+        "emacs-overlay": [
+          "emacs-overlay"
+        ],
         "flake-parts": "flake-parts_2",
         "nixpkgs": [
           "nixpkgs"
@@ -503,11 +506,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1715752976,
-        "narHash": "sha256-zohPoq99LfSzzkwwY49Kt/RtekYvvA/eXiHt7rSm5EI=",
+        "lastModified": 1715902006,
+        "narHash": "sha256-FmRpO0nZ2pead0YuBKh/QUaZLAd+mzLiNZsM6tv9x8A=",
         "owner": "gekoke",
         "repo": "magit-file-icons",
-        "rev": "99e096cd01a911547de87787319805eeba7fcf48",
+        "rev": "8d5e508a71a16f83137e5385f9c3780c9e72a74b",
         "type": "github"
       },
       "original": {

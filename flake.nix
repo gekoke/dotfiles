@@ -45,6 +45,7 @@
 
     magit-file-icons.url = "github:gekoke/magit-file-icons";
     magit-file-icons.inputs.nixpkgs.follows = "nixpkgs";
+    magit-file-icons.inputs.emacs-overlay.follows = "emacs-overlay";
   };
 
   outputs =
