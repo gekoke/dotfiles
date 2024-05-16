@@ -164,7 +164,7 @@
   (doom-modeline-modal-icon nil)
   (doom-modeline-check-icon nil)
   (doom-modeline-buffer-state-icon nil)
-  (doom-modeline-buffer-file-name-style 'file-name))
+  (doom-modeline-buffer-file-name-style 'file-name-with-project))
  
 (use-package eyebrowse
   :init
