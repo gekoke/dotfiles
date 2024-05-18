@@ -82,6 +82,17 @@
 
 (setq even-window-sizes nil)
 
+(use-package ace-window
+  :ensure t
+  :general
+  (general-def
+    :states '(motion)
+    "C-w w" #'ace-window
+    "C-w C-w" #'ace-window
+    "C-w e" #'ace-swap-window
+    "C-w C-e" #'ace-swap-window
+    "C-w d" #'ace-delete-window
+    "C-w C-d" #'ace-delete-window))
 
 (add-to-list 'display-buffer-alist
             '("\\*compilation*"
