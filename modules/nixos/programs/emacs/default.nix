@@ -92,6 +92,12 @@ in
         # CSharp
         omnisharp-roslyn
         dotnet-sdk_8
+        # rust
+        rust-analyzer
+        rustc
+        cargo
+        rustfmt
+        clippy
       ];
 
       elementary.home = {

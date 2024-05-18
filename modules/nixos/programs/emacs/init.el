@@ -697,6 +697,8 @@
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-completion-provider :none)
+  (lsp-eldoc-render-all t)
+  (lsp-inlay-hint-enable t)
   :config
   (lsp-register-client
    (make-lsp-client
@@ -761,6 +763,27 @@
   :hook (java-ts-mode . (lambda ()
                           (load "lsp-java.el")
                           (lsp))))
+
+(use-package rustic
+  :ensure t
+  :hook
+  (rust-ts-mode . lsp-deferred)
+  :init
+  (add-hook 'before-save-hook (lambda ()
+                                (when (and
+                                       (eq major-mode 'rustic-mode)
+                                       (bound-and-true-p lsp-mode))
+                                  (lsp-format-buffer))))
+  :custom
+  (rust-mode-treesitter-derive t))
+
+(use-package lsp-rust
+  :custom
+  (lsp-rust-analyzer-lens-references-adt-enable t)
+  (lsp-rust-analyzer-lens-references-trait-enable t)
+  (lsp-rust-analyzer-lens-references-enum-variant-enable t)
+  (lsp-rust-analyzer-max-inlay-hint-length 15)
+  (lsp-rust-clippy-preference "on"))
 
 (use-package markdown-mode
   :custom
