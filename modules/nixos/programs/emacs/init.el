@@ -220,7 +220,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 105 :weight 'normal)
+(set-face-attribute 'default nil :family "Iosevka Term Nerd Font" :height 105 :weight 'normal)
 
 (use-package ligature
   :config
