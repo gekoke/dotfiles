@@ -210,7 +210,6 @@
 
 (setq custom-safe-themes t)
 (use-package doom-themes)
-(use-package catppuccin-theme :custom (catppuccin-flavor 'macchiato))
 (use-package vscode-dark-plus-theme)
 (use-package ef-themes)
 (use-package apropospriate-theme)
