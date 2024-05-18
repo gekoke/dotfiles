@@ -681,7 +681,8 @@
   :init
   (global-flycheck-mode)
   :custom
-  (flycheck-indication-mode 'right-fringe))
+  (flycheck-indication-mode 'right-fringe)
+  (flycheck-display-errors-delay 0))
 
 (use-package treesit-auto
   :config
@@ -689,6 +690,16 @@
   (global-treesit-auto-mode))
 
 (use-package yasnippet)
+
+(use-package eldoc
+  :ensure nil
+  :custom
+  (eldoc-idle-delay 0)
+  (eldoc-display-functions '(eldoc-display-in-buffer))
+  :general
+  (general-def
+    :states '(normal)
+    "g h" #'eldoc))
 
 (use-package lsp-mode
   :hook
@@ -713,22 +724,6 @@
     "l" '(:keymap lsp-command-map))
   (general-def lsp-command-map
     "= r" #'lsp-format-region))
-
-(use-package lsp-ui
-  :after lsp-mode
-  :hook (prog-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'at-point)
-  (lsp-ui-sideline-diagnostic-max-line-length 280)
-  :general
-  (general-def
-    :states 'normal
-    :keymaps 'lsp-ui-mode-map
-    "g h" #'lsp-ui-doc-glance
-    "g H" #'lsp-ui-doc-focus-frame)
-  (general-def
-    :keymaps 'lsp-ui-doc-frame-mode-map
-    "C-g" #'lsp-ui-doc-unfocus-frame))
 
 (use-package lsp-nix
   :ensure lsp-mode
