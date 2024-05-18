@@ -771,6 +771,7 @@
   (lsp-rust-analyzer-lens-references-trait-enable t)
   (lsp-rust-analyzer-lens-references-enum-variant-enable t)
   (lsp-rust-analyzer-max-inlay-hint-length 15)
+  (lsp-rust-analyzer-diagnostics-enable-experimental t)
   (lsp-rust-clippy-preference "on"))
 
 (use-package markdown-mode
