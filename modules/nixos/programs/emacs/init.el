@@ -191,16 +191,16 @@
     "<tab> j" #'eyebrowse-next-window-config
     "<tab> <tab>" #'eyebrowse-last-window-config
     "<tab> d" #'eyebrowse-close-window-config
-    "<tab> 0" #'eyebrowse-switch-to-window-config-0
-    "<tab> 1" #'eyebrowse-switch-to-window-config-1
-    "<tab> 2" #'eyebrowse-switch-to-window-config-2
-    "<tab> 3" #'eyebrowse-switch-to-window-config-3
-    "<tab> 4" #'eyebrowse-switch-to-window-config-4
-    "<tab> 5" #'eyebrowse-switch-to-window-config-5
-    "<tab> 6" #'eyebrowse-switch-to-window-config-6
-    "<tab> 7" #'eyebrowse-switch-to-window-config-7
-    "<tab> 8" #'eyebrowse-switch-to-window-config-8
-    "<tab> 9" #'eyebrowse-switch-to-window-config-9))
+    "0" #'eyebrowse-switch-to-window-config-0
+    "1" #'eyebrowse-switch-to-window-config-1
+    "2" #'eyebrowse-switch-to-window-config-2
+    "3" #'eyebrowse-switch-to-window-config-3
+    "4" #'eyebrowse-switch-to-window-config-4
+    "5" #'eyebrowse-switch-to-window-config-5
+    "6" #'eyebrowse-switch-to-window-config-6
+    "7" #'eyebrowse-switch-to-window-config-7
+    "8" #'eyebrowse-switch-to-window-config-8
+    "9" #'eyebrowse-switch-to-window-config-9))
 
 (use-package dashboard
   :after (consult nerd-icons)
