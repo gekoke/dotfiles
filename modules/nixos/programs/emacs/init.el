@@ -571,26 +571,6 @@
     (magit-fetch-all ())
     (forge-pull))
   (advice-add 'magit-status :after #'magit-auto-fetch)
-
-  (defun magit-log-custom-propertize-keywords (_rev msg)
-    (let ((boundary 0))
-      (when (string-match "^\\(?:squash\\|fixup\\)! " msg boundary)
-        (setq boundary (match-end 0))
-        (magit--put-face (match-beginning 0) (1- boundary)
-                         'magit-keyword-squash msg))
-      (when magit-log-highlight-keywords
-        ;; Case [...]
-        (while (string-match "\\[[^[]*?]" msg boundary)
-          (setq boundary (match-end 0))
-          (magit--put-face (match-beginning 0) boundary
-                           'magit-keyword msg))
-        ;; Revert commits
-        (while (string-match "^Revert" msg boundary)
-          (setq boundary (match-end 0))
-          (magit--put-face (match-beginning 0) boundary
-                           'error msg))
-        msg)))
-
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
