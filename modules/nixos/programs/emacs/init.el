@@ -621,9 +621,7 @@
   :custom-face
   (blamer-face ((t :background nil
                    :weight normal
-                   :italic nil)))
-  :config
-  (global-blamer-mode 1))
+                   :italic nil))))
 
 (use-package diff-hl
   :custom
