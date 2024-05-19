@@ -100,6 +100,33 @@
               nil
               (reusable-frames . t)))
 
+(use-package eyebrowse
+  :init
+  (eyebrowse-mode 1)
+  :custom
+  (eyebrowse-new-workspace #'dashboard-open)
+  :general
+  (with-eval-after-load 'magit
+    (general-def
+        :states 'normal
+        :keymaps 'magit-section-mode-map
+        "C-<tab>" #'eyebrowse-last-window-config))
+  (general-def
+    :keymaps 'override
+    "C-<tab>" #'eyebrowse-last-window-config)
+  (gg/leader
+    "<tab> d" #'eyebrowse-close-window-config
+    "0" #'eyebrowse-switch-to-window-config-0
+    "1" #'eyebrowse-switch-to-window-config-1
+    "2" #'eyebrowse-switch-to-window-config-2
+    "3" #'eyebrowse-switch-to-window-config-3
+    "4" #'eyebrowse-switch-to-window-config-4
+    "5" #'eyebrowse-switch-to-window-config-5
+    "6" #'eyebrowse-switch-to-window-config-6
+    "7" #'eyebrowse-switch-to-window-config-7
+    "8" #'eyebrowse-switch-to-window-config-8
+    "9" #'eyebrowse-switch-to-window-config-9))
+
 (use-package indent-bars
   :ensure nil
   :config
@@ -179,30 +206,6 @@
   (doom-modeline-buffer-state-icon nil)
   (doom-modeline-buffer-file-name-style 'file-name-with-project))
  
-(use-package eyebrowse
-  :init
-  (eyebrowse-mode 1)
-  :custom
-  (eyebrowse-new-workspace #'dashboard-open)
-  :general
-  (general-def
-    "C-<tab>" 'eyebrowse-last-window-config)
-  (gg/leader
-    "<tab> k" #'eyebrowse-prev-window-config
-    "<tab> j" #'eyebrowse-next-window-config
-    "<tab> <tab>" #'eyebrowse-last-window-config
-    "<tab> d" #'eyebrowse-close-window-config
-    "0" #'eyebrowse-switch-to-window-config-0
-    "1" #'eyebrowse-switch-to-window-config-1
-    "2" #'eyebrowse-switch-to-window-config-2
-    "3" #'eyebrowse-switch-to-window-config-3
-    "4" #'eyebrowse-switch-to-window-config-4
-    "5" #'eyebrowse-switch-to-window-config-5
-    "6" #'eyebrowse-switch-to-window-config-6
-    "7" #'eyebrowse-switch-to-window-config-7
-    "8" #'eyebrowse-switch-to-window-config-8
-    "9" #'eyebrowse-switch-to-window-config-9))
-
 (use-package dashboard
   :after (consult nerd-icons)
   :init
