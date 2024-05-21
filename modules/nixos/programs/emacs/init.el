@@ -682,6 +682,7 @@
 (use-package treesit-auto
   :config
   (delete 'yaml treesit-auto-langs) ;; yaml-mode is superior
+  (delete 'rust treesit-auto-langs) ;; conflicts with mode set up by rustic-mode config
   (global-treesit-auto-mode))
 
 (use-package yasnippet)
@@ -756,18 +757,13 @@
 
 (use-package rustic
   :ensure t
-  :hook
-  (rust-ts-mode . lsp-deferred)
-  :init
-  (add-hook 'before-save-hook (lambda ()
-                                (when (and
-                                       (eq major-mode 'rustic-mode)
-                                       (bound-and-true-p lsp-mode))
-                                  (lsp-format-buffer))))
+  :mode
+  ("\\.rs\\'" . rustic-mode)
   :custom
-  (rust-mode-treesitter-derive t))
+  (rustic-format-trigger t))
 
 (use-package lsp-rust
+  :ensure lsp-mode
   :custom
   (lsp-rust-analyzer-lens-references-adt-enable t)
   (lsp-rust-analyzer-lens-references-trait-enable t)
