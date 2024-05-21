@@ -604,7 +604,7 @@
 
 (use-package magit-file-icons
   :ensure nil
-  :config
+  :init
   (magit-file-icons-mode))
 
 (use-package forge
