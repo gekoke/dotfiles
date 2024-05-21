@@ -676,8 +676,7 @@
   :init
   (global-flycheck-mode)
   :custom
-  (flycheck-indication-mode 'right-fringe)
-  (flycheck-display-errors-delay 0))
+  (flycheck-indication-mode 'right-fringe))
 
 (use-package treesit-auto
   :config
@@ -720,6 +719,12 @@
     "l" '(:keymap lsp-command-map))
   (general-def lsp-command-map
     "= r" #'lsp-format-region))
+
+(use-package lsp-ui
+  :after lsp-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-sideline-diagnostic-max-line-length 280))
 
 (use-package lsp-nix
   :ensure lsp-mode
