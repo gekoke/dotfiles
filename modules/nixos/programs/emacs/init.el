@@ -135,6 +135,10 @@
   (indent-bars-treesit-ignore-blank-lines-types '("module"))
   (indent-bars-treesit-support t))
 
+(use-package jinx
+  :ensure t
+  :hook (emacs-startup . global-jinx-mode))
+
 (use-package emacs
   :ensure nil
   :custom

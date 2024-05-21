@@ -52,6 +52,8 @@ in
       ];
 
       elementary.home.packages = with pkgs; [
+        # jinx
+        hunspellDicts.en_US
         # dirvish
         fd
         imagemagick
