@@ -15,7 +15,7 @@ with lib.elementary;
       elementary.stylix.extraOptions = {
         polarity = "dark";
         image = "${pkgs.elementary.wallpapers}/share/wallpapers/cyberpunkgirl-inverted.png";
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 
         opacity = {
           terminal = 0.85;
