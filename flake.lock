@@ -506,11 +506,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1715902006,
-        "narHash": "sha256-FmRpO0nZ2pead0YuBKh/QUaZLAd+mzLiNZsM6tv9x8A=",
+        "lastModified": 1716335891,
+        "narHash": "sha256-lnkH/dIVpE/3xOrF2DLRddZhnVKr6sNZ3jmHakLzvyA=",
         "owner": "gekoke",
         "repo": "magit-file-icons",
-        "rev": "8d5e508a71a16f83137e5385f9c3780c9e72a74b",
+        "rev": "c43a06a2525fe6998730dc846e4c72b47cf49864",
         "type": "github"
       },
       "original": {

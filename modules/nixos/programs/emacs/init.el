@@ -580,6 +580,12 @@
 ;; Don't make new frame for ediff - why would I want that?!
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
+(use-package magit-file-icons
+  :ensure nil
+  :after magit
+  :init
+  (magit-file-icons-mode))
+
 (use-package magit
   :hook (magit-log-mode . magit-diff-show-or-scroll-up)
   :init
@@ -605,11 +611,6 @@
     :keymaps 'magit-log-mode-map
     "k" #'magit-section-backward-sibling
     "j" #'magit-section-forward-sibling))
-
-(use-package magit-file-icons
-  :ensure nil
-  :init
-  (magit-file-icons-mode))
 
 (use-package forge
   :after magit
