@@ -14,23 +14,29 @@ in
 {
   options.elementary.programs.spotify = with types; {
     enable = mkEnableOption "Spotify";
-    theme = mkOpt str "Sleek" "The Spicetify theme to apply";
-    colorScheme = mkOpt str "RosePine" "The color scheme to apply to the Spicetify theme";
+    spicetifyTheme = {
+      enable = mkEnableOption "Spicetify theme";
+      theme = mkOpt str "Sleek" "The Spicetify theme to apply";
+      colorScheme = mkOpt str "RosePine" "The color scheme to apply to the Spicetify theme";
+    };
   };
 
   config = mkIf cfg.enable {
     elementary.home = {
       extraOptions.imports = [ inputs.spicetify-nix.homeManagerModule ];
 
-      programs.spicetify = {
-        enable = true;
-        inherit (cfg) colorScheme;
-        theme = spicePkgs.themes.${cfg.theme};
-        enabledExtensions = with spicePkgs.extensions; [
-          genre
-          keyboardShortcut
-        ];
-      };
+      programs.spicetify =
+        {
+          enable = true;
+          enabledExtensions = with spicePkgs.extensions; [
+            genre
+            keyboardShortcut
+          ];
+        }
+        // (lib.optionalAttrs cfg.spicetifyTheme.enable {
+          inherit (cfg.spicetifyTheme) colorScheme;
+          theme = spicePkgs.themes.${cfg.spicetifyTheme.theme};
+        });
     };
   };
 }
