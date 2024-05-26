@@ -234,7 +234,7 @@
 (use-package ef-themes)
 (use-package apropospriate-theme)
 (use-package adwaita-dark-theme :ensure nil)
-
+(use-package gruvbox-theme)
 
 (use-package remember-last-theme
   :config
