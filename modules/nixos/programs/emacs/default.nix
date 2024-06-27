@@ -21,6 +21,7 @@ in
         package =
           if config.elementary.preferences.allowLongCompilationTimes then
             # FIXME: make this `emacs-unstable-pgtk` once that points to Emacs 30
+            # (you can check here: https://github.com/nix-community/emacs-overlay/blob/master/repos/emacs/emacs-unstable.json)
             # currently only using `emacs-pgtk` (which points to Git master branch)
             # for Emacs 30 stipple support for `indent-bars`
             pkgs.emacs-pgtk.override { withImageMagick = true; }
