@@ -252,8 +252,6 @@
                                        ">>=" ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++")))
 
 (use-package olivetti
-  :init
-  (add-hook 'woman-mode-hook 'olivetti-mode)
   :custom
   (olivetti-body-width 140)
   :general
