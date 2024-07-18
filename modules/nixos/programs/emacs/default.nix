@@ -95,7 +95,7 @@ in
         # CSharp
         omnisharp-roslyn
         dotnet-sdk_8
-        # rust
+        # Rust
         rust-analyzer
         rustc
         cargo
