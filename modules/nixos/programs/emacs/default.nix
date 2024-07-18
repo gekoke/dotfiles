@@ -101,6 +101,9 @@ in
         cargo
         rustfmt
         clippy
+        # Go
+        go
+        gopls
       ];
 
       elementary.home = {

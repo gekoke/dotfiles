@@ -6,6 +6,8 @@
 (setq use-package-always-ensure t)
 (setq use-package-always-demand t)
 
+(setq-default tab-width 4)
+
 (use-package general
   :config
   (general-create-definer gg/leader
@@ -839,6 +841,15 @@
   (add-hook 'terraform-mode-hook 'my-terraform-mode-init))
 
 (use-package feature-mode)
+
+(use-package lsp-mode
+  :custom
+  (lsp-go-analyses '((shadow . t)
+                     (simplifycompositelit . :json-false))))
+
+(use-package go-ts-mode
+  :custom
+  (go-ts-mode-indent-offset 4))
 
 (use-package age
   :custom
