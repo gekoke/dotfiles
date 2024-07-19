@@ -844,6 +844,7 @@
                      (simplifycompositelit . :json-false))))
 
 (use-package go-ts-mode
+  :ensure nil
   :custom
   (go-ts-mode-indent-offset 4))
 
