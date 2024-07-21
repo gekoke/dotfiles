@@ -846,7 +846,7 @@
 (use-package go-ts-mode
   :ensure nil
   :custom
-  (go-ts-mode-indent-offset 4))
+  (go-ts-mode-indent-offset (tab-width)))
 
 (use-package age
   :custom
