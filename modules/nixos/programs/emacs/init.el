@@ -8,6 +8,11 @@
 
 (setq-default tab-width 4)
 
+(use-package calendar
+  :ensure nil
+  :custom
+  (calendar-week-start-day 1))
+
 (use-package general
   :config
   (general-create-definer gg/leader
