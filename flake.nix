@@ -8,27 +8,22 @@
     systems.url = "github:nix-systems/default";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
 
     nix-pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
 
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland-contrib.url = "github:hyprwm/contrib";
-    hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     stylix.url = "github:danth/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     rofi-collection.url = "github:adi1090x/rofi";
     rofi-collection.flake = false;
@@ -39,8 +34,6 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     magit-file-icons.url = "github:gekoke/magit-file-icons";
-    magit-file-icons.inputs.nixpkgs.follows = "nixpkgs";
-    magit-file-icons.inputs.emacs-overlay.follows = "emacs-overlay";
   };
 
   outputs =
