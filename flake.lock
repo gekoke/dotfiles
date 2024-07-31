@@ -291,16 +291,17 @@
         "flake-utils": "flake-utils_3"
       },
       "locked": {
-        "lastModified": 1714768375,
-        "narHash": "sha256-vU6uUoUOgqG7NSyqlU/b+tNnY0ABxldYUXmlki/7OiQ=",
-        "owner": "fl42v",
+        "lastModified": 1715533576,
+        "narHash": "sha256-fT4ppWeCJ0uR300EH3i7kmgRZnAVxrH+XtK09jQWihk=",
+        "owner": "gytis-ivaskevicius",
         "repo": "flake-utils-plus",
-        "rev": "f3d032cb184a3433a2efa070f889962cb9d3d6a0",
+        "rev": "3542fe9126dc492e53ddd252bb0260fe035f2c0f",
         "type": "github"
       },
       "original": {
-        "owner": "fl42v",
+        "owner": "gytis-ivaskevicius",
         "repo": "flake-utils-plus",
+        "rev": "3542fe9126dc492e53ddd252bb0260fe035f2c0f",
         "type": "github"
       }
     },
@@ -746,11 +747,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715107207,
-        "narHash": "sha256-Lq38yoHyY8t+zkVdpYlr2Fonb89Id4o5zgIfz8KCB8Y=",
+        "lastModified": 1719005984,
+        "narHash": "sha256-mpFl3Jv4fKnn+5znYXG6SsBjfXHJdRG5FEqNSPx0GLA=",
         "owner": "snowfallorg",
         "repo": "lib",
-        "rev": "299b24861ebfa98a5b586dfa9ec8138ab6a4c626",
+        "rev": "c6238c83de101729c5de3a29586ba166a9a65622",
         "type": "github"
       },
       "original": {
