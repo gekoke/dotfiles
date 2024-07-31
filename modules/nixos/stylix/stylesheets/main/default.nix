@@ -97,8 +97,8 @@ with lib.elementary;
         layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
 
         general {
-            gaps_out = 10
-            gaps_in = 5
+            gaps_out = 8
+            gaps_in = 4
 
             border_size = 2
         }
