@@ -103,6 +103,10 @@ with lib.elementary;
             border_size = 2
         }
 
+        master {
+            no_gaps_when_only = 1
+        }
+
         decoration {
             blur {
                 enabled = true
