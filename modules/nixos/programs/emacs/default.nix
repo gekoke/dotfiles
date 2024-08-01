@@ -33,6 +33,7 @@ in
         extraEmacsPackages = epkgs: [
           epkgs.treesit-grammars.with-all-grammars
           inputs.magit-file-icons.packages.${pkgs.system}.default
+          pkgs.elementary.typst-ts-mode
           pkgs.elementary.kanagawa-theme
           pkgs.elementary.indent-bars
           pkgs.elementary.adwaita-dark-theme

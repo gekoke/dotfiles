@@ -853,6 +853,8 @@
   :custom
   (go-ts-mode-indent-offset tab-width))
 
+(use-package typst-ts-mode :ensure nil)
+
 (use-package age
   :custom
   (age-program "rage")
