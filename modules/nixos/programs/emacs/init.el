@@ -247,7 +247,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 100 :weight 'semi-bold)
+(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 105 :weight 'normal)
 
 (use-package ligature
   :config
