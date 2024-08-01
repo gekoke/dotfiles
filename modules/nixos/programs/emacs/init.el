@@ -588,7 +588,7 @@
 (use-package magit-file-icons
   :ensure nil
   :after magit
-  :init
+  :config
   (magit-file-icons-mode))
 
 (use-package magit
