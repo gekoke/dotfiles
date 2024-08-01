@@ -247,7 +247,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Hack Mono Nerd Font" :height 110 :weight 'semi-bold)
+(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 100 :weight 'semi-bold)
 
 (use-package ligature
   :config
@@ -851,7 +851,7 @@
 (use-package go-ts-mode
   :ensure nil
   :custom
-  (go-ts-mode-indent-offset (tab-width)))
+  (go-ts-mode-indent-offset tab-width))
 
 (use-package age
   :custom
