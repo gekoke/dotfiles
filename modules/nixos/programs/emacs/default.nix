@@ -105,6 +105,8 @@ in
         # Go
         go
         gopls
+        # Typst
+        typst-lsp
       ];
 
       elementary.home = {

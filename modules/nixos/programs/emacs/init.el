@@ -853,7 +853,20 @@
   :custom
   (go-ts-mode-indent-offset tab-width))
 
-(use-package typst-ts-mode :ensure nil)
+(use-package typst-ts-mode
+  :ensure nil
+  :custom
+  (typst-ts-mode-indent-offset 2))
+
+(use-package lsp-mode
+  :init
+  (add-to-list 'lsp-language-id-configuration '(typst-ts-mode . "typst"))
+  :config
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection "typst-lsp")
+    :activation-fn (lsp-activate-on "typst")
+    :server-id 'typst-lsp)))
 
 (use-package age
   :custom
