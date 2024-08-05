@@ -149,18 +149,8 @@
 (use-package emacs
   :ensure nil
   :custom
-  (whitespace-style '(face
-                      trailing
-                      tabs
-                      empty
-                      newline
-                      newline-mark
-                      indentation
-                      spaces
-                      space-mark
-                      space-after-tab
-                      space-before-tab
-                      tab-mark)))
+  (whitespace-style
+   '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark)))
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
@@ -626,15 +616,11 @@
   :after magit
   :config (magit-todos-mode 1))
 
-(use-package blamer
+(use-package sideline-blame
+  :init
+  (global-sideline-mode 1)
   :custom
-  (blamer-idle-time 0.25)
-  (blamer-min-offset 60)
-  (blamer-max-commit-message-length 120)
-  :custom-face
-  (blamer-face ((t :background nil
-                   :weight normal
-                   :italic nil))))
+  (sideline-backends-right '(sideline-blame)))
 
 (use-package diff-hl
   :custom
