@@ -25,7 +25,10 @@ with lib.elementary;
     hardware.nvidia = enabled;
     roles.workstation = enabled;
     secrets = enabled;
-    home.packages = [ pkgs.discord ];
+    home.packages = [
+      pkgs.discord
+      pkgs.qbittorrent
+    ];
   };
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
