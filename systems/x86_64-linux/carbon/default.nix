@@ -28,6 +28,7 @@ with lib.elementary;
     home.packages = [
       pkgs.discord
       pkgs.qbittorrent
+      pkgs.mpv
     ];
   };
 
