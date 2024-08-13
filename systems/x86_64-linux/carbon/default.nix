@@ -33,13 +33,10 @@ with lib.elementary;
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      8000
-      8080
-    ];
-  };
+  networking.firewall.allowedTCPPorts = [
+    8000
+    8080
+  ];
 
   system.stateVersion = "24.05";
 }
