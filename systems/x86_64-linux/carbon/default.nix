@@ -1,30 +1,28 @@
+{ inputs, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
-
-with lib;
-with lib.elementary;
-{
-  imports = with inputs.nixos-hardware.nixosModules; [
-    ./hardware-configuration.nix
-    common-pc
-    common-pc-ssd
-    common-cpu-intel-kaby-lake
-    common-gpu-nvidia-nonprime
-  ];
+  imports =
+    builtins.attrValues {
+      inherit (inputs.nixos-hardware.nixosModules)
+        common-pc
+        common-pc-ssd
+        common-cpu-intel-kaby-lake
+        common-gpu-nvidia-nonprime
+        ;
+    }
+    ++ [ ./hardware-configuration.nix ];
 
   elementary = {
     preferences = {
       allowLongCompilationTimes = true;
     };
 
-    virtualisation.docker = enabled;
-    hardware.nvidia = enabled;
-    roles.workstation = enabled;
-    secrets = enabled;
+    virtualisation.docker.enable = true;
+    hardware.nvidia.enable = true;
+    roles.workstation.enable = true;
+    secrets.enable = true;
+  };
+
+  home-manager.users.geko = {
     home.packages = [
       pkgs.discord
       pkgs.qbittorrent
