@@ -781,7 +781,12 @@
   (add-to-list 'markdown-code-lang-modes '("python" . python-mode)))
 
 (use-package web-mode
-  :hook (web-mode . lsp)
+  :hook
+  (web-mode . lsp)
+  (web-mode . (lambda ()
+                (progn
+                  (require 'sgml-mode)
+                  (sgml-electric-tag-pair-mode))))
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
