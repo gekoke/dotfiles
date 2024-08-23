@@ -237,7 +237,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 105 :weight 'normal)
+(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 110 :weight 'medium)
 
 (use-package ligature
   :config
@@ -798,6 +798,7 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-hook 'web-mode-hook (lambda () (electric-pair-local-mode -1)))
   :custom
+  (web-mode-script-padding 4)
   (web-mode-enable-auto-pairing t)
   (web-mode-enable-auto-opening t)
   (web-mode-enable-auto-quoting t))
