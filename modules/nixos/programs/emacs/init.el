@@ -488,6 +488,7 @@
     "v"    #'dirvish-vc-menu    ; remapped `dired-view-file'
     "."    #'dired-omit-mode    ; remapped `dired-clean-directory'
     "RET"  #'dirvish-subtree-toggle
+    "<tab>" #'dirvish-subtree-toggle
     "M-l"  #'dirvish-ls-switches-menu
     "M-m"  #'dirvish-mark-menu
     "M-t"  #'dirvish-layout-toggle
