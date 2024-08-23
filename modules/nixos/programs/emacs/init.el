@@ -487,7 +487,7 @@
     "s"    #'dirvish-quicksort  ; remapped `dired-sort-toggle-or-edit'
     "v"    #'dirvish-vc-menu    ; remapped `dired-view-file'
     "."    #'dired-omit-mode    ; remapped `dired-clean-directory'
-    "RET"  #'dirvish-subtree-toggle
+    "RET"  #'dirvish-subtree-toggle-or-open
     "<tab>" #'dirvish-subtree-toggle
     "M-l"  #'dirvish-ls-switches-menu
     "M-m"  #'dirvish-mark-menu
