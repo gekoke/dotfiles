@@ -381,6 +381,11 @@
   :config
   (evil-collection-init))
 
+(use-package evil-anzu
+  :after evil
+  :init
+  (global-anzu-mode))
+
 (use-package evil-numbers
   :after evil
   :general
