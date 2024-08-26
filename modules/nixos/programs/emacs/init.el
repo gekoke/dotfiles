@@ -139,7 +139,15 @@
   :config
   (require 'indent-bars-ts)
   :custom
-  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (indent-bars-pattern ".")
+  (indent-bars-highlight-current-depth '(:face default :blend 0.4))
+  (indent-bars-width-frac 0.1)
+  (indent-bars-pad-frac 0.1)
+  (indent-bars-zigzag nil)
+  (indent-bars-color-by-depth nil)
+
+  (indent-bars-display-on-blank-lines nil)
+  (indent-bars-starting-column 0)
   (indent-bars-treesit-support t))
 
 (use-package jinx
