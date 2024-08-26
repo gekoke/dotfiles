@@ -106,6 +106,8 @@ with lib.elementary;
         }
 
         decoration {
+            rounding = 2
+
             blur {
                 enabled = true
                 size = 8
