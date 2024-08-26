@@ -8,6 +8,11 @@
 
 (setq-default tab-width 4)
 
+(use-package org
+  :custom
+  (org-default-notes-file "~/Documents/Notes/notes.org")
+  (org-agenda-files '("~/Documents/Notes/")))
+
 (use-package calendar
   :ensure nil
   :custom
