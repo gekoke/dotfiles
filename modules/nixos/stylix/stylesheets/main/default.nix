@@ -13,8 +13,8 @@ with lib.elementary;
       };
 
       elementary.stylix.extraOptions = {
-        polarity = "dark";
-        image = "${pkgs.elementary.wallpapers}/share/wallpapers/cyberpunkgirl-inverted.png";
+        enable = true;
+        image = "${pkgs.elementary.wallpapers}/share/wallpapers/nixos.png";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 
         opacity = {
@@ -129,6 +129,11 @@ with lib.elementary;
     {
       elementary.programs.spotify = {
         enable = true;
+      };
+    }
+    {
+      elementary.home.extraOptions = {
+        services.hyprpaper.settings.splash = false;
       };
     }
   ];
