@@ -61,9 +61,6 @@ in
               '';
             in
             builtins.readFile ./hyprland.conf + masterMonocleCommand;
-          settings = {
-            exec-once = [ "${pkgs.swww}/bin/swww init" ];
-          };
         };
         addons = {
           waybar = enabled // {
@@ -83,8 +80,6 @@ in
           cursor = enabled;
         };
       };
-
-      home.packages = [ pkgs.swww ];
 
       home.sessionVariables = {
         WLR_NO_HARDWARE_CURSORS = 1;
