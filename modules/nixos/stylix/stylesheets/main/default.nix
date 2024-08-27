@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
@@ -93,38 +98,49 @@ with lib.elementary;
       };
 
       # TODO: remove hardcoded gradient colors
-      elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
-        layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
+      elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig =
+        let
+          inherit (config.lib.stylix.colors)
+            base0A
+            base0B
+            base0C
+            base0D
+            base0E
+            base0F
+            ;
+        in
+        ''
+          layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
 
-        general {
-            gaps_out = 8
-            gaps_in = 4
+          general {
+              gaps_out = 8
+              gaps_in = 4
 
-            border_size = 2
+              border_size = 2
 
-            col.active_border = rgb(f5bde6) rgb(c6a0f6) rgb(8bd5ca) rgb(91d7e3) rgb(7dc4e4) rgb(8aadf4) rgb(b7bdf8)
-        }
+              col.active_border = rgb(${base0A}) rgb(${base0B}) rgb(${base0C}) rgb(${base0D}) rgb(${base0E}) rgb(${base0F})
+          }
 
-        decoration {
-            rounding = 2
+          decoration {
+              rounding = 2
 
-            blur {
-                enabled = true
-                size = 8
-                passes = 3
-            }
-        }
+              blur {
+                  enabled = true
+                  size = 8
+                  passes = 3
+              }
+          }
 
-        bezier = overshot, 0.05, 0.9, 0.1, 1.1
-        bezier = easeInOutQuint, 0.86, 0, 0.07, 1
-        bezier = easeOutExpo, 0.19, 1, 0.22, 1
+          bezier = overshot, 0.05, 0.9, 0.1, 1.1
+          bezier = easeInOutQuint, 0.86, 0, 0.07, 1
+          bezier = easeOutExpo, 0.19, 1, 0.22, 1
 
-        animations {
-            animation = workspaces, 1, 3, easeInOutQuint, slidevert
-            animation = windows, 1, 4, easeOutExpo, popin
-            animation = fade, 1, 3, easeOutExpo
-        }
-      '';
+          animations {
+              animation = workspaces, 1, 3, easeInOutQuint, slidevert
+              animation = windows, 1, 4, easeOutExpo, popin
+              animation = fade, 1, 3, easeOutExpo
+          }
+        '';
     }
     {
       elementary.programs.spotify = {
