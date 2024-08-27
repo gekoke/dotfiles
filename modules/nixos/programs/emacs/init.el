@@ -245,9 +245,6 @@
 (use-package apropospriate-theme)
 (use-package adwaita-dark-theme :ensure nil)
 (use-package gruvbox-theme)
-(use-package catppuccin-theme
-  :custom
-  (catppuccin-flavor 'mocha))
 
 (use-package remember-last-theme
   :config
