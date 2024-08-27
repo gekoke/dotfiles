@@ -30,9 +30,9 @@ with lib.elementary;
 
         fonts = {
           sizes = {
-            desktop = 10;
-            terminal = 13;
-            popups = 10;
+            desktop = 11;
+            terminal = 14;
+            popups = 11;
           };
 
           serif = {
