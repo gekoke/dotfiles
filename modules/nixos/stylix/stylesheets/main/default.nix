@@ -122,7 +122,7 @@ with lib.elementary;
           }
 
           decoration {
-              rounding = 2
+              rounding = 1
 
               blur {
                   enabled = true
