@@ -12,11 +12,7 @@ in
 
   config = mkIf cfg.enable {
     hardware = {
-      opengl = {
-        enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-      };
+      graphics.enable = true;
 
       nvidia = {
         # Modesetting is required

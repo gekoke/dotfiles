@@ -9,7 +9,7 @@ with lib;
 with lib.elementary;
 let
   cfg = config.elementary.programs.spotify;
-  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
   options.elementary.programs.spotify = with types; {
@@ -23,13 +23,13 @@ in
 
   config = mkIf cfg.enable {
     elementary.home = {
-      extraOptions.imports = [ inputs.spicetify-nix.homeManagerModule ];
+      extraOptions.imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
       programs.spicetify =
         {
           enable = true;
           enabledExtensions = with spicePkgs.extensions; [
-            genre
+            betterGenres
             keyboardShortcut
           ];
         }

@@ -31,7 +31,8 @@
     ranger-devicons.url = "github:alexanderjeurissen/ranger_devicons";
     ranger-devicons.flake = false;
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     magit-file-icons.url = "github:gekoke/magit-file-icons";
   };

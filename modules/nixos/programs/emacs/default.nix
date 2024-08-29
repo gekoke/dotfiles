@@ -83,7 +83,7 @@ in
         # Tailwind CSS
         nodejs
         # Python
-        nodePackages.pyright
+        pyright
         ruff-lsp
         # Java
         jdk21

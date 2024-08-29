@@ -13,8 +13,8 @@ in
 
   config = mkIf cfg.enable {
     elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
-      general {
-        cursor_inactive_timeout = ${toString cfg.timeoutInSeconds}
+      cursor {
+        inactive_timeout = ${toString cfg.timeoutInSeconds}
       }
     '';
   };

@@ -15,5 +15,5 @@ in
     enable = mkEnableOption "keyring graphical interface";
   };
 
-  config = mkIf cfg.enable { elementary.home.packages = [ pkgs.gnome.seahorse ]; };
+  config = mkIf cfg.enable { elementary.home.packages = [ pkgs.seahorse ]; };
 }

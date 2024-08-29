@@ -5,7 +5,7 @@
       inherit (inputs.nixos-hardware.nixosModules)
         common-pc
         common-pc-ssd
-        common-cpu-intel-kaby-lake
+        common-cpu-intel
         common-gpu-nvidia-nonprime
         ;
     }
