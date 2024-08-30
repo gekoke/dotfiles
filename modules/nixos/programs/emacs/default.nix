@@ -24,7 +24,7 @@ in
             # (you can check here: https://github.com/nix-community/emacs-overlay/blob/master/repos/emacs/emacs-unstable.json)
             # currently only using `emacs-pgtk` (which points to Git master branch)
             # for Emacs 30 stipple support for `indent-bars`
-            pkgs.emacs-pgtk.override { withImageMagick = true; }
+            pkgs.emacs-pgtk
           else
             pkgs.emacs29-pgtk;
         config = ./init.el;
