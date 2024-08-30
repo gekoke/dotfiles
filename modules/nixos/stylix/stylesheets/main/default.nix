@@ -136,8 +136,10 @@ with lib.elementary;
           bezier = easeOutExpo, 0.19, 1, 0.22, 1
 
           animations {
-              animation = workspaces, 1, 3, easeInOutQuint, slidevert
-              animation = windows, 1, 4, easeOutExpo, popin
+              animation = workspaces, 1, 2, easeInOutQuint, slidefadevert 15%
+              animation = windowsIn, 1, 4, easeOutExpo, popin 60%
+              animation = windowsOut, 1, 4, easeOutExpo, popin 60%
+              animation = windowsMove, 1, 3, easeOutExpo, slide
               animation = fade, 1, 3, easeOutExpo
           }
         '';
