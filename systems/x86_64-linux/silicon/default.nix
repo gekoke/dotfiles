@@ -1,4 +1,9 @@
-{ inputs, lib, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 let
   inherit (lib.elementary) enabled;
 in
@@ -36,7 +41,9 @@ in
         userEmail = "gregor.grigorjan@gamesglobal.com";
       };
       ssh = enabled;
-      emacs = enabled;
+      emacs = enabled // {
+        package = pkgs.emacs29;
+      };
       direnv = enabled;
       spotify = enabled;
     };
