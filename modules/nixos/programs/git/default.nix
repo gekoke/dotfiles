@@ -29,6 +29,7 @@ in
           pull.rebase = true;
           push.autoSetupRemote = true;
           github.user = cfg.githubUsername;
+          credential.helper = "store";
         };
       };
     };
