@@ -135,7 +135,7 @@ in
       };
 
       age.secrets.emacsAuthinfo = lib.mkIf config.elementary.secrets.enable {
-        file = ./authinfo.age;
+        file = ./../../../../secrets/authinfo.age;
         owner = config.elementary.user.name;
         path = "${config.users.users.${config.elementary.user.name}.home}/.authinfo";
         mode = "700";

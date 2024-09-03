@@ -21,7 +21,7 @@ in
     };
 
     age.secrets.atuinKey = lib.mkIf config.elementary.secrets.enable {
-      file = ./key.age;
+      file = ./../../../../../secrets/atuin-key.age;
       owner = config.elementary.user.name;
       path = "${config.users.users.${config.elementary.user.name}.home}/.local/share/atuin/key";
       mode = "700";

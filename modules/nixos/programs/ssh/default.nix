@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     age.secrets.privateSshConfig = lib.mkIf config.elementary.secrets.enable {
-      file = ./private-ssh-config.age;
+      file = ./../../../../secrets/private-ssh-config.age;
       owner = config.elementary.user.name;
       mode = "700";
     };
