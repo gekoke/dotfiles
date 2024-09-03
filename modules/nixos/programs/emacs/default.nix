@@ -13,20 +13,24 @@ in
 {
   options.elementary.programs.emacs = {
     enable = mkEnableOption "GNU Emacs";
+    package = mkOption {
+      type = types.package;
+      default =
+        if config.elementary.preferences.allowLongCompilationTimes then
+          # FIXME: make this `emacs-unstable-pgtk` once that points to Emacs 30
+          # (you can check here: https://github.com/nix-community/emacs-overlay/blob/master/repos/emacs/emacs-unstable.json)
+          # currently only using `emacs-pgtk` (which points to Git master branch)
+          # for Emacs 30 stipple support for `indent-bars`
+          pkgs.emacs-pgtk
+        else
+          pkgs.emacs29-pgtk;
+    };
   };
 
   config =
     let
       emacsPackage = pkgs.emacsWithPackagesFromUsePackage {
-        package =
-          if config.elementary.preferences.allowLongCompilationTimes then
-            # FIXME: make this `emacs-unstable-pgtk` once that points to Emacs 30
-            # (you can check here: https://github.com/nix-community/emacs-overlay/blob/master/repos/emacs/emacs-unstable.json)
-            # currently only using `emacs-pgtk` (which points to Git master branch)
-            # for Emacs 30 stipple support for `indent-bars`
-            pkgs.emacs-pgtk
-          else
-            pkgs.emacs29-pgtk;
+        inherit (cfg) package;
         config = ./init.el;
         alwaysEnsure = true;
         override = pkgs.callPackage ./overlay.nix { };
