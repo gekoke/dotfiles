@@ -29,6 +29,7 @@ in
     user = enabled // {
       accounts = enabled;
     };
+    secrets = enabled;
     suites = {
       cli-utils = enabled;
     };
