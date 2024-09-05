@@ -23,6 +23,15 @@ in
     };
   };
 
+  home-manager.users.geko = {
+    home.packages = [
+      pkgs.nodePackages."@angular/cli"
+      pkgs.python311
+      pkgs.gnumake
+      pkgs.gcc
+    ];
+  };
+
   elementary = {
     virtualisation.docker.enable = true;
     nix = enabled;
