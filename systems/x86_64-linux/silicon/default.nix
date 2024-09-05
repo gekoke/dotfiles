@@ -29,6 +29,7 @@ in
       pkgs.python311
       pkgs.gnumake
       pkgs.gcc
+      pkgs.powershell
     ];
   };
 
