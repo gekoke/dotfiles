@@ -46,7 +46,6 @@ in
         package = pkgs.emacs29;
       };
       direnv = enabled;
-      spotify = enabled;
     };
   };
 }
