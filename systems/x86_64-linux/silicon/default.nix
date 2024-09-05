@@ -34,12 +34,11 @@ in
       cli-utils = enabled;
     };
     security = {
-      gpg = enabled;
       sudo = enabled;
     };
     programs = {
       git = enabled // {
-        signingKey = "FB5F09CB29F94BC5";
+        signByDefault = false;
         userEmail = "gregor.grigorjan@gamesglobal.com";
       };
       ssh = enabled;
