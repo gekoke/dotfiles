@@ -31,6 +31,10 @@ in
       pkgs.gcc
       pkgs.powershell
     ];
+
+    services.gpg-agent.extraConfig = ''
+      pinentry-program "/mnt/c/Program Files (x86)/GnuPG/bin/pinentry-basic.exe"
+    '';
   };
 
   elementary = {
@@ -45,11 +49,12 @@ in
     };
     security = {
       sudo = enabled;
+      gpg = enabled;
     };
     programs = {
       git = enabled // {
-        signByDefault = false;
         userEmail = "gregor.grigorjan@gamesglobal.com";
+        signingKey = "FB5F09CB29F94BC5";
       };
       ssh = enabled;
       emacs = enabled // {

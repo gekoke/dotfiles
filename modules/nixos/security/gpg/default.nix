@@ -13,6 +13,10 @@ in
 {
   options.elementary.security.gpg = with types; {
     enable = mkEnableOption "gnupg";
+    pinentryPackage = mkOption {
+      type = nullOr package;
+      default = pkgs.pinentry-gnome3;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -29,8 +33,8 @@ in
           ttlInSeconds = 8 * 60 * 60;
         in
         {
+          inherit (cfg) pinentryPackage;
           enable = true;
-          pinentryPackage = pkgs.pinentry-gnome3;
           defaultCacheTtl = ttlInSeconds;
           maxCacheTtl = ttlInSeconds;
         };
