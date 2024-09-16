@@ -34,6 +34,7 @@ in
         pkgs.dotnet-sdk_6
         pkgs.dotnet-sdk_8
       ])
+      pkgs.azure-cli
     ];
 
     services.gpg-agent.extraConfig = ''
