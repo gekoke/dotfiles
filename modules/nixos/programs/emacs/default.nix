@@ -99,7 +99,6 @@ in
         terraform
         # CSharp
         omnisharp-roslyn
-        dotnet-sdk_8
         # Rust
         rust-analyzer
         rustc
