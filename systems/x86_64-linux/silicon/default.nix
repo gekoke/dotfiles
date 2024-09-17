@@ -42,6 +42,10 @@ in
     '';
   };
 
+  networking.firewall.allowedTCPPorts = [
+    1499
+  ];
+
   elementary = {
     virtualisation.docker.enable = true;
     nix = enabled;
