@@ -541,38 +541,47 @@
   :ensure nil
   :hook (dired-mode . dired-omit-mode))
 
-(use-package company
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0)
-  (company-tooltip-align-annotations t)
-  (company-abort-on-unique-match nil)
-  (company-frontends '(company-pseudo-tooltip-frontend
-                        company-echo-metadata-frontend))
-  (company-backends
-   '(company-bbdb
-     company-semantic
-     company-cmake
-     (company-files company-capf)
-     company-clang
-     (company-dabbrev-code company-gtags company-etags company-keywords)
-     company-oddmuse
-     company-dabbrev))
-  :general
-  (general-def
-    :keymaps 'company-active-map
-    "RET" nil
-    "<tab>" #'company-complete-selection
-    "C-." #'company-complete)
-  (general-def
-    :keymaps 'company-mode-map
-    "C-." #'company-complete))
 
-(use-package company-quickhelp
+(use-package cape
   :init
-  (company-quickhelp-mode))
+  (setq-default completion-at-point-functions (list
+                                               #'cape-file
+                                               #'cape-dabbrev
+                                               #'cape-keyword))
+  (defun gg/setup-elisp-mode-capf ()
+    (setq-local completion-at-point-functions (list
+                                               (cape-capf-nonexclusive #'elisp-completion-at-point)
+                                               #'cape-file
+                                               #'cape-dabbrev
+                                               #'cape-keyword)))
+  :hook
+  (emacs-lisp-mode . gg/setup-elisp-mode-capf))
+
+(use-package corfu
+  :custom
+  (completion-ignore-case t)
+  (corfu-auto t)
+  (corfu-cycle t)
+  (corfu-auto-delay (/ 1.0 60))
+  (corfu-auto-prefix 1)
+  (corfu-popupinfo-mode t)
+  (corfu-min-width 30)
+  :init
+  (global-corfu-mode))
+
+(use-package emacs
+  :after corfu
+  :custom
+  ;; Corfu commands are hidden, since they are not supposed to be used via M-x.
+  (read-extended-command-predicate #'command-completion-default-include-p)
+  ;; Enable indentation+completion using the TAB key.
+  ;; `completion-at-point' is often bound to M-TAB.
+  (tab-always-indent 'complete))
+
+(use-package nerd-icons-corfu
+  :after corfu
+  :init
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package vterm
   :init
@@ -702,9 +711,19 @@
     "g h" #'eldoc))
 
 (use-package lsp-mode
+  :init
+  (defun gg/setup-lsp-mode-capf ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless))
+    (setq-local completion-at-point-functions (list
+                                               (cape-capf-buster (cape-capf-nonexclusive #'lsp-completion-at-point))
+                                               #'cape-file
+                                               #'cape-dabbrev
+                                               #'cape-keyword)))
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
   (lsp-mode . yas-minor-mode)
+  (lsp-completion-mode . gg/setup-lsp-mode-capf)
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-completion-provider :none)
