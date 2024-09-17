@@ -631,12 +631,6 @@
   :custom
   (forge-owned-accounts '(("gekoke"))))
 
-(use-package sideline-blame
-  :init
-  (global-sideline-mode 1)
-  :custom
-  (sideline-backends-right '(sideline-blame)))
-
 (use-package diff-hl
   :custom
   (diff-hl-show-staged-changes nil)
