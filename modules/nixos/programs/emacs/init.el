@@ -219,7 +219,7 @@
   (doom-modeline-check-icon nil)
   (doom-modeline-buffer-state-icon nil)
   (doom-modeline-buffer-file-name-style 'file-name-with-project))
- 
+
 (use-package dashboard
   :after (consult nerd-icons)
   :init
