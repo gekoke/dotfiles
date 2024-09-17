@@ -68,7 +68,7 @@
 (savehist-mode 1)
 (global-auto-revert-mode 1)
 (column-number-mode)
-(setq-default left-fringe-width 12)
+(setq-default left-fringe-width 4)
 (setq-default right-fringe-width 12)
 
 (setq display-line-numbers-type 'relative)
