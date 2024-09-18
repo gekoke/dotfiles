@@ -35,6 +35,7 @@ in
         pkgs.dotnet-sdk_8
       ])
       pkgs.azure-cli
+      pkgs.turbo
     ];
 
     services.gpg-agent.extraConfig = ''
