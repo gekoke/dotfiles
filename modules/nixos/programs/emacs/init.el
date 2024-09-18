@@ -541,6 +541,9 @@
   :ensure nil
   :hook (dired-mode . dired-omit-mode))
 
+(use-package dired-gitignore
+  :init
+  (dired-gitignore-global-mode t))
 
 (use-package cape
   :init
