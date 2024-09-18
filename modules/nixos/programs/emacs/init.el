@@ -658,6 +658,16 @@
     "g r" #'diff-hl-revert-hunk
     "g h" #'diff-hl-show-hunk))
 
+(use-package blamer
+  :custom
+  (blamer-idle-time 0.25)
+  (blamer-min-offset 60)
+  (blamer-max-commit-message-length 120)
+  :custom-face
+  (blamer-face ((t :background nil
+                   :weight normal
+                   :italic nil))))
+
 (use-package hl-todo
   :config
   (global-hl-todo-mode))
