@@ -364,6 +364,8 @@
 (use-package evil
   :bind
   (:repeat-map evil-window-resizing-repeat-map
+               ("-" . evil-window-decrease-height)
+               ("+" . evil-window-increase-height)
                (">" . evil-window-increase-width)
                ("<" . evil-window-decrease-width))
   :custom
