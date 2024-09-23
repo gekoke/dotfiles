@@ -36,6 +36,7 @@ in
       pmount
       exfat
       wget
+      p7zip
     ];
   };
 }
