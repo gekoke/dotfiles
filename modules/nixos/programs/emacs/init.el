@@ -737,6 +737,7 @@
                                                #'cape-keyword)))
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
+  (lsp-mode . lsp-semantic-tokens-mode)
   (lsp-mode . yas-minor-mode)
   (lsp-completion-mode . gg/setup-lsp-mode-capf)
   :custom
