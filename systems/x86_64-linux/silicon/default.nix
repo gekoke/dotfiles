@@ -47,8 +47,6 @@ in
     1499
   ];
 
-  services.tzupdate.enable = true;
-
   elementary = {
     virtualisation.docker.enable = true;
     nix = enabled;
