@@ -47,6 +47,8 @@ in
     1499
   ];
 
+  time.timeZone = "Europe/Tallinn";
+
   elementary = {
     virtualisation.docker.enable = true;
     nix = enabled;
