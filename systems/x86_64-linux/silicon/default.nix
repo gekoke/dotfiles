@@ -44,7 +44,7 @@ in
   };
 
   networking.firewall.allowedTCPPorts = [
-    1499
+    1499 # For MSSQL containers -> Windows
   ];
 
   time.timeZone = "Europe/Tallinn";
