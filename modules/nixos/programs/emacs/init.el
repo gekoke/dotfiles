@@ -699,8 +699,8 @@
   (gg/leader
     "SPC" #'consult-projectile
     "C-SPC" #'consult-projectile
-    "b" #'consult-projectile-switch-to-buffer
-    "B" #'consult-buffer)
+    "B" #'consult-projectile-switch-to-buffer
+    "b" #'consult-buffer)
   (general-def projectile-command-map
     "p" #'consult-projectile-switch-project))
 
