@@ -13,6 +13,13 @@
   (org-default-notes-file "~/Documents/Notes/notes.org")
   (org-agenda-files '("~/Documents/Notes/")))
 
+(use-package time
+  :ensure nil
+  :init
+  (display-time-mode)
+  :custom
+  (display-time-default-load-average nil))
+
 (use-package calendar
   :ensure nil
   :custom
