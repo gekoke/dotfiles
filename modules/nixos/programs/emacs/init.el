@@ -18,6 +18,7 @@
   :init
   (display-time-mode)
   :custom
+  (display-time-24hr-format t)
   (display-time-default-load-average nil))
 
 (use-package calendar
