@@ -36,6 +36,12 @@
     :prefix "SPC m"
     :global-prefix "C-SPC m"))
 
+(use-package emacs
+  :ensure nil
+  :general
+  (gg/leader
+    "B r" #'rename-buffer))
+
 (use-package undo-tree
   :custom
   (undo-tree-enable-undo-in-region t)
@@ -699,7 +705,7 @@
   (gg/leader
     "SPC" #'consult-projectile
     "C-SPC" #'consult-projectile
-    "B" #'consult-projectile-switch-to-buffer
+    "B p" #'consult-projectile-switch-to-buffer
     "b" #'consult-buffer)
   (general-def projectile-command-map
     "p" #'consult-projectile-switch-project))
