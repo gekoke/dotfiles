@@ -259,6 +259,7 @@
 (use-package apropospriate-theme)
 (use-package adwaita-dark-theme :ensure nil)
 (use-package gruvbox-theme)
+(use-package modus-themes)
 
 (use-package remember-last-theme
   :config
