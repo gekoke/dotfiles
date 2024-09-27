@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.elementary;
 let
@@ -17,6 +22,7 @@ in
 
   config = mkIf cfg.enable {
     elementary.home = {
+      packages = [ pkgs.git-absorb ];
       programs.git = {
         enable = true;
         inherit (cfg) userName userEmail;
