@@ -536,6 +536,7 @@
     "d" #'dirvish)
   (gg/local
     :keymaps 'dirvish-mode-map
+    "i" #'dired-gitignore-mode
     "g" #'dirvish-emerge-mode
     "f" #'dired-create-empty-file
     "k" #'dired-create-directory))
