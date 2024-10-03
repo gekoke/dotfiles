@@ -37,10 +37,6 @@ in
       pkgs.azure-cli
       pkgs.turbo
     ];
-
-    services.gpg-agent.extraConfig = ''
-      pinentry-program "/mnt/c/Program Files (x86)/GnuPG/bin/pinentry-basic.exe"
-    '';
   };
 
   networking.firewall.allowedTCPPorts = [
@@ -61,7 +57,9 @@ in
     };
     security = {
       sudo = enabled;
-      gpg = enabled;
+      gpg = enabled // {
+        pinentryPackage = pkgs.pinentry;
+      };
     };
     programs = {
       git = enabled // {
