@@ -173,11 +173,24 @@
   :ensure t
   :hook (emacs-startup . global-jinx-mode))
 
-(use-package emacs
+(use-package whitespace
   :ensure nil
-  :custom
+  :init
+  :custom 
+  (whitespace-display-mappings
+   '((space-mark 32
+                [183]
+                [46])
+    (space-mark 160
+                [164]
+                [95])
+    (newline-mark 10
+                  [36 10])
+    (tab-mark 9
+              [187 9]
+              [92 9])))
   (whitespace-style
-   '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark)))
+   '(face tabs spaces trailing space-before-tab newline newline-mark indentation empty space-after-tab space-mark tab-mark)))
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
