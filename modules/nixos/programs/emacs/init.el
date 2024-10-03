@@ -758,7 +758,6 @@
   (lsp-completion-mode . gg/setup-lsp-mode-capf)
   :custom
   (lsp-headerline-breadcrumb-enable nil)
-  (lsp-completion-provider :none)
   (lsp-eldoc-render-all t)
   (lsp-inlay-hint-enable t)
   :config
