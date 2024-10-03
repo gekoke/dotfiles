@@ -27,7 +27,6 @@ in
 
     elementary.home = {
       programs.gpg = enabled;
-      packages = [ pkgs.pinentry.gnome3 ];
       services.gpg-agent =
         let
           ttlInSeconds = 8 * 60 * 60;
