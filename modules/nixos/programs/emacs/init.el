@@ -671,7 +671,7 @@
 (use-package forge
   :after magit
   :custom
-  (forge-add-default-bindings nil)
+  (forge-add-default-bindings nil) ;; Use evil-collection instead
   (forge-owned-accounts '(("gekoke"))))
 
 (use-package diff-hl
