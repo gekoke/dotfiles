@@ -19,12 +19,5 @@ in
         style = "compact";
       };
     };
-
-    age.secrets.atuinKey = lib.mkIf config.elementary.secrets.enable {
-      file = ./../../../../../secrets/atuin-key.age;
-      owner = config.elementary.user.name;
-      path = "${config.users.users.${config.elementary.user.name}.home}/.local/share/atuin/key";
-      mode = "700";
-    };
   };
 }

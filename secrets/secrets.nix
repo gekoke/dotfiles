@@ -7,6 +7,5 @@ let
 in
 {
   "authinfo.age".publicKeys = all;
-  "atuin-key.age".publicKeys = all;
   "private-ssh-config.age".publicKeys = all;
 }
