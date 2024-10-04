@@ -672,7 +672,9 @@
   :after magit
   :custom
   (forge-add-default-bindings nil) ;; Use evil-collection instead
-  (forge-owned-accounts '(("gekoke"))))
+  (forge-owned-accounts '(("gekoke")))
+  :config
+  (add-to-list 'forge-alist '("ssh.github.com" "api.github.com" "github.com" forge-github-repository)))
 
 (use-package diff-hl
   :custom
