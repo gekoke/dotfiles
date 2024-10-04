@@ -650,7 +650,8 @@
   (defun magit-auto-fetch ()
     (interactive)
     (magit-fetch-all ())
-    (forge-pull))
+    (when (forge-buffer-repository)
+      (forge-pull)))
   (advice-add 'magit-status :after #'magit-auto-fetch)
   :custom
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
