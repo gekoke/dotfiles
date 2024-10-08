@@ -964,4 +964,5 @@
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
 
-(load custom-file)
+(load custom-file 'noerror)
+
