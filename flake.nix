@@ -34,8 +34,6 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    magit-file-icons.url = "github:gekoke/magit-file-icons";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 

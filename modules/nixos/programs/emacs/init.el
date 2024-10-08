@@ -637,7 +637,6 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (use-package magit-file-icons
-  :ensure nil
   :after magit
   :config
   (magit-file-icons-mode))
@@ -812,7 +811,7 @@
                             (require 'lsp-pyright)
                             (lsp))))
 
-(use-package lsp-ruff-lsp
+(use-package lsp-ruff
   :ensure lsp-mode
   :after lsp-mode)
 
