@@ -146,7 +146,7 @@ with lib.elementary;
     }
     {
       elementary.programs.spotify = {
-        enable = true;
+        spicetifyTheme.enable = true;
       };
     }
     {
