@@ -247,6 +247,13 @@
   (doom-modeline-buffer-state-icon nil)
   (doom-modeline-buffer-file-name-style 'file-name-with-project))
 
+(use-package nyan-mode
+  :after doom-modeline
+  :init
+  (nyan-mode 1)
+  :custom
+  (nyan-animation-frame-interval (/ 1.0 20)))
+
 (use-package dashboard
   :after (consult nerd-icons)
   :init
