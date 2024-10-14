@@ -280,6 +280,9 @@
 (use-package adwaita-dark-theme :ensure nil)
 (use-package gruvbox-theme)
 (use-package modus-themes)
+(use-package catppuccin-theme
+  :custom
+  (catppuccin-flavor 'frappe))
 
 (use-package remember-last-theme
   :config
