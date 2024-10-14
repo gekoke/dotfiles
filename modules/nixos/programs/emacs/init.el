@@ -496,8 +496,8 @@
   :custom
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
    `(("h" "~/"                                     "Home")
-     ("x" "~/Documents/"                           "Documents")
-     ("d" "~/Downloads/"                           "Downloads")
+     ("d" "~/Documents/"                           "Documents")
+     ("l" "~/Downloads/"                           "Downloads")
      ("p" "~/Pictures"                             "Pictures")
      ("t" "~/.local/share/Trash/files/"            "Trash")
      ("r" "/"                                      "/")
