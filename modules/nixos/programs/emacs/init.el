@@ -962,6 +962,8 @@
 (gg/leader
   :keymaps 'smerge-mode-map
   "m" '(:ignore t :which-key "Merge")
+  "m p" #'smerge-prev
+  "m n" #'smerge-next
   "m u" #'smerge-keep-upper
   "m l" #'smerge-keep-lower
   "m t" #'smerge-keep-current
