@@ -288,7 +288,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 140 :weight 'medium)
+(set-face-attribute 'default nil :family "BlexMono Nerd Font" :height 140 :weight 'medium)
 
 (use-package ligature
   :config
