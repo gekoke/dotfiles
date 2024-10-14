@@ -16,7 +16,7 @@ in
     enable = mkEnableOption "Spotify";
     spicetifyTheme = {
       enable = mkEnableOption "Spicetify theme";
-      theme = mkOpt str "Sleek" "The Spicetify theme to apply";
+      theme = mkOpt str "sleek" "The Spicetify theme to apply";
       colorScheme = mkOpt str "RosePine" "The color scheme to apply to the Spicetify theme";
     };
   };
