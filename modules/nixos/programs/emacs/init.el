@@ -131,6 +131,7 @@
   (eyebrowse-mode 1)
   :custom
   (eyebrowse-new-workspace #'dashboard-open)
+  (eyebrowse-mode-line-separator "|")
   :general
   (with-eval-after-load 'magit
     (general-def
@@ -245,6 +246,7 @@
   (doom-modeline-modal-icon nil)
   (doom-modeline-check-icon nil)
   (doom-modeline-buffer-state-icon nil)
+  (doom-modeline-workspace-name nil)
   (doom-modeline-buffer-file-name-style 'file-name-with-project))
 
 (use-package nyan-mode
