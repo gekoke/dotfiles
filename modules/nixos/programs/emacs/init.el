@@ -176,7 +176,7 @@
 (use-package whitespace
   :ensure nil
   :init
-  :custom 
+  :custom
   (whitespace-display-mappings
    '((space-mark 32
                 [183]
@@ -285,7 +285,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 120 :weight 'bold)
+(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 140 :weight 'medium)
 
 (use-package ligature
   :config
