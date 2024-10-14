@@ -967,7 +967,7 @@
   "m u" #'smerge-keep-upper
   "m l" #'smerge-keep-lower
   "m t" #'smerge-keep-current
-  "m b" #'smerge-keep-all)
+  "m a" #'smerge-keep-all)
 
 (gg/leader
   "." #'find-file
