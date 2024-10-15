@@ -978,5 +978,10 @@
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
 
+(defun gg/hex-to-decimal (hex)
+  "Convert the base-16 integer represented by string HEX to decimal."
+  (interactive "MHex: ")
+  (shell-command (format "echo $((16#%s))" hex)))
+
 (load custom-file 'noerror)
 
