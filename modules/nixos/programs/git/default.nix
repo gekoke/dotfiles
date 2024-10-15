@@ -34,6 +34,7 @@ in
           init.defaultBranch = "main";
           pull.rebase = true;
           push.autoSetupRemote = true;
+          rerere.enabled = true;
           github.user = cfg.githubUsername;
           credential.helper = "store";
         };
