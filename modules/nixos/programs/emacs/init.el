@@ -781,13 +781,13 @@
                                                #'cape-keyword)))
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
-  (lsp-mode . lsp-semantic-tokens-mode)
   (lsp-mode . yas-minor-mode)
   (lsp-completion-mode . gg/setup-lsp-mode-capf)
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-eldoc-render-all t)
   (lsp-inlay-hint-enable t)
+  (lsp-semantic-tokens-enable t)
   :config
   (lsp-register-client
    (make-lsp-client
