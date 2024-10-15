@@ -191,7 +191,7 @@
               [187 9]
               [92 9])))
   (whitespace-style
-   '(face tabs spaces trailing space-before-tab newline newline-mark indentation empty space-after-tab space-mark tab-mark)))
+   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark)))
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
