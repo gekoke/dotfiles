@@ -669,7 +669,7 @@
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
   (magit-revision-show-gravatars t)
-  (magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
+  (magit-display-buffer-function 'magit-display-buffer-traditional)
   :general
   (gg/leader
     "v" #'magit-status
