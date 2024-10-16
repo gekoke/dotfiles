@@ -176,7 +176,8 @@
 
 (use-package whitespace
   :ensure nil
-  :init
+  :hook
+  (prog-mode . whitespace-mode)
   :custom
   (whitespace-display-mappings
    '((space-mark 32
