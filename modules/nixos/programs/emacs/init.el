@@ -904,6 +904,14 @@
   (typescript-ts-mode . lsp)
   (tsx-ts-mode . lsp))
 
+(use-package js
+  :ensure nil
+  :hook
+  (js-ts-mode . lsp)
+  :mode
+  ("\\.mjs\\'" . js-ts-mode)
+  ("\\.js\\'" . js-ts-mode))
+
 (use-package emacs
   :ensure nil
   :hook
