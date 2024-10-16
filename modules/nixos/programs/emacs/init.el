@@ -541,7 +541,6 @@
     "a"    #'dirvish-quick-access
     "f"    #'dirvish-file-info-menu
     "y"    #'dirvish-yank-menu
-    "N"    #'dirvish-narrow
     "^"    #'dirvish-history-last
     "$"    #'dirvish-history-jump
     "s"    #'dirvish-quicksort  ; remapped `dired-sort-toggle-or-edit'
@@ -551,6 +550,7 @@
     "<tab>" #'dirvish-subtree-toggle
     "M-l"  #'dirvish-ls-switches-menu
     "M-m"  #'dirvish-mark-menu
+    "M-n"  #'dirvish-narrow
     "M-t"  #'dirvish-layout-toggle
     "M-s"  #'dirvish-setup-menu
     "M-e"  #'dirvish-emerge-menu
