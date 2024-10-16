@@ -86,7 +86,7 @@ in
         nodejs
         # Python
         pyright
-        ruff-lsp
+        ruff
         # Java
         jdk21
         jdt-language-server
