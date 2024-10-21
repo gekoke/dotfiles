@@ -823,7 +823,9 @@
 (use-package lsp-pyright
   :hook (python-ts-mode . (lambda ()
                             (require 'lsp-pyright)
-                            (lsp))))
+                            (lsp)))
+  :custom
+  (lsp-pyright-venv-directory "./.venv"))
 
 (use-package lsp-ruff
   :ensure lsp-mode
