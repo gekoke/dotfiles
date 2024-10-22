@@ -291,7 +291,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "BlexMono Nerd Font" :height 140 :weight 'medium)
+(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 140 :weight 'medium)
 
 (use-package ligature
   :config
@@ -809,6 +809,14 @@
   :hook (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-sideline-diagnostic-max-line-length 280))
+
+(use-package consult-lsp
+  :after lsp-mode
+  :general
+  (general-def lsp-command-map
+    "s s" #'consult-lsp-symbols
+    "s f" #'consult-lsp-file-symbols
+    "s d" #'consult-lsp-diagnostics))
 
 (use-package lsp-nix
   :ensure lsp-mode
