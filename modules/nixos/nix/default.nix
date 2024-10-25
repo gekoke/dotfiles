@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   config,
   lib,
   ...
@@ -20,7 +19,7 @@ in
     nix = {
       registry = {
         p.flake = inputs.nixpkgs;
-        pkgs.flake = inputs.nixpkgs;
+        u.flake = inputs.nixpkgs-unfree;
       };
       settings =
         let
