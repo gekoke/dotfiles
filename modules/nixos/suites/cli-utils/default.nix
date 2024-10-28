@@ -30,13 +30,13 @@ in
       };
     };
 
-    elementary.home.packages = with pkgs; [
-      tldr
-      btop
-      pmount
-      exfat
-      wget
-      p7zip
+    elementary.home.packages = [
+      pkgs.tldr
+      pkgs.btop
+      pkgs.pmount
+      pkgs.exfat
+      pkgs.wget
+      pkgs.p7zip
     ];
   };
 }
