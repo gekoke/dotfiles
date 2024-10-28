@@ -24,6 +24,10 @@ in
         enable = true;
         icons = true;
       };
+      zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+      };
     };
 
     elementary.home.packages = with pkgs; [
