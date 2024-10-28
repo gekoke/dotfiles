@@ -135,9 +135,9 @@
   :general
   (with-eval-after-load 'magit
     (general-def
-        :states 'normal
-        :keymaps 'magit-section-mode-map
-        "C-<tab>" #'eyebrowse-last-window-config))
+      :states 'normal
+      :keymaps 'magit-section-mode-map
+      "C-<tab>" #'eyebrowse-last-window-config))
   (general-def
     :keymaps 'override
     "C-<tab>" #'eyebrowse-last-window-config)
