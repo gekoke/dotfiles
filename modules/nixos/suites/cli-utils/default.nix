@@ -37,6 +37,7 @@ in
       pkgs.exfat
       pkgs.wget
       pkgs.p7zip
+      pkgs.jwt-cli
     ];
   };
 }
