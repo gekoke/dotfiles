@@ -38,6 +38,7 @@ in
       pkgs.wget
       pkgs.p7zip
       pkgs.jwt-cli
+      pkgs.jq
     ];
   };
 }
