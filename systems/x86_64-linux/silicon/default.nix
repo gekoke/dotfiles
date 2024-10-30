@@ -24,18 +24,25 @@ in
   };
 
   home-manager.users.geko = {
-    home.packages = [
-      pkgs.nodePackages."@angular/cli"
-      pkgs.python311
-      pkgs.gnumake
-      pkgs.gcc
-      pkgs.powershell
-      (pkgs.dotnetCorePackages.combinePackages [
-        pkgs.dotnet-sdk_6
-        pkgs.dotnet-sdk_8
-      ])
-      pkgs.azure-cli
-    ];
+    home = {
+      packages = [
+        pkgs.nodePackages."@angular/cli"
+        pkgs.python311
+        pkgs.gnumake
+        pkgs.gcc
+        pkgs.powershell
+        (pkgs.dotnetCorePackages.combinePackages [
+          pkgs.dotnet-sdk_6
+          pkgs.dotnet-sdk_8
+        ])
+        pkgs.azure-cli
+      ];
+
+      shellAliases = {
+        "cb" = "clip.exe";
+        "cbo" = "powershell.exe Get-ClipBoard";
+      };
+    };
   };
 
   networking.firewall.allowedTCPPorts = [
