@@ -915,6 +915,12 @@
   (typescript-ts-mode . lsp)
   (tsx-ts-mode . lsp))
 
+(use-package lsp-javascript
+  :ensure nil
+  :custom
+  (lsp-typescript-references-code-lens-enabled t)
+  (lsp-typescript-implementations-code-lens-enabled t))
+
 (use-package js
   :ensure nil
   :hook
