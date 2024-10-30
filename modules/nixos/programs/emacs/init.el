@@ -243,7 +243,7 @@
   :init
   (doom-modeline-mode 1)
   :custom
-  (doom-modeline-height 24)
+  (doom-modeline-height 32)
   (doom-modeline-indent-info t)
   (doom-modeline-modal-icon nil)
   (doom-modeline-check-icon nil)
