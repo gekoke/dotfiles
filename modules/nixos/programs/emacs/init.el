@@ -10,8 +10,13 @@
 
 (use-package org
   :custom
-  (org-default-notes-file "~/Documents/Notes/notes.org")
-  (org-agenda-files '("~/Documents/Notes/")))
+  (org-capture-templates
+   '(("t" "Todo" entry (file+headline "~/Documents/Org/todo.org" "Tasks")
+      "* TODO %?\n")
+     ("n" "Note" entry (file+headline "~/Documents/Org/notes.org" "Notes")
+      "*%?\n")))
+  (org-default-notes-file "~/Documents/Org/misc.org")
+  (org-agenda-files '("~/Documents/Org/")))
 
 (use-package time
   :ensure nil
