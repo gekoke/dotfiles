@@ -39,6 +39,7 @@ in
           pkgs.elementary.kanagawa-theme
           pkgs.elementary.indent-bars
           pkgs.elementary.adwaita-dark-theme
+          pkgs.elementary.anisochromatic
         ];
       };
       earlyInitText = readFiles [
