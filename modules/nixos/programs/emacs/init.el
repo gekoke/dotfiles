@@ -1029,5 +1029,13 @@
   (interactive "MHex: ")
   (shell-command (format "echo $((16#%s))" hex)))
 
+(defun gg/weather ()
+  "Show the weather"
+  (interactive)
+  (async-shell-command "curl 'wttr.in?M'"))
+
+(gg/leader
+  "u w" #'gg/weather)
+
 (load custom-file 'noerror)
 
