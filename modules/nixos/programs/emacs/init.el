@@ -839,16 +839,6 @@
   :mode "\\.nix\\'"
   :hook (nix-ts-mode . lsp-deferred))
 
-
-(defun gg/nixos-rebuild-switch ()
-  "Run `nixos-rebuild` asynchronously."
-  (interactive)
-  (add-to-list 'display-buffer-alist '("*nixos-rebuild*" display-buffer-no-window (nil)))
-  (async-shell-command "nixos-rebuild switch --use-remote-sudo" "*nixos-rebuild*" "*nixos-rebuild: error"))
-
-(gg/leader
-  "n r" #'gg/nixos-rebuild-switch)
-
 (use-package lsp-pyright
   :hook (python-ts-mode . (lambda ()
                             (require 'lsp-pyright)
