@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 with lib;
@@ -70,6 +71,8 @@ in
         ripgrep
         # magit-delta
         delta
+        # LSP
+        inputs.emacs-lsp-booster.packages.${pkgs.system}.default
         # lsp-nix
         nil
         nixfmt-rfc-style
