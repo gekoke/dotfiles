@@ -572,6 +572,7 @@
     "d" #'dirvish)
   (gg/local
     :keymaps 'dirvish-mode-map
+    "d" #'dirvish-fd
     "i" #'dired-gitignore-mode
     "g" #'dirvish-emerge-mode
     "f" #'dired-create-empty-file
