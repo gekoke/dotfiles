@@ -1024,6 +1024,8 @@
   :config
   (age-file-enable))
 
+(use-package hackernews)
+
 (general-def
   "C--" #'text-scale-decrease
   "C-=" #'text-scale-increase)
