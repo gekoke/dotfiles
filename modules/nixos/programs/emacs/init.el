@@ -293,6 +293,7 @@
   :custom
   (catppuccin-flavor 'frappe))
 (use-package anisochromatic :ensure nil)
+(use-package miasma-theme)
 
 (use-package remember-last-theme
   :config
