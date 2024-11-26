@@ -6,16 +6,16 @@
 }:
 emacsPackages.trivialBuild rec {
   pname = "typst-ts-mode";
-  version = "f179b08d";
+  version = "d3e44b53";
 
   src = fetchgit {
-    url = "https://git.sr.ht/~meow_king/typst-ts-mode";
+    url = "https://codeberg.org/meow_king/typst-ts-mode";
     rev = version;
-    sha256 = "sha256-kkuR4E8rN7gZ8oXPhKE6NaKnijX1CE0t8Sj0/kGEYzo=";
+    sha256 = "sha256-fECXfTjbckgS+kEJ3dMQ7zDotqdxxBt3WFl0sEM60Aw=";
   };
 
   meta = {
-    homepage = "https://git.sr.ht/~meow_king/typst-ts-mode";
+    homepage = "https://codeberg.org/meow_king/typst-ts-mode";
     description = "Tree Sitter support for Typst.";
     license = lib.licenses.gpl3;
   };
