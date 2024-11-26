@@ -16,8 +16,6 @@ in
     enable = mkEnableOption "Spotify";
     spicetifyTheme = {
       enable = mkEnableOption "Spicetify theme";
-      theme = mkOpt str "sleek" "The Spicetify theme to apply";
-      colorScheme = mkOpt str "RosePine" "The color scheme to apply to the Spicetify theme";
     };
   };
 
@@ -25,18 +23,13 @@ in
     elementary.home = {
       extraOptions.imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
-      programs.spicetify =
-        {
-          enable = true;
-          enabledExtensions = with spicePkgs.extensions; [
-            betterGenres
-            keyboardShortcut
-          ];
-        }
-        // (lib.optionalAttrs cfg.spicetifyTheme.enable {
-          inherit (cfg.spicetifyTheme) colorScheme;
-          theme = spicePkgs.themes.${cfg.spicetifyTheme.theme};
-        });
+      programs.spicetify = {
+        enable = true;
+        enabledExtensions = with spicePkgs.extensions; [
+          betterGenres
+          keyboardShortcut
+        ];
+      };
     };
   };
 }
