@@ -70,8 +70,6 @@ in
         unzip
         # consult
         ripgrep
-        # magit-delta
-        delta
         # LSP
         inputs.emacs-lsp-booster.packages.${pkgs.system}.default
         # lsp-nix
