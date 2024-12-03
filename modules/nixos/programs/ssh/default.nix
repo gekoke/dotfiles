@@ -11,16 +11,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    age.secrets.privateSshConfig = lib.mkIf config.elementary.secrets.enable {
-      file = ./../../../../secrets/private-ssh-config.age;
-      owner = config.elementary.user.name;
-      mode = "700";
-    };
-
     elementary.home.services.ssh-agent = enabled;
     elementary.home.programs.ssh = {
       enable = true;
-      includes = lib.mkIf config.elementary.secrets.enable [ config.age.secrets.privateSshConfig.path ];
       extraConfig = ''
         Host *
           AddKeysToAgent yes

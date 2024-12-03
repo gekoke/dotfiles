@@ -12,10 +12,6 @@
     ++ [ ./hardware-configuration.nix ];
 
   elementary = {
-    preferences = {
-      allowLongCompilationTimes = true;
-    };
-
     virtualisation.docker.enable = true;
     hardware.nvidia.enable = true;
     roles.workstation.enable = true;
@@ -37,5 +33,5 @@
     8080
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
