@@ -31,6 +31,7 @@ in
     };
 
     elementary.home.packages = [
+      pkgs.zip
       pkgs.tldr
       pkgs.btop
       pkgs.pmount
