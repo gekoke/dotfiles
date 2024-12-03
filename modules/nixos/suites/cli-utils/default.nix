@@ -24,14 +24,14 @@ in
     };
 
     elementary.home.packages = [
-      pkgs.zip
-      pkgs.tldr
       pkgs.btop
       pkgs.exfat
-      pkgs.wget
-      pkgs.p7zip
-      pkgs.jwt-cli
       pkgs.jq
+      pkgs.jwt-cli
+      pkgs.p7zip
+      pkgs.tldr
+      pkgs.wget
+      pkgs.zip
     ];
   };
 }
