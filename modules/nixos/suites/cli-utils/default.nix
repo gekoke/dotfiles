@@ -16,13 +16,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    security.wrappers.pumount = {
-      setuid = true;
-      source = "${pkgs.pmount}/bin/pumount";
-      owner = "root";
-      group = "root";
-    };
-
     elementary.programs = {
       ranger = enabled;
       neovim = enabled // {
@@ -34,7 +27,6 @@ in
       pkgs.zip
       pkgs.tldr
       pkgs.btop
-      pkgs.pmount
       pkgs.exfat
       pkgs.wget
       pkgs.p7zip
