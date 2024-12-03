@@ -25,9 +25,9 @@ in
 
       programs.spicetify = {
         enable = true;
-        enabledExtensions = with spicePkgs.extensions; [
-          betterGenres
-          keyboardShortcut
+        enabledExtensions = [
+          spicePkgs.extensions.betterGenres
+          spicePkgs.extensions.keyboardShortcut
         ];
       };
     };
