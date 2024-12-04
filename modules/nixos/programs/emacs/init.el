@@ -182,8 +182,12 @@
 
 (use-package whitespace
   :ensure nil
-  :hook
-  (prog-mode . whitespace-mode)
+  :init
+  (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
+    (lambda ()
+      (when (derived-mode-p 'prog-mode)
+        (whitespace-mode))))
+  (gg/global-whitespace-mode)
   :custom
   (whitespace-display-mappings
    '((space-mark 32
@@ -198,7 +202,10 @@
               [187 9]
               [92 9])))
   (whitespace-style
-   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark)))
+   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark))
+  :general
+  (gg/leader
+    "e w" #'gg/global-whitespace-mode))
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
