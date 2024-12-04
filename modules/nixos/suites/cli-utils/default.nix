@@ -25,6 +25,7 @@ in
 
     elementary.home.packages = [
       pkgs.btop
+      pkgs.efibootmgr
       pkgs.exfat
       pkgs.jq
       pkgs.jwt-cli
