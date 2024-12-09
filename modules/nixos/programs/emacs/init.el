@@ -173,7 +173,7 @@
   (indent-bars-zigzag nil)
   (indent-bars-color-by-depth nil)
 
-  (indent-bars-display-on-blank-lines nil)
+  (indent-bars-display-on-blank-lines t)
   (indent-bars-starting-column 0)
   (indent-bars-treesit-support t))
 
