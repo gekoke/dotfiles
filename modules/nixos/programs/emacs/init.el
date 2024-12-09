@@ -603,8 +603,7 @@
 (use-package dired
   :ensure nil
   :init
-  (setq dired-deletion-confirmer #'(lambda (_) t))
-  :hook (dired-mode . dired-omit-mode))
+  (setq dired-deletion-confirmer #'(lambda (_) t)))
 
 (use-package dired-gitignore)
 
