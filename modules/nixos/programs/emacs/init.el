@@ -258,16 +258,14 @@
   :custom
   (doom-modeline-height 32)
   (doom-modeline-indent-info t)
-  (doom-modeline-modal-icon nil)
+  (doom-modeline-modal nil)
   (doom-modeline-check-icon nil)
   (doom-modeline-buffer-state-icon nil)
   (doom-modeline-workspace-name nil)
-  (doom-modeline-buffer-file-name-style 'file-name-with-project))
+  (doom-modeline-buffer-file-name-style 'relative-from-project))
 
 (use-package nyan-mode
   :after doom-modeline
-  :init
-  (nyan-mode 1)
   :custom
   (nyan-animation-frame-interval (/ 1.0 20)))
 
