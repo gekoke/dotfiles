@@ -46,6 +46,7 @@
   :ensure nil
   :general
   (gg/leader
+    "i" #'ibuffer
     "B r" #'rename-buffer))
 
 (use-package undo-tree
