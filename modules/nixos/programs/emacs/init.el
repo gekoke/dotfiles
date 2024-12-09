@@ -186,7 +186,10 @@
   :init
   (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
     (lambda ()
-      (when (derived-mode-p 'prog-mode)
+      (when (derived-mode-p
+             'prog-mode
+             'yaml-mode
+             'markdown-mode)
         (whitespace-mode))))
   (gg/global-whitespace-mode)
   :custom
