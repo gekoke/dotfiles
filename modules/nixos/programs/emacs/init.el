@@ -894,6 +894,7 @@
 (use-package python
   :ensure nil
   :init
+  ;; TODO: make this the same as `gg/global-whitespace-mode' for LSP buffers
   (add-hook 'before-save-hook (lambda ()
                                 (when (and
                                        (eq major-mode 'python-ts-mode)
