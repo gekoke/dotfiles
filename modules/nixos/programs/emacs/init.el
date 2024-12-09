@@ -163,6 +163,16 @@
 
 (use-package indent-bars
   :ensure nil
+  :init
+  (define-global-minor-mode gg/global-indent-bars-mode indent-bars-mode
+    (lambda ()
+      (when (and (not (derived-mode-p 'emacs-lisp-mode))
+                 (derived-mode-p
+                  'prog-mode
+                  'yaml-mode
+                  'markdown-mode))
+        (indent-bars-mode))))
+  (gg/global-indent-bars-mode)
   :config
   (require 'indent-bars-ts)
   :custom
@@ -175,7 +185,10 @@
 
   (indent-bars-display-on-blank-lines t)
   (indent-bars-starting-column 0)
-  (indent-bars-treesit-support t))
+  (indent-bars-treesit-support t)
+  :general
+  (gg/leader
+    "e i" #'gg/global-indent-bars-mode))
 
 (use-package jinx
   :ensure t
