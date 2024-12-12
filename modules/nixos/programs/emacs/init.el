@@ -596,7 +596,7 @@
   (gg/local
     :keymaps 'dirvish-mode-map
     "d" #'dirvish-fd
-    "i" #'dired-gitignore-mode
+    "i" #'dired-gitignore-global-mode
     "g" #'dirvish-emerge-mode
     "f" #'dired-create-empty-file
     "k" #'dired-create-directory))
