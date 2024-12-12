@@ -601,12 +601,7 @@
     "f" #'dired-create-empty-file
     "k" #'dired-create-directory))
 
-(use-package dired-x
-  :ensure nil
-  :config
-  ;; Make dired-omit-mode hide all "dotfiles"
-  (setq dired-omit-files
-        (concat dired-omit-files "\\|^\\..*$")))
+(use-package dired-x :ensure nil)
 
 (use-package diredfl
   :hook
@@ -617,9 +612,11 @@
 
 (use-package dired
   :ensure nil
+  :hook
+  (dired-mode . dired-omit-mode)
   :init
-  (setq dired-deletion-confirmer #'(lambda (_) t))
-  :hook (dired-mode . dired-omit-mode))
+  (setq dired-omit-files (concat dired-omit-files "\\|^\\..*$"))
+  (setq dired-deletion-confirmer #'(lambda (_) t)))
 
 (use-package dired-gitignore)
 
