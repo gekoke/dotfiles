@@ -7,6 +7,7 @@
 with lib;
 with lib.elementary;
 let
+  inherit (lib.elementary) I64_MAX;
   cfg = config.elementary.user.shell.zsh;
 in
 {
