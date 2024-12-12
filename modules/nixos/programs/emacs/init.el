@@ -596,10 +596,15 @@
   (gg/local
     :keymaps 'dirvish-mode-map
     "d" #'dirvish-fd
-    "i" #'dired-gitignore-global-mode
     "g" #'dirvish-emerge-mode
     "f" #'dired-create-empty-file
     "k" #'dired-create-directory))
+
+(use-package dired-gitignore
+  :general
+  (gg/local
+    :keymaps 'dirvish-mode-map
+    "i" #'dired-gitignore-global-mode))
 
 (use-package dired-x :ensure nil)
 
@@ -617,8 +622,6 @@
   :init
   (setq dired-omit-files (concat dired-omit-files "\\|^\\..*$"))
   (setq dired-deletion-confirmer #'(lambda (_) t)))
-
-(use-package dired-gitignore)
 
 (use-package cape
   :init
