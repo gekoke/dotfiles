@@ -172,7 +172,6 @@
                   'yaml-mode
                   'markdown-mode))
         (indent-bars-mode))))
-  (gg/global-indent-bars-mode)
   :config
   (require 'indent-bars-ts)
   :custom
