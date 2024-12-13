@@ -669,17 +669,32 @@
   (add-to-list 'display-buffer-alist
                '("\\*vterm*"
                  (display-buffer-at-bottom))))
+
 (use-package vterm-toggle
   :init
   (defun gg/vterm-new ()
     (interactive)
     (vterm-toggle--new))
+  (defun gg/cmatrix ()
+    "Set up terminal emulators in a nice layout."
+    (interactive)
+    (delete-other-windows)
+    (vterm-toggle--new)
+    (delete-other-windows)
+    (evil-window-split)
+    (evil-window-down 1)
+    (vterm-toggle--new)
+    (evil-window-vsplit)
+    (evil-window-right 1)
+    (vterm-toggle--new)
+    (evil-window-up 1))
   :general
   (gg/leader
     "o o" #'vterm-toggle-cd
     "o n" #'gg/vterm-new
     "o j" #'vterm-toggle-forward
-    "o k" #'vterm-toggle-backward))
+    "o k" #'vterm-toggle-backward
+    "w w" #'gg/cmatrix))
 
 ;; Don't make new frame for ediff - why would I want that?!
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
