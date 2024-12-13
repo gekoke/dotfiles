@@ -1082,7 +1082,7 @@
   "." #'find-file
   "x" #'kill-current-buffer
   "z" #'bury-buffer
-  "E b" #'eval-buffer
+  "E e" #'eval-buffer
   "E r" #'eval-region
   "r" '(:ignore t :which-key "Regex")
   "r l" #'align-regexp)
