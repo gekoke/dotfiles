@@ -31,6 +31,7 @@ in
       pkgs.jwt-cli
       pkgs.p7zip
       pkgs.tldr
+      pkgs.units
       pkgs.wget
       pkgs.zip
     ];
