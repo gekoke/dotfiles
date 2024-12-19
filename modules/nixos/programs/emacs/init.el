@@ -173,6 +173,7 @@
                   'yaml-mode
                   'markdown-mode))
         (indent-bars-mode))))
+  (gg/global-indent-bars-mode)
   :config
   (require 'indent-bars-ts)
   :custom
@@ -204,7 +205,6 @@
              'yaml-mode
              'markdown-mode)
         (whitespace-mode))))
-  (gg/global-whitespace-mode)
   :custom
   (whitespace-display-mappings
    '((space-mark 32
