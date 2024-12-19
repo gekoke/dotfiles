@@ -321,7 +321,7 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 100 :weight 'semi-bold)
+(set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 130 :weight 'semi-bold)
 
 (use-package ligature
   :config
