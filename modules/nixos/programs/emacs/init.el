@@ -324,6 +324,8 @@
 (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 130 :weight 'semi-bold)
 
 (use-package ligature
+  :init
+  (global-ligature-mode)
   :config
   (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
                                        "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
