@@ -810,16 +810,6 @@
 
 (use-package yasnippet)
 
-(use-package eldoc
-  :ensure nil
-  :custom
-  (eldoc-idle-delay 0)
-  (eldoc-display-functions '(eldoc-display-in-buffer))
-  :general
-  (general-def
-    :states '(normal)
-    "g h" #'eldoc))
-
 (use-package lsp-mode
   :init
   (defun gg/setup-lsp-mode-capf ()
@@ -868,9 +858,9 @@
   (lsp-completion-mode . gg/setup-lsp-mode-capf)
   :custom
   (lsp-headerline-breadcrumb-enable nil)
-  (lsp-eldoc-render-all t)
   (lsp-inlay-hint-enable t)
   (lsp-semantic-tokens-enable t)
+  (lsp-signature-render-documentation nil)
   :config
   (lsp-register-client
    (make-lsp-client
@@ -890,7 +880,15 @@
   :after lsp-mode
   :hook (lsp-mode . lsp-ui-mode)
   :custom
-  (lsp-ui-sideline-diagnostic-max-line-length 280))
+  (lsp-ui-doc-position 'at-point)
+  (lsp-ui-doc-include-signature t)
+  (lsp-ui-sideline-diagnostic-max-line-length 280)
+  :general
+  (general-def
+    :keymaps '(lsp-ui-mode-map)
+    :states '(normal)
+    "g h" #'lsp-ui-doc-glance
+    "g H" #'lsp-describe-thing-at-point))
 
 (use-package consult-lsp
   :after lsp-mode
