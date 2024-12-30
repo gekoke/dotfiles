@@ -862,7 +862,7 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-inlay-hint-enable t)
   (lsp-semantic-tokens-enable t)
-  (lsp-signature-render-documentation nil)
+  (lsp-signature-function #'lsp-signature-posframe)
   :config
   (lsp-register-client
    (make-lsp-client
