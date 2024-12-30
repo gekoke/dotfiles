@@ -172,7 +172,8 @@
                   'prog-mode
                   'yaml-mode
                   'markdown-mode))
-        (indent-bars-mode))))
+        (let ((max-lisp-eval-depth (expt 2 14)))
+          (indent-bars-mode)))))
   (gg/global-indent-bars-mode)
   :config
   (require 'indent-bars-ts)
