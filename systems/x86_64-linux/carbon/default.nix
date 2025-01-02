@@ -16,6 +16,7 @@
     hardware.nvidia.enable = true;
     roles.workstation.enable = true;
     secrets.enable = true;
+    programs.git.signingKey = "1E9AFDF3275F99EE";
   };
 
   home-manager.users.geko = {
