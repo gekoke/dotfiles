@@ -70,7 +70,6 @@ in
     programs = {
       git = enabled // {
         userEmail = "gregor.grigorjan@gamesglobal.com";
-        signingKey = "FB5F09CB29F94BC5";
       };
       ssh = enabled;
       emacs = enabled // {

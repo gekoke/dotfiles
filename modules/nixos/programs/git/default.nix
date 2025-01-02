@@ -15,7 +15,11 @@ in
     enable = mkEnableOption "git version control";
     userName = mkOpt str user.accounts.fullName "The name to configure git with";
     userEmail = mkOpt str user.accounts.primaryEmailAddress "The email to configure git with";
-    signingKey = mkOpt (nullOr str) "1E9AFDF3275F99EE" "The key ID to sign commits with";
+    signingKey = mkOption {
+      description = "The key ID to sign commits with";
+      type = nullOr str;
+      default = null;
+    };
     signByDefault = mkOpt bool true "Whether to sign Git commits using GPG";
     githubUsername = mkOpt str "gekoke" "The GitHub username to use";
   };
