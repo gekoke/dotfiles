@@ -23,6 +23,8 @@ in
       };
     };
 
+    elementary.home.file.".parallel/will-cite".text = "";
+
     elementary.home.packages = [
       pkgs.btop
       pkgs.efibootmgr
@@ -30,6 +32,7 @@ in
       pkgs.jq
       pkgs.jwt-cli
       pkgs.p7zip
+      pkgs.parallel-full
       pkgs.tldr
       pkgs.units
       pkgs.wget
