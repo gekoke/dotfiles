@@ -27,6 +27,7 @@ in
 
     elementary.home.packages = [
       pkgs.btop
+      pkgs.dos2unix
       pkgs.efibootmgr
       pkgs.exfat
       pkgs.jq
