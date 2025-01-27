@@ -891,7 +891,9 @@
     :keymaps '(lsp-ui-mode-map)
     :states '(normal)
     "g h" #'lsp-ui-doc-glance
-    "g H" #'lsp-describe-thing-at-point))
+    "g H" #'lsp-describe-thing-at-point
+    "g n" #'lsp-ui-find-next-reference
+    "g N" #'lsp-ui-find-prev-reference))
 
 (use-package consult-lsp
   :after lsp-mode
