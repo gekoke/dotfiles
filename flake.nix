@@ -61,7 +61,7 @@
 
         overlays = [
           inputs.emacs-overlay.overlays.default
-          inputs.nur.overlay
+          inputs.nur.overlays.default
         ];
 
         channels-config.allowUnfree = true;

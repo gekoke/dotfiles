@@ -27,7 +27,7 @@ in
       wireplumber = enabled;
     };
 
-    hardware.pulseaudio.enable = mkForce false;
+    services.pulseaudio.enable = lib.mkForce false;
 
     elementary = {
       home.packages = [ pkgs.pavucontrol ];

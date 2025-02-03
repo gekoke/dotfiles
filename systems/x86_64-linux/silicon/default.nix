@@ -31,10 +31,7 @@ in
         pkgs.gnumake
         pkgs.gcc
         pkgs.powershell
-        (pkgs.dotnetCorePackages.combinePackages [
-          pkgs.dotnet-sdk_6
-          pkgs.dotnet-sdk_8
-        ])
+        pkgs.dotnet-sdk_8
         pkgs.azure-cli
       ];
 

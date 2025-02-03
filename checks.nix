@@ -21,7 +21,6 @@
               };
             };
             nixfmt-rfc-style.enable = true;
-            shellcheck.enable = true;
             statix.enable = true;
             gitleaks = {
               enable = true;

@@ -41,12 +41,12 @@ with lib.elementary;
           };
 
           sansSerif = {
-            package = pkgs.nerdfonts;
+            package = pkgs.nerd-fonts.iosevka;
             name = "IosevkaTerm Nerd Font";
           };
 
           monospace = {
-            package = pkgs.nerdfonts;
+            package = pkgs.nerd-fonts.iosevka;
             name = "IosevkaTerm Nerd Font";
           };
 

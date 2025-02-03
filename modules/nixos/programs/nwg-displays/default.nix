@@ -19,8 +19,9 @@ in
       (pkgs.nwg-displays.override { hyprlandSupport = cfg.enableHyprlandIntegration; })
     ];
 
-    elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = mkIf cfg.enableHyprlandIntegration ''
-      source = ~/.config/hypr/monitors.conf
-    '';
+    elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig =
+      mkIf cfg.enableHyprlandIntegration ''
+        source = ~/.config/hypr/monitors.conf
+      '';
   };
 }

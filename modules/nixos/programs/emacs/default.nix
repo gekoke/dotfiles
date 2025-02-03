@@ -56,6 +56,9 @@ in
       fonts.packages = with pkgs; [
         # all-the-icons
         emacs-all-the-icons-fonts
+        pkgs.nerd-fonts.iosevka-term
+        pkgs.nerd-fonts.jetbrains-mono
+        pkgs.nerd-fonts.blex-mono
       ];
 
       elementary.home.packages = with pkgs; [
@@ -107,7 +110,7 @@ in
         go
         gopls
         # Typst
-        typst-lsp
+        tinymist
       ];
 
       elementary.home = {
