@@ -90,9 +90,6 @@ in
         # Python
         pyright
         ruff
-        # Java
-        jdk21
-        jdt-language-server
         # JavaScript/TypeScript
         nodePackages.typescript
         nodePackages.typescript-language-server
@@ -118,10 +115,6 @@ in
           enable = true;
           package = emacsPackage;
           extraConfig = ''
-            (setq lsp-java-server-install-dir "${pkgs.jdt-language-server}/share/java/jdtls")
-            (setq lsp-java-server-config-dir (concat (file-name-as-directory (xdg-config-home)) "lsp-java/config_linux/")) 
-            (add-to-list 'lsp-java-vmargs "-javaagent:${pkgs.elementary.lombok-jar}/share/java/lombok.jar")
-
             (setq lsp-clients-typescript-tls-path "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server")
 
             (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
@@ -130,7 +123,6 @@ in
         file = {
           ".emacs.d/init.el".source = ./init.el;
           ".emacs.d/early-init.el".text = earlyInitText;
-          ".config/lsp-java/config_linux/config.ini".source = "${pkgs.jdt-language-server}/share/java/jdtls/config_linux/config.ini";
         };
       };
 

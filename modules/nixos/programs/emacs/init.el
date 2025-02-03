@@ -934,12 +934,6 @@
                                        (bound-and-true-p lsp-mode))
                                   (lsp-format-buffer)))))
 
-(use-package lsp-java
-  :init
-  :hook (java-ts-mode . (lambda ()
-                          (load "lsp-java.el")
-                          (lsp))))
-
 (use-package rustic
   :ensure t
   :mode
