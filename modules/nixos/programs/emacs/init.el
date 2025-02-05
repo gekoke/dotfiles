@@ -162,6 +162,36 @@
     "8" #'eyebrowse-switch-to-window-config-8
     "9" #'eyebrowse-switch-to-window-config-9))
 
+(use-package whitespace
+  :ensure nil
+  :init
+  (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
+    (lambda ()
+      (when (derived-mode-p
+             'prog-mode
+             'yaml-mode
+             'markdown-mode)
+        (whitespace-mode))))
+  :custom
+  (whitespace-display-mappings
+   '((space-mark 32
+                [183]
+                [46])
+    (space-mark 160
+                [164]
+                [95])
+    (newline-mark 10
+                  [8629 10])
+    (tab-mark 9
+              [187 9]
+              [92 9])))
+  (whitespace-style
+   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark))
+  :general
+  (gg/leader
+    "e w" #'gg/global-whitespace-mode))
+
+
 (use-package indent-bars
   :ensure nil
   :init
@@ -195,35 +225,6 @@
 (use-package jinx
   :ensure t
   :hook (emacs-startup . global-jinx-mode))
-
-(use-package whitespace
-  :ensure nil
-  :init
-  (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
-    (lambda ()
-      (when (derived-mode-p
-             'prog-mode
-             'yaml-mode
-             'markdown-mode)
-        (whitespace-mode))))
-  :custom
-  (whitespace-display-mappings
-   '((space-mark 32
-                [183]
-                [46])
-    (space-mark 160
-                [164]
-                [95])
-    (newline-mark 10
-                  [8629 10])
-    (tab-mark 9
-              [187 9]
-              [92 9])))
-  (whitespace-style
-   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark))
-  :general
-  (gg/leader
-    "e w" #'gg/global-whitespace-mode))
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
@@ -705,6 +706,7 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (use-package magit-file-icons
+  :ensure nil
   :after magit
   :config
   (magit-file-icons-mode))
