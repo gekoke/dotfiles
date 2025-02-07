@@ -278,7 +278,7 @@
   (doom-modeline-indent-info t)
   (doom-modeline-modal nil)
   (doom-modeline-check-icon nil)
-  (doom-modeline-buffer-state-icon nil)
+  (doom-modeline-buffer-state-icon t)
   (doom-modeline-workspace-name nil)
   (doom-modeline-buffer-file-name-style 'relative-from-project))
 
