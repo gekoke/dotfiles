@@ -601,6 +601,7 @@
     "d" #'dirvish)
   (gg/local
     :keymaps 'dirvish-mode-map
+    "e" #'wdired-change-to-wdired-mode
     "d" #'dirvish-fd
     "g" #'dirvish-emerge-mode
     "f" #'dired-create-empty-file
