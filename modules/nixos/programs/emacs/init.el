@@ -705,12 +705,6 @@
 ;; Don't make new frame for ediff - why would I want that?!
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(use-package magit-file-icons
-  :ensure nil
-  :after magit
-  :config
-  (magit-file-icons-mode))
-
 (use-package magit
   :hook (magit-log-mode . magit-diff-show-or-scroll-up)
   :init
@@ -723,6 +717,7 @@
       (forge-pull)))
   (advice-add 'magit-status :after #'gg/magit-auto-fetch)
   :custom
+  (magit-format-file-function #'magit-format-file-nerd-icons)
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
   (magit-bury-buffer-function #'magit-restore-window-configuration)
   (magit-revision-show-gravatars t)
