@@ -52,6 +52,8 @@
     "B r" #'rename-buffer))
 
 (use-package undo-tree
+  :init
+  (global-undo-tree-mode)
   :custom
   (undo-tree-enable-undo-in-region t)
   (undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "undo-tree-history")))))
@@ -429,10 +431,6 @@
     "h c" #'helpful-command
     "h m" #'describe-mode))
 
-(use-package undo-tree
-  :config
-  (global-undo-tree-mode))
-
 (winner-mode +1)
 
 (repeat-mode +1)
@@ -441,6 +439,9 @@
   "C-s" #'avy-goto-char)
 
 (use-package evil
+  :after undo-tree
+  :init
+  (add-hook 'wdired-mode-hook #'turn-on-undo-tree-mode)
   :bind
   (:repeat-map evil-window-resizing-repeat-map
                ("-" . evil-window-decrease-height)
