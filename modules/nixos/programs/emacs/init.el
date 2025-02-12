@@ -360,6 +360,7 @@
   :general
   (general-def
     "M-e" #'embark-export))
+
 (use-package vertico
   :init
   (vertico-mode)
@@ -367,7 +368,11 @@
   (enable-recursive-minibuffers t)
   ;; Hide commands in M-x which do not work in the current mode.
   (read-extended-command-predicate #'command-completion-default-include-p)
-  (vertico-cycle t))
+  (vertico-cycle t)
+  :general
+  (general-def minibuffer-local-map
+    "M-j" #'next-line-or-history-element
+    "M-k" #'previous-line-or-history-element))
 
 (use-package marginalia
   :init
