@@ -677,11 +677,7 @@
   :init
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
-(use-package vterm
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*vterm*"
-                 (display-buffer-at-bottom))))
+(use-package vterm)
 
 (use-package vterm-toggle
   :init
