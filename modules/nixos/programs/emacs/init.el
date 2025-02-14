@@ -677,7 +677,9 @@
   :init
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
-(use-package vterm)
+(use-package vterm
+  :custom
+  (vterm-max-scrollback 10000))
 
 (use-package vterm-toggle
   :init
