@@ -59,6 +59,7 @@ in
         pkgs.nerd-fonts.iosevka-term
         pkgs.nerd-fonts.jetbrains-mono
         pkgs.nerd-fonts.blex-mono
+        pkgs.nerd-fonts.fira-code
       ];
 
       elementary.home.packages = with pkgs; [
