@@ -32,8 +32,9 @@ in
       pkgs.exfat
       pkgs.jq
       pkgs.jwt-cli
+      pkgs.moreutils # -> `sponge` et al
       pkgs.p7zip
-      pkgs.parallel-full
+      (lib.hiPrio pkgs.parallel-full) # `pkgs.moreutils` provides `parallel` binary as well
       pkgs.tldr
       pkgs.units
       pkgs.wget
