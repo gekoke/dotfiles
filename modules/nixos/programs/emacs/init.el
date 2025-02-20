@@ -811,6 +811,7 @@
   :config
   (delete 'yaml treesit-auto-langs) ;; yaml-mode is superior
   (delete 'rust treesit-auto-langs) ;; conflicts with mode set up by rustic-mode config
+  (delete 'c-sharp treesit-auto-langs) ;; sucks
   (global-treesit-auto-mode))
 
 (use-package yasnippet)
