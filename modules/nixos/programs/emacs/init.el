@@ -1054,6 +1054,11 @@
       :activation-fn (lsp-activate-on "typst")
       :server-id 'typst-lsp))))
 
+(use-package json-ts-mode
+  :ensure nil
+  :hook
+  (json-ts-mode . lsp))
+
 (use-package age
   :custom
   (age-program "rage")
