@@ -112,6 +112,8 @@ in
         gopls
         # Typst
         tinymist
+        # Tofu
+        pkgs.terraform-ls
       ];
 
       elementary.home = {
