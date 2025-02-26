@@ -64,7 +64,12 @@
           inputs.nur.overlays.default
         ];
 
-        channels-config.allowUnfree = true;
+        channels-config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "dotnet-sdk-6.0.428"
+          ];
+        };
       })
       (
         inputs.flake-parts.lib.mkFlake { inherit inputs; } {
