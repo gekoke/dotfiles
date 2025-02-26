@@ -49,7 +49,6 @@ in
           "full-screen-api.warning.timeout" = 0; # Disable "You're in fullscreen" message
           "browser.contentblocking.category" = "strict"; # Set Firefox Tracking Protection to "Strict"
         };
-        userChrome = builtins.readFile ./userChrome.css;
       };
     };
   };
