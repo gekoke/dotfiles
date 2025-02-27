@@ -7,12 +7,6 @@ locals {
   grigorjan_net_zone_id = "031954488928102b0936fee7bd9d3312"
 }
 
-resource "cloudflare_zone_setting" "strict_ssl" {
-  zone_id    = local.grigorjan_net_zone_id
-  setting_id = "ssl"
-  value      = "strict"
-}
-
 resource "cloudflare_dns_record" "server_neon" {
   type    = "A"
   name    = "neon.grigorjan.net"

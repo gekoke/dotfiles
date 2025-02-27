@@ -13,7 +13,7 @@ variable "aws_secret_key" {
 variable "cloudflare_api_token" {
   type = string
   sensitive = true
-  description = "The Cloudflare API token with permissions: DNS:Edit, Zone Settings:Edit"
+  description = "The Cloudflare API token with permissions: DNS:Edit"
 }
 
 variable "hcloud_token" {
