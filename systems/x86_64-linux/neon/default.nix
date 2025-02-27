@@ -7,6 +7,8 @@
     ./disk-config.nix
   ];
 
+  nix.gc.automatic = true;
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
