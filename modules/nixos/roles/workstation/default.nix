@@ -13,6 +13,7 @@ in
   config = mkIf cfg.enable {
     elementary = {
       nix = enabled;
+      home = enabled;
       user = enabled // {
         accounts = enabled;
       };

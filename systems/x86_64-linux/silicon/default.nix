@@ -54,6 +54,7 @@ in
   elementary = {
     virtualisation.docker.enable = true;
     nix = enabled;
+    home = enabled;
     user = enabled // {
       accounts = enabled;
     };

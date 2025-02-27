@@ -12,6 +12,7 @@ with lib.elementary;
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   options.elementary.home = with types; {
+    enable = lib.mkEnableOption "home-manager wrapper";
     file = mkOpt attrs { } "A set of files to be managed by home-manager's <option>home.file</option>";
     configFile =
       mkOpt attrs { }
@@ -30,7 +31,7 @@ with lib.elementary;
     extraOptions = mkOpt attrs { } "Options to pass directly to home-manager";
   };
 
-  config = {
+  config = lib.mkIf config.elementary.home.enable {
     elementary.home.extraOptions = {
       systemd.user.startServices = true;
 
