@@ -7,7 +7,7 @@ locals {
   grigorjan_net_zone_id = "031954488928102b0936fee7bd9d3312"
 }
 
-resource "cloudflare_dns_record" "server_neon" {
+resource "cloudflare_dns_record" "server_neon_a" {
   type    = "A"
   name    = "neon.grigorjan.net"
   content = hcloud_server.neon.ipv4_address
