@@ -21,7 +21,10 @@
               };
             };
             nixfmt-rfc-style.enable = true;
-            statix.enable = true;
+            statix = {
+              enable = true;
+              settings.ignore = [ "tofu/.terraform/**" ];
+            };
             gitleaks = {
               enable = true;
               name = "gitleaks";

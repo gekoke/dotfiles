@@ -6,7 +6,10 @@ _: {
         default = pkgs.mkShellNoCC {
           name = "elementary-shell";
 
-          nativeBuildInputs = [ pkgs.deadnix ];
+          nativeBuildInputs = [
+            pkgs.deadnix
+            pkgs.opentofu
+          ];
 
           shellHook = ''
             ${config.pre-commit.installationScript}
