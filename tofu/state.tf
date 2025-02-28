@@ -1,5 +1,6 @@
 locals {
-  aws_region = "eu-north-1"
+  aws_region             = "eu-north-1"
+  tofu_state_bucket_name = "tofu-state-c5bba283-c3e5-454e-a7d7-df43e34e82f6"
 }
 
 provider "aws" {
@@ -9,7 +10,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "tofu_state" {
-  bucket = "tofu-state-c5bba283-c3e5-454e-a7d7-df43e34e82f6"
+  bucket = local.tofu_state_bucket_name
 
   lifecycle {
     prevent_destroy = true
@@ -18,8 +19,8 @@ resource "aws_s3_bucket" "tofu_state" {
 
 terraform {
   backend "s3" {
-    region  = local.aws_region
-    bucket  = "tofu-state-c5bba283-c3e5-454e-a7d7-df43e34e82f6"
-    key     = "tofu-state-file"
+    region = local.aws_region
+    bucket = local.tofu_state_bucket_name
+    key    = "tofu-state-file"
   }
 }
