@@ -73,9 +73,7 @@ in
         userEmail = "gregor.grigorjan@gamesglobal.com";
       };
       ssh = enabled;
-      emacs = enabled // {
-        package = pkgs.emacs29;
-      };
+      emacs = enabled;
       direnv = enabled;
     };
   };

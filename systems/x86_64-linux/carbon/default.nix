@@ -17,6 +17,7 @@
     roles.workstation.enable = true;
     secrets.enable = true;
     programs.git.signingKey = "1E9AFDF3275F99EE";
+    programs.emacs.package = pkgs.emacs30-pgtk;
   };
 
   home-manager.users.geko = {
