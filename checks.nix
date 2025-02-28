@@ -14,13 +14,11 @@
             ".direnv/.*"
           ];
           hooks = {
+            nixfmt-rfc-style.enable = true;
             deadnix = {
               enable = true;
-              settings = {
-                edit = true;
-              };
+              settings.edit = true;
             };
-            nixfmt-rfc-style.enable = true;
             statix = {
               enable = true;
               settings.ignore = [ "tofu/.terraform/**" ];
@@ -28,7 +26,7 @@
             gitleaks = {
               enable = true;
               name = "gitleaks";
-              entry = "${pkgs.gitleaks}/bin/gitleaks protect --verbose --redact --staged";
+              entry = "${lib.getExe pkgs.gitleaks} protect --verbose --redact --staged";
               pass_filenames = false;
             };
           };
