@@ -40,6 +40,10 @@ in
           push.autoSetupRemote = true;
           rerere.enabled = true;
           github.user = cfg.githubUsername;
+          diff = {
+            colorMoved = true;
+            algorithm = "histogram";
+          };
           credential.helper = "store";
         };
       };
