@@ -9,6 +9,7 @@ _: {
           nativeBuildInputs = [
             pkgs.deadnix
             pkgs.opentofu
+            pkgs.tflint
           ];
 
           shellHook = ''

@@ -3,7 +3,7 @@
   imports = [ inputs.nix-pre-commit-hooks.flakeModule ];
 
   perSystem =
-    { pkgs, ... }:
+    { lib, pkgs, ... }:
     {
       pre-commit = {
         check.enable = true;
@@ -22,6 +22,18 @@
             statix = {
               enable = true;
               settings.ignore = [ "tofu/.terraform/**" ];
+            };
+            tofu-fmt = {
+              enable = true;
+              name = "tofu-fmt";
+              entry = "${lib.getExe pkgs.opentofu} fmt ./tofu";
+              pass_filenames = false;
+            };
+            tflint = {
+              enable = true;
+              name = "tflint";
+              entry = "${lib.getExe pkgs.tflint} --chdir ./tofu";
+              pass_filenames = false;
             };
             gitleaks = {
               enable = true;
