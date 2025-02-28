@@ -195,7 +195,6 @@
 
 
 (use-package indent-bars
-  :ensure nil
   :init
   (define-global-minor-mode gg/global-indent-bars-mode indent-bars-mode
     (lambda ()
