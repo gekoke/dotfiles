@@ -113,16 +113,16 @@ with lib.elementary;
           layerrule = blur, (waybar|notifications|gtk-layer-shell|rofi)
 
           general {
-              gaps_out = 8
-              gaps_in = 4
+              gaps_out = 4
+              gaps_in = 2
 
-              border_size = 2
+              border_size = 1
 
               col.active_border = rgb(${base0A}) rgb(${base0B}) rgb(${base0C}) rgb(${base0D}) rgb(${base0E}) rgb(${base0F})
           }
 
           decoration {
-              rounding = 1
+              rounding = 0
 
               blur {
                   enabled = true
