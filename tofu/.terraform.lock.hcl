@@ -39,8 +39,7 @@ provider "registry.opentofu.org/hashicorp/aws" {
 }
 
 provider "registry.opentofu.org/hashicorp/external" {
-  version     = "2.3.4"
-  constraints = "2.3.4"
+  version = "2.3.4"
   hashes = [
     "h1:saRbzhRhYh4urj+ARe8vIB0mlRspy6E/fPSyvwqjUW8=",
     "zh:0e5eb3513d6ad5cc3196799a6e413c6a9c0b642ba6d8f84fc11efa48f58358a4",
@@ -57,8 +56,7 @@ provider "registry.opentofu.org/hashicorp/external" {
 }
 
 provider "registry.opentofu.org/hashicorp/null" {
-  version     = "3.2.3"
-  constraints = "3.2.3"
+  version = "3.2.3"
   hashes = [
     "h1:LF8arSzHfhbyQSFtTMTYEqCM34klzrbAQBJMHYCs9d8=",
     "zh:1d57d25084effd3fdfd902eca00020b34b1fb020253b84d7dd471301606015ac",
