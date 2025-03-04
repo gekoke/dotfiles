@@ -1038,6 +1038,9 @@
   :ensure nil
   :custom
   (go-ts-mode-indent-offset tab-width))
+(use-package lsp-mode
+  :hook
+  (go-ts-mode . lsp))
 
 (use-package typst-ts-mode
   :ensure nil
