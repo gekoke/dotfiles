@@ -26,16 +26,16 @@ in
   home-manager.users.geko = {
     home = {
       packages = [
-        pkgs.nodePackages."@angular/cli"
-        pkgs.python311
-        pkgs.gnumake
-        pkgs.gcc
-        pkgs.powershell
+        pkgs.azure-cli
         (pkgs.dotnetCorePackages.combinePackages [
           pkgs.dotnet-sdk_6
           pkgs.dotnet-sdk_8
         ])
-        pkgs.azure-cli
+        pkgs.gcc
+        pkgs.gnumake
+        pkgs.nodePackages."@angular/cli"
+        pkgs.powershell
+        pkgs.python311
       ];
 
       shellAliases = {
