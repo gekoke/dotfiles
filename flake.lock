@@ -135,11 +135,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716274896,
-        "narHash": "sha256-WsyEkdt8ReGQ40+yV4Cb99A2MEmV0O/i6rmFQura5ww=",
+        "lastModified": 1740725613,
+        "narHash": "sha256-j6HoX1k4+alRX35/Z/K+kfqfWytNLcO+eBOnyoh42iw=",
         "owner": "slotThe",
         "repo": "emacs-lsp-booster-flake",
-        "rev": "7d110295988fc9bf7fd43bb0cabfbe58a4a5ecf8",
+        "rev": "007bdf3f48a28f611fdfe0b480534cc110637043",
         "type": "github"
       },
       "original": {
