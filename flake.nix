@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # FIXME: point to `nixpkgs-unstable` after `94d0b41dd97f8e3c9331cf8b2750d582a89475ee` is merged
+    nixpkgs.url = "github:nixos/nixpkgs?rev=94d0b41dd97f8e3c9331cf8b2750d582a89475ee";
 
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
     nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +26,7 @@
     hyprland-contrib.url = "github:hyprwm/contrib";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
 

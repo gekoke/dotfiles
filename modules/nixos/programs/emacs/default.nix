@@ -85,6 +85,9 @@ in
         # Python
         pyright
         ruff
+        # Java
+        jdk23
+        jdt-language-server
         # JavaScript/TypeScript
         nodePackages.typescript
         nodePackages.typescript-language-server

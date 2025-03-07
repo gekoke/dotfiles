@@ -33,7 +33,6 @@ in
         ])
         pkgs.gcc
         pkgs.gnumake
-        pkgs.jdk
         pkgs.nodePackages."@angular/cli"
         pkgs.powershell
         pkgs.python311
