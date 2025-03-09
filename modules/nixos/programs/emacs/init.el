@@ -223,6 +223,12 @@
   (gg/leader
     "e i" #'gg/global-indent-bars-mode))
 
+(use-package text-mode
+  :ensure nil
+  :custom
+  ;; Disable annoying message "can't find dictionary in system default locations"
+  (text-mode-ispell-word-completion nil))
+
 (use-package jinx
   :ensure t
   :hook (emacs-startup . global-jinx-mode))
