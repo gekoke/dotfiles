@@ -53,14 +53,7 @@ in
       desktop = {
         hyprland.extraHomeManagerOptions = {
           enable = true;
-          extraConfig =
-            let
-              masterMonocleCommand = ''
-                $kw = master:no_gaps_when_only
-                binde = SUPER, M, exec, hyprctl keyword $kw $(($(hyprctl getoption $kw -j | ${pkgs.jq}/bin/jq '.int') ^ 1))
-              '';
-            in
-            builtins.readFile ./hyprland.conf + masterMonocleCommand;
+          extraConfig = builtins.readFile ./hyprland.conf;
         };
         addons = {
           waybar = enabled // {
