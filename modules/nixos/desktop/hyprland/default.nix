@@ -53,7 +53,13 @@ in
       desktop = {
         hyprland.extraHomeManagerOptions = {
           enable = true;
-          extraConfig = builtins.readFile ./hyprland.conf;
+          extraConfig =
+            let
+              applyVibrance = ''
+                exec-once = ${lib.getExe pkgs.hyprshade} on vibrance
+              '';
+            in
+            builtins.readFile ./hyprland.conf + applyVibrance;
         };
         addons = {
           waybar = enabled // {
