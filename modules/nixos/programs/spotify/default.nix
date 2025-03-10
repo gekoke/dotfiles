@@ -25,11 +25,11 @@ in
         enable = true;
         enabledExtensions =
           let
-            spicePkgs = inputs.spicetify-nix.legacyPackages.${system}.extensions;
+            inherit (inputs.spicetify-nix.legacyPackages.${system}) extensions;
           in
           [
-            spicePkgs.extensions.betterGenres
-            spicePkgs.extensions.keyboardShortcut
+            extensions.betterGenres
+            extensions.keyboardShortcut
           ];
       };
     };
