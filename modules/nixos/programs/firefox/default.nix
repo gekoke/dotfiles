@@ -8,12 +8,9 @@
   options.elementary.programs.firefox =
     let
       inherit (lib) mkEnableOption;
-      inherit (lib.types) listOf package;
-      inherit (lib.elementary) mkOpt;
     in
     {
       enable = mkEnableOption "Firefox";
-      extraExtensions = mkOpt (listOf package) [ ] "Extra extensions to add to Firefox";
     };
 
   config =
@@ -30,17 +27,15 @@
         profiles."default" = {
           name = "Default";
           isDefault = true;
-          extensions.packages =
-            builtins.attrValues {
-              inherit (pkgs.nur.repos.rycee.firefox-addons)
-                bitwarden
-                privacy-badger
-                sponsorblock
-                ublock-origin
-                vimium
-                ;
-            }
-            ++ cfg.extraExtensions;
+          extensions.packages = builtins.attrValues {
+            inherit (pkgs.nur.repos.rycee.firefox-addons)
+              bitwarden
+              privacy-badger
+              sponsorblock
+              ublock-origin
+              vimium
+              ;
+          };
           settings = {
             "browser.aboutconfig.showwarning" = false; # Don't show warning when opening about:config
             "browser.contentblocking.category" = "strict"; # Set Firefox Tracking Protection to "Strict"
