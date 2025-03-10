@@ -28,11 +28,11 @@ in
         extensions.packages =
           with pkgs.nur.repos.rycee.firefox-addons;
           [
+            bitwarden
             privacy-badger
+            sponsorblock
             ublock-origin
             vimium
-            bitwarden
-            sponsorblock
           ]
           ++ cfg.extraExtensions;
         settings = {
