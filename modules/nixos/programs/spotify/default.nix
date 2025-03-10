@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  system,
   inputs,
   ...
 }:
@@ -25,7 +25,7 @@ in
         enable = true;
         enabledExtensions =
           let
-            spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+            spicePkgs = inputs.spicetify-nix.legacyPackages.${system}.extensions;
           in
           [
             spicePkgs.extensions.betterGenres
