@@ -44,9 +44,7 @@ in
       # LSP optimizations
       environment.sessionVariables.LSP_USE_PLISTS = "true";
 
-      fonts.packages = with pkgs; [
-        # all-the-icons
-        emacs-all-the-icons-fonts
+      fonts.packages = [
         pkgs.nerd-fonts.iosevka-term
         pkgs.nerd-fonts.jetbrains-mono
         pkgs.nerd-fonts.blex-mono
