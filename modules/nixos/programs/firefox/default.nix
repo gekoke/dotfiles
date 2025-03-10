@@ -25,7 +25,7 @@ in
       profiles."default" = {
         name = "Default";
         isDefault = true;
-        extensions =
+        extensions.packages =
           with pkgs.nur.repos.rycee.firefox-addons;
           [
             privacy-badger
