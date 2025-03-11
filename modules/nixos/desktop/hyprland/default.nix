@@ -21,31 +21,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.hyprland = {
-      enable = true;
-    };
+    programs.hyprland.enable = true;
 
-    xdg.portal = {
-      enable = true;
-
-      # xdg-desktop-portal 1.17 reworked how portal implementations are loaded, you
-      # should either set `xdg.portal.config` or `xdg.portal.configPackages`
-      # to specify which portal backend to use for the requested interface.
-
-      # https://github.com/flatpak/xdg-desktop-portal/blob/1.18.1/doc/portals.conf.rst.in
-
-      # If you simply want to keep the behaviour in < 1.17, which uses the first
-      # portal implementation found in lexicographical order, use the following:
-
-      # xdg.portal.config.common.default = "*";
-      config.common.default = "*";
-
-      # See https://github.com/NixOS/nixpkgs/issues/239886
-      # Enable xdg-desktop-portal-gtk unless we already have it from Gnome DE
-      extraPortals = lib.optionals (!config.services.xserver.desktopManager.gnome.enable) [
-        pkgs.xdg-desktop-portal-gtk
-      ];
-    };
+    # Fixes bugs I guess? https://github.com/NixOS/nixpkgs/issues/160923
+    xdg.portal.xdgOpenUsePortal = true;
 
     elementary = {
       services.udiskie = enabled;
@@ -53,6 +32,8 @@ in
       desktop = {
         hyprland.extraHomeManagerOptions = {
           enable = true;
+          package = null;
+          portalPackage = null;
           extraConfig =
             let
               applyVibrance = ''
@@ -81,6 +62,7 @@ in
       };
 
       home.sessionVariables = {
+        MOZ_ENABLE_WAYLAND = 1;
         WLR_NO_HARDWARE_CURSORS = 1;
         # FIXME: remove when https://github.com/nix-community/home-manager/issues/4486 is fixed
         NIXOS_OZONE_WL = 1;

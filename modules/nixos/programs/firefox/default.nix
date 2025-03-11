@@ -19,8 +19,6 @@
       cfg = config.elementary.programs.firefox;
     in
     mkIf cfg.enable {
-      elementary.home.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
-
       elementary.home.programs.firefox = {
         enable = true;
         package = pkgs.firefox-wayland;
