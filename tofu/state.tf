@@ -22,5 +22,7 @@ terraform {
     region = local.aws_region
     bucket = local.tofu_state_bucket_name
     key    = "tofu-state-file"
+    # Starting from OpenTofu 1.19, needs credentials to be specified using a separate backend config.
+    # See the `-backend-config` section in `tofu init -help` for more.
   }
 }
