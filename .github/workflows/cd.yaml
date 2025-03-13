@@ -1,0 +1,46 @@
+name: cd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Nix
+        uses: ./.github/actions/setup-nix
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Run `nix flake check`
+        run: nix flake check -L
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Nix
+        uses: ./.github/actions/setup-nix
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy
+        run: |
+          cd ./tofu
+          nix develop "#deploy" --command tofu init -backend-config "access_key=${{ vars.AWS_ACCESS_KEY }}" -backend-config "secret_key=${{ secrets.AWS_SECRET_KEY }}"
+          nix develop "#deploy" --command tofu plan -out plan -var "aws_access_key=${{ vars.AWS_ACCESS_KEY }}" -var "aws_secret_key=${{ secrets.AWS_SECRET_KEY }}" -var "cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" -var "hcloud_token=${{ secrets.HCLOUD_TOKEN }}"
+          nix develop "#deploy" --command tofu apply -auto-approve plan

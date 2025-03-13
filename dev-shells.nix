@@ -16,6 +16,11 @@ _: {
             ${config.pre-commit.installationScript}
           '';
         };
+
+        deploy = pkgs.mkShellNoCC {
+          name = "deploy";
+          packages = [ pkgs.opentofu ];
+        };
       };
     };
 }
