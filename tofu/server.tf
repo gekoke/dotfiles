@@ -28,5 +28,4 @@ module "neon_deploy" {
   nixos_partitioner_attr = ".#nixosConfigurations.neon.config.system.build.diskoScript"
   target_host            = hcloud_server.neon.ipv4_address
   instance_id            = hcloud_server.neon.id
-  debug_logging          = true
 }
