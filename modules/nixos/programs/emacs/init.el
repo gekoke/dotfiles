@@ -814,7 +814,6 @@
 
 (use-package treesit-auto
   :config
-  (delete 'yaml treesit-auto-langs) ;; yaml-mode is superior
   (delete 'rust treesit-auto-langs) ;; conflicts with mode set up by rustic-mode config
   (delete 'c-sharp treesit-auto-langs) ;; sucks
   (global-treesit-auto-mode))
@@ -1034,9 +1033,9 @@
   :mode
   ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
-(use-package yaml-mode
-  :hook (yaml-mode . lsp)
-  :mode ("\\.\\(yml\\|yaml\\)\\'"))
+(use-package yaml-ts-mode
+  :ensure nil
+  :hook (yaml-ts-mode . lsp))
 
 (use-package terraform-mode)
 
