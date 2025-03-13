@@ -6,7 +6,7 @@ _: {
         default = pkgs.mkShellNoCC {
           name = "elementary-shell";
 
-          nativeBuildInputs = [
+          packages = [
             pkgs.deadnix
             pkgs.opentofu
             pkgs.tflint
