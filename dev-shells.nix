@@ -4,8 +4,6 @@ _: {
     {
       devShells = {
         default = pkgs.mkShellNoCC {
-          name = "elementary-shell";
-
           packages = [
             pkgs.deadnix
             pkgs.opentofu
@@ -18,7 +16,6 @@ _: {
         };
 
         deploy = pkgs.mkShellNoCC {
-          name = "deploy";
           packages = [ pkgs.opentofu ];
         };
       };
