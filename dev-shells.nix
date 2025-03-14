@@ -10,9 +10,7 @@ _: {
             pkgs.tflint
           ];
 
-          shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
+          shellHook = config.pre-commit.installationScript;
         };
 
         deploy = pkgs.mkShellNoCC {
