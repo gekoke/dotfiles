@@ -1,4 +1,9 @@
-{ modulesPath, ... }:
+{
+  modulesPath,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -18,21 +23,34 @@
     443
   ];
 
+  age.secrets."nginx.htpasswd" = {
+    file = ../../../secrets/neon-nginx.htpasswd.age;
+    mode = "0770";
+    owner = "nginx";
+    group = "nginx";
+  };
+
   services = {
     openssh.enable = true;
     nginx = {
       enable = true;
       recommendedTlsSettings = true;
-      virtualHosts."neon.grigorjan.net" = {
-        enableACME = true;
-        forceSSL = true;
-        extraConfig = ''
-          location / {
-              add_header Content-Type text/plain;
-              return 200 'Hello!';
-          }
-        '';
-      };
+      virtualHosts =
+        let
+          httpsConfig = {
+            enableACME = true;
+            forceSSL = true;
+          };
+          withHTTPS = virtualHosts: builtins.mapAttrs (_: config: config // httpsConfig) virtualHosts;
+        in
+        withHTTPS {
+          "neon.grigorjan.net" = {
+            basicAuthFile = config.age.secrets."nginx.htpasswd".path;
+            locations."/".root = pkgs.writeTextDir "index.html" ''
+              <p>Hello!</p>
+            '';
+          };
+        };
     };
   };
 
