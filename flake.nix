@@ -1,4 +1,15 @@
-{
+rec {
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://hyprland.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+  };
+
   inputs = {
     # FIXME: point to `nixpkgs-unstable` after `94d0b41dd97f8e3c9331cf8b2750d582a89475ee` is merged
     nixpkgs.url = "github:nixos/nixpkgs?rev=94d0b41dd97f8e3c9331cf8b2750d582a89475ee";
@@ -60,7 +71,7 @@
       (lib.mkFlake {
         systems.modules.nixos = [
           inputs.agenix.nixosModules.default
-          { nix.settings = import ./settings.nix; }
+          { nix.settings = nixConfig; }
         ];
 
         overlays = [
