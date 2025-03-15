@@ -1,10 +1,16 @@
 _: {
   perSystem =
-    { config, pkgs, ... }:
+    {
+      config,
+      inputs',
+      pkgs,
+      ...
+    }:
     {
       devShells = {
         default = pkgs.mkShellNoCC {
           packages = [
+            inputs'.agenix.packages.agenix
             pkgs.deadnix
             pkgs.opentofu
             pkgs.tflint
