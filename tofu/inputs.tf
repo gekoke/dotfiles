@@ -21,3 +21,9 @@ variable "hcloud_token" {
   sensitive   = true
   description = "The Hetzner Cloud API token for a particular project"
 }
+
+variable "neon_api_key" {
+  type        = string
+  sensitive   = true
+  description = "The Neon API key"
+}

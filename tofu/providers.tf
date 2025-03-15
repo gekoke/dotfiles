@@ -14,5 +14,9 @@ terraform {
       source  = "hetznercloud/hcloud"
       version = "~> 1.45"
     }
+    neon = {
+      source  = "kislerdm/neon"
+      version = "~> 0.9"
+    }
   }
 }

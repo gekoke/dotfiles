@@ -42,5 +42,5 @@ jobs:
         run: |
           cd ./tofu
           nix develop "#deploy" --command tofu init -backend-config "access_key=${{ vars.AWS_ACCESS_KEY }}" -backend-config "secret_key=${{ secrets.AWS_SECRET_KEY }}"
-          nix develop "#deploy" --command tofu plan -out plan -var "aws_access_key=${{ vars.AWS_ACCESS_KEY }}" -var "aws_secret_key=${{ secrets.AWS_SECRET_KEY }}" -var "cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" -var "hcloud_token=${{ secrets.HCLOUD_TOKEN }}"
+          nix develop "#deploy" --command tofu plan -out plan -var "aws_access_key=${{ vars.AWS_ACCESS_KEY }}" -var "aws_secret_key=${{ secrets.AWS_SECRET_KEY }}" -var "cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" -var "hcloud_token=${{ secrets.HCLOUD_TOKEN }}" -var "neon_api_key=${{ secrets.NEON_API_KEY }}"
           nix develop "#deploy" --command tofu apply -auto-approve plan
