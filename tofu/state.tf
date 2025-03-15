@@ -19,9 +19,10 @@ resource "aws_s3_bucket" "tofu_state" {
 
 terraform {
   backend "s3" {
-    region = local.aws_region
-    bucket = local.tofu_state_bucket_name
-    key    = "tofu-state-file"
+    region       = local.aws_region
+    bucket       = local.tofu_state_bucket_name
+    key          = "tofu-state-file"
+    use_lockfile = true
     # Starting from OpenTofu 1.19, needs credentials to be specified using a separate backend config.
     # See the `-backend-config` section in `tofu init -help` for more.
   }
