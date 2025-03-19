@@ -15,6 +15,14 @@ resource "cloudflare_dns_record" "server_neon_a" {
   zone_id = local.grigorjan_net_zone_id
 }
 
+resource "cloudflare_dns_record" "glucose_api_a" {
+  type    = "A"
+  name    = "api.glucose.grigorjan.net"
+  content = hcloud_server.neon.ipv4_address
+  ttl     = 1
+  zone_id = local.grigorjan_net_zone_id
+}
+
 resource "cloudflare_dns_record" "root_website" {
   type    = "CNAME"
   name    = "grigorjan.net"

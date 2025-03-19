@@ -56,6 +56,8 @@ rec {
     emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
+
+    glucose.url = "github:gekoke/glucose";
   };
 
   outputs =

@@ -1,6 +1,8 @@
 {
   modulesPath,
+  inputs,
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -8,6 +10,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
+    inputs.glucose.nixosModules.default
     ./disk-config.nix
   ];
 
@@ -32,24 +35,43 @@
 
   services = {
     openssh.enable = true;
+    glucose = {
+      enable = true;
+      environmentFile = "/run/glucose/.env";
+    };
     nginx = {
       enable = true;
       recommendedTlsSettings = true;
+      recommendedProxySettings = true;
       virtualHosts =
         let
-          httpsConfig = {
+          https = {
             enableACME = true;
             forceSSL = true;
           };
-          withHTTPS = virtualHosts: builtins.mapAttrs (_: config: config // httpsConfig) virtualHosts;
-        in
-        withHTTPS {
-          "neon.grigorjan.net" = {
+          basicAuth = {
             basicAuthFile = config.age.secrets."nginx.htpasswd".path;
-            locations."/".root = pkgs.writeTextDir "index.html" ''
-              <p>Hello!</p>
-            '';
           };
+        in
+        {
+          "neon.grigorjan.net" =
+            https
+            // basicAuth
+            // {
+              locations."/".root = pkgs.writeTextDir "index.html" ''
+                <p>Hello!</p>
+              '';
+            };
+          "api.glucose.grigorjan.net" = lib.mkIf config.services.glucose.enable (
+            https
+            // basicAuth
+            // {
+              locations."/" = {
+                proxyPass = "http://127.0.0.1:${toString config.services.glucose.port}";
+                extraConfig = "proxy_pass_header Authorization;";
+              };
+            }
+          );
         };
     };
   };
