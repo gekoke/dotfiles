@@ -29,7 +29,7 @@ in
           ];
         in
         {
-          experimental-features = "nix-command flakes impure-derivations ca-derivations";
+          experimental-features = "nix-command flakes";
           auto-optimise-store = true;
           trusted-users = users;
           allowed-users = users;
