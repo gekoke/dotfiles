@@ -24,7 +24,6 @@ in
 
     users.users.${cfg.name} = {
       inherit (cfg) name;
-      uid = 1000;
       isNormalUser = true;
       initialPassword = "password";
       createHome = true;
