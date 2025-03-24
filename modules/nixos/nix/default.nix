@@ -30,15 +30,12 @@ in
         in
         {
           experimental-features = "nix-command flakes impure-derivations ca-derivations";
-          http-connections = 0; # Unlimited
           auto-optimise-store = true;
           trusted-users = users;
           allowed-users = users;
-        }
-        // (lib.optionalAttrs config.elementary.programs.direnv.enable {
           keep-outputs = true;
           keep-derivations = true;
-        });
+        };
 
       gc = {
         automatic = true;
