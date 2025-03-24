@@ -27,7 +27,7 @@ in
       uid = 1000;
       isNormalUser = true;
       initialPassword = "password";
-      home = "/home/${cfg.name}";
+      createHome = true;
       group = "users";
       extraGroups = [ "wheel" ] ++ cfg.extraGroups;
     };
