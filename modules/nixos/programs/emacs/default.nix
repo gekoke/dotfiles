@@ -71,8 +71,6 @@ in
         nixfmt-rfc-style
         # age
         rage
-        # parinfer-rust-mode
-        parinfer-rust
         # YAML
         yaml-language-server
         # HTML, CSS, JSON, Eslint
