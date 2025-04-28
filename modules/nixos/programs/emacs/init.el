@@ -1073,6 +1073,9 @@
   :hook
   (json-ts-mode . lsp))
 
+(use-package powershell
+  :ensure t)
+
 (use-package age
   :custom
   (age-program "rage")

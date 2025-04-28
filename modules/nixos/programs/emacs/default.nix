@@ -107,6 +107,8 @@ in
         tinymist
         # Tofu
         pkgs.terraform-ls
+        # Powershell
+        pkgs.powershell
       ];
 
       elementary.home = {
@@ -117,6 +119,8 @@ in
             (setq lsp-clients-typescript-tls-path "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server")
 
             (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
+
+            (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
           '';
         };
         file = {
