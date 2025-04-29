@@ -1033,9 +1033,9 @@
   :mode
   ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
-(use-package yaml-ts-mode
-  :ensure nil
-  :hook (yaml-ts-mode . lsp))
+(use-package yaml-mode
+  :ensure t
+  :hook (yaml-mode . lsp))
 
 (use-package terraform-mode)
 
