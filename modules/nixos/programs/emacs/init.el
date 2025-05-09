@@ -1020,7 +1020,9 @@
   (js-ts-mode . lsp)
   :mode
   ("\\.mjs\\'" . js-ts-mode)
-  ("\\.js\\'" . js-ts-mode))
+  ("\\.js\\'" . js-ts-mode)
+  :custom
+  (js-indent-level 2))
 
 (use-package emacs
   :ensure nil
