@@ -107,6 +107,8 @@ in
         pkgs.terraform-ls
         # Powershell
         pkgs.powershell
+        # R
+        (rWrapper.override { packages = [ pkgs.rPackages.languageserver ]; })
       ];
 
       elementary.home = {

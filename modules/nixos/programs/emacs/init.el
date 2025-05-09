@@ -1078,6 +1078,8 @@
 (use-package powershell
   :ensure t)
 
+(use-package ess)
+
 (use-package age
   :custom
   (age-program "rage")
