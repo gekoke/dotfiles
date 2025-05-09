@@ -108,7 +108,24 @@ in
         # Powershell
         pkgs.powershell
         # R
-        (rWrapper.override { packages = [ pkgs.rPackages.languageserver ]; })
+        (rWrapper.override {
+          packages = [
+            pkgs.rPackages.languageserver
+            pkgs.rPackages.haven
+            pkgs.rPackages.dplyr
+            pkgs.rPackages.ggplot2
+            pkgs.rPackages.tidyr
+            pkgs.rPackages.broom
+            pkgs.rPackages.readr
+            pkgs.rPackages.car
+            pkgs.rPackages.lmtest
+            pkgs.rPackages.interactions
+            pkgs.rPackages.forcats
+            pkgs.rPackages.zip
+            pkgs.rPackages.labelled
+            pkgs.rPackages.survey
+          ];
+        })
       ];
 
       elementary.home = {
