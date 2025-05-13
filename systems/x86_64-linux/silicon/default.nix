@@ -36,6 +36,7 @@ in
         pkgs.nodePackages."@angular/cli"
         pkgs.powershell
         pkgs.python311
+        pkgs.steam-run
       ];
 
       shellAliases = {
