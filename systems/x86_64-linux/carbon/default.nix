@@ -25,6 +25,7 @@
       pkgs.discord
       pkgs.qbittorrent
       pkgs.mpv
+      pkgs.steam-run
     ];
   };
 
