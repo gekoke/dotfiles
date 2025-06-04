@@ -14,7 +14,7 @@ resource "hcloud_ssh_key" "github_actions" {
 
 resource "hcloud_server" "neon" {
   name        = "neon"
-  server_type = "cx22"
+  server_type = "cx32"
   image       = "debian-11"
   location    = "hel1" # Helsinki
   ssh_keys    = ["geko_carbon", "github_actions", ]
