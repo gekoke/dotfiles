@@ -35,10 +35,6 @@ in
           ZVM_INIT_MODE=sourcing
           . ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         '';
-
-        initExtra = ''
-          ${lib.getExe pkgs.fortune}
-        '';
       };
     };
   };
