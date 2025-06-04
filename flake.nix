@@ -56,6 +56,8 @@ rec {
     emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =
@@ -74,7 +76,10 @@ rec {
           { nix.settings = nixConfig; }
         ];
 
+        systems.hosts.neon.modules = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
+
         overlays = [
+          inputs.nix-minecraft.overlays.default
           inputs.emacs-overlay.overlays.default
           inputs.nur.overlays.default
         ];

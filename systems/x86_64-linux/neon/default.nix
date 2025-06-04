@@ -24,6 +24,7 @@
 
   services = {
     openssh.enable = true;
+
     nginx = {
       enable = true;
       recommendedTlsSettings = true;
@@ -42,6 +43,22 @@
             '';
           };
         };
+    };
+
+    minecraft-servers = {
+      enable = true;
+      eula = true;
+      openFirewall = true;
+      servers.main = {
+        enable = true;
+        jvmOpts =
+          let
+            initialAlloc = "512M";
+            maxAlloc = "2G";
+          in
+          "-Xms${initialAlloc} -Xmx${maxAlloc}";
+        package = pkgs.minecraftServers.vanilla;
+      };
     };
   };
 
