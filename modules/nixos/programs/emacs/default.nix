@@ -126,6 +126,8 @@ in
             pkgs.rPackages.survey
           ];
         })
+        # Copilot LSP
+        pkgs.copilot-language-server
       ];
 
       elementary.home = {
