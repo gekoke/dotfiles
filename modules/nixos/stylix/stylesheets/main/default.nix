@@ -17,6 +17,8 @@ with lib.elementary;
         emacs = disabled;
       };
 
+      elementary.stylix.extraHomeManagerOptions.targets.firefox.profileNames = [ "default" ];
+
       elementary.stylix.extraOptions = {
         enable = true;
         image = "${pkgs.elementary.wallpapers}/share/wallpapers/evening-sky.png";

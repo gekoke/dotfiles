@@ -11,8 +11,7 @@ rec {
   };
 
   inputs = {
-    # FIXME: point to `nixpkgs-unstable` after `94d0b41dd97f8e3c9331cf8b2750d582a89475ee` is merged
-    nixpkgs.url = "github:nixos/nixpkgs?rev=94d0b41dd97f8e3c9331cf8b2750d582a89475ee";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
     nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
@@ -35,9 +34,6 @@ rec {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hyprland-contrib.url = "github:hyprwm/contrib";
-
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
 
@@ -80,7 +76,6 @@ rec {
 
         overlays = [
           inputs.nix-minecraft.overlays.default
-          inputs.emacs-overlay.overlays.default
           inputs.nur.overlays.default
         ];
 

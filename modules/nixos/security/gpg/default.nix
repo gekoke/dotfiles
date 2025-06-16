@@ -32,8 +32,8 @@ in
           ttlInSeconds = 8 * 60 * 60;
         in
         {
-          inherit (cfg) pinentryPackage;
           enable = true;
+          pinentry.package = cfg.pinentryPackage;
           defaultCacheTtl = ttlInSeconds;
           maxCacheTtl = ttlInSeconds;
         };

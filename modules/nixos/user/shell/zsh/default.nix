@@ -31,7 +31,7 @@ in
         };
 
         # Must come before fzf to not conflict with fzf's keybinds
-        initExtraFirst = ''
+        initContent = lib.mkBefore ''
           ZVM_INIT_MODE=sourcing
           . ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         '';

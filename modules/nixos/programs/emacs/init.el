@@ -119,7 +119,6 @@
 (setq even-window-sizes nil)
 
 (use-package ace-window
-  :ensure t
   :general
   (general-def
     :states '(motion)
@@ -230,7 +229,6 @@
   (text-mode-ispell-word-completion nil))
 
 (use-package jinx
-  :ensure t
   :hook (emacs-startup . global-jinx-mode))
 
 ;; TODO: serialize to file
@@ -683,7 +681,6 @@
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package copilot
-  :ensure t
   :init
   (add-hook 'prog-mode-hook 'copilot-mode)
   (setq copilot-lsp-settings '(:github-enterprise (:uri "https://github.com/enterprises/GGL")))
@@ -964,7 +961,6 @@
                           (lsp))))
 
 (use-package rustic
-  :ensure t
   :mode
   ("\\.rs\\'" . rustic-mode)
   :custom
@@ -1051,7 +1047,6 @@
   ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
 (use-package yaml-mode
-  :ensure t
   :hook (yaml-mode . lsp))
 
 (use-package terraform-mode)
@@ -1090,8 +1085,7 @@
   :hook
   (json-ts-mode . lsp))
 
-(use-package powershell
-  :ensure t)
+(use-package powershell)
 
 (use-package ess)
 
