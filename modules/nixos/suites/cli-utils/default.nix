@@ -37,6 +37,7 @@ in
       pkgs.units
       pkgs.wget
       pkgs.zip
+      pkgs.xxd
     ];
   };
 }
