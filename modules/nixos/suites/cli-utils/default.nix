@@ -25,6 +25,7 @@ in
 
     elementary.home.packages = [
       pkgs.btop
+      pkgs.dig
       pkgs.dos2unix
       pkgs.efibootmgr
       pkgs.exfat
