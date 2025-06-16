@@ -7,7 +7,6 @@ in
 {
   options.elementary.programs.neovim = {
     enable = mkEnableOption "Neovim text editor";
-    defaultEditor = mkEnableOption "Set neovim as the default editor";
   };
 
   config = mkIf cfg.enable {
@@ -17,7 +16,5 @@ in
     };
 
     elementary.home.shellAliases."v" = "nvim";
-
-    elementary.home.sessionVariables.EDITOR = mkIf cfg.defaultEditor "nvim";
   };
 }

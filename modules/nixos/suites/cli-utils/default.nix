@@ -18,9 +18,7 @@ in
   config = mkIf cfg.enable {
     elementary.programs = {
       ranger = enabled;
-      neovim = enabled // {
-        defaultEditor = true;
-      };
+      neovim = enabled;
     };
 
     elementary.home.file.".parallel/will-cite".text = "";
