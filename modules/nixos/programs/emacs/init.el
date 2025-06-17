@@ -444,7 +444,7 @@
 (repeat-mode +1)
 
 (general-def
-  "C-s" #'avy-goto-char)
+  "C-s" #'avy-goto-char-2)
 
 (use-package evil
   :after undo-tree
