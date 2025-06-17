@@ -177,16 +177,6 @@ in
           epkgs.corfu
           epkgs.emacs
           epkgs.nerd-icons-corfu
-          (epkgs.copilot.overrideAttrs (_: {
-            # FIXME: remove when `3e36a9825616e756f16c7c6a33f4edd5fb466260` is in nixpkgs
-            # Pulls in patch from https://github.com/copilot-emacs/copilot.el/pull/406
-            src = pkgs.fetchFromGitHub {
-              owner = "copilot-emacs";
-              repo = "copilot.el";
-              rev = "fe3f51b636dea1c9ac55a0d5dc5d7df02dcbaa48";
-              hash = "sha256-reoIFMjx2Go/EPAxD+OQFxge/amqguZS+jteh0b9xgA=";
-            };
-          }))
           epkgs.vterm
           epkgs.vterm-toggle
           epkgs.magit

@@ -680,20 +680,6 @@
   :init
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
-(use-package copilot
-  :init
-  (add-hook 'prog-mode-hook 'copilot-mode)
-  (setq copilot-lsp-settings '(:github-enterprise (:uri "https://github.com/enterprises/GGL")))
-  :config
-  (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
-  (add-to-list 'copilot-indentation-alist '(nix-ts-mode 2))
-  (add-to-list 'copilot-indentation-alist '(typescript-ts-mode 2))
-  :general
-  (general-def
-    :states '(insert)
-    :keymaps 'copilot-mode-map
-    "C-<return>" #'copilot-accept-completion))
-
 (use-package vterm
   :custom
   (vterm-max-scrollback 10000))
