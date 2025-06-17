@@ -119,7 +119,6 @@ in
           (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
         '';
         extraPackages = epkgs: [
-
           pkgs.elementary.typst-ts-mode
           pkgs.elementary.kanagawa-theme
           pkgs.elementary.adwaita-dark-theme
