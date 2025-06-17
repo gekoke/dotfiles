@@ -579,6 +579,9 @@
 
   (dirvish-attributes
             '(nerd-icons file-time subtree-state vc-state git-msg))
+
+  (dirvish-side-attributes
+   '(nerd-icons subtree-state vc-state git-msg))
   :general
   (general-def
     :states 'normal
