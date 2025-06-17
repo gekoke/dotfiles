@@ -578,10 +578,10 @@
   (mouse-drag-and-drop-region-cross-program t)
 
   (dirvish-attributes
-            '(nerd-icons file-time subtree-state vc-state git-msg))
+   '(nerd-icons file-time subtree-state git-msg))
 
   (dirvish-side-attributes
-   '(nerd-icons subtree-state vc-state git-msg))
+   '(nerd-icons subtree-state git-msg))
   :general
   (general-def
     :states 'normal
