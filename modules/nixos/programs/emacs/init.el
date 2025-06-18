@@ -247,33 +247,6 @@
 
 (use-package package-lint)
 
-(dolist (assoc '(("age" nerd-icons-codicon "nf-cod-gist_secret" :face nil)
-                 ("apk" nerd-icons-devicon "nf-dev-android" :face nerd-icons-green)
-                 ("chs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("css" nerd-icons-devicon "nf-dev-css3" :face nerd-icons-blue)
-                 ("hs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("hsc" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("ico" nerd-icons-sucicon "nf-seti-favicon" :face nerd-icons-yellow)
-                 ("jar" nerd-icons-devicon "nf-dev-java" :face nerd-icons-red)
-                 ("java" nerd-icons-devicon "nf-dev-java" :face nerd-icons-red)
-                 ("json" nerd-icons-codicon "nf-cod-json" :face nerd-icons-yellow)
-                 ("lhs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("lock" nerd-icons-faicon "nf-fa-lock" :face nerd-icons-yellow)
-                 ("pdf" nerd-icons-faicon "nf-fa-file_pdf_o" :face nerd-icons-red)
-                 ("svg" nerd-icons-mdicon "nf-md-svg" :face nerd-icons-yellow)
-                 ("ts" nerd-icons-sucicon "nf-seti-typescript" :face nerd-icons-blue)
-                 ("toml" nerd-icons-sucicon "nf-seti-typescript" :face nerd-icons-blue)
-                 ("txt" nerd-icons-sucicon "nf-seti-text" :face nerd-icons-silver)
-                 ("yaml" nerd-icons-sucicon "nf-seti-yml" :face nerd-icons-purple)
-                 ("yml" nerd-icons-sucicon "nf-seti-yml" :face nerd-icons-purple)))
-  (add-to-list 'nerd-icons-extension-icon-alist assoc))
-
-(dolist (regexp '("^TAGS$"
-                  "^TODO$"
-                  "^LICENSE$"
-                  "^readme"))
-  (setf nerd-icons-regexp-icon-alist (assoc-delete-all regexp nerd-icons-regexp-icon-alist)))
-
 (use-package doom-modeline
   :after nerd-icons
   :init
