@@ -120,9 +120,6 @@ in
         '';
         extraPackages = epkgs: [
           pkgs.elementary.typst-ts-mode
-          pkgs.elementary.kanagawa-theme
-          pkgs.elementary.adwaita-dark-theme
-          pkgs.elementary.anisochromatic
           pkgs.elementary.miasma-theme
 
           epkgs.treesit-grammars.with-all-grammars
@@ -140,7 +137,6 @@ in
           epkgs.doom-themes
           epkgs.vscode-dark-plus-theme
           epkgs.ef-themes
-          epkgs.apropospriate-theme
           epkgs.gruvbox-theme
           epkgs.modus-themes
           epkgs.catppuccin-theme

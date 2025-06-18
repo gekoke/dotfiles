@@ -287,14 +287,11 @@
 (use-package doom-themes)
 (use-package vscode-dark-plus-theme)
 (use-package ef-themes)
-(use-package apropospriate-theme)
-(use-package adwaita-dark-theme :ensure nil)
 (use-package gruvbox-theme)
 (use-package modus-themes)
 (use-package catppuccin-theme
   :custom
   (catppuccin-flavor 'macchiato))
-(use-package anisochromatic :ensure nil)
 (use-package miasma-theme :ensure nil)
 
 (use-package remember-last-theme
