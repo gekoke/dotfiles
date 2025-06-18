@@ -139,7 +139,10 @@
   (eyebrowse-mode 1)
   :custom
   (eyebrowse-new-workspace #'dashboard-open)
-  (eyebrowse-mode-line-separator "|")
+  (eyebrowse-mode-line-left-delimiter "🔨 ")
+  (eyebrowse-mode-line-separator " | ")
+  (eyebrowse-mode-line-right-delimiter " ")
+  (eyebrowse-tagged-slot-format "%s • %t")
   :general
   (with-eval-after-load 'magit
     (general-def
