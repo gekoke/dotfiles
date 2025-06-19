@@ -3,7 +3,6 @@
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024))
 
-(setq use-package-always-ensure t)
 (setq use-package-always-demand t)
 
 (setq-default tab-width 4)
@@ -19,7 +18,6 @@
   (org-agenda-files '("~/Documents/Org/")))
 
 (use-package time
-  :ensure nil
   :init
   (display-time-mode)
   :custom
@@ -27,7 +25,6 @@
   (display-time-default-load-average nil))
 
 (use-package calendar
-  :ensure nil
   :custom
   (calendar-week-start-day 1))
 
@@ -43,7 +40,6 @@
     :global-prefix "C-SPC m"))
 
 (use-package emacs
-  :ensure nil
   :init
   (setq kill-buffer-query-functions nil)
   :general
@@ -167,7 +163,6 @@
     "9" #'eyebrowse-switch-to-window-config-9))
 
 (use-package whitespace
-  :ensure nil
   :init
   (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
     (lambda ()
@@ -226,7 +221,6 @@
     "e i" #'gg/global-indent-bars-mode))
 
 (use-package text-mode
-  :ensure nil
   :custom
   ;; Disable annoying message "can't find dictionary in system default locations"
   (text-mode-ispell-word-completion nil))
@@ -295,7 +289,7 @@
 (use-package catppuccin-theme
   :custom
   (catppuccin-flavor 'macchiato))
-(use-package miasma-theme :ensure nil)
+(use-package miasma-theme)
 
 (use-package remember-last-theme
   :config
@@ -597,7 +591,7 @@
     :keymaps 'dirvish-mode-map
     "i" #'dired-gitignore-global-mode))
 
-(use-package dired-x :ensure nil)
+(use-package dired-x)
 
 (use-package diredfl
   :hook
@@ -607,7 +601,6 @@
   (set-face-attribute 'diredfl-dir-name nil :bold t))
 
 (use-package dired
-  :ensure nil
   :hook
   (dired-mode . dired-omit-mode)
   :init
@@ -886,7 +879,6 @@
     "s d" #'consult-lsp-diagnostics))
 
 (use-package lsp-nix
-  :ensure lsp-mode
   :after lsp-mode
   :custom
   (lsp-nix-nil-formatter ["nixfmt"]))
@@ -903,11 +895,9 @@
   (lsp-pyright-venv-directory "./.venv"))
 
 (use-package lsp-ruff
-  :ensure lsp-mode
   :after lsp-mode)
 
 (use-package python
-  :ensure nil
   :init
   ;; TODO: make this the same as `gg/global-whitespace-mode' for LSP buffers
   (add-hook 'before-save-hook (lambda ()
@@ -929,7 +919,6 @@
   (rustic-format-trigger t))
 
 (use-package lsp-rust
-  :ensure lsp-mode
   :custom
   (lsp-rust-analyzer-lens-references-adt-enable t)
   (lsp-rust-analyzer-lens-references-trait-enable t)
@@ -973,7 +962,6 @@
   (setq lsp-tailwindcss-add-on-mode t))
 
 (use-package typescript-ts-mode
-  :ensure nil
   :mode
   ("\\.ts\\'" . typescript-ts-mode)
   ("\\.tsx\\'" . tsx-ts-mode)
@@ -982,13 +970,11 @@
   (tsx-ts-mode . lsp))
 
 (use-package lsp-javascript
-  :ensure nil
   :custom
   (lsp-typescript-references-code-lens-enabled t)
   (lsp-typescript-implementations-code-lens-enabled t))
 
 (use-package js
-  :ensure nil
   :hook
   (js-ts-mode . lsp)
   :mode
@@ -998,13 +984,11 @@
   (js-indent-level 2))
 
 (use-package emacs
-  :ensure nil
   :hook
   (csharp-mode . lsp)
   (csharp-ts-mode . lsp))
 
 (use-package emacs
-  :ensure nil
   :mode
   ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
@@ -1021,7 +1005,6 @@
                      (simplifycompositelit . :json-false))))
 
 (use-package go-ts-mode
-  :ensure nil
   :custom
   (go-ts-mode-indent-offset tab-width))
 (use-package lsp-mode
@@ -1029,7 +1012,6 @@
   (go-ts-mode . lsp))
 
 (use-package typst-ts-mode
-  :ensure nil
   :custom
   (typst-ts-mode-indent-offset 2)
   (use-package lsp-mode
@@ -1043,7 +1025,6 @@
       :server-id 'typst-lsp))))
 
 (use-package json-ts-mode
-  :ensure nil
   :hook
   (json-ts-mode . lsp))
 
