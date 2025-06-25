@@ -41,6 +41,7 @@ in
       mediainfo
       gnutar
       unzip
+      poppler-utils # PDF preview
       # consult
       ripgrep
       # LSP
