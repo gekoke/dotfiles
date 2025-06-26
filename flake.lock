@@ -630,6 +630,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-for-playwright": {
+      "locked": {
+        "lastModified": 1750940636,
+        "narHash": "sha256-AbL82GzRUHQpqfrogrylvTXbm/fT37xZ5Ftj2B755Z0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "df6ad2118bd2d7855a42c11bdf02e84f96924715",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1740872140,
@@ -897,6 +912,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_8",
+        "nixpkgs-for-playwright": "nixpkgs-for-playwright",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "ranger-devicons": "ranger-devicons",

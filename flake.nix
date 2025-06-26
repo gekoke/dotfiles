@@ -54,6 +54,8 @@ rec {
     disko.url = "github:nix-community/disko";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    nixpkgs-for-playwright.url = "github:nixos/nixpkgs";
   };
 
   outputs =
