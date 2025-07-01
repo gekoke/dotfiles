@@ -657,6 +657,21 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/6d3702243441165a03f699f64416f635220f4f15.tar.gz"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1751357467,
+        "narHash": "sha256-2aN/DnYmB1EJjgyDZcZpvrrXsBEjNnQT6TGNwvYnmj0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "12028be53a37e440f0e8a0c94486c9dfde32e27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unfree": {
       "inputs": {
         "nixpkgs": [
@@ -913,6 +928,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-for-playwright": "nixpkgs-for-playwright",
+        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "ranger-devicons": "ranger-devicons",
