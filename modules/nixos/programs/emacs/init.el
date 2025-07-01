@@ -696,6 +696,7 @@
   :custom
   (magit-format-file-function #'magit-format-file-nerd-icons)
   (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
+  (magit-commit-squash-confirm nil)
   (magit-bury-buffer-function #'magit-restore-window-configuration)
   (magit-revision-show-gravatars t)
   :general
