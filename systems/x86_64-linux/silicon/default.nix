@@ -28,10 +28,6 @@ in
       packages = [
         pkgs.azure-cli
         pkgs.bun
-        (pkgs.dotnetCorePackages.combinePackages [
-          pkgs.dotnet-sdk_6
-          pkgs.dotnet-sdk_8
-        ])
         pkgs.gcc
         pkgs.gnumake
         pkgs.nodePackages."@angular/cli"

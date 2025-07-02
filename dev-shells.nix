@@ -39,6 +39,14 @@
               export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
             '';
           };
+
+        data = pkgs.mkShellNoCC {
+          packages = [
+            # See: https://github.com/NixOS/nixpkgs/issues/226107
+            # See: https://github.com/NixOS/nixpkgs/issues/417670
+            pkgs.dotnetCorePackages.dotnet_8.sdk
+          ];
+        };
       };
     };
 }
