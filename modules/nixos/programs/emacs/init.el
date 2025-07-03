@@ -1085,5 +1085,17 @@
 (gg/leader
   "u w" #'gg/weather)
 
+(defun gg/jwt-decode (jwt)
+  (async-shell-command (format "jwt decode %s --json | jq" jwt)))
+
+(defun gg/jwt-decode-clipboard ()
+    (interactive)
+    (let
+        ((jwt (current-kill 0)))
+      (gg/jwt-decode jwt)))
+
+(gg/leader
+  "j d" #'gg/jwt-decode-clipboard)
+
 (load custom-file 'noerror)
 
