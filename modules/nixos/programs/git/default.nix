@@ -45,6 +45,7 @@ in
             algorithm = "histogram";
           };
           credential.helper = "store";
+          gc.auto = 0;
         };
       };
     };
