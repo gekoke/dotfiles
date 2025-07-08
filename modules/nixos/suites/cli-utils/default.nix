@@ -24,6 +24,7 @@ in
     elementary.home.file.".parallel/will-cite".text = "";
 
     elementary.home.packages = [
+      pkgs.bat
       pkgs.btop
       pkgs.dig
       pkgs.dos2unix
