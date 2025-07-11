@@ -654,6 +654,8 @@
   (vterm-max-scrollback 10000))
 
 (use-package vterm-toggle
+  :custom
+  (vterm-toggle-reset-window-configration-after-exit nil)
   :init
   (defun gg/vterm-new ()
     (interactive)
