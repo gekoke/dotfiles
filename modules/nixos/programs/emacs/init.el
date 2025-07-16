@@ -340,11 +340,24 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package olivetti
+  :init
+;;;###autoload
+  (define-minor-mode prog-olivetti-mode
+    "Minor mode to enable `olivetti-mode` in `prog-mode` derived buffers."
+    (add-hook 'prog-mode-hook #'olivetti-mode))
+
+;;;###autoload
+  (define-globalized-minor-mode global-prog-olivetti-mode
+    prog-olivetti-mode
+    (lambda ()
+      (when (derived-mode-p 'prog-mode)
+        (olivetti-mode 1))))
   :custom
   (olivetti-body-width 140)
   :general
   (gg/leader
-    "t c" 'olivetti-mode))
+    "t c" 'olivetti-mode
+    "t C" 'global-prog-olivetti-mode))
 
 (use-package which-key
   :init
