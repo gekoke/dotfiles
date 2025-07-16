@@ -16,12 +16,13 @@ in
   };
 
   config = mkIf cfg.enable {
+    elementary = {
+      home.extraOptions.xdg.userDirs = enabled // {
+        createDirectories = true;
+      };
 
-    elementary.home.extraOptions.xdg.userDirs = enabled // {
-      createDirectories = true;
+      user.shell.nushell.enable = true;
     };
-
-    elementary.user.shell.zsh.enable = true;
 
     users.users.${cfg.name} = {
       inherit (cfg) name;
