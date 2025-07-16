@@ -322,7 +322,9 @@
   :config
   (remember-last-theme-enable))
 
-(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 120 :weight 'semi-bold)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 120 :weight 'semi-bold)))
 
 (use-package ligature
   :init
