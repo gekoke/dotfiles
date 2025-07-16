@@ -16,11 +16,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    elementary.programs = {
-      ranger = enabled;
-      neovim = enabled;
-    };
-
     elementary.home.file.".parallel/will-cite".text = "";
 
     elementary.home.packages = [

@@ -11,8 +11,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    elementary.home.programs.neovim = enabled;
-
     elementary.home.programs.kitty = {
       enable = true;
       settings = {
