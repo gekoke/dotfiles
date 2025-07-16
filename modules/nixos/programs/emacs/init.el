@@ -1087,12 +1087,6 @@
 
 (use-package hackernews)
 
-(use-package rfc-mode
-  :custom
-  (rfc-mode-directory (f-join (getenv "XDG_DATA_HOME") "emacs-rfc-mode"))
-  :general
-  (gg/leader "r f c" #'rfc-mode-browse))
-
 (general-def
   "C--" #'text-scale-decrease
   "C-=" #'text-scale-increase)

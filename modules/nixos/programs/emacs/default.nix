@@ -212,7 +212,6 @@ in
           epkgs.ess
           epkgs.age
           epkgs.hackernews
-          epkgs.rfc-mode
         ];
       };
       file = {

@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.elementary;
 let
@@ -12,15 +16,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    elementary.user.shell = {
-      base = enabled;
-      zsh = enabled;
-      atuin = enabled;
-    };
 
     elementary.home.extraOptions.xdg.userDirs = enabled // {
       createDirectories = true;
     };
+
+    elementary.user.shell.zsh.enable = true;
 
     users.users.${cfg.name} = {
       inherit (cfg) name;
