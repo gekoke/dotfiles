@@ -16,6 +16,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs.nh.enable = true;
+
     nix = {
       registry = {
         p.flake = inputs.nixpkgs;

@@ -14,6 +14,8 @@ in
 
   system.stateVersion = "24.11";
 
+  programs.nh.flake = "/home/geko/Repos/dotfiles";
+
   wsl = {
     enable = true;
     defaultUser = "geko";

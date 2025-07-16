@@ -36,5 +36,7 @@
     8080
   ];
 
+  programs.nh.flake = "/home/geko/Repos/dotfiles";
+
   system.stateVersion = "25.05";
 }
