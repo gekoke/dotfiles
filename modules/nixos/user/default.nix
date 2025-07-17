@@ -21,7 +21,7 @@ in
         createDirectories = true;
       };
 
-      user.shell.nushell.enable = true;
+      user.shell.zsh.enable = true;
     };
 
     users.users.${cfg.name} = {
