@@ -176,6 +176,7 @@ in
           epkgs.vterm
           epkgs.vterm-toggle
           epkgs.magit
+          epkgs.magit-todos
           epkgs.forge
           epkgs.diff-hl
           epkgs.blamer

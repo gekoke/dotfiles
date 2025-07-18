@@ -754,6 +754,11 @@
     "k" #'magit-section-backward-sibling
     "j" #'magit-section-forward-sibling))
 
+(use-package magit-todos
+  :after magit
+  :init
+  (magit-todos-mode 1))
+
 (use-package forge
   :after magit
   :custom
