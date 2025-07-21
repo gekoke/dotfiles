@@ -22,7 +22,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: integrate rofi-collection with stylix colors and fonts
     elementary.home.programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
