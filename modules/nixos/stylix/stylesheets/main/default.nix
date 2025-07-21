@@ -99,7 +99,6 @@ with lib.elementary;
         };
       };
 
-      # TODO: remove hardcoded gradient colors
       elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig =
         let
           inherit (config.lib.stylix.colors)
