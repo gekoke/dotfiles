@@ -34,7 +34,6 @@ in
       recursive = true;
     };
 
-    # TODO: make alt-tab bind for hyprland
     elementary.desktop.hyprland.extraHomeManagerOptions.extraConfig = ''
       bind = SUPER, P, exec, pkill rofi || rofi -show drun
     '';
