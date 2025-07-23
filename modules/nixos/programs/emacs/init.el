@@ -899,6 +899,10 @@
     :multi-root t
     :server-id 'emmet-language-server))
   :general
+  (general-def
+    :keymaps '(lsp-mode-map)
+    :states '(normal)
+    "g r" #'lsp-find-references)
   (gg/leader lsp-mode-map
     "l" '(:keymap lsp-command-map))
   (general-def lsp-command-map
