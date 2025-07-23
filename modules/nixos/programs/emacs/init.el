@@ -353,7 +353,7 @@
       (when (derived-mode-p 'prog-mode)
         (olivetti-mode 1))))
   :custom
-  (olivetti-body-width 140)
+  (olivetti-body-width 220)
   :general
   (gg/leader
     "t c" 'olivetti-mode
