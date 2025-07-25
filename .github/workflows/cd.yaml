@@ -19,7 +19,7 @@ jobs:
           CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Run `nix flake check`
-        run: nix flake check -L
+        run: nix flake check -L --accept-flake-config
   deploy:
     needs: check
     runs-on: ubuntu-latest
