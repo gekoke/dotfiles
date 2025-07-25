@@ -790,7 +790,17 @@
   :custom-face
   (blamer-face ((t :background nil
                    :weight normal
-                   :italic nil))))
+                   :italic nil)))
+  :general
+  (gg/leader
+    "g b" #'blamer-show-posframe-commit-info
+    "g c" #'blamer-kill-ring-commit-hash))
+
+(use-package sideline
+  :custom
+  (sideline-backends-right '(sideline-blame))
+  :init
+  (global-sideline-mode))
 
 (use-package hl-todo
   :config

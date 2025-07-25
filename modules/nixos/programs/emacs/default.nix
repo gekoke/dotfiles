@@ -210,6 +210,7 @@ in
           epkgs.ess
           epkgs.age
           epkgs.hackernews
+          epkgs.sideline-blame
         ];
       };
       file = {
