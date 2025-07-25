@@ -1,6 +1,5 @@
 {
   modulesPath,
-  pkgs,
   ...
 }:
 {
@@ -24,26 +23,25 @@
 
   services = {
     openssh.enable = true;
-
-    nginx = {
-      enable = true;
-      recommendedTlsSettings = true;
-      recommendedProxySettings = true;
-      virtualHosts =
-        let
-          https = {
-            enableACME = true;
-            forceSSL = true;
-          };
-        in
-        {
-          "neon.grigorjan.net" = https // {
-            locations."/".root = pkgs.writeTextDir "index.html" ''
-              <p>Hello!</p>
-            '';
+    nginx =
+      let
+        https = {
+          enableACME = true;
+          forceSSL = true;
+        };
+        virtualHosts = {
+          "siege.grigorjan.net" = https // {
+            globalRedirect = "https://docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
+            redirectCode = 302;
           };
         };
-    };
+      in
+      {
+        enable = true;
+        recommendedTlsSettings = true;
+        recommendedProxySettings = true;
+        inherit virtualHosts;
+      };
   };
 
   security.acme = {
