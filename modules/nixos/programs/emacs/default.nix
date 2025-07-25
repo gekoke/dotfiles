@@ -204,10 +204,7 @@ in
           epkgs.yaml-mode
           epkgs.terraform-mode
           epkgs.feature-mode
-          epkgs.lsp-mode
-          epkgs.lsp-mode
           epkgs.typst-ts-mode
-          epkgs.lsp-mode
           epkgs.lsp-tailwindcss
           epkgs.powershell
           epkgs.ess
