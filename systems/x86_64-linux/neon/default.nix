@@ -31,7 +31,7 @@
         };
         virtualHosts = {
           "siege.grigorjan.net" = https // {
-            globalRedirect = "https://docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
+            globalRedirect = "docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
             redirectCode = 302;
           };
         };
