@@ -15,7 +15,7 @@ resource "cloudflare_dns_record" "emily_a" {
   zone_id = local.grigorjan_net_zone_id
 }
 
-resource "cloudflare_dns_record" "server_neon_a" {
+resource "cloudflare_dns_record" "siege_a" {
   type    = "A"
   name    = "siege.grigorjan.net"
   content = hcloud_server.neon.ipv4_address
