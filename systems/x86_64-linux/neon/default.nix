@@ -22,13 +22,7 @@
   ];
 
   services = {
-    openssh = {
-      enable = true;
-      ports = [
-        22
-        42069
-      ];
-    };
+    openssh.enable = true;
     nginx =
       let
         https = {
