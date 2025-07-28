@@ -1,5 +1,7 @@
 {
   modulesPath,
+  pkgs,
+  inputs,
   ...
 }:
 {
@@ -33,6 +35,9 @@
           "siege.grigorjan.net" = https // {
             globalRedirect = "docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
             redirectCode = 302;
+          };
+          "website.grigorjan.net" = https // {
+            root = "${inputs.website.packages.${pkgs.system}.default}/public";
           };
         };
       in

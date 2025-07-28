@@ -18,6 +18,8 @@ rec {
 
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
+    website.url = "github:gekoke/website";
+
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
