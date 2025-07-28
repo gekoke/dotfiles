@@ -15,14 +15,6 @@ resource "cloudflare_dns_record" "siege_a" {
   zone_id = local.grigorjan_net_zone_id
 }
 
-resource "cloudflare_dns_record" "test_vm_website" {
-  type    = "A"
-  name    = "website.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
-}
-
 resource "cloudflare_dns_record" "root_website" {
   type    = "CNAME"
   name    = "grigorjan.net"
