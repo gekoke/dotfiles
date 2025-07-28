@@ -57,8 +57,6 @@ rec {
 
     disko.url = "github:nix-community/disko";
 
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     nixpkgs-for-playwright.url = "github:nixos/nixpkgs";
   };
 
@@ -78,10 +76,7 @@ rec {
           { nix.settings = nixConfig; }
         ];
 
-        systems.hosts.neon.modules = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
-
         overlays = [
-          inputs.nix-minecraft.overlays.default
           inputs.nur.overlays.default
         ];
 
