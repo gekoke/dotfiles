@@ -1101,8 +1101,9 @@
   (age-program "rage")
   (age-default-identity "~/.ssh/id_ed25519")
   (age-default-recipient "~/.ssh/id_ed25519.pub")
-  :config
-  (age-file-enable))
+  :init
+  (let ((inhibit-message t))
+    (age-file-enable)))
 
 (use-package hackernews)
 
@@ -1154,5 +1155,4 @@
 (gg/leader
   "j d" #'gg/jwt-decode-clipboard)
 
-(load custom-file 'noerror)
-
+(load custom-file)
