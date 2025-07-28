@@ -34,10 +34,6 @@
             globalRedirect = "docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
             redirectCode = 302;
           };
-          "emily.grigorjan.net" = https // {
-            globalRedirect = "www.merriam-webster.com/thesaurus/cute";
-            redirectCode = 302;
-          };
         };
       in
       {
