@@ -618,26 +618,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-unfree": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1727984955,
-        "narHash": "sha256-vP3XzXfQLaxy2QYipK5teKFzgWBeSkv9hByCvrMEL1c=",
-        "owner": "numtide",
-        "repo": "nixpkgs-unfree",
-        "rev": "deab889228cedd7bca43e71ea4f61f9ea12c260e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "nixpkgs-unfree",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1738136902,
@@ -858,7 +838,6 @@
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-for-playwright": "nixpkgs-for-playwright",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "ranger-devicons": "ranger-devicons",
         "rofi-collection": "rofi-collection",

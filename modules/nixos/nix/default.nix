@@ -21,7 +21,6 @@ in
     nix = {
       registry = {
         p.flake = inputs.nixpkgs;
-        u.flake = inputs.nixpkgs-unfree;
         s.flake = inputs.self;
       };
       settings =

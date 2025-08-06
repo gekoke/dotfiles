@@ -13,9 +13,6 @@ rec {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
-    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
-
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
     snowfall-lib.url = "github:snowfallorg/lib";
