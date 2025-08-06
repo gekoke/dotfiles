@@ -81,9 +81,7 @@ rec {
             "discord"
             "nvidia-settings"
             "nvidia-x11"
-            "steam"
             "steam-unwrapped"
-            "vscode"
           ];
       })
       (
