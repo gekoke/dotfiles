@@ -1,23 +1,16 @@
 name: Setup Nix
 description: Setup Nix with caching
-inputs:
-  GITHUB_TOKEN:
-    description: "The GitHub token"
-    required: true
-  CACHIX_AUTH_TOKEN:
-    description: "The Cachix API auth token"
-    required: true
 runs:
   using: "composite"
   steps:
     - name: Install Nix
-      uses: cachix/install-nix-action@v30
+      uses: nixbuild/nix-quick-install-action@v30
       with:
-        # Avoid rate limits
-        github_access_token: "${{ inputs.GITHUB_TOKEN }}"
+        nix_conf: |
+          keep-env-derivations = true
+          keep-outputs = true
 
-    - name: Set up binary cache
-      uses: cachix/cachix-action@v15
+    - name: Restore and save Nix store
+      uses: nix-community/cache-nix-action@v6
       with:
-        name: gekoke-dotfiles
-        authToken: "${{ inputs.CACHIX_AUTH_TOKEN }}"
+        primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.el', '**/*.nix', '**/flake.lock') }}
