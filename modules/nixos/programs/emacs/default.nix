@@ -68,8 +68,6 @@ in
       # JavaScript/TypeScript
       nodePackages.typescript
       nodePackages.typescript-language-server
-      # Terraform
-      terraform
       # CSharp
       omnisharp-roslyn
       # Rust
@@ -106,8 +104,6 @@ in
           pkgs.rPackages.survey
         ];
       })
-      # Copilot LSP
-      pkgs.copilot-language-server
     ];
 
     elementary.home = {
