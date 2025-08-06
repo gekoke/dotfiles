@@ -75,7 +75,16 @@ rec {
           inputs.nur.overlays.default
         ];
 
-        channels-config.allowUnfree = true;
+        channels-config.allowUnfreePredicate =
+          pkg:
+          builtins.elem (lib.getName pkg) [
+            "discord"
+            "nvidia-settings"
+            "nvidia-x11"
+            "steam"
+            "steam-unwrapped"
+            "vscode"
+          ];
       })
       (
         inputs.flake-parts.lib.mkFlake { inherit inputs; } {
