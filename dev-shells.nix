@@ -24,7 +24,7 @@
         deploy = pkgs.mkShellNoCC {
           packages =
             let
-              pkgs = inputs.nixpkgs-with-neon.legacyPackages.${system};
+              pkgs = inputs.nixpkgs-for-opentofu.legacyPackages.${system};
               openTofuWithPlugins = pkgs.opentofu.withPlugins (p: [
                 p.aws
                 p.cloudflare

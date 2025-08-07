@@ -15,6 +15,8 @@ rec {
 
     nixpkgs-master.url = "github:nixos/nixpkgs";
 
+    nixpkgs-for-opentofu.url = "github:gekoke/nixpkgs/terraform-provider-neon-0.9.0";
+
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -53,8 +55,6 @@ rec {
     disko.url = "github:nix-community/disko";
 
     nixpkgs-for-playwright.url = "github:nixos/nixpkgs";
-
-    nixpkgs-with-neon.url = "github:gekoke/nixpkgs/terraform-provider-neon-0.9.0";
   };
 
   outputs =
