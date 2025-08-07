@@ -22,7 +22,21 @@
         };
 
         deploy = pkgs.mkShellNoCC {
-          packages = [ pkgs.opentofu ];
+          packages =
+            let
+              pkgs = inputs.nixpkgs-with-neon.legacyPackages.${system};
+              openTofuWithPlugins = pkgs.opentofu.withPlugins (p: [
+                p.aws
+                p.cloudflare
+                p.hcloud
+                p.neon
+
+                # nixos-anwyhere dependencies
+                p.external
+                p.null
+              ]);
+            in
+            [ openTofuWithPlugins ];
         };
 
         playwright =

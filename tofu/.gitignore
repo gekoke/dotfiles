@@ -1,3 +1,4 @@
 *.tfvars
 *.tfbackend
 .terraform/
+.terraform.lock.hcl

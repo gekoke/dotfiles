@@ -32,7 +32,7 @@
             tflint = {
               enable = true;
               name = "tflint";
-              entry = "${lib.getExe pkgs.tflint} --chdir ./tofu";
+              entry = "${lib.getExe pkgs.tflint} --chdir ./tofu --disable-rule=terraform_required_providers --disable-rule=terraform_required_version";
               pass_filenames = false;
             };
             gitleaks = {

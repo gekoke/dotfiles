@@ -1,22 +1,16 @@
 terraform {
-  required_version = "~> 1.9.0"
-
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
+      source = "hashicorp/aws"
     }
     cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 5"
+      source = "cloudflare/cloudflare"
     }
     hcloud = {
-      source  = "hetznercloud/hcloud"
-      version = "~> 1.45"
+      source = "hetznercloud/hcloud"
     }
     neon = {
-      source  = "kislerdm/neon"
-      version = "~> 0.9"
+      source = "kislerdm/neon"
     }
   }
 }

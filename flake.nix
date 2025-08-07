@@ -53,6 +53,8 @@ rec {
     disko.url = "github:nix-community/disko";
 
     nixpkgs-for-playwright.url = "github:nixos/nixpkgs";
+
+    nixpkgs-with-neon.url = "github:gekoke/nixpkgs/terraform-provider-neon-0.9.0";
   };
 
   outputs =
