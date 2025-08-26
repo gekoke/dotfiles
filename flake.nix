@@ -13,8 +13,6 @@ rec {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-master.url = "github:nixos/nixpkgs";
-
     nixpkgs-for-opentofu.url = "github:gekoke/nixpkgs/terraform-provider-neon-0.9.0";
 
     snowfall-lib.url = "github:snowfallorg/lib";

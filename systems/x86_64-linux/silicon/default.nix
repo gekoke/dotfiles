@@ -36,8 +36,6 @@ in
         pkgs.powershell
         pkgs.python311
         pkgs.steam-run
-        # FIXME: use `inputs.nixpkgs`, duh
-        inputs.nixpkgs-master.legacyPackages.${pkgs.system}.gemini-cli
       ];
 
       shellAliases = {
