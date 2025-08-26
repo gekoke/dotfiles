@@ -16,7 +16,14 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.nh.enable = true;
+    programs.nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        dates = "daily";
+        extraArgs = "--nogcroots";
+      };
+    };
 
     nix = {
       registry = {
@@ -38,12 +45,6 @@ in
           keep-outputs = true;
           keep-derivations = true;
         };
-
-      gc = {
-        automatic = true;
-        dates = "daily";
-        options = "--delete-older-than 30d";
-      };
     };
   };
 }
