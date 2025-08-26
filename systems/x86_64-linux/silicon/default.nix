@@ -30,11 +30,7 @@ in
       packages = [
         pkgs.azure-cli
         pkgs.bun
-        pkgs.gcc
-        pkgs.gnumake
-        pkgs.nodePackages."@angular/cli"
         pkgs.powershell
-        pkgs.python311
       ];
 
       shellAliases = {
