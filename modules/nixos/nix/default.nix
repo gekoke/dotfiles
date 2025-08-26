@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -16,6 +17,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [
+      pkgs.steam-run
+    ];
+
     programs.nh = {
       enable = true;
       clean = {
