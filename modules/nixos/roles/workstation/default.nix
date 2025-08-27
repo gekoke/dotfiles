@@ -11,6 +11,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    home-manager.users.geko = {
+      elementary.cli-tools.enable = true;
+    };
+
     elementary = {
       nix = enabled;
       home = enabled;
@@ -19,7 +23,6 @@ in
       };
       suites = {
         desktop = enabled;
-        cli-utils = enabled;
       };
       security = {
         gpg = enabled;

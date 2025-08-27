@@ -26,6 +26,8 @@ in
   };
 
   home-manager.users.geko = {
+    elementary.cli-tools.enable = true;
+
     home = {
       packages = [
         pkgs.azure-cli
@@ -54,9 +56,6 @@ in
       accounts = enabled;
     };
     secrets = enabled;
-    suites = {
-      cli-utils = enabled;
-    };
     security = {
       sudo = enabled;
       gpg = enabled // {
