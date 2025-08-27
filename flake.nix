@@ -39,9 +39,6 @@ rec {
     rofi-collection.url = "github:adi1090x/rofi";
     rofi-collection.flake = false;
 
-    ranger-devicons.url = "github:alexanderjeurissen/ranger_devicons";
-    ranger-devicons.flake = false;
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
