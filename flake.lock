@@ -578,16 +578,15 @@
     },
     "nixpkgs-for-opentofu": {
       "locked": {
-        "lastModified": 1754552581,
-        "narHash": "sha256-tCQae49qQ7ohKmQwZih/+wnHxmWWCz04npBRYvs80jc=",
-        "owner": "gekoke",
+        "lastModified": 1756295598,
+        "narHash": "sha256-cF7fPewGCdpHmdmxhccnhXEWS+H4C4sQmHBpyKkt4wk=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fe256f30a45ee43413f7baaa8ba8e32fd4a0deb4",
+        "rev": "8a1999ecbe03b7a745018d35edecd1394e6cd724",
         "type": "github"
       },
       "original": {
-        "owner": "gekoke",
-        "ref": "terraform-provider-neon-0.9.0",
+        "owner": "nixos",
         "repo": "nixpkgs",
         "type": "github"
       }

@@ -13,7 +13,7 @@ rec {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-for-opentofu.url = "github:gekoke/nixpkgs/terraform-provider-neon-0.9.0";
+    nixpkgs-for-opentofu.url = "github:nixos/nixpkgs";
 
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
