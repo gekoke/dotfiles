@@ -11,14 +11,16 @@ rec {
   };
 
   inputs = {
+    systems.url = "github:nix-systems/default";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs";
 
+    nixpkgs-for-playwright.url = "github:nixos/nixpkgs";
+
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
-
-    systems.url = "github:nix-systems/default";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
@@ -48,8 +50,6 @@ rec {
     emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
-
-    nixpkgs-for-playwright.url = "github:nixos/nixpkgs";
   };
 
   outputs =
