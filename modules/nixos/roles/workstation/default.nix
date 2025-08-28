@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 with lib.elementary;
@@ -14,8 +19,16 @@ in
     home-manager.users.geko = {
       elementary = {
         cli-tools.enable = true;
-        programs.git.enable = true;
+        programs = {
+          git.enable = true;
+          gpg.enable = true;
+        };
       };
+      services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
+      home.packages = [
+        # pinentry-gnome3
+        pkgs.gcr
+      ];
     };
 
     elementary = {
@@ -26,7 +39,6 @@ in
         desktop = enabled;
       };
       security = {
-        gpg = enabled;
         sudo = enabled;
       };
       programs = {

@@ -29,7 +29,10 @@ in
     elementary = {
       accounts.geko.enable = true;
       cli-tools.enable = true;
-      programs.git.enable = true;
+      programs = {
+        git.enable = true;
+        gpg.enable = true;
+      };
     };
 
     home = {
@@ -44,6 +47,8 @@ in
         "cbo" = "powershell.exe Get-ClipBoard";
       };
     };
+
+    services.gpg-agent.pinentry.package = pkgs.pinentry;
 
     programs.git.userEmail = lib.mkForce "gregor.grigorjan@gamesglobal.com";
   };
@@ -62,9 +67,6 @@ in
     secrets = enabled;
     security = {
       sudo = enabled;
-      gpg = enabled // {
-        pinentryPackage = pkgs.pinentry;
-      };
     };
     programs = {
       ssh = enabled;
