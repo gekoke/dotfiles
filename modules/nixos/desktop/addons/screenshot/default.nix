@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  system,
+  pkgs,
   inputs,
   ...
 }:
@@ -21,7 +21,7 @@ in
     elementary.home.packages = [
       (
         if cfg.hyprlandSupport then
-          inputs.hyprland-contrib.packages.${system}.grimblast
+          inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
         else
           abort "only supports Hyprland - set 'hyprlandSupport' module option to true"
       )

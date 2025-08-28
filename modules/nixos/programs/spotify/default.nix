@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  system,
+  pkgs,
   inputs,
   ...
 }:
@@ -25,7 +25,7 @@ in
         enable = true;
         enabledExtensions =
           let
-            inherit (inputs.spicetify-nix.legacyPackages.${system}) extensions;
+            inherit (inputs.spicetify-nix.legacyPackages.${pkgs.system}) extensions;
           in
           [
             extensions.betterGenres

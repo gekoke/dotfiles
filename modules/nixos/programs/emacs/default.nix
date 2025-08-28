@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  system,
   inputs,
   ...
 }:
@@ -45,7 +44,7 @@ in
       # consult
       ripgrep
       # LSP
-      inputs.emacs-lsp-booster.packages.${system}.default
+      inputs.emacs-lsp-booster.packages.${pkgs.system}.default
       # lsp-nix
       nil
       nixfmt-rfc-style
