@@ -20,11 +20,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    services = {
-      pcscd.enable = true; # Card readers n stuff
-      dbus.packages = [ pkgs.gcr ];
-    };
-
     elementary.home = {
       programs.gpg = enabled;
       services.gpg-agent =
