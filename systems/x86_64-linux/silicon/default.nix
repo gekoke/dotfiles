@@ -14,7 +14,10 @@ in
 
   system.stateVersion = "24.11";
 
-  programs.nh.flake = "/home/geko/Repos/dotfiles";
+  programs = {
+    nh.flake = "/home/geko/Repos/dotfiles";
+    nix-ld.enable = true;
+  };
 
   wsl = {
     enable = true;
