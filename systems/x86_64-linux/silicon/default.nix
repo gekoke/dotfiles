@@ -26,7 +26,11 @@ in
   };
 
   home-manager.users.geko = {
-    elementary.cli-tools.enable = true;
+    elementary = {
+      accounts.geko.enable = true;
+      cli-tools.enable = true;
+      programs.git.enable = true;
+    };
 
     home = {
       packages = [
@@ -40,6 +44,8 @@ in
         "cbo" = "powershell.exe Get-ClipBoard";
       };
     };
+
+    programs.git.userEmail = lib.mkForce "gregor.grigorjan@gamesglobal.com";
   };
 
   networking.firewall.allowedTCPPorts = [
@@ -52,9 +58,7 @@ in
     virtualisation.docker.enable = true;
     nix = enabled;
     home = enabled;
-    user = enabled // {
-      accounts = enabled;
-    };
+    user = enabled;
     secrets = enabled;
     security = {
       sudo = enabled;
@@ -63,9 +67,6 @@ in
       };
     };
     programs = {
-      git = enabled // {
-        userEmail = "gregor.grigorjan@gamesglobal.com";
-      };
       ssh = enabled;
       emacs = enabled;
       direnv = enabled;

@@ -16,16 +16,17 @@
     hardware.nvidia.enable = true;
     roles.workstation.enable = true;
     secrets.enable = true;
-    programs.git.signingKey = "1E9AFDF3275F99EE";
     programs.emacs.package = pkgs.emacs30-pgtk;
   };
 
   home-manager.users.geko = {
+    elementary.accounts.geko.enable = true;
     home.packages = [
       pkgs.discord
       pkgs.qbittorrent
       pkgs.mpv
     ];
+    programs.git.signing.key = "1E9AFDF3275F99EE";
   };
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";

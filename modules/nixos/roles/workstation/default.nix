@@ -12,15 +12,16 @@ in
 
   config = mkIf cfg.enable {
     home-manager.users.geko = {
-      elementary.cli-tools.enable = true;
+      elementary = {
+        cli-tools.enable = true;
+        programs.git.enable = true;
+      };
     };
 
     elementary = {
       nix = enabled;
       home = enabled;
-      user = enabled // {
-        accounts = enabled;
-      };
+      user = enabled;
       suites = {
         desktop = enabled;
       };
@@ -29,7 +30,6 @@ in
         sudo = enabled;
       };
       programs = {
-        git = enabled;
         ssh = enabled;
         emacs = enabled;
         firefox = enabled;
