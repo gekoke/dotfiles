@@ -1,7 +1,7 @@
 let
-  inherit (import ../keys.nix) groups;
+  publicKey = import ../public-key.nix;
 in
 {
-  "authinfo.age".publicKeys = groups.hosts;
-  "neon-nginx.htpasswd.age".publicKeys = groups.hosts;
+  "authinfo.age".publicKeys = publicKey.ofAll.hosts;
+  "neon-nginx.htpasswd.age".publicKeys = publicKey.ofAll.hosts;
 }

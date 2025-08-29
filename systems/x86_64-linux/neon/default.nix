@@ -51,9 +51,9 @@
 
   users.users.root.openssh.authorizedKeys.keys =
     let
-      inherit (import ../../../keys.nix) keys groups;
+      publicKey = import ../../../public-key.nix;
     in
-    groups.hosts ++ [ keys.githubActions ];
+    publicKey.ofAll.hosts ++ [ publicKey.for.githubActions ];
 
   system.stateVersion = "25.05";
 }
