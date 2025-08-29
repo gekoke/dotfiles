@@ -1,11 +1,9 @@
-{ inputs, ... }:
-{
+_: {
   perSystem =
     {
       config,
       inputs',
       pkgs,
-      system,
       ...
     }:
     {
@@ -24,7 +22,7 @@
         deploy = pkgs.mkShellNoCC {
           packages =
             let
-              pkgs = inputs.nixpkgs-for-opentofu.legacyPackages.${system};
+              pkgs = inputs'.nixpkgs-for-opentofu.legacyPackages;
               openTofuWithPlugins = pkgs.opentofu.withPlugins (p: [
                 p.aws
                 p.cloudflare
