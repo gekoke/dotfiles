@@ -14,12 +14,15 @@ in
     elementary.home.services.ssh-agent = enabled;
     elementary.home.programs.ssh = {
       enable = true;
-      extraConfig = ''
-        Host *
-          AddKeysToAgent yes
-        Host github.com
-          IdentitiesOnly yes
-      '';
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          addKeysToAgent = "yes";
+        };
+        "github.com" = {
+          identitiesOnly = true;
+        };
+      };
     };
   };
 }

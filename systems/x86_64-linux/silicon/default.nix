@@ -40,7 +40,8 @@ in
 
     home = {
       packages = [
-        pkgs.azure-cli
+        # FIXME: remove input when https://github.com/NixOS/nixpkgs/issues/437525 is resolved
+        inputs.nixpkgs-for-pkgs-azure-cli.legacyPackages.${pkgs.system}.azure-cli
         pkgs.bun
         pkgs.powershell
       ];

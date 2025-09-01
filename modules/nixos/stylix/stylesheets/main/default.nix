@@ -59,7 +59,7 @@ with lib.elementary;
         };
       };
 
-      elementary.stylix.extraHomeManagerOptions.targets.swaylock.useImage = false;
+      elementary.stylix.extraHomeManagerOptions.targets.swaylock.useWallpaper = false;
 
       elementary.desktop.addons.waybar.style = ''
         .modules-left * {
