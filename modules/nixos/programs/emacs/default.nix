@@ -84,25 +84,6 @@ in
       pkgs.terraform-ls
       # Powershell
       pkgs.powershell
-      # R
-      (rWrapper.override {
-        packages = [
-          pkgs.rPackages.languageserver
-          pkgs.rPackages.haven
-          pkgs.rPackages.dplyr
-          pkgs.rPackages.ggplot2
-          pkgs.rPackages.tidyr
-          pkgs.rPackages.broom
-          pkgs.rPackages.readr
-          pkgs.rPackages.car
-          pkgs.rPackages.lmtest
-          pkgs.rPackages.interactions
-          pkgs.rPackages.forcats
-          pkgs.rPackages.zip
-          pkgs.rPackages.labelled
-          pkgs.rPackages.survey
-        ];
-      })
     ];
 
     elementary.home = {
@@ -206,7 +187,6 @@ in
             epkgs.typst-ts-mode
             epkgs.lsp-tailwindcss
             epkgs.powershell
-            epkgs.ess
             epkgs.age
             epkgs.hackernews
             epkgs.sideline-blame

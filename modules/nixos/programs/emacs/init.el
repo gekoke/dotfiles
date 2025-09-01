@@ -1110,8 +1110,6 @@
 
 (use-package powershell)
 
-(use-package ess)
-
 (use-package age
   :custom
   (age-program "rage")
