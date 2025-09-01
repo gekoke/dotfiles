@@ -759,6 +759,22 @@
   :init
   (magit-todos-mode 1))
 
+(use-package transient
+  :after magit
+  :init
+  (transient-define-argument magit-tag:--message ()
+    :description "Use message"
+    :class 'transient-option
+    :shortarg "-m"
+    :argument "--message="
+    ;; Empty (annotated) tag messages must be permitted because it is
+    ;; impossible to create them interactively.
+    :allow-empty t)
+  (transient-append-suffix
+    'magit-tag
+    "-u"
+    '(magit-tag:--message)))
+
 (use-package forge
   :after magit
   :custom
