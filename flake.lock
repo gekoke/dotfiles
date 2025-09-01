@@ -492,6 +492,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-for-emacs-packages": {
+      "locked": {
+        "lastModified": 1756542300,
+        "narHash": "sha256-tlOn88coG5fzdyqz6R93SQL5Gpq+m/DsWpekNFhqPQk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d7600c775f877cd87b4f5a831c28aa94137377aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-for-opentofu": {
       "locked": {
         "lastModified": 1756542300,
@@ -755,6 +771,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-for-emacs-packages": "nixpkgs-for-emacs-packages",
         "nixpkgs-for-opentofu": "nixpkgs-for-opentofu",
         "nixpkgs-for-pkgs-azure-cli": "nixpkgs-for-pkgs-azure-cli",
         "nixpkgs-for-playwright": "nixpkgs-for-playwright",
