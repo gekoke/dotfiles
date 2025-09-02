@@ -21,7 +21,6 @@
             };
             statix = {
               enable = true;
-              settings.ignore = [ "tofu/.terraform/**" ];
             };
             tofu-fmt = {
               enable = true;
