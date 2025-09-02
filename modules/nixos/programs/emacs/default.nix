@@ -49,7 +49,7 @@ in
       nil
       nixfmt-rfc-style
       # age
-      rage
+      age
       # YAML
       yaml-language-server
       # HTML, CSS, JSON, Eslint
