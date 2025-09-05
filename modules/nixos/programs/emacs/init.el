@@ -812,12 +812,6 @@
     "g b" #'blamer-show-posframe-commit-info
     "g c" #'blamer-kill-ring-commit-hash))
 
-(use-package sideline
-  :custom
-  (sideline-backends-right '(sideline-blame))
-  :init
-  (global-sideline-mode))
-
 (use-package hl-todo
   :config
   (global-hl-todo-mode))
