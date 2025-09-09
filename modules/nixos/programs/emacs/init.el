@@ -315,7 +315,7 @@
 (use-package modus-themes)
 (use-package catppuccin-theme
   :custom
-  (catppuccin-flavor 'macchiato))
+  (catppuccin-flavor 'frappe))
 (use-package miasma-theme)
 
 (use-package remember-last-theme
