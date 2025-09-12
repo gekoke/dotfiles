@@ -5,16 +5,17 @@
   inputs,
   ...
 }:
-with lib;
-with lib.elementary;
 let
+  inherit (lib) mkEnableOption mkOption mkIf;
+  inherit (lib.types) package;
+  inherit (lib.elementary) readFiles;
   cfg = config.elementary.programs.emacs;
 in
 {
   options.elementary.programs.emacs = {
     enable = mkEnableOption "GNU Emacs";
     package = mkOption {
-      type = types.package;
+      type = package;
       default = pkgs.emacs30;
     };
   };
@@ -33,56 +34,56 @@ in
         ;
     };
 
-    elementary.home.packages = with pkgs; [
+    elementary.home.packages = [
       # jinx
-      hunspellDicts.en_US
+      pkgs.hunspellDicts.en_US
       # dirvish
-      fd
-      vips
-      ffmpegthumbnailer
-      mediainfo
-      gnutar
-      unzip
-      poppler-utils # PDF preview
+      pkgs.fd
+      pkgs.vips
+      pkgs.ffmpegthumbnailer
+      pkgs.mediainfo
+      pkgs.gnutar
+      pkgs.unzip
+      pkgs.poppler-utils # PDF preview
       # consult
-      ripgrep
+      pkgs.ripgrep
       # LSP
       inputs.emacs-lsp-booster.packages.${pkgs.system}.default
       # lsp-nix
-      nil
-      nixfmt-rfc-style
+      pkgs.nil
+      pkgs.nixfmt-rfc-style
       # age
-      age
+      pkgs.age
       # YAML
-      yaml-language-server
+      pkgs.yaml-language-server
       # HTML, CSS, JSON, Eslint
-      vscode-langservers-extracted
+      pkgs.vscode-langservers-extracted
       # HTML, CSS (emmet)
-      emmet-language-server
+      pkgs.emmet-language-server
       # Tailwind CSS
-      nodejs
+      pkgs.nodejs
       # Python
-      pyright
-      ruff
+      pkgs.pyright
+      pkgs.ruff
       # Java
-      jdk23
-      jdt-language-server
+      pkgs.jdk23
+      pkgs.jdt-language-server
       # JavaScript/TypeScript
-      nodePackages.typescript
-      nodePackages.typescript-language-server
+      pkgs.nodePackages.typescript
+      pkgs.nodePackages.typescript-language-server
       # CSharp
-      omnisharp-roslyn
+      pkgs.omnisharp-roslyn
       # Rust
-      rust-analyzer
-      rustc
-      cargo
-      rustfmt
-      clippy
+      pkgs.rust-analyzer
+      pkgs.rustc
+      pkgs.cargo
+      pkgs.rustfmt
+      pkgs.clippy
       # Go
-      go
-      gopls
+      pkgs.go
+      pkgs.gopls
       # Typst
-      tinymist
+      pkgs.tinymist
       # Tofu
       pkgs.terraform-ls
       # Powershell
