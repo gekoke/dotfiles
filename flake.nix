@@ -68,6 +68,7 @@ rec {
     lib.recursiveUpdate
       (lib.mkFlake {
         systems.modules.nixos = [
+          inputs.self.nixosModules.emacs
           inputs.agenix.nixosModules.default
           { nix.settings = nixConfig; }
         ];
@@ -86,13 +87,22 @@ rec {
           ];
       })
       (
-        inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+        let
+          inherit (inputs.flake-parts.lib) mkFlake importApply;
+        in
+        mkFlake { inherit inputs; } {
           systems = import inputs.systems;
           imports = [
             ./checks.nix
             ./dev-shells.nix
             ./formatter.nix
           ];
+
+          flake = {
+            nixosModules = {
+              emacs = importApply ./v3/modules/nixos/emacs { inherit (inputs) emacs-lsp-booster; };
+            };
+          };
         }
       );
 }
