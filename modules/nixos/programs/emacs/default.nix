@@ -24,6 +24,7 @@ in
     environment.sessionVariables.LSP_USE_PLISTS = "true";
 
     fonts.packages = [
+      pkgs.nerd-fonts.agave
       pkgs.nerd-fonts.iosevka-term
       pkgs.nerd-fonts.jetbrains-mono
       pkgs.nerd-fonts.blex-mono
