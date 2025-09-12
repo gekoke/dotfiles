@@ -23,13 +23,15 @@ in
     # LSP optimizations
     environment.sessionVariables.LSP_USE_PLISTS = "true";
 
-    fonts.packages = [
-      pkgs.nerd-fonts.agave
-      pkgs.nerd-fonts.blex-mono
-      pkgs.nerd-fonts.fira-code
-      pkgs.nerd-fonts.iosevka-term
-      pkgs.nerd-fonts.jetbrains-mono
-    ];
+    fonts.packages = builtins.attrValues {
+      inherit (pkgs.nerd-fonts)
+        agave
+        blex-mono
+        fira-code
+        iosevka-term
+        jetbrains-mono
+        ;
+    };
 
     elementary.home.packages = with pkgs; [
       # jinx
