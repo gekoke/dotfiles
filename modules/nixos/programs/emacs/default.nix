@@ -1,5 +1,6 @@
 {
   elementaryPackages,
+  agenix,
   emacs-lsp-booster,
   ...
 }:
@@ -17,6 +18,8 @@ let
   cfg = config.elementary.programs.emacs;
 in
 {
+  imports = [ agenix.nixosModules.default ];
+
   options.elementary.programs.emacs = {
     enable = mkEnableOption "GNU Emacs";
     package = mkOption {

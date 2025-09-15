@@ -142,7 +142,6 @@ rec {
               ./modules/nixos/user/shell/zsh
               ./modules/nixos/virtualisation/docker
               ./modules/nixos/virtualisation/kvm
-              inputs.agenix.nixosModules.default
             ];
           in
           {
