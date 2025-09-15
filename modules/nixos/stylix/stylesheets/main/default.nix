@@ -1,4 +1,7 @@
 {
+  elementaryPackages,
+}:
+{
   config,
   lib,
   pkgs,
@@ -21,7 +24,7 @@ with lib.elementary;
 
       elementary.stylix.extraOptions = {
         enable = true;
-        image = "${pkgs.elementary.wallpapers}/share/wallpapers/evening-sky.png";
+        image = "${elementaryPackages.${pkgs.system}.wallpapers}/share/wallpapers/evening-sky.png";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
         opacity = {
