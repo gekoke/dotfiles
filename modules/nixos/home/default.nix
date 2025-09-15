@@ -33,8 +33,6 @@ with lib.elementary;
 
   config = lib.mkIf config.elementary.home.enable {
     elementary.home.extraOptions = {
-      systemd.user.startServices = true;
-
       xdg.enable = true;
       xdg.configFile = mkAliasDefinitions options.elementary.home.configFile;
 
