@@ -59,50 +59,125 @@ rec {
   outputs =
     inputs:
     let
-      lib = inputs.snowfall-lib.mkLib {
-        inherit inputs;
-        src = ./.;
-        snowfall.namespace = "elementary";
-      };
+      lib = import ./lib { inherit (inputs.nixpkgs) lib; };
+      inherit (inputs.flake-parts.lib) mkFlake importApply;
     in
-    lib.recursiveUpdate
-      (lib.mkFlake {
-        systems.modules.nixos = [
-          inputs.self.nixosModules.emacs
-          inputs.agenix.nixosModules.default
-          { nix.settings = nixConfig; }
-        ];
+    mkFlake { inherit inputs; } {
+      systems = import inputs.systems;
+      imports = [
+        ./checks.nix
+        ./dev-shells.nix
+        ./formatter.nix
+      ];
 
-        overlays = [
-          inputs.nur.overlays.default
-        ];
+      flake = {
+        nixosConfigurations =
+          let
+            allowedUnfreePackages = [
+              "discord"
+              "nvidia-settings"
+              "nvidia-x11"
+              "steam-unwrapped"
+            ];
 
-        channels-config.allowUnfreePredicate =
-          pkg:
-          builtins.elem (lib.getName pkg) [
-            "discord"
-            "nvidia-settings"
-            "nvidia-x11"
-            "steam-unwrapped"
-          ];
-      })
-      (
-        let
-          inherit (inputs.flake-parts.lib) mkFlake importApply;
-        in
-        mkFlake { inherit inputs; } {
-          systems = import inputs.systems;
-          imports = [
-            ./checks.nix
-            ./dev-shells.nix
-            ./formatter.nix
-          ];
+            dependencies = inputs // {
+              elementaryPackages = inputs.self.packages;
+              nurPackages = inputs.nur.legacyPackages;
+            };
+            wire = path: importApply path dependencies;
 
-          flake = {
-            nixosModules = {
-              emacs = importApply ./v3/modules/nixos/emacs { inherit (inputs) emacs-lsp-booster; };
+            specialArgs = { inherit inputs; };
+
+            commonModules = [
+              {
+                nix.settings = nixConfig;
+
+                nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowedUnfreePackages;
+
+                home-manager.sharedModules = [
+                  ./modules/home/accounts/geko/default.nix
+                  ./modules/home/cli-tools/default.nix
+                  ./modules/home/programs/git/default.nix
+                  ./modules/home/programs/gpg/default.nix
+                ];
+              }
+              (wire ./modules/nixos/programs/emacs)
+              (wire ./modules/nixos/programs/firefox)
+              (wire ./modules/nixos/stylix/stylesheets/main)
+              ./modules/nixos/desktop/addons/avizo
+              ./modules/nixos/desktop/addons/clipboard
+              ./modules/nixos/desktop/addons/cursor
+              ./modules/nixos/desktop/addons/dunst
+              ./modules/nixos/desktop/addons/keyring
+              ./modules/nixos/desktop/addons/rofi
+              ./modules/nixos/desktop/addons/screenshot
+              ./modules/nixos/desktop/addons/swaylock
+              ./modules/nixos/desktop/addons/unclutter
+              ./modules/nixos/desktop/addons/waybar
+              ./modules/nixos/desktop/addons/wlogout
+              ./modules/nixos/desktop/hyprland
+              ./modules/nixos/hardware/audio
+              ./modules/nixos/hardware/filesystems
+              ./modules/nixos/hardware/networking
+              ./modules/nixos/hardware/nvidia
+              ./modules/nixos/home
+              ./modules/nixos/nix
+              ./modules/nixos/programs/alacritty
+              ./modules/nixos/programs/direnv
+              ./modules/nixos/programs/kitty
+              ./modules/nixos/programs/nwg-displays
+              ./modules/nixos/programs/spotify
+              ./modules/nixos/programs/ssh
+              ./modules/nixos/roles/workstation
+              ./modules/nixos/secrets
+              ./modules/nixos/security/sudo
+              ./modules/nixos/services/tzupdate
+              ./modules/nixos/services/udiskie
+              ./modules/nixos/stylix
+              ./modules/nixos/suites/desktop
+              ./modules/nixos/system/boot
+              ./modules/nixos/system/keyboard
+              ./modules/nixos/user
+              ./modules/nixos/user/shell/nushell
+              ./modules/nixos/user/shell/zsh
+              ./modules/nixos/virtualisation/docker
+              ./modules/nixos/virtualisation/kvm
+              inputs.agenix.nixosModules.default
+            ];
+          in
+          {
+            carbon = lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = commonModules ++ [ ./systems/x86_64-linux/carbon ];
+              inherit specialArgs;
+            };
+            hydrogen = lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = commonModules ++ [ ./systems/x86_64-linux/hydrogen ];
+              inherit specialArgs;
+            };
+            neon = lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = commonModules ++ [ ./systems/x86_64-linux/neon ];
+              inherit specialArgs;
+            };
+            silicon = lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = commonModules ++ [ ./systems/x86_64-linux/silicon ];
+              inherit specialArgs;
             };
           };
-        }
-      );
+      };
+
+      perSystem =
+        { pkgs, ... }:
+        {
+          packages = {
+            lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
+            miasma-theme = pkgs.callPackage ./packages/miasma-theme { };
+            typst-ts-mode = pkgs.callPackage ./packages/typst-ts-mode { };
+            wallpapers = pkgs.callPackage ./packages/wallpapers { };
+          };
+        };
+    };
 }

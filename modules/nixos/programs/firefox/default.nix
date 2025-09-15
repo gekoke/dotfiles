@@ -1,4 +1,8 @@
 {
+  nurPackages,
+  ...
+}:
+{
   config,
   lib,
   pkgs,
@@ -26,7 +30,7 @@
           name = "Default";
           isDefault = true;
           extensions.packages = builtins.attrValues {
-            inherit (pkgs.nur.repos.rycee.firefox-addons)
+            inherit (nurPackages.${pkgs.system}.repos.rycee.firefox-addons)
               bitwarden
               privacy-badger
               sponsorblock

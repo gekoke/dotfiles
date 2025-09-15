@@ -1,5 +1,7 @@
 {
+  elementaryPackages,
   emacs-lsp-booster,
+  ...
 }:
 {
   config,
@@ -10,7 +12,8 @@
 let
   inherit (lib) mkEnableOption mkOption mkIf;
   inherit (lib.types) package;
-  inherit (lib.elementary) readFiles;
+  inherit (lib) concatStringsSep;
+  inherit (builtins) readFile;
   cfg = config.elementary.programs.emacs;
 in
 {
@@ -102,8 +105,8 @@ in
           (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
         '';
         extraPackages = epkgs: [
-          pkgs.elementary.typst-ts-mode
-          pkgs.elementary.miasma-theme
+          elementaryPackages.${pkgs.system}.miasma-theme
+          elementaryPackages.${pkgs.system}.typst-ts-mode
 
           epkgs.treesit-grammars.with-all-grammars
           epkgs.general
@@ -198,9 +201,9 @@ in
         ".emacs.d/init.el".source = ./init.el;
         ".emacs.d/early-init.el".text =
           let
-            earlyInitText = readFiles [
-              ./early-init.el
-              ./early-init-pgtk-fixes.el
+            earlyInitText = concatStringsSep "\n" [
+              (readFile ./early-init.el)
+              (readFile ./early-init-pgtk-fixes.el)
             ];
           in
           earlyInitText;
