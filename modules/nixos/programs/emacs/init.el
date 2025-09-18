@@ -7,16 +7,6 @@
 
 (setq-default tab-width 4)
 
-(use-package org
-  :custom
-  (org-capture-templates
-   '(("t" "Todo" entry (file+headline "~/Documents/Org/todo.org" "Tasks")
-      "* TODO %?\n")
-     ("n" "Note" entry (file+headline "~/Documents/Org/notes.org" "Notes")
-      "*%?\n")))
-  (org-default-notes-file "~/Documents/Org/misc.org")
-  (org-agenda-files '("~/Documents/Org/")))
-
 (use-package time
   :init
   (display-time-mode)
