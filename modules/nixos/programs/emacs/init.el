@@ -294,7 +294,7 @@
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   :custom
-  (dashboard-startup-banner 2)
+  (dashboard-startup-banner 'logo)
   (dashboard-set-init-info t)
   (dashboard-center-content t)
 
