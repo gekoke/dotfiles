@@ -226,7 +226,7 @@
   (text-mode-ispell-word-completion nil))
 
 (use-package jinx
-  :hook (emacs-startup . global-jinx-mode))
+  :hook (text-mode . jinx-mode))
 
 ;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
