@@ -124,7 +124,6 @@ in
           epkgs.nyan-mode
           epkgs.dashboard
           epkgs.doom-themes
-          epkgs.vscode-dark-plus-theme
           epkgs.ef-themes
           epkgs.gruvbox-theme
           epkgs.modus-themes
