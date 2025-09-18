@@ -166,7 +166,6 @@ in
           epkgs.magit-todos
           epkgs.forge
           epkgs.diff-hl
-          epkgs.blamer
           epkgs.hl-todo
           epkgs.projectile
           epkgs.consult-projectile
