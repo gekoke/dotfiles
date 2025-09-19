@@ -282,7 +282,7 @@
 (use-package dashboard
   :after (consult nerd-icons)
   :init
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   :custom
   (dashboard-startup-banner '3)
   (dashboard-set-init-info t)
