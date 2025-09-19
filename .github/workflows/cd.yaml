@@ -14,6 +14,9 @@ jobs:
 
       - name: Setup Nix
         uses: ./.github/actions/setup-nix
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Run `nix flake check`
         run: nix flake check -L --accept-flake-config
@@ -26,6 +29,9 @@ jobs:
 
       - name: Setup Nix
         uses: ./.github/actions/setup-nix
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CACHIX_AUTH_TOKEN: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Set up SSH key
         uses: webfactory/ssh-agent@v0.9.1
