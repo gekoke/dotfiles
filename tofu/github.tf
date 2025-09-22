@@ -13,6 +13,17 @@ resource "github_repository" "dotfiles" {
   allow_auto_merge = true
 }
 
+
+resource "tls_private_key" "github_secret_test" {
+  algorithm = "ED25519"
+}
+
+resource "github_actions_secret" "github_secret_test" {
+  repository      = "dotfiles"
+  secret_name     = "FOOBARBAZ"
+  plaintext_value = tls_private_key.github_secret_test.private_key_pem
+}
+
 resource "github_repository" "resume" {
   name          = "resume"
   homepage_url  = "https://www.grigorjan.net/resume.pdf"

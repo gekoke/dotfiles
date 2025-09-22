@@ -57,6 +57,7 @@
                 p.github
                 p.hcloud
                 p.neon
+                p.tls
 
                 # nixos-anwyhere dependencies
                 p.external

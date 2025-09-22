@@ -15,5 +15,8 @@ terraform {
     neon = {
       source = "kislerdm/neon"
     }
+    tls = {
+      source = "hashicorp/tls"
+    }
   }
 }
