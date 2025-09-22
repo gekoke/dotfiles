@@ -2,7 +2,6 @@ let
   publicKey = import ../public-key.nix;
   rules = {
     "authinfo.age".publicKeys = publicKey.ofAll.workstations;
-    "neon-nginx.htpasswd.age".publicKeys = publicKey.ofAll.hosts;
 
     # Deploy secrets
     "aws-secret-key.age".publicKeys = publicKey.ofAll.hosts ++ [ publicKey.for.githubActions ];
