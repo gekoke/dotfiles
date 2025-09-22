@@ -1,5 +1,5 @@
 /result
 .projectile
-/.direnv/
+/**/.direnv/
 .pre-commit-config.yaml
 /modules/nixos/programs/emacs/flycheck_init.el

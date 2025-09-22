@@ -1,6 +1,5 @@
 variable "aws_access_key" {
   type        = string
-  sensitive   = true
   description = "The AWS root access key ID"
 }
 

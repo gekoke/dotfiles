@@ -34,6 +34,8 @@ rec {
 
     agenix.url = "github:ryantm/agenix";
 
+    agenix-shell.url = "github:aciceri/agenix-shell";
+
     nur.url = "github:nix-community/NUR";
 
     home-manager.url = "github:nix-community/home-manager";
