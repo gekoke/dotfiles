@@ -39,6 +39,7 @@
 
                   TF_VAR_aws_secret_key.file = ./secrets/aws-secret-key.age;
                   TF_VAR_cloudflare_api_token.file = ./secrets/cloudflare-api-token.age;
+                  TF_VAR_github_token.file = ./secrets/github-token.age;
                   TF_VAR_hcloud_token.file = ./secrets/hcloud-token.age;
                   TF_VAR_neon_api_key.file = ./secrets/neon-api-key.age;
                 };
@@ -53,6 +54,7 @@
               openTofuWithPlugins = pkgs.opentofu.withPlugins (p: [
                 p.aws
                 p.cloudflare
+                p.github
                 p.hcloud
                 p.neon
 

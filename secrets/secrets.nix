@@ -11,6 +11,9 @@ let
     "cloudflare-api-token.age".publicKeys = publicKey.ofAll.workstations ++ [
       publicKey.for.githubActions
     ];
+    "github-token.age".publicKeys = publicKey.ofAll.workstations ++ [
+      publicKey.for.githubActions
+    ];
     "neon-api-key.age".publicKeys = publicKey.ofAll.workstations ++ [ publicKey.for.githubActions ];
   };
 in
