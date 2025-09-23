@@ -1046,7 +1046,9 @@
 (use-package yaml-mode
   :hook (yaml-mode . lsp))
 
-(use-package terraform-mode)
+(use-package terraform-mode
+  :after lsp-mode
+  :hook (terraform-mode . lsp-deferred))
 
 (use-package feature-mode)
 
