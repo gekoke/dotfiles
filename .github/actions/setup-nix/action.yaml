@@ -4,9 +4,6 @@ inputs:
   GITHUB_TOKEN:
     description: "The GitHub token"
     required: true
-  CACHIX_AUTH_TOKEN:
-    description: "The Cachix API auth token"
-    required: true
 runs:
   using: "composite"
   steps:
@@ -15,6 +12,11 @@ runs:
       with:
         # Avoid rate limits
         github_access_token: "${{ inputs.GITHUB_TOKEN }}"
+
+    - name: Source secrets
+      shell: bash
+      run: |
+        nix develop "#cache" --accept-flake-config
 
     - name: Set up binary cache
       uses: cachix/cachix-action@v15

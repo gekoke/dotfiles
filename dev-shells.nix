@@ -22,6 +22,12 @@
           shellHook = config.pre-commit.installationScript;
         };
 
+        cache = pkgs.mkShellNoCC {
+          installationScript = inputs.agenix-shell.lib.installationScript system {
+            secrets.CACHIX_AUTH_TOKEN.file = ./secrets/cachix-auth-token.age;
+          };
+        };
+
         deploy = pkgs.mkShellNoCC {
           env =
             let

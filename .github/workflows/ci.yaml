@@ -16,7 +16,6 @@ jobs:
         uses: ./.github/actions/setup-nix
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          CACHIX_AUTH_TOKEN: "${{ env.CACHIX_AUTH_TOKEN }}"
 
       - name: Run `nix flake check`
         run: nix flake check -L --accept-flake-config
