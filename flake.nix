@@ -82,6 +82,7 @@ rec {
               "nvidia-settings"
               "nvidia-x11"
               "steam-unwrapped"
+              "terraform"
             ];
 
             dependencies = inputs // {

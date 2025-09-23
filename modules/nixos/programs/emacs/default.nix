@@ -93,6 +93,7 @@ in
       # Typst
       pkgs.tinymist
       # Tofu
+      pkgs.terraform # for terraform fmt
       pkgs.terraform-ls
       # Powershell
       pkgs.powershell
