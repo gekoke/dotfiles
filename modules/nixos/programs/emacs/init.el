@@ -884,6 +884,7 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-inlay-hint-enable t)
   (lsp-semantic-tokens-enable t)
+  (lsp-semantic-tokens-honor-refresh-requests t)
   (lsp-signature-function #'lsp-signature-posframe)
   :config
   (lsp-register-client
