@@ -10,7 +10,6 @@ let
   cfg = config.elementary.desktop.addons.swaylock;
 in
 {
-  # TODO: add theming
   options.elementary.desktop.addons.swaylock = {
     enable = mkEnableOption "swaylock lock menu";
   };

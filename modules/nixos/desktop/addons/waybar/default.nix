@@ -17,7 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: add MPD support
     elementary.home.programs.waybar = {
       enable = true;
       style = mkAliasDefinitions options.elementary.desktop.addons.waybar.style;

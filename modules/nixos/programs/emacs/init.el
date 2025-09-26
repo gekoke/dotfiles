@@ -218,7 +218,6 @@
 (use-package jinx
   :hook (text-mode . jinx-mode))
 
-;; TODO: serialize to file
 (defun gg/set-background-opacity (opacity)
   "Interactively change the current frame's OPACITY."
   (interactive
@@ -950,7 +949,6 @@
 
 (use-package python
   :init
-  ;; TODO: make this the same as `gg/global-whitespace-mode' for LSP buffers
   (add-hook 'before-save-hook (lambda ()
                                 (when (and
                                        (eq major-mode 'python-ts-mode)
