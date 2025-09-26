@@ -24,7 +24,7 @@ in
   config = mkIf cfg.enable {
     elementary.home.programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      package = pkgs.rofi;
       extraConfig.show-icons = true;
       theme = mkIf cfg.rofi-collection.launcher.enable "${inputs.rofi-collection}/files/launchers/type-${toString cfg.rofi-collection.launcher.type}/style-${toString cfg.rofi-collection.launcher.style}.rasi";
     };
