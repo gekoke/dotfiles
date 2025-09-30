@@ -1003,13 +1003,19 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-hook 'web-mode-hook (lambda () (electric-pair-local-mode -1)))
   :custom
   (web-mode-script-padding 4)
   (web-mode-enable-auto-pairing t)
   (web-mode-enable-auto-opening t)
   (web-mode-enable-auto-quoting t))
+
+(use-package html-ts-mode
+  :after lsp-mode
+  :mode
+  ("\\.html\\'" . html-ts-mode)
+  :hook
+  (html-ts-mode . lsp-deferred))
 
 (use-package lsp-tailwindcss
   :init
@@ -1021,7 +1027,9 @@
   ("\\.tsx\\'" . tsx-ts-mode)
   :hook
   (typescript-ts-mode . lsp)
-  (tsx-ts-mode . lsp))
+  (tsx-ts-mode . lsp)
+  :init
+  (add-to-list 'lsp--formatting-indent-alist '(tsx-ts-mode . typescript-ts-mode-indent-offset)))
 
 (use-package lsp-javascript
   :custom
