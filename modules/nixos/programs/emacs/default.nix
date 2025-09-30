@@ -113,6 +113,7 @@ in
           elementaryPackages.${pkgs.system}.typst-ts-mode
 
           epkgs.treesit-grammars.with-all-grammars
+          epkgs.editorconfig
           epkgs.general
           epkgs.undo-tree
           epkgs.ace-window

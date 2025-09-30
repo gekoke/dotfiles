@@ -7,6 +7,11 @@
 
 (setq-default tab-width 4)
 
+(use-package editorconfig
+  :ensure t
+  :init
+  (editorconfig-mode))
+
 (use-package time
   :init
   (display-time-mode)
