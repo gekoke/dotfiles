@@ -107,6 +107,8 @@ in
           (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
 
           (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
+
+          (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
         '';
         extraPackages = epkgs: [
           elementaryPackages.${pkgs.system}.miasma-theme
