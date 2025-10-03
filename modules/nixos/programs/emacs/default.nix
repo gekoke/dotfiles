@@ -66,8 +66,6 @@ in
       pkgs.yaml-language-server
       # HTML, CSS, JSON, Eslint
       pkgs.vscode-langservers-extracted
-      # HTML, CSS (emmet)
-      pkgs.emmet-language-server
       # Tailwind CSS
       pkgs.nodejs
       # Python
