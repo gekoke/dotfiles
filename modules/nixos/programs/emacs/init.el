@@ -303,7 +303,6 @@
 
 (setq custom-safe-themes t)
 (use-package doom-themes)
-(use-package vscode-dark-plus-theme)
 (use-package ef-themes)
 (use-package gruvbox-theme)
 (use-package modus-themes)
