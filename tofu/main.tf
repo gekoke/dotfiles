@@ -21,9 +21,5 @@ terraform {
       source  = "kislerdm/neon"
       version = "~>0.9"
     }
-    tls = {
-      source  = "hashicorp/tls"
-      version = "~>4.1"
-    }
   }
 }
