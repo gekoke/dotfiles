@@ -5,7 +5,7 @@ let
     hydrogen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPNSy7ATWtt3KTv7UrEl3DAuL+iixSSF5xuGnJBAkaoG geko@hydrogen";
   };
   vms = {
-    neon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINc2W3jYUt55YbVipae62HMpiWWZ+w1MW7PbQV2o2nhl root@neon";
+    neon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2YlDRnXSrMX69w4QR0bKJwiDtQpaur3pJAOtEwizHY root@neon";
   };
   rest = {
     githubActions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtVRXCKspH+2rOE3d8bgPbkViwLlzfezfs9FW0waUoK github_actions";
