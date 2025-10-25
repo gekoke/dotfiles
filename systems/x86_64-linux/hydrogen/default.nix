@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   lib,
@@ -50,6 +51,12 @@ in
     };
 
     services.gpg-agent.pinentry.package = pkgs.pinentry;
+  };
+
+  age.secrets."linkace.env".file = ./../../../secrets/linkace.env.age;
+  services.linkace = {
+    enable = true;
+    environmentFile = config.age.secrets."linkace.env".path;
   };
 
   time.timeZone = "Europe/Tallinn";

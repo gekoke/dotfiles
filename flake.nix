@@ -134,6 +134,7 @@ rec {
               ./modules/nixos/roles/workstation
               ./modules/nixos/secrets
               ./modules/nixos/security/sudo
+              ./modules/nixos/services/linkace
               ./modules/nixos/services/tzupdate
               ./modules/nixos/services/udiskie
               ./modules/nixos/stylix
