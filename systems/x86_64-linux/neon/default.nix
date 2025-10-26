@@ -11,6 +11,7 @@
   ];
 
   nix.gc.automatic = true;
+  nix.settings.experimental-features = "nix-command flakes";
 
   boot.loader.grub = {
     efiSupport = true;
