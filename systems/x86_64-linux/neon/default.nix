@@ -27,6 +27,8 @@
     443
   ];
 
+  virtualisation.docker.autoPrune.enable = true;
+
   services = {
     openssh.enable = true;
     nginx =
