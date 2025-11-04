@@ -26,23 +26,15 @@ resource "cloudflare_dns_record" "siege_a" {
 resource "cloudflare_dns_record" "root_website" {
   type    = "CNAME"
   name    = "grigorjan.net"
-  content = "gekoke.github.io"
+  content = "www.grigorjan.net"
   ttl     = 1
   zone_id = local.grigorjan_net_zone_id
 }
 
 resource "cloudflare_dns_record" "www_website" {
-  type    = "CNAME"
+  type    = "A"
   name    = "www.grigorjan.net"
-  content = "gekoke.github.io"
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
-}
-
-resource "cloudflare_dns_record" "github_pages_challenge" {
-  type    = "TXT"
-  name    = "_github-pages-challenge-gekoke.grigorjan.net"
-  content = "\"58f1b8d27a8c74074eee8d2296fe9b\""
+  content = hcloud_server.neon.ipv4_address
   ttl     = 1
   zone_id = local.grigorjan_net_zone_id
 }

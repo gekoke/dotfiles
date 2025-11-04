@@ -56,6 +56,8 @@ rec {
     emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
+
+    website.url = "github:gekoke/website";
   };
 
   outputs =
@@ -161,7 +163,7 @@ rec {
             };
             neon = lib.nixosSystem {
               system = "x86_64-linux";
-              modules = commonModules ++ [ ./systems/x86_64-linux/neon ];
+              modules = commonModules ++ [ (wire ./systems/x86_64-linux/neon) ];
               inherit specialArgs;
             };
             silicon = lib.nixosSystem {

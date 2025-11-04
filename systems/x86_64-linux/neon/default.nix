@@ -1,5 +1,10 @@
 {
+  website,
+  ...
+}:
+{
   config,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -53,6 +58,13 @@
           };
           "linkace.grigorjan.net" = https // {
             locations."/".proxyPass = "http://127.0.0.1:${builtins.toString config.services.linkace.port}";
+          };
+          "www.grigorjan.net" = https // {
+            serverAliases = [ "grigorjan.net" ];
+            root = "${website.packages.${pkgs.system}.default}/public";
+            extraConfig = ''
+              error_page 404 /404.html;
+            '';
           };
         };
     };
