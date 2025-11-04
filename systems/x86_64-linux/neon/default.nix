@@ -31,13 +31,22 @@
 
   services = {
     openssh.enable = true;
-    nginx =
-      let
-        https = {
-          enableACME = true;
-          forceSSL = true;
-        };
-        virtualHosts = {
+    linkace = {
+      enable = true;
+      environmentFile = config.age.secrets."linkace.env".path;
+    };
+    nginx = {
+      enable = true;
+      recommendedTlsSettings = true;
+      recommendedProxySettings = true;
+      virtualHosts =
+        let
+          https = {
+            enableACME = true;
+            forceSSL = true;
+          };
+        in
+        {
           "siege.grigorjan.net" = https // {
             globalRedirect = "docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
             redirectCode = 302;
@@ -46,16 +55,6 @@
             locations."/".proxyPass = "http://127.0.0.1:${builtins.toString config.services.linkace.port}";
           };
         };
-      in
-      {
-        enable = true;
-        recommendedTlsSettings = true;
-        recommendedProxySettings = true;
-        inherit virtualHosts;
-      };
-    linkace = {
-      enable = true;
-      environmentFile = config.age.secrets."linkace.env".path;
     };
   };
 
