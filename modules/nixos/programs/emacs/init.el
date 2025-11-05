@@ -535,7 +535,7 @@
   :general
   (gg/leader
     "L o" #'link-hint-open-link
-    "L y" #'link-hint-copy-link))
+    "L c" #'link-hint-copy-link))
 
 (use-package pdf-tools
   :init
