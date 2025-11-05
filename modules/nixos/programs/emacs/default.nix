@@ -24,7 +24,7 @@ in
     enable = mkEnableOption "GNU Emacs";
     package = mkOption {
       type = package;
-      default = pkgs.emacs30;
+      default = pkgs.emacs;
     };
   };
 
