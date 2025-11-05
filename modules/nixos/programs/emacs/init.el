@@ -809,6 +809,10 @@
     "A" #'projectile-find-other-file))
 
 (use-package consult-projectile
+  :after (projectile eyebrowse)
+  :init
+  (advice-add 'consult-projectile-switch-project :after #'(lambda ()
+                                                            (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) (projectile-project-name))))
   :general
   (gg/leader
     "SPC" #'consult-projectile
