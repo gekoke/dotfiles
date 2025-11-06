@@ -28,16 +28,12 @@ in
       backend = "docker";
       containers.linkace =
         let
-          image =
-            assert pkgs.system == "x86_64-linux";
-            pkgs.dockerTools.pullImage {
-              imageName = "linkace/linkace";
-              finalImageName = "pullimage/linkace/linkace";
-              imageDigest = "sha256:cea6545a8fc24b9de1a8bbf4ef95bc617ea44b3179e99f7f2615a599de6a83f0";
-              sha256 = "sha256-NWOtH1QikzFsNyWUxaI0s4CVHr8fS5HeuC+CuzLhYNw=";
-              arch = "amd64";
-              os = "linux";
-            };
+          image = pkgs.dockerTools.pullImage {
+            imageName = "linkace/linkace";
+            finalImageName = "pullimage/linkace/linkace";
+            imageDigest = "sha256:cea6545a8fc24b9de1a8bbf4ef95bc617ea44b3179e99f7f2615a599de6a83f0";
+            sha256 = "sha256-NWOtH1QikzFsNyWUxaI0s4CVHr8fS5HeuC+CuzLhYNw=";
+          };
         in
         {
           image = "pullimage/linkace/linkace";
