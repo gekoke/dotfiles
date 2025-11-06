@@ -65,9 +65,9 @@ in
         }
       ];
       authentication = ''
-        host linkace linkace samenet trust
+        host linkace linkace samehost trust
       '';
-      settings.listen_addresses = lib.mkForce "*";
+      settings.listen_addresses = lib.mkForce "localhost";
     };
   };
 }
