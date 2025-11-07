@@ -61,13 +61,11 @@ in
         {
           name = "linkace";
           ensureDBOwnership = true;
-          ensureClauses.login = true;
         }
       ];
       authentication = ''
         host linkace linkace samehost trust
       '';
-      settings.listen_addresses = lib.mkForce "localhost";
     };
   };
 }
