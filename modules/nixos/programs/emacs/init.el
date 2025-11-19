@@ -811,8 +811,10 @@
 (use-package consult-projectile
   :after (projectile eyebrowse)
   :init
-  (advice-add 'consult-projectile-switch-project :after #'(lambda ()
-                                                            (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) (projectile-project-name))))
+  (defun gg/rename-window-config-to-project ()
+    (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) (projectile-project-name)))
+  :config
+  (advice-add 'consult-projectile-switch-project :after #'gg/rename-window-config-to-project)
   :general
   (gg/leader
     "SPC" #'consult-projectile
