@@ -33,6 +33,7 @@ in
     nix = {
       registry = {
         p.flake = inputs.nixpkgs;
+        u.flake = inputs.nixpkgs-unfree;
       };
       settings =
         let

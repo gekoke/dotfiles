@@ -793,6 +793,26 @@
         "type": "github"
       }
     },
+    "nixpkgs-unfree": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1755249704,
+        "narHash": "sha256-J1mqsd/gqZ32G3YOzWk9sppLbXXLEpu37hrZfRcTtdg=",
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "rev": "12d82a604d21a65df008bdb1515eecb96f9e55dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "type": "github"
+      }
+    },
     "nixpkgs_10": {
       "locked": {
         "lastModified": 1751792365,
@@ -1120,6 +1140,7 @@
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-for-emacs-packages": "nixpkgs-for-emacs-packages",
         "nixpkgs-for-opentofu": "nixpkgs-for-opentofu",
+        "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "rofi-collection": "rofi-collection",
         "snowfall-lib": "snowfall-lib",
