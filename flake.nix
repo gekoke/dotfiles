@@ -58,6 +58,9 @@ rec {
     disko.url = "github:nix-community/disko";
 
     website.url = "github:gekoke/website";
+
+    caelestia-shell.url = "github:caelestia-dots/shell";
+    caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -169,6 +172,14 @@ rec {
             silicon = lib.nixosSystem {
               system = "x86_64-linux";
               modules = commonModules ++ [ ./systems/x86_64-linux/silicon ];
+              inherit specialArgs;
+            };
+            caelestiavm = lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = [
+                inputs.home-manager.nixosModules.home-manager
+                ./systems/x86_64-linux/caelestiavm
+              ];
               inherit specialArgs;
             };
           };
