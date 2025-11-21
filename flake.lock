@@ -735,22 +735,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-for-playwright": {
-      "locked": {
-        "lastModified": 1750940636,
-        "narHash": "sha256-AbL82GzRUHQpqfrogrylvTXbm/fT37xZ5Ftj2B755Z0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "df6ad2118bd2d7855a42c11bdf02e84f96924715",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "df6ad2118bd2d7855a42c11bdf02e84f96924715",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1743296961,
@@ -1136,7 +1120,6 @@
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-for-emacs-packages": "nixpkgs-for-emacs-packages",
         "nixpkgs-for-opentofu": "nixpkgs-for-opentofu",
-        "nixpkgs-for-playwright": "nixpkgs-for-playwright",
         "nur": "nur",
         "rofi-collection": "rofi-collection",
         "snowfall-lib": "snowfall-lib",

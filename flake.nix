@@ -21,7 +21,6 @@ rec {
 
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-for-playwright.url = "github:nixos/nixpkgs?ref=df6ad2118bd2d7855a42c11bdf02e84f96924715";
 
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
