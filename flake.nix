@@ -42,6 +42,9 @@ rec {
 
     hyprland-contrib.url = "github:hyprwm/contrib";
 
+    caelestia-shell.url = "github:caelestia-dots/shell";
+    caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:danth/stylix";
 
     rofi-collection.url = "github:adi1090x/rofi";

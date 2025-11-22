@@ -3,6 +3,7 @@
   lib,
   pkgs,
   options,
+  inputs,
   ...
 }:
 
@@ -26,14 +27,19 @@ in
     # Fixes bugs I guess? https://github.com/NixOS/nixpkgs/issues/160923
     xdg.portal.xdgOpenUsePortal = true;
 
-    elementary = {
-      services.udiskie = enabled;
+    services.upower.enable = true;
 
-      desktop = {
-        hyprland.extraHomeManagerOptions = {
+    elementary = {
+      services.udiskie.enable = true;
+      home.extraOptions.wayland.windowManager.hyprland =
+        mkAliasDefinitions options.elementary.desktop.hyprland.extraHomeManagerOptions;
+    };
+
+    home-manager = {
+      sharedModules = [ inputs.caelestia-shell.homeManagerModules.default ];
+      users.${config.elementary.user.name} = {
+        wayland.windowManager.hyprland = {
           enable = true;
-          package = null;
-          portalPackage = null;
           extraConfig =
             let
               applyVibrance = ''
@@ -42,33 +48,22 @@ in
             in
             builtins.readFile ./hyprland.conf + applyVibrance;
         };
-        addons = {
-          waybar = enabled // {
-            hyprlandSupport = true;
+
+        programs.caelestia = {
+          enable = true;
+          settings = {
+            paths.wallpaperDir = "${inputs.self.packages.${pkgs.system}.wallpapers}/result/share/wallpapers";
           };
-          rofi = enabled;
-          dunst = enabled;
-          wlogout = enabled;
-          avizo = enabled;
-          unclutter = enabled;
-          swaylock = enabled;
-          clipboard = enabled;
-          keyring = enabled;
-          screenshot = enabled // {
-            hyprlandSupport = true;
-          };
-          cursor = enabled;
+          cli.enable = true;
+        };
+
+        home.sessionVariables = {
+          MOZ_ENABLE_WAYLAND = 1;
+          WLR_NO_HARDWARE_CURSORS = 1;
+          # FIXME: remove when https://github.com/nix-community/home-manager/issues/4486 is fixed
+          NIXOS_OZONE_WL = 1;
         };
       };
-
-      home.sessionVariables = {
-        MOZ_ENABLE_WAYLAND = 1;
-        WLR_NO_HARDWARE_CURSORS = 1;
-        # FIXME: remove when https://github.com/nix-community/home-manager/issues/4486 is fixed
-        NIXOS_OZONE_WL = 1;
-      };
-      home.extraOptions.wayland.windowManager.hyprland =
-        mkAliasDefinitions options.elementary.desktop.hyprland.extraHomeManagerOptions;
     };
   };
 }
