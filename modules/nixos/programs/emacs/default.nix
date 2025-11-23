@@ -40,6 +40,9 @@ in
         iosevka-term
         jetbrains-mono
         ;
+      inherit (pkgs)
+        noto-fonts-emoji
+        ;
     };
 
     elementary.home.packages = [

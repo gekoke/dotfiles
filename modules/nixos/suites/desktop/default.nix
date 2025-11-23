@@ -12,11 +12,9 @@ in
 
   config = mkIf cfg.enable {
     elementary = {
-      desktop.hyprland = enabled;
+      desktop.niri = enabled;
 
-      programs.kitty = enabled // {
-        enableHotkey = true;
-      };
+      programs.kitty = enabled;
 
       hardware = {
         filesystems = enabled;
@@ -24,7 +22,6 @@ in
         audio = enabled;
       };
 
-      system.keyboard = enabled;
       services.tzupdate = enabled;
     };
   };

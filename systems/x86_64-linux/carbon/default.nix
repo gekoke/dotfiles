@@ -25,6 +25,7 @@
       pkgs.discord
       pkgs.qbittorrent
       pkgs.mpv
+      pkgs.spotify
     ];
     programs.git.signing.key = "1E9AFDF3275F99EE";
   };

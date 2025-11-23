@@ -41,15 +41,14 @@ rec {
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprland-contrib.url = "github:hyprwm/contrib";
+    niri-flake.url = "github:sodiboo/niri-flake";
 
-    stylix.url = "github:danth/stylix";
+    dgop.url = "github:AvengeMedia/dgop";
+    dgop.inputs.nixpkgs.follows = "nixpkgs";
 
-    rofi-collection.url = "github:adi1090x/rofi";
-    rofi-collection.flake = false;
-
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+    dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
+    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
+    dank-material-shell.inputs.dgop.follows = "dgop";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
@@ -82,6 +81,7 @@ rec {
               "discord"
               "nvidia-settings"
               "nvidia-x11"
+              "spotify"
               "steam-unwrapped"
               "terraform"
             ];
@@ -109,30 +109,15 @@ rec {
               }
               (wire ./modules/nixos/programs/emacs)
               (wire ./modules/nixos/programs/firefox)
-              (wire ./modules/nixos/stylix/stylesheets/main)
-              ./modules/nixos/desktop/addons/avizo
-              ./modules/nixos/desktop/addons/clipboard
-              ./modules/nixos/desktop/addons/cursor
-              ./modules/nixos/desktop/addons/dunst
-              ./modules/nixos/desktop/addons/keyring
-              ./modules/nixos/desktop/addons/rofi
-              ./modules/nixos/desktop/addons/screenshot
-              ./modules/nixos/desktop/addons/swaylock
-              ./modules/nixos/desktop/addons/unclutter
-              ./modules/nixos/desktop/addons/waybar
-              ./modules/nixos/desktop/addons/wlogout
-              ./modules/nixos/desktop/hyprland
+              ./modules/nixos/desktop/niri
               ./modules/nixos/hardware/audio
               ./modules/nixos/hardware/filesystems
               ./modules/nixos/hardware/networking
               ./modules/nixos/hardware/nvidia
               ./modules/nixos/home
               ./modules/nixos/nix
-              ./modules/nixos/programs/alacritty
               ./modules/nixos/programs/direnv
               ./modules/nixos/programs/kitty
-              ./modules/nixos/programs/nwg-displays
-              ./modules/nixos/programs/spotify
               ./modules/nixos/programs/ssh
               ./modules/nixos/roles/workstation
               ./modules/nixos/secrets
@@ -140,15 +125,12 @@ rec {
               ./modules/nixos/services/linkace
               ./modules/nixos/services/tzupdate
               ./modules/nixos/services/udiskie
-              ./modules/nixos/stylix
               ./modules/nixos/suites/desktop
               ./modules/nixos/system/boot
-              ./modules/nixos/system/keyboard
               ./modules/nixos/user
               ./modules/nixos/user/shell/nushell
               ./modules/nixos/user/shell/zsh
               ./modules/nixos/virtualisation/docker
-              ./modules/nixos/virtualisation/kvm
             ];
           in
           {
