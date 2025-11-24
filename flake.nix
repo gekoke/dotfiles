@@ -17,8 +17,6 @@ rec {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-for-emacs-packages.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
