@@ -75,15 +75,6 @@ rec {
       flake = {
         nixosConfigurations =
           let
-            allowedUnfreePackages = [
-              "discord"
-              "nvidia-settings"
-              "nvidia-x11"
-              "spotify"
-              "steam-unwrapped"
-              "terraform"
-            ];
-
             dependencies = inputs // {
               elementaryPackages = inputs.self.packages;
               nurPackages = inputs.nur.legacyPackages;
@@ -96,7 +87,7 @@ rec {
               {
                 nix.settings = nixConfig;
 
-                nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowedUnfreePackages;
+                nixpkgs.config.allowUnfree = true;
 
                 home-manager.sharedModules = [
                   ./modules/home/accounts/geko/default.nix
