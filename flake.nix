@@ -73,9 +73,12 @@ rec {
       ];
 
       flake = {
+        lib = import ./lib { inherit (inputs.nixpkgs) lib; };
+
         nixosConfigurations =
           let
             dependencies = inputs // {
+              inherit (inputs) self;
               elementaryPackages = inputs.self.packages;
               nurPackages = inputs.nur.legacyPackages;
             };

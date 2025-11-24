@@ -30,6 +30,17 @@ lib.extend (
 
       # Avoid overflow triggering an evaluation error
       I64_MAX = (pow 2 62) - 1 + (pow 2 62);
+
+      cat =
+        let
+          inherit (builtins) readFile;
+          inherit (lib) pipe concatLines;
+        in
+        paths:
+        pipe paths [
+          (map readFile)
+          concatLines
+        ];
     };
   }
 )

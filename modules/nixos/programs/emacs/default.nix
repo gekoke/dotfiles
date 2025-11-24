@@ -2,6 +2,7 @@
   elementaryPackages,
   agenix,
   emacs-lsp-booster,
+  self,
   ...
 }:
 {
@@ -11,10 +12,13 @@
   ...
 }:
 let
-  inherit (lib) mkEnableOption mkOption mkIf;
+  inherit (self.lib.elementary) cat;
+  inherit (lib)
+    mkEnableOption
+    mkOption
+    mkIf
+    ;
   inherit (lib.types) package;
-  inherit (lib) concatStringsSep;
-  inherit (builtins) readFile;
   cfg = config.elementary.programs.emacs;
 in
 {
@@ -205,14 +209,10 @@ in
       };
       file = {
         ".emacs.d/init.el".source = ./init.el;
-        ".emacs.d/early-init.el".text =
-          let
-            earlyInitText = concatStringsSep "\n" [
-              (readFile ./early-init.el)
-              (readFile ./early-init-pgtk-fixes.el)
-            ];
-          in
-          earlyInitText;
+        ".emacs.d/early-init.el".text = cat [
+          ./early-init.el
+          ./early-init-pgtk-fixes.el
+        ];
       };
     };
 
