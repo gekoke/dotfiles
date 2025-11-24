@@ -1,14 +1,9 @@
 {
-  elementaryPackages,
-  agenix,
-  emacs-lsp-booster,
-  self,
-  ...
-}:
-{
   config,
   lib,
   pkgs,
+  inputs,
+  self,
   ...
 }:
 let
@@ -22,7 +17,7 @@ let
   cfg = config.elementary.programs.emacs;
 in
 {
-  imports = [ agenix.nixosModules.default ];
+  imports = [ inputs.agenix.nixosModules.default ];
 
   options.elementary.programs.emacs = {
     enable = mkEnableOption "GNU Emacs";
@@ -63,7 +58,7 @@ in
       # consult
       pkgs.ripgrep
       # LSP
-      emacs-lsp-booster.packages.${pkgs.system}.default
+      inputs.emacs-lsp-booster.packages.${pkgs.system}.default
       # lsp-nix
       pkgs.nil
       pkgs.nixfmt-rfc-style
@@ -116,8 +111,8 @@ in
           (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
         '';
         extraPackages = epkgs: [
-          elementaryPackages.${pkgs.system}.miasma-theme
-          elementaryPackages.${pkgs.system}.typst-ts-mode
+          self.packages.${pkgs.system}.miasma-theme
+          self.packages.${pkgs.system}.typst-ts-mode
 
           epkgs.treesit-grammars.with-all-grammars
           epkgs.editorconfig
