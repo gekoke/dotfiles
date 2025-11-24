@@ -44,12 +44,11 @@ with lib.elementary;
 
       programs = mkAliasDefinitions options.elementary.home.programs;
       services = mkAliasDefinitions options.elementary.home.services;
-
-      nixpkgs.config.allowUnfree = true;
     };
 
     home-manager = {
       useUserPackages = true;
+      useGlobalPkgs = true;
 
       users.${config.elementary.user.name} = mkAliasDefinitions options.elementary.home.extraOptions;
     };
