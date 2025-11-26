@@ -949,6 +949,26 @@
         "type": "github"
       }
     },
+    "noshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717396029,
+        "narHash": "sha256-NPIhvnTYkJZqTY+aabbZ6CAaMAgG6IISvh7GZo1MTfQ=",
+        "owner": "viperML",
+        "repo": "noshell",
+        "rev": "4d194d838a50ea106cd0e47c024e47afc154ab42",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "noshell",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -1029,6 +1049,7 @@
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-for-opentofu": "nixpkgs-for-opentofu",
         "nixpkgs-unfree": "nixpkgs-unfree",
+        "noshell": "noshell",
         "nur": "nur",
         "snowfall-lib": "snowfall-lib",
         "systems": "systems_3",

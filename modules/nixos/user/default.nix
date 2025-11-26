@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   ...
 }:
 with lib;
@@ -9,6 +10,8 @@ let
   cfg = config.elementary.user;
 in
 {
+  imports = [ inputs.noshell.nixosModules.default ];
+
   options.elementary.user = with types; {
     enable = mkEnableOption "default user";
     name = mkOpt str "geko" "The name to use for the user account";
@@ -16,12 +19,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs.noshell.enable = true;
     elementary = {
       home.extraOptions.xdg.userDirs = enabled // {
         createDirectories = true;
       };
-
-      user.shell.zsh.enable = true;
     };
 
     users.users.${cfg.name} = {

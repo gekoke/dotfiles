@@ -24,6 +24,10 @@ in
           gpg.enable = true;
         };
       };
+      programs.zsh = {
+        enable = true;
+        elementary.config.enable = true;
+      };
       services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
       home.packages = [
         # pinentry-gnome3

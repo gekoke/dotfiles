@@ -1,13 +1,16 @@
 {
-  lib,
+  inputs,
   ...
 }:
+let
+  inherit (inputs.nixpkgs) lib;
+in
 lib.extend (
   _final: prev:
   let
     inherit (prev) mkOption;
   in
-  {
+  rec {
     elementary = rec {
       mkOpt =
         type: default: description:
@@ -42,5 +45,27 @@ lib.extend (
           concatLines
         ];
     };
+
+    # Gradual migration
+    inherit (elementary) I64_MAX;
+
+    mkModule =
+      modulePath:
+      (
+        # NOTE: home-manager *requires* modules to specify named arguments or it will not
+        # pass values in. For this reason we must specify things like `pkgs` as a named attribute.
+        # Thanks Jake Hamilton!
+        # https://github.com/snowfallorg/lib/blob/02d941739f98a09e81f3d2d9b3ab08918958beac/snowfall-lib/module/default.nix#L42
+        moduleArgs@{ pkgs, ... }:
+        let
+          dependencies = {
+            inherit inputs;
+            inherit (inputs) self;
+          };
+          module = import modulePath;
+          moduleArgsInjected = moduleArgs // { inherit pkgs; } // dependencies;
+        in
+        module moduleArgsInjected
+      );
   }
 )

@@ -39,6 +39,9 @@ rec {
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    noshell.url = "github:viperML/noshell";
+    noshell.inputs.nixpkgs.follows = "nixpkgs";
+
     niri-flake.url = "github:sodiboo/niri-flake";
 
     dgop.url = "github:AvengeMedia/dgop";
@@ -59,9 +62,9 @@ rec {
   };
 
   outputs =
-    inputs:
+    { self, ... }@inputs:
     let
-      lib = import ./lib { inherit (inputs.nixpkgs) lib; };
+      inherit (self) lib;
       inherit (inputs.flake-parts.lib) mkFlake importApply;
     in
     mkFlake { inherit inputs; } {
@@ -73,32 +76,16 @@ rec {
       ];
 
       flake = {
-        lib = import ./lib { inherit (inputs.nixpkgs) lib; };
+        lib = import ./lib { inherit inputs; };
 
-        nixosModules =
-          let
-            mkModule =
-              modulePath:
-              (
-                # NOTE: home-manager *requires* modules to specify named arguments or it will not
-                # pass values in. For this reason we must specify things like `pkgs` as a named attribute.
-                # Thanks Jake Hamilton!
-                # https://github.com/snowfallorg/lib/blob/02d941739f98a09e81f3d2d9b3ab08918958beac/snowfall-lib/module/default.nix#L42
-                moduleArgs@{ pkgs, ... }:
-                let
-                  dependencies = {
-                    inherit inputs;
-                    inherit (inputs) self;
-                  };
-                  module = import modulePath;
-                  moduleArgsInjected = moduleArgs // { inherit pkgs; } // dependencies;
-                in
-                module moduleArgsInjected
-              );
-          in
-          {
-            "programs.emacs" = mkModule ./modules/nixos/programs/emacs;
-          };
+        nixosModules = {
+          "programs.emacs" = lib.mkModule ./modules/nixos/programs/emacs;
+          "elementary.user" = lib.mkModule ./modules/nixos/user;
+        };
+
+        homeModules = {
+          "programs.noshell" = lib.mkModule ./modules/home/programs/noshell;
+        };
 
         nixosConfigurations =
           let
@@ -122,9 +109,11 @@ rec {
                   ./modules/home/cli-tools/default.nix
                   ./modules/home/programs/git/default.nix
                   ./modules/home/programs/gpg/default.nix
+                  (lib.mkModule ./modules/home/programs/zsh/default.nix)
                 ];
               }
               inputs.self.nixosModules."programs.emacs"
+              inputs.self.nixosModules."elementary.user"
               (wire ./modules/nixos/programs/firefox)
               ./modules/nixos/desktop/niri
               ./modules/nixos/hardware/audio
@@ -144,9 +133,7 @@ rec {
               ./modules/nixos/services/udiskie
               ./modules/nixos/suites/desktop
               ./modules/nixos/system/boot
-              ./modules/nixos/user
               ./modules/nixos/user/shell/nushell
-              ./modules/nixos/user/shell/zsh
               ./modules/nixos/virtualisation/docker
             ];
           in

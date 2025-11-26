@@ -35,6 +35,11 @@ in
       };
     };
 
+    programs.zsh = {
+      enable = true;
+      elementary.config.enable = true;
+    };
+
     home = {
       packages = [
         pkgs.azure-cli
