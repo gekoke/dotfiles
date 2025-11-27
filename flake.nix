@@ -158,7 +158,7 @@ rec {
               system = "x86_64-linux";
               modules = commonModules ++ [
                 { networking.hostName = lib.mkDefault "neon"; }
-                (wire ./systems/x86_64-linux/neon)
+                (lib.mkModule ./systems/x86_64-linux/neon)
               ];
               inherit specialArgs;
             };

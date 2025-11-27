@@ -1,10 +1,7 @@
 {
-  website,
-  ...
-}:
-{
   config,
   pkgs,
+  inputs,
   modulesPath,
   ...
 }:
@@ -61,7 +58,7 @@
           };
           "www.grigorjan.net" = https // {
             serverAliases = [ "grigorjan.net" ];
-            root = "${website.packages.${pkgs.system}.default}/public";
+            root = "${inputs.website.packages.${pkgs.system}.default}/public";
             extraConfig = ''
               error_page 404 /404.html;
             '';
