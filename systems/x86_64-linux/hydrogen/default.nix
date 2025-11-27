@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  self,
   ...
 }:
 let
@@ -25,28 +26,37 @@ in
     wslConf.user.default = "geko";
   };
 
-  home-manager.users.geko = {
-    elementary = {
-      accounts.geko.enable = true;
-      cli-tools.enable = true;
-      programs = {
-        git.enable = true;
-        gpg.enable = true;
+  home-manager = {
+    sharedModules = [ self.homeModules."programs.zsh" ];
+
+    users.geko = {
+      elementary = {
+        accounts.geko.enable = true;
+        cli-tools.enable = true;
+        programs = {
+          git.enable = true;
+          gpg.enable = true;
+        };
       };
-    };
 
-    home = {
-      packages = [
-        pkgs.powershell
-      ];
-
-      shellAliases = {
-        "cb" = "clip.exe";
-        "cbo" = "powershell.exe Get-ClipBoard";
+      programs.zsh = {
+        enable = true;
+        elementary.config.enable = true;
       };
-    };
 
-    services.gpg-agent.pinentry.package = pkgs.pinentry;
+      home = {
+        packages = [
+          pkgs.powershell
+        ];
+
+        shellAliases = {
+          "cb" = "clip.exe";
+          "cbo" = "powershell.exe Get-ClipBoard";
+        };
+      };
+
+      services.gpg-agent.pinentry.package = pkgs.pinentry;
+    };
   };
 
   time.timeZone = "Europe/Tallinn";

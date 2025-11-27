@@ -85,6 +85,7 @@ rec {
 
         homeModules = {
           "programs.noshell" = lib.mkModule ./modules/home/programs/noshell;
+          "programs.zsh" = lib.mkModule ./modules/home/programs/zsh;
         };
 
         nixosConfigurations =
@@ -109,7 +110,7 @@ rec {
                   ./modules/home/cli-tools/default.nix
                   ./modules/home/programs/git/default.nix
                   ./modules/home/programs/gpg/default.nix
-                  (lib.mkModule ./modules/home/programs/zsh/default.nix)
+                  self.homeModules."programs.zsh"
                 ];
               }
               inputs.self.nixosModules."programs.emacs"
@@ -150,7 +151,7 @@ rec {
               system = "x86_64-linux";
               modules = commonModules ++ [
                 { networking.hostName = lib.mkDefault "hydrogen"; }
-                ./systems/x86_64-linux/hydrogen
+                (lib.mkModule ./systems/x86_64-linux/hydrogen)
               ];
               inherit specialArgs;
             };
