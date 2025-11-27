@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  self,
   ...
 }:
 
@@ -16,23 +17,26 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.geko = {
-      elementary = {
-        cli-tools.enable = true;
-        programs = {
-          git.enable = true;
-          gpg.enable = true;
+    home-manager = {
+      sharedModules = [ self.homeModules."programs.zsh" ];
+      users.geko = {
+        elementary = {
+          cli-tools.enable = true;
+          programs = {
+            git.enable = true;
+            gpg.enable = true;
+          };
         };
+        programs.zsh = {
+          enable = true;
+          elementary.config.enable = true;
+        };
+        services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
+        home.packages = [
+          # pinentry-gnome3
+          pkgs.gcr
+        ];
       };
-      programs.zsh = {
-        enable = true;
-        elementary.config.enable = true;
-      };
-      services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
-      home.packages = [
-        # pinentry-gnome3
-        pkgs.gcr
-      ];
     };
 
     elementary = {

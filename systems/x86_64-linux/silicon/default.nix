@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  self,
   ...
 }:
 let
@@ -25,37 +26,41 @@ in
     wslConf.user.default = "geko";
   };
 
-  home-manager.users.geko = {
-    elementary = {
-      accounts.geko.enable = true;
-      cli-tools.enable = true;
-      programs = {
-        git.enable = true;
-        gpg.enable = true;
+  home-manager = {
+    sharedModules = [ self.homeModules."programs.zsh" ];
+
+    users.geko = {
+      elementary = {
+        accounts.geko.enable = true;
+        cli-tools.enable = true;
+        programs = {
+          git.enable = true;
+          gpg.enable = true;
+        };
       };
-    };
 
-    programs.zsh = {
-      enable = true;
-      elementary.config.enable = true;
-    };
-
-    home = {
-      packages = [
-        pkgs.azure-cli
-        pkgs.bun
-        pkgs.powershell
-      ];
-
-      shellAliases = {
-        "cb" = "clip.exe";
-        "cbo" = "powershell.exe Get-ClipBoard";
+      programs.zsh = {
+        enable = true;
+        elementary.config.enable = true;
       };
+
+      home = {
+        packages = [
+          pkgs.azure-cli
+          pkgs.bun
+          pkgs.powershell
+        ];
+
+        shellAliases = {
+          "cb" = "clip.exe";
+          "cbo" = "powershell.exe Get-ClipBoard";
+        };
+      };
+
+      services.gpg-agent.pinentry.package = pkgs.pinentry;
+
+      programs.git.userEmail = lib.mkForce "gregor.grigorjan@gamesglobal.com";
     };
-
-    services.gpg-agent.pinentry.package = pkgs.pinentry;
-
-    programs.git.userEmail = lib.mkForce "gregor.grigorjan@gamesglobal.com";
   };
 
   networking.firewall.allowedTCPPorts = [

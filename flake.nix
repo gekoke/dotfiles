@@ -110,7 +110,6 @@ rec {
                   ./modules/home/cli-tools/default.nix
                   ./modules/home/programs/git/default.nix
                   ./modules/home/programs/gpg/default.nix
-                  self.homeModules."programs.zsh"
                 ];
               }
               inputs.self.nixosModules."programs.emacs"
@@ -126,7 +125,6 @@ rec {
               ./modules/nixos/programs/direnv
               ./modules/nixos/programs/kitty
               ./modules/nixos/programs/ssh
-              ./modules/nixos/roles/workstation
               ./modules/nixos/secrets
               ./modules/nixos/security/sudo
               ./modules/nixos/services/linkace
@@ -136,6 +134,7 @@ rec {
               ./modules/nixos/system/boot
               ./modules/nixos/user/shell/nushell
               ./modules/nixos/virtualisation/docker
+              (lib.mkModule ./modules/nixos/roles/workstation)
             ];
           in
           {
@@ -167,7 +166,7 @@ rec {
               system = "x86_64-linux";
               modules = commonModules ++ [
                 { networking.hostName = lib.mkDefault "silicon"; }
-                ./systems/x86_64-linux/silicon
+                (lib.mkModule ./systems/x86_64-linux/silicon)
               ];
               inherit specialArgs;
             };
