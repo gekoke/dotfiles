@@ -23,10 +23,7 @@ in
   wsl = {
     enable = true;
     defaultUser = "geko";
-    wslConf = {
-      user.default = "geko";
-      network.hostname = "hydrogen";
-    };
+    wslConf.user.default = "geko";
   };
 
   home-manager.users.geko = {
