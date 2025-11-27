@@ -141,7 +141,7 @@ rec {
             carbon = lib.nixosSystem {
               system = "x86_64-linux";
               modules = commonModules ++ [
-                { networking.hostName = "carbon"; }
+                { networking.hostName = lib.mkDefault "carbon"; }
                 ./systems/x86_64-linux/carbon
               ];
               inherit specialArgs;
@@ -149,7 +149,7 @@ rec {
             hydrogen = lib.nixosSystem {
               system = "x86_64-linux";
               modules = commonModules ++ [
-                { networking.hostName = "hydrogen"; }
+                { networking.hostName = lib.mkDefault "hydrogen"; }
                 ./systems/x86_64-linux/hydrogen
               ];
               inherit specialArgs;
@@ -157,7 +157,7 @@ rec {
             neon = lib.nixosSystem {
               system = "x86_64-linux";
               modules = commonModules ++ [
-                { networking.hostName = "neon"; }
+                { networking.hostName = lib.mkDefault "neon"; }
                 (wire ./systems/x86_64-linux/neon)
               ];
               inherit specialArgs;
@@ -165,7 +165,7 @@ rec {
             silicon = lib.nixosSystem {
               system = "x86_64-linux";
               modules = commonModules ++ [
-                { networking.hostName = "silicon"; }
+                { networking.hostName = lib.mkDefault "silicon"; }
                 ./systems/x86_64-linux/silicon
               ];
               inherit specialArgs;
