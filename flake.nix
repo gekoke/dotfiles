@@ -65,7 +65,7 @@ rec {
     { self, ... }@inputs:
     let
       inherit (self) lib;
-      inherit (inputs.flake-parts.lib) mkFlake importApply;
+      inherit (inputs.flake-parts.lib) mkFlake;
     in
     mkFlake { inherit inputs; } {
       systems = import inputs.systems;
@@ -90,13 +90,6 @@ rec {
 
         nixosConfigurations =
           let
-            dependencies = inputs // {
-              inherit (inputs) self;
-              elementaryPackages = inputs.self.packages;
-              nurPackages = inputs.nur.legacyPackages;
-            };
-            wire = path: importApply path dependencies;
-
             specialArgs = { inherit inputs; };
 
             commonModules = [
@@ -112,9 +105,8 @@ rec {
                   ./modules/home/programs/gpg/default.nix
                 ];
               }
-              inputs.self.nixosModules."programs.emacs"
-              inputs.self.nixosModules."elementary.user"
-              (wire ./modules/nixos/programs/firefox)
+              (lib.mkModule ./modules/nixos/programs/firefox)
+              (lib.mkModule ./modules/nixos/roles/workstation)
               ./modules/nixos/desktop/niri
               ./modules/nixos/hardware/audio
               ./modules/nixos/hardware/filesystems
@@ -134,7 +126,8 @@ rec {
               ./modules/nixos/system/boot
               ./modules/nixos/user/shell/nushell
               ./modules/nixos/virtualisation/docker
-              (lib.mkModule ./modules/nixos/roles/workstation)
+              inputs.self.nixosModules."elementary.user"
+              inputs.self.nixosModules."programs.emacs"
             ];
           in
           {
