@@ -26,7 +26,7 @@ in
       clean = {
         enable = true;
         dates = "daily";
-        extraArgs = "--nogcroots";
+        extraArgs = "--no-gcroots";
       };
     };
 
