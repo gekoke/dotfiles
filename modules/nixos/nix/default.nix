@@ -26,7 +26,7 @@ in
       clean = {
         enable = true;
         dates = "daily";
-        extraArgs = "--no-gcroots";
+        extraArgs = "--no-gcroots --keep-since 1w --keep 10 --optimise";
       };
     };
 
