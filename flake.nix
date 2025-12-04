@@ -1,12 +1,14 @@
 rec {
   nixConfig = {
     extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://gekoke-dotfiles.cachix.org"
+      "https://nix-community.cachix.org?priority=41"
+      "https://gekoke-dotfiles.cachix.org?priority=42"
+      "https://niri.cachix.org?priority=43"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "gekoke-dotfiles.cachix.org-1:mED8HYGwRLMcDvi54a/Qxl5LshQtOXRt3rlXHw4GkDw="
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
     ];
   };
 
