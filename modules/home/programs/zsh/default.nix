@@ -36,11 +36,6 @@ in
           size = I64_MAX; # In memory
           save = I64_MAX; # Saved to file
         };
-        # Must come before fzf to not conflict with fzf's keybinds
-        initContent = lib.mkBefore ''
-          ZVM_INIT_MODE=sourcing
-          . ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-        '';
       };
       eza = {
         enable = true;
