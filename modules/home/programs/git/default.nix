@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -14,7 +13,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.git-absorb ];
     programs.git = {
       enable = true;
       signing = {
