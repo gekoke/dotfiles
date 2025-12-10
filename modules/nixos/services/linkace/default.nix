@@ -31,8 +31,8 @@ in
           image = pkgs.dockerTools.pullImage {
             imageName = "linkace/linkace";
             finalImageName = "pullimage/linkace/linkace";
-            imageDigest = "sha256:cea6545a8fc24b9de1a8bbf4ef95bc617ea44b3179e99f7f2615a599de6a83f0";
-            sha256 = "sha256-NWOtH1QikzFsNyWUxaI0s4CVHr8fS5HeuC+CuzLhYNw=";
+            imageDigest = "sha256:4cd65ce9d9d57976b6ef4414747388833d0f8d02860287da4aa6bea2e0fffc1f";
+            sha256 = "sha256-4XetV/qbP2QaduU+p7JwBKMdeUTt5hcpUFTtQu+P9aU=";
           };
         in
         {
