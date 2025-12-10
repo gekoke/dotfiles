@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.elementary.cli-tools;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) hiPrio mkEnableOption mkIf;
 in
 {
   options.elementary.cli-tools = {
@@ -22,8 +22,8 @@ in
 
       packages = [
         # keep-sorted start
-        (lib.hiPrio pkgs.parallel-full) # `pkgs.moreutils` provides `parallel` binary as well
-        (lib.mkIf osConfig.virtualisation.docker.enable pkgs.docker-compose)
+        (hiPrio pkgs.parallel-full) # `pkgs.moreutils` provides `parallel` binary as well
+        (mkIf osConfig.virtualisation.docker.enable pkgs.docker-compose)
         pkgs.bat
         pkgs.btop
         pkgs.dig
