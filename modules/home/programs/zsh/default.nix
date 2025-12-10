@@ -19,7 +19,7 @@ in
     enable = mkEnableOption "Elementary zsh shell configuration";
   };
 
-  config = mkIf (cfg.enable && config.programs.zsh.enable) {
+  config = mkIf cfg.enable {
     home.packages = [ pkgs.trash-cli ];
 
     programs = {
