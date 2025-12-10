@@ -68,9 +68,6 @@ in
     home = enabled;
     user = enabled;
     secrets = enabled;
-    security = {
-      sudo = enabled;
-    };
     programs = {
       ssh = enabled;
       emacs = enabled;

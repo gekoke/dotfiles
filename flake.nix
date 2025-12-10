@@ -99,7 +99,6 @@ rec {
               ./modules/nixos/programs/kitty
               ./modules/nixos/programs/ssh
               ./modules/nixos/secrets
-              ./modules/nixos/security/sudo
               ./modules/nixos/services/linkace
               ./modules/nixos/services/tzupdate
               ./modules/nixos/services/udiskie

@@ -17,6 +17,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    security.sudo.wheelNeedsPassword = false;
+
     home-manager = {
       sharedModules = [ self.homeModules."programs.zsh" ];
       users.geko = {
@@ -45,9 +47,6 @@ in
       user = enabled;
       suites = {
         desktop = enabled;
-      };
-      security = {
-        sudo = enabled;
       };
       programs = {
         ssh = enabled;
