@@ -125,7 +125,6 @@ rec {
               ./modules/nixos/suites/desktop
               ./modules/nixos/system/boot
               ./modules/nixos/user/shell/nushell
-              ./modules/nixos/virtualisation/docker
               inputs.self.nixosModules."elementary.user"
               inputs.self.nixosModules."programs.emacs"
             ];

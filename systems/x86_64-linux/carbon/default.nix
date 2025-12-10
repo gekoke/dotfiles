@@ -12,12 +12,13 @@
     ++ [ ./hardware-configuration.nix ];
 
   elementary = {
-    virtualisation.docker.enable = true;
     hardware.nvidia.enable = true;
     roles.workstation.enable = true;
     secrets.enable = true;
     programs.emacs.package = pkgs.emacs30-pgtk;
   };
+
+  virtualisation.docker.enable = true;
 
   home-manager.users.geko = {
     elementary.accounts.geko.enable = true;

@@ -69,8 +69,9 @@ in
 
   time.timeZone = "Europe/Tallinn";
 
+  virtualisation.docker.enable = true;
+
   elementary = {
-    virtualisation.docker.enable = true;
     nix = enabled;
     home = enabled;
     user = enabled;

@@ -32,7 +32,15 @@ in
       initialPassword = "password";
       createHome = true;
       group = "users";
-      extraGroups = [ "wheel" ] ++ cfg.extraGroups;
+      extraGroups =
+        let
+          allGroups = lib.attrNames config.users.groups;
+          groupsIfExist = lib.intersectLists allGroups [
+            "docker"
+            "wheel"
+          ];
+        in
+        groupsIfExist ++ cfg.extraGroups;
     };
   };
 }

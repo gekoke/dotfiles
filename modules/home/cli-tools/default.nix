@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  osConfig,
   ...
 }:
 let
@@ -23,6 +24,7 @@ in
         pkgs.bat
         pkgs.btop
         pkgs.dig
+        (lib.mkIf osConfig.virtualisation.docker.enable pkgs.docker-compose)
         pkgs.dos2unix
         pkgs.efibootmgr
         pkgs.exfat

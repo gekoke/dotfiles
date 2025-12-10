@@ -116,6 +116,7 @@ in
 
           epkgs.treesit-grammars.with-all-grammars
           epkgs.editorconfig
+          epkgs.docker
           epkgs.general
           epkgs.undo-tree
           epkgs.ace-window
