@@ -37,8 +37,6 @@ rec {
     noshell.inputs.nixpkgs.follows = "nixpkgs";
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
-    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
-    snowfall-lib.url = "github:snowfallorg/lib";
     systems.url = "github:nix-systems/default";
     website.url = "github:gekoke/website";
     # keep-sorted end
