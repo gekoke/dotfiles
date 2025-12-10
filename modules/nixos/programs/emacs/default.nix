@@ -45,58 +45,60 @@ in
     };
 
     elementary.home.packages = [
-      # jinx
-      pkgs.hunspellDicts.en_US
-      # dirvish
-      pkgs.fd
-      pkgs.vips
-      pkgs.ffmpegthumbnailer
-      pkgs.mediainfo
-      pkgs.gnutar
-      pkgs.unzip
-      pkgs.poppler-utils # PDF preview
-      # consult
-      pkgs.ripgrep
+      # keep-sorted start block=yes
       # LSP
       inputs.emacs-lsp-booster.packages.${pkgs.system}.default
-      # lsp-nix
-      pkgs.nil
-      pkgs.nixfmt-rfc-style
       # age
       pkgs.age
-      # YAML
-      pkgs.yaml-language-server
-      # HTML, CSS, JSON, Eslint
-      pkgs.vscode-langservers-extracted
-      # Tailwind CSS
-      pkgs.nodejs
-      # Python
-      pkgs.pyright
-      pkgs.ruff
-      # Java
-      pkgs.jdk23
-      pkgs.jdt-language-server
-      # JavaScript/TypeScript
-      pkgs.nodePackages.typescript
-      pkgs.nodePackages.typescript-language-server
-      # CSharp
-      pkgs.omnisharp-roslyn
-      # Rust
-      pkgs.rust-analyzer
-      pkgs.rustc
       pkgs.cargo
-      pkgs.rustfmt
       pkgs.clippy
+      # dirvish
+      pkgs.fd
+      pkgs.ffmpegthumbnailer
+      pkgs.gnutar
       # Go
       pkgs.go
       pkgs.gopls
-      # Typst
-      pkgs.tinymist
+      # jinx
+      pkgs.hunspellDicts.en_US
+      # Java
+      pkgs.jdk23
+      pkgs.jdt-language-server
+      pkgs.mediainfo
+      # lsp-nix
+      pkgs.nil
+      pkgs.nixfmt-rfc-style
+      # JavaScript/TypeScript
+      pkgs.nodePackages.typescript
+      pkgs.nodePackages.typescript-language-server
+      # Tailwind CSS
+      pkgs.nodejs
+      # CSharp
+      pkgs.omnisharp-roslyn
+      pkgs.poppler-utils # PDF preview
+      # Powershell
+      pkgs.powershell
+      # Python
+      pkgs.pyright
+      # consult
+      pkgs.ripgrep
+      pkgs.ruff
+      # Rust
+      pkgs.rust-analyzer
+      pkgs.rustc
+      pkgs.rustfmt
       # Tofu
       pkgs.terraform # for terraform fmt
       pkgs.terraform-ls
-      # Powershell
-      pkgs.powershell
+      # Typst
+      pkgs.tinymist
+      pkgs.unzip
+      pkgs.vips
+      # HTML, CSS, JSON, Eslint
+      pkgs.vscode-langservers-extracted
+      # YAML
+      pkgs.yaml-language-server
+      # keep-sorted end
     ];
 
     elementary.home = {
@@ -111,96 +113,95 @@ in
           (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
         '';
         extraPackages = epkgs: [
-          self.packages.${pkgs.system}.miasma-theme
-          self.packages.${pkgs.system}.typst-ts-mode
-
-          epkgs.treesit-grammars.with-all-grammars
-          epkgs.editorconfig
-          epkgs.docker
-          epkgs.general
-          epkgs.undo-tree
-          epkgs.ace-window
-          epkgs.eyebrowse
-          epkgs.indent-bars
-          epkgs.jinx
-          epkgs.nerd-icons
-          epkgs.package-lint
-          epkgs.doom-modeline
-          epkgs.nyan-mode
-          epkgs.dashboard
-          epkgs.doom-themes
-          epkgs.ef-themes
-          epkgs.gruvbox-theme
-          epkgs.modus-themes
-          epkgs.catppuccin-theme
-          epkgs.remember-last-theme
-          epkgs.ligature
-          epkgs.rainbow-delimiters
-          epkgs.olivetti
-          epkgs.which-key
-          epkgs.rg
-          epkgs.wgrep
-          epkgs.embark
-          epkgs.vertico
-          epkgs.marginalia
-          epkgs.nerd-icons-completion
-          epkgs.orderless
-          epkgs.consult
-          epkgs.embark-consult
-          epkgs.helpful
-          epkgs.evil
-          epkgs.evil-collection
-          epkgs.evil-anzu
-          epkgs.evil-numbers
-          epkgs.evil-surround
-          epkgs.evil-matchit
-          epkgs.evil-mc
-          epkgs.evil-textobj-tree-sitter
-          epkgs.link-hint
-          epkgs.pdf-tools
-          epkgs.dirvish
-          epkgs.dired-gitignore
-          epkgs.diredfl
-          epkgs.cape
-          epkgs.corfu
-          epkgs.emacs
-          epkgs.nerd-icons-corfu
-          epkgs.vterm
-          epkgs.vterm-toggle
-          epkgs.magit
-          epkgs.magit-todos
-          epkgs.forge
-          epkgs.diff-hl
-          epkgs.hl-todo
-          epkgs.projectile
-          epkgs.consult-projectile
-          epkgs.envrc
-          epkgs.flycheck
-          epkgs.treesit-auto
-          epkgs.yasnippet
+          # keep-sorted start block=yes
           (epkgs.lsp-mode.overrideAttrs (_: {
             env.LSP_USE_PLISTS = "true";
           }))
-          epkgs.lsp-ui
-          epkgs.consult-lsp
-          epkgs.nix-ts-mode
-          epkgs.lsp-pyright
-          epkgs.python
-          epkgs.lsp-java
-          epkgs.rustic
-          epkgs.markdown-mode
-          epkgs.web-mode
-          epkgs.emacs
-          epkgs.emacs
-          epkgs.yaml-mode
-          epkgs.terraform-mode
-          epkgs.feature-mode
-          epkgs.typst-ts-mode
-          epkgs.lsp-tailwindcss
-          epkgs.powershell
+          epkgs.ace-window
           epkgs.age
+          epkgs.cape
+          epkgs.catppuccin-theme
+          epkgs.consult
+          epkgs.consult-lsp
+          epkgs.consult-projectile
+          epkgs.corfu
+          epkgs.dashboard
+          epkgs.diff-hl
+          epkgs.dired-gitignore
+          epkgs.diredfl
+          epkgs.dirvish
+          epkgs.docker
+          epkgs.doom-modeline
+          epkgs.doom-themes
+          epkgs.editorconfig
+          epkgs.ef-themes
+          epkgs.emacs
+          epkgs.embark
+          epkgs.embark-consult
+          epkgs.envrc
+          epkgs.evil
+          epkgs.evil-anzu
+          epkgs.evil-collection
+          epkgs.evil-matchit
+          epkgs.evil-mc
+          epkgs.evil-numbers
+          epkgs.evil-surround
+          epkgs.evil-textobj-tree-sitter
+          epkgs.eyebrowse
+          epkgs.feature-mode
+          epkgs.flycheck
+          epkgs.forge
+          epkgs.general
+          epkgs.gruvbox-theme
           epkgs.hackernews
+          epkgs.helpful
+          epkgs.hl-todo
+          epkgs.indent-bars
+          epkgs.jinx
+          epkgs.ligature
+          epkgs.link-hint
+          epkgs.lsp-java
+          epkgs.lsp-pyright
+          epkgs.lsp-tailwindcss
+          epkgs.lsp-ui
+          epkgs.magit
+          epkgs.magit-todos
+          epkgs.marginalia
+          epkgs.markdown-mode
+          epkgs.modus-themes
+          epkgs.nerd-icons
+          epkgs.nerd-icons-completion
+          epkgs.nerd-icons-corfu
+          epkgs.nix-ts-mode
+          epkgs.nyan-mode
+          epkgs.olivetti
+          epkgs.orderless
+          epkgs.package-lint
+          epkgs.pdf-tools
+          epkgs.powershell
+          epkgs.projectile
+          epkgs.python
+          epkgs.rainbow-delimiters
+          epkgs.remember-last-theme
+          epkgs.rg
+          epkgs.rustic
           epkgs.sideline-blame
+          epkgs.terraform-mode
+          epkgs.treesit-auto
+          epkgs.treesit-grammars.with-all-grammars
+          epkgs.typst-ts-mode
+          epkgs.undo-tree
+          epkgs.vertico
+          epkgs.vterm
+          epkgs.vterm-toggle
+          epkgs.web-mode
+          epkgs.wgrep
+          epkgs.which-key
+          epkgs.yaml-mode
+          epkgs.yasnippet
+          self.packages.${pkgs.system}.miasma-theme
+          self.packages.${pkgs.system}.typst-ts-mode
+          # keep-sorted end
         ];
       };
       file = {

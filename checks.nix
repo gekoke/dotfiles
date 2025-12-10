@@ -10,30 +10,15 @@
 
         settings = {
           excludes = [
-            "systems/.*/.*/hardware-configuration.nix"
             ".direnv/.*"
+            "systems/.*/.*/hardware-configuration.nix"
           ];
           hooks = {
-            nixfmt-rfc-style.enable = true;
+            # TODO: use treefmt for these instead, and run treefmt with git-hooks.nix
+            # keep-sorted start block=yes
             deadnix = {
               enable = true;
               settings.edit = true;
-            };
-            statix = {
-              enable = true;
-              settings.ignore = [ "tofu/.terraform/**" ];
-            };
-            tofu-fmt = {
-              enable = true;
-              name = "tofu-fmt";
-              entry = "${lib.getExe pkgs.opentofu} fmt ./tofu";
-              pass_filenames = false;
-            };
-            tflint = {
-              enable = true;
-              name = "tflint";
-              entry = "${lib.getExe pkgs.tflint} --chdir ./tofu --disable-rule=terraform_required_providers --disable-rule=terraform_required_version";
-              pass_filenames = false;
             };
             gitleaks = {
               enable = true;
@@ -41,6 +26,25 @@
               entry = "${lib.getExe pkgs.gitleaks} protect --verbose --redact --staged";
               pass_filenames = false;
             };
+            keep-sorted.enable = true;
+            nixfmt-rfc-style.enable = true;
+            statix = {
+              enable = true;
+              settings.ignore = [ "tofu/.terraform/**" ];
+            };
+            tflint = {
+              enable = true;
+              name = "tflint";
+              entry = "${lib.getExe pkgs.tflint} --chdir ./tofu --disable-rule=terraform_required_providers --disable-rule=terraform_required_version";
+              pass_filenames = false;
+            };
+            tofu-fmt = {
+              enable = true;
+              name = "tofu-fmt";
+              entry = "${lib.getExe pkgs.opentofu} fmt ./tofu";
+              pass_filenames = false;
+            };
+            # keep-sorted end
           };
         };
       };

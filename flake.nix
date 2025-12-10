@@ -13,52 +13,35 @@ rec {
   };
 
   inputs = {
-    systems.url = "github:nix-systems/default";
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
-    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
-
-    snowfall-lib.url = "github:snowfallorg/lib";
-    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
-    nix-pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-
-    agenix.url = "github:ryantm/agenix";
-
+    # keep-sorted start
     agenix-shell.url = "github:aciceri/agenix-shell";
-
-    nur.url = "github:nix-community/NUR";
-
-    home-manager.url = "github:nix-community/home-manager";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    noshell.url = "github:viperML/noshell";
-    noshell.inputs.nixpkgs.follows = "nixpkgs";
-
-    niri-flake.url = "github:sodiboo/niri-flake";
-
-    dgop.url = "github:AvengeMedia/dgop";
-    dgop.inputs.nixpkgs.follows = "nixpkgs";
-
-    dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
-    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
     dank-material-shell.inputs.dgop.follows = "dgop";
-
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-
-    emacs-lsp-booster.url = "github:slotThe/emacs-lsp-booster-flake";
-    emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
-
+    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
+    dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
+    dgop.inputs.nixpkgs.follows = "nixpkgs";
+    dgop.url = "github:AvengeMedia/dgop";
     disko.url = "github:nix-community/disko";
-
+    emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
+    emacs-lsp-booster.url = "github:slotThe/emacs-lsp-booster-flake";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    home-manager.url = "github:nix-community/home-manager";
+    niri-flake.url = "github:sodiboo/niri-flake";
+    nix-pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    noshell.inputs.nixpkgs.follows = "nixpkgs";
+    noshell.url = "github:viperML/noshell";
+    nur.url = "github:nix-community/NUR";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
+    snowfall-lib.url = "github:snowfallorg/lib";
+    systems.url = "github:nix-systems/default";
     website.url = "github:gekoke/website";
+    # keep-sorted end
   };
 
   outputs =
