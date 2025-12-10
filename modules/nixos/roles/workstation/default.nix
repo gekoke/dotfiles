@@ -20,18 +20,26 @@ in
     security.sudo.wheelNeedsPassword = false;
 
     home-manager = {
-      sharedModules = [ self.homeModules."programs.zsh" ];
+      sharedModules = [
+        self.homeModules."programs.git"
+        self.homeModules."programs.zsh"
+      ];
       users.geko = {
         elementary = {
           cli-tools.enable = true;
           programs = {
-            git.enable = true;
             gpg.enable = true;
           };
         };
-        programs.zsh = {
-          enable = true;
-          elementary.config.enable = true;
+        programs = {
+          git = {
+            enable = true;
+            elementary.config.enable = true;
+          };
+          zsh = {
+            enable = true;
+            elementary.config.enable = true;
+          };
         };
         services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
         home.packages = [

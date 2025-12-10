@@ -27,20 +27,23 @@ in
   };
 
   home-manager = {
-    sharedModules = [ self.homeModules."programs.zsh" ];
+    sharedModules = [
+      self.homeModules."programs.git"
+      self.homeModules."programs.zsh"
+    ];
 
     users.geko = {
       elementary = {
         accounts.geko.enable = true;
         cli-tools.enable = true;
         programs = {
-          git.enable = true;
           gpg.enable = true;
         };
       };
 
       programs.git = {
         enable = true;
+        elementary.config.enable = true;
         includes = [
           {
             condition = "gitdir:~/Work/";

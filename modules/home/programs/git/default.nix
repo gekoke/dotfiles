@@ -4,20 +4,17 @@
   ...
 }:
 let
-  cfg = config.elementary.programs.git;
+  cfg = config.programs.git.elementary.config;
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.elementary.programs.git = {
-    enable = mkEnableOption "git version control";
+  options.programs.git.elementary.config = {
+    enable = mkEnableOption "Elementary git configuration";
   };
 
   config = mkIf cfg.enable {
     programs.git = {
-      enable = true;
-      signing = {
-        signByDefault = true;
-      };
+      signing.signByDefault = true;
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;

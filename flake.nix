@@ -60,13 +60,18 @@ rec {
         lib = import ./lib { inherit inputs; };
 
         nixosModules = {
-          "programs.emacs" = lib.mkModule ./modules/nixos/programs/emacs;
+          # keep-sorted start block=yes
           "elementary.user" = lib.mkModule ./modules/nixos/user;
+          "programs.emacs" = lib.mkModule ./modules/nixos/programs/emacs;
+          # keep-sorted end
         };
 
         homeModules = {
+          # keep-sorted start block=yes
+          "programs.git" = lib.mkModule ./modules/home/programs/git;
           "programs.noshell" = lib.mkModule ./modules/home/programs/noshell;
           "programs.zsh" = lib.mkModule ./modules/home/programs/zsh;
+          # keep-sorted end
         };
 
         nixosConfigurations =
@@ -82,7 +87,6 @@ rec {
                 home-manager.sharedModules = [
                   ./modules/home/accounts/geko/default.nix
                   ./modules/home/cli-tools/default.nix
-                  ./modules/home/programs/git/default.nix
                   ./modules/home/programs/gpg/default.nix
                 ];
               }
