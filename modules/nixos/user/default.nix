@@ -15,7 +15,6 @@ in
   options.elementary.user = with types; {
     enable = mkEnableOption "default user";
     name = mkOpt str "geko" "The name to use for the user account";
-    extraGroups = mkOpt (listOf str) [ ] "Groups for the user to be assigned to";
   };
 
   config = mkIf cfg.enable {
@@ -32,15 +31,13 @@ in
       initialPassword = "password";
       createHome = true;
       group = "users";
-      extraGroups =
-        let
-          allGroups = lib.attrNames config.users.groups;
-          groupsIfExist = lib.intersectLists allGroups [
-            "docker"
-            "wheel"
-          ];
-        in
-        groupsIfExist ++ cfg.extraGroups;
+      extraGroups = lib.intersectLists (lib.attrNames config.users.groups) [
+        # keep-sorted start
+        "docker"
+        "networkmanager"
+        "wheel"
+        # keep-sorted end
+      ];
     };
   };
 }

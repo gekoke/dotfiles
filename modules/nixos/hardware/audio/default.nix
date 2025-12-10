@@ -29,9 +29,6 @@ in
 
     services.pulseaudio.enable = lib.mkForce false;
 
-    elementary = {
-      home.packages = [ pkgs.pavucontrol ];
-      user.extraGroups = [ "audio" ];
-    };
+    elementary.home.packages = [ pkgs.pavucontrol ];
   };
 }

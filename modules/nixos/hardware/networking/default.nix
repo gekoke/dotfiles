@@ -15,7 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    elementary.user.extraGroups = [ "networkmanager" ];
     networking.networkmanager.enable = true;
   };
 }
