@@ -39,16 +39,30 @@ in
         };
       };
 
+      programs.git = {
+        enable = true;
+        includes = [
+          {
+            condition = "gitdir:~/Work/";
+            contents.user.email = "gregor.grigorjan@gamesglobal.com";
+          }
+        ];
+      };
+
       programs.zsh = {
         enable = true;
         elementary.config.enable = true;
       };
 
       home = {
+        file."Work/.home-manager-keepdir".text = "";
+
         packages = [
+          # keep-sorted start block=yes
           pkgs.azure-cli
           pkgs.bun
           pkgs.powershell
+          # keep-sorted end
         ];
 
         shellAliases = {
@@ -58,8 +72,6 @@ in
       };
 
       services.gpg-agent.pinentry.package = pkgs.pinentry;
-
-      programs.git.userEmail = lib.mkForce "gregor.grigorjan@gamesglobal.com";
     };
   };
 
