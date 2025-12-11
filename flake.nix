@@ -38,6 +38,7 @@ rec {
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
     systems.url = "github:nix-systems/default";
+    # TODO: move `inputs.website` and `inputs.resume` in-tree?
     website.url = "github:gekoke/website";
     # keep-sorted end
   };
