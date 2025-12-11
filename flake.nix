@@ -16,13 +16,9 @@ rec {
     # keep-sorted start
     agenix-shell.url = "github:aciceri/agenix-shell";
     agenix.url = "github:ryantm/agenix";
-    dank-material-shell.inputs.dgop.follows = "dgop";
-    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
-    dgop.inputs.nixpkgs.follows = "nixpkgs";
     dgop.url = "github:AvengeMedia/dgop";
     disko.url = "github:nix-community/disko";
-    emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
     emacs-lsp-booster.url = "github:slotThe/emacs-lsp-booster-flake";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.url = "github:nix-community/home-manager";
@@ -31,15 +27,21 @@ rec {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    noshell.inputs.nixpkgs.follows = "nixpkgs";
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
     systems.url = "github:nix-systems/default";
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
     website.url = "github:gekoke/website";
+    # keep-sorted end
+    # keep-sorted start
+    dank-material-shell.inputs.dgop.follows = "dgop";
+    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
+    dgop.inputs.nixpkgs.follows = "nixpkgs";
+    emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
+    noshell.inputs.nixpkgs.follows = "nixpkgs";
     # keep-sorted end
   };
 
