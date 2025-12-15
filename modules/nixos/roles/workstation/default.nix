@@ -9,10 +9,10 @@
 with lib;
 with lib.elementary;
 let
-  cfg = config.elementary.roles.workstation;
+  cfg = config.roles.workstation;
 in
 {
-  options.elementary.roles.workstation = with types; {
+  options.roles.workstation = with types; {
     enable = mkEnableOption "the workstation role";
   };
 

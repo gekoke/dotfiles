@@ -11,9 +11,10 @@
     }
     ++ [ ./hardware-configuration.nix ];
 
+  roles.workstation.enable = true;
+
   elementary = {
     hardware.nvidia.enable = true;
-    roles.workstation.enable = true;
     secrets.enable = true;
     programs.emacs.package = pkgs.emacs30-pgtk;
   };
