@@ -4,12 +4,12 @@
   ...
 }:
 let
-  cfg = config.elementary.programs.gpg;
+  cfg = config.programs.gpg.elementary.config;
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.elementary.programs.gpg = {
-    enable = mkEnableOption "gpg-agent configuration";
+  options.programs.gpg.elementary.config = {
+    enable = mkEnableOption "Elementary GPG configuration";
   };
 
   config = mkIf cfg.enable {

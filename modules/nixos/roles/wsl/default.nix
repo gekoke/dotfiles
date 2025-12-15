@@ -1,8 +1,9 @@
 {
-  inputs,
   config,
-  pkgs,
+  inputs,
   lib,
+  pkgs,
+  self,
   ...
 }:
 let
@@ -18,13 +19,16 @@ let
 in
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     inputs.nixos-wsl.nixosModules.default
+    self.nixosModules."constants"
   ];
 
   options.roles.wsl = {
     enable = mkEnableOption "the WSL role";
     defaultUser = mkOption {
       type = str;
+      default = config.constants.default.user.name;
     };
     forUsers = mkOption {
       type = listOf str;

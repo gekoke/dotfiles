@@ -62,10 +62,14 @@ lib.extend (
             inherit inputs;
             inherit (inputs) self;
           };
-          module = import modulePath;
           moduleArgsInjected = moduleArgs // { inherit pkgs; } // dependencies;
         in
-        module moduleArgsInjected
+        # `key` is needed for deduplication
+        # See https://github.com/NixOS/nixpkgs/issues/340361
+        (import modulePath moduleArgsInjected)
+        // {
+          key = "gekoke/dotfiles/" + "49d77c99-18c4-4138-8d17-466e36ae85b2" + modulePath;
+        }
       );
   }
 )

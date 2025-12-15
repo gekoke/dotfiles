@@ -6,19 +6,17 @@
   ...
 }:
 let
-  cfg = config.elementary.cli-tools;
+  cfg = config.cliTools;
   inherit (lib) hiPrio mkEnableOption mkIf;
 in
 {
-  options.elementary.cli-tools = {
+  options.cliTools = {
     enable = mkEnableOption "CLI tools";
   };
 
   config = mkIf cfg.enable {
     home = {
-      file = {
-        ".parallel/will-cite".text = "";
-      };
+      file.".parallel/will-cite".text = "";
 
       packages = [
         # keep-sorted start

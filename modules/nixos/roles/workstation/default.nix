@@ -1,19 +1,32 @@
 {
+  inputs,
   config,
   lib,
-  pkgs,
   self,
   ...
 }:
-
-with lib;
-with lib.elementary;
 let
   cfg = config.roles.workstation;
+  inherit (lib)
+    genAttrs
+    mkEnableOption
+    mkIf
+    mkOption
+    ;
+  inherit (lib.types) listOf str;
 in
 {
-  options.roles.workstation = with types; {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    self.nixosModules."constants"
+  ];
+
+  options.roles.workstation = {
     enable = mkEnableOption "the workstation role";
+    forUsers = mkOption {
+      type = listOf str;
+      default = [ config.constants.default.user.name ];
+    };
   };
 
   config = mkIf cfg.enable {
@@ -21,48 +34,54 @@ in
 
     home-manager = {
       sharedModules = [
+        self.homeModules."cliTools"
+        self.homeModules."identities.geko"
         self.homeModules."programs.git"
+        self.homeModules."programs.gpg"
+        self.homeModules."programs.nh"
         self.homeModules."programs.zsh"
       ];
-      users.geko = {
-        elementary = {
-          cli-tools.enable = true;
-          programs = {
-            gpg.enable = true;
-          };
-        };
+
+      users = genAttrs cfg.forUsers (_: {
+        cliTools.enable = true;
+        identities.geko.enable = true;
+
         programs = {
+          gpg = {
+            enable = true;
+            elementary.config.enable = true;
+          };
+
           git = {
             enable = true;
             elementary.config.enable = true;
           };
+
           zsh = {
             enable = true;
             elementary.config.enable = true;
           };
+
+          nh.elementary.config.enable = true;
         };
-        services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
-        home.packages = [
-          # pinentry-gnome3
-          pkgs.gcr
-        ];
-      };
+      });
     };
 
+    virtualisation.docker.enable = true;
+
     elementary = {
-      nix = enabled;
-      home = enabled;
-      user = enabled;
-      suites = {
-        desktop = enabled;
+      nix.enable = true;
+      home.enable = true;
+      user = {
+        enable = true;
+        inherit (config.constants.default.user) name;
       };
+      secrets.enable = true;
       programs = {
-        ssh = enabled;
-        emacs = enabled;
-        firefox = enabled;
-        direnv = enabled;
+        ssh.enable = true;
+        emacs.enable = true;
+        direnv.enable = true;
       };
-      system.boot = enabled;
     };
   };
 }

@@ -64,15 +64,23 @@ rec {
 
         nixosModules = {
           # keep-sorted start block=yes
+          "constants" = lib.mkModule ./modules/nixos/constants;
           "elementary.user" = lib.mkModule ./modules/nixos/user;
           "programs.emacs" = lib.mkModule ./modules/nixos/programs/emacs;
+          "roles.graphical" = lib.mkModule ./modules/nixos/roles/graphical;
+          "roles.work" = lib.mkModule ./modules/nixos/roles/work;
+          "roles.workstation" = lib.mkModule ./modules/nixos/roles/workstation;
           "roles.wsl" = lib.mkModule ./modules/nixos/roles/wsl;
           # keep-sorted end
         };
 
         homeModules = {
           # keep-sorted start block=yes
+          "cliTools" = lib.mkModule ./modules/home/cli-tools;
+          "identities.geko" = lib.mkModule ./modules/home/identities/geko;
           "programs.git" = lib.mkModule ./modules/home/programs/git;
+          "programs.gpg" = lib.mkModule ./modules/home/programs/gpg;
+          "programs.nh" = lib.mkModule ./modules/home/programs/nh;
           "programs.noshell" = lib.mkModule ./modules/home/programs/noshell;
           "programs.zsh" = lib.mkModule ./modules/home/programs/zsh;
           # keep-sorted end
@@ -87,15 +95,8 @@ rec {
                 nix.settings = nixConfig;
 
                 nixpkgs.config.allowUnfree = true;
-
-                home-manager.sharedModules = [
-                  ./modules/home/accounts/geko/default.nix
-                  ./modules/home/cli-tools/default.nix
-                  ./modules/home/programs/gpg/default.nix
-                ];
               }
               (lib.mkModule ./modules/nixos/programs/firefox)
-              (lib.mkModule ./modules/nixos/roles/workstation)
               ./modules/nixos/desktop/niri
               ./modules/nixos/hardware/audio
               ./modules/nixos/hardware/filesystems
@@ -122,7 +123,7 @@ rec {
               system = "x86_64-linux";
               modules = commonModules ++ [
                 { networking.hostName = lib.mkDefault "carbon"; }
-                ./systems/x86_64-linux/carbon
+                (lib.mkModule ./systems/x86_64-linux/carbon)
               ];
               inherit specialArgs;
             };

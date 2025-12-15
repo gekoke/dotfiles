@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  self,
+  ...
+}:
 {
   imports =
     builtins.attrValues {
@@ -9,28 +14,23 @@
         common-gpu-nvidia-nonprime
         ;
     }
-    ++ [ ./hardware-configuration.nix ];
+    ++ [
+      self.nixosModules."roles.graphical"
+      self.nixosModules."roles.workstation"
+      ./hardware-configuration.nix
+    ];
 
-  roles.workstation.enable = true;
+  roles = {
+    graphical.enable = true;
+    workstation.enable = true;
+  };
 
   elementary = {
     hardware.nvidia.enable = true;
-    secrets.enable = true;
     programs.emacs.package = pkgs.emacs30-pgtk;
   };
 
-  virtualisation.docker.enable = true;
-
-  home-manager.users.geko = {
-    elementary.accounts.geko.enable = true;
-    home.packages = [
-      pkgs.discord
-      pkgs.qbittorrent
-      pkgs.mpv
-      pkgs.spotify
-    ];
-    programs.git.signing.key = "1E9AFDF3275F99EE";
-  };
+  home-manager.users.geko.programs.git.signing.key = "1E9AFDF3275F99EE";
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
@@ -38,8 +38,6 @@
     8000
     8080
   ];
-
-  programs.nh.flake = "/home/geko/Repos/dotfiles";
 
   system.stateVersion = "25.05";
 }
