@@ -58,7 +58,7 @@ in
       };
 
       home = {
-        file."Work/.home-manager-keepdir".text = "";
+        file."Work/.hmkeep".text = "";
 
         packages = [
           # keep-sorted start block=yes
