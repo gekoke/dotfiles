@@ -1,6 +1,4 @@
 {
-  inputs,
-  pkgs,
   lib,
   self,
   ...
@@ -10,7 +8,7 @@ let
 in
 {
   imports = [
-    inputs.nixos-wsl.nixosModules.default
+    self.nixosModules."roles.wsl"
   ];
 
   system.stateVersion = "25.11";
@@ -20,10 +18,9 @@ in
     nix-ld.enable = true;
   };
 
-  wsl = {
+  roles.wsl = {
     enable = true;
     defaultUser = "geko";
-    wslConf.user.default = "geko";
   };
 
   home-manager = {
@@ -51,19 +48,6 @@ in
           elementary.config.enable = true;
         };
       };
-
-      home = {
-        packages = [
-          pkgs.powershell
-        ];
-
-        shellAliases = {
-          "cb" = "clip.exe";
-          "cbo" = "powershell.exe Get-ClipBoard";
-        };
-      };
-
-      services.gpg-agent.pinentry.package = pkgs.pinentry;
     };
   };
 

@@ -66,6 +66,7 @@ rec {
           # keep-sorted start block=yes
           "elementary.user" = lib.mkModule ./modules/nixos/user;
           "programs.emacs" = lib.mkModule ./modules/nixos/programs/emacs;
+          "roles.wsl" = lib.mkModule ./modules/nixos/roles/wsl;
           # keep-sorted end
         };
 

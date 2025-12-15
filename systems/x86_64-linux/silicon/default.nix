@@ -11,19 +11,19 @@ in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.default
+    self.nixosModules."roles.wsl"
   ];
 
   system.stateVersion = "24.11";
 
+  roles.wsl = {
+    enable = true;
+    defaultUser = "geko";
+  };
+
   programs = {
     nh.flake = "/home/geko/Repos/dotfiles";
     nix-ld.enable = true;
-  };
-
-  wsl = {
-    enable = true;
-    defaultUser = "geko";
-    wslConf.user.default = "geko";
   };
 
   home-manager = {
@@ -67,14 +67,7 @@ in
           pkgs.powershell
           # keep-sorted end
         ];
-
-        shellAliases = {
-          "cb" = "clip.exe";
-          "cbo" = "powershell.exe Get-ClipBoard";
-        };
       };
-
-      services.gpg-agent.pinentry.package = pkgs.pinentry;
     };
   };
 
