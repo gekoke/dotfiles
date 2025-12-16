@@ -65,10 +65,11 @@ lib.extend (
           moduleArgsInjected = moduleArgs // { inherit pkgs; } // dependencies;
         in
         # `key` is needed for deduplication
-        # See https://github.com/NixOS/nixpkgs/issues/340361
+        # Since the injected arguments are fixed (for a given commit of this flake),
+        # it should be sufficient to derive the key from (flake commit + `modulePath`)
         (import modulePath moduleArgsInjected)
         // {
-          key = "gekoke/dotfiles/" + "49d77c99-18c4-4138-8d17-466e36ae85b2" + modulePath;
+          key = modulePath + "-" + inputs.self.rev or inputs.self.dirtyRev;
         }
       );
   }
