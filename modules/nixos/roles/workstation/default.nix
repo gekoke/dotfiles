@@ -62,7 +62,10 @@ in
             elementary.config.enable = true;
           };
 
-          nh.elementary.config.enable = true;
+          nh = {
+            enable = true;
+            elementary.config.enable = true;
+          };
         };
       });
     };
