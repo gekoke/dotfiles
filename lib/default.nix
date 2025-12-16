@@ -49,6 +49,16 @@ lib.extend (
     # Gradual migration
     inherit (elementary) I64_MAX;
 
+    # TODO: use lib.importApply instead
+    # Currently, I don't use it since it gives the form
+    # { appliedArgs, ... }: { moduleArgs, ... }: { };
+    # which isn't compatible with my Snowfall modules,
+    # and provides worse completions with the nil LSP server,
+    # since it infers them based on the function signature.
+    # Related:
+    # - https://github.com/oxalica/nil/issues/87
+    # - https://github.com/oxalica/nil/issues/14
+    # NOTE: try nixd (https://github.com/nix-community/nixd/) instead?
     mkModule =
       modulePath:
       (
