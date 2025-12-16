@@ -31,6 +31,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs.nix-ld.enable = true;
+
     home-manager.users = genAttrs cfg.forUsers (_: {
       programs.git.includes = [
         {
