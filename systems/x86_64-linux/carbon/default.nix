@@ -32,7 +32,10 @@
 
   home-manager.users.geko.programs.git.signing.key = "1E9AFDF3275F99EE";
 
-  boot.loader.grub.gfxmodeEfi = "1920x1080";
+  boot = {
+    loader.grub.gfxmodeEfi = "1920x1080";
+    supportedFilesystems = [ "ntfs" ];
+  };
 
   networking.firewall.allowedTCPPorts = [
     8000

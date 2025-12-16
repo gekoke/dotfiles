@@ -17,7 +17,6 @@ in
       programs.kitty = enabled;
 
       hardware = {
-        filesystems = enabled;
         networking = enabled;
         audio = enabled;
       };

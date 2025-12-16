@@ -99,7 +99,6 @@ rec {
               (lib.mkModule ./modules/nixos/programs/firefox)
               ./modules/nixos/desktop/niri
               ./modules/nixos/hardware/audio
-              ./modules/nixos/hardware/filesystems
               ./modules/nixos/hardware/networking
               ./modules/nixos/hardware/nvidia
               ./modules/nixos/home
