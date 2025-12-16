@@ -66,7 +66,7 @@ in
       pkgs.jdt-language-server
       pkgs.mediainfo
       # lsp-nix
-      pkgs.nil
+      pkgs.nixd
       pkgs.nixfmt-rfc-style
       # JavaScript/TypeScript
       pkgs.nodePackages.typescript
