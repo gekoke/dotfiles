@@ -18,9 +18,9 @@ in
   config =
     let
       inherit (lib) mkIf;
-      inherit (lib.path) append;
+      inherit (lib.strings) normalizePath;
     in
     mkIf cfg.enable {
-      programs.nh.flake = append config.home.homeDirectory "Repos/dotfiles";
+      programs.nh.flake = normalizePath (config.home.homeDirectory + "/" + "Repos/dotfiles");
     };
 }
