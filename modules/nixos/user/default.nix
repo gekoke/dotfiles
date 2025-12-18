@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  self,
   ...
 }:
 with lib;
@@ -10,11 +11,14 @@ let
   cfg = config.elementary.user;
 in
 {
-  imports = [ inputs.noshell.nixosModules.default ];
+  imports = [
+    inputs.noshell.nixosModules.default
+    self.nixosModules."constants"
+  ];
 
   options.elementary.user = with types; {
     enable = mkEnableOption "default user";
-    name = mkOpt str "geko" "The name to use for the user account";
+    name = mkOpt str config.constants.default.user.name "The name to use for the user account";
   };
 
   config = mkIf cfg.enable {
