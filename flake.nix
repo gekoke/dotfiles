@@ -142,6 +142,14 @@ rec {
               ];
               inherit specialArgs;
             };
+            nitrogen = lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = commonModules ++ [
+                { networking.hostName = lib.mkDefault "nitrogen"; }
+                (lib.mkModule ./systems/x86_64-linux/nitrogen)
+              ];
+              inherit specialArgs;
+            };
             silicon = lib.nixosSystem {
               system = "x86_64-linux";
               modules = commonModules ++ [
