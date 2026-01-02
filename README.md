@@ -11,6 +11,10 @@
 
 # Development
 
+```sh
+direnv allow
+```
+
 ## Updating GitHub Actions
 
 ```sh
