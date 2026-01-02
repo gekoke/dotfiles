@@ -16,12 +16,13 @@ in
   config = lib.mkIf cfg.enable {
     elementary.home.programs.firefox = {
       enable = true;
-      package = pkgs.firefox-wayland;
+      package = pkgs.firefox;
       profiles."default" = {
         name = "Default";
         isDefault = true;
         extensions.packages = builtins.attrValues {
-          inherit (self.inputs.nur.legacyPackages.${pkgs.system}.repos.rycee.firefox-addons)
+          inherit
+            (self.inputs.nur.legacyPackages.${pkgs.stdenv.hostPlatform.system}.repos.rycee.firefox-addons)
             bitwarden
             privacy-badger
             sponsorblock

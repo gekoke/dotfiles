@@ -28,9 +28,12 @@ rec {
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # FIXME: revert to `nixos-unstable` when https://nixpkgs-tracker.ocfox.me/?pr=476148 hits `nixos-unstable`
+    # RELATED: https://github.com/NixOS/nixpkgs/pull/476148
+    nixpkgs.url = "github:nixos/nixpkgs";
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
+    omnix.url = "github:juspay/omnix";
     systems.url = "github:nix-systems/default";
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
     website.url = "github:gekoke/website";

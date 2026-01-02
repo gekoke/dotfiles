@@ -40,14 +40,14 @@ in
         jetbrains-mono
         ;
       inherit (pkgs)
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         ;
     };
 
     elementary.home.packages = [
       # keep-sorted start block=yes
       # LSP
-      inputs.emacs-lsp-booster.packages.${pkgs.system}.default
+      inputs.emacs-lsp-booster.packages.${pkgs.stdenv.hostPlatform.system}.default
       # age
       pkgs.age
       pkgs.cargo
@@ -62,7 +62,7 @@ in
       # jinx
       pkgs.hunspellDicts.en_US
       # Java
-      pkgs.jdk23
+      pkgs.jdk25
       pkgs.jdt-language-server
       pkgs.mediainfo
       # lsp-nix
@@ -199,7 +199,7 @@ in
           epkgs.which-key
           epkgs.yaml-mode
           epkgs.yasnippet
-          self.packages.${pkgs.system}.miasma-theme
+          self.packages.${pkgs.stdenv.hostPlatform.system}.miasma-theme
           # keep-sorted end
         ];
       };

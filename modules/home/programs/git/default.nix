@@ -15,7 +15,7 @@ in
   config = mkIf cfg.enable {
     programs.git = {
       signing.signByDefault = true;
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
         pull.rebase = true;
         push.autoSetupRemote = true;

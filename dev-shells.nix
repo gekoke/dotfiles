@@ -15,8 +15,8 @@
           packages = [
             # keep-sorted start
             inputs'.agenix.packages.agenix
+            inputs'.omnix.packages.omnix-cli
             pkgs.deadnix
-            pkgs.omnix
             pkgs.opentofu
             pkgs.pinact
             pkgs.prettier

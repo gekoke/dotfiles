@@ -36,6 +36,17 @@ in
           size = I64_MAX; # In memory
           save = I64_MAX; # Saved to file
         };
+
+        # You are currently using the legacy default (home directory) because `home.stateVersion` is less than "26.05".
+        # To silence this warning and lock in the current behavior, set:
+        #   programs.zsh.dotDir = config.home.homeDirectory;
+        # To adopt the new behavior (XDG config directory), set:
+        #   programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
+        #
+        # NOTE: I don't want to use that default right now, since my noshell module also wants the shell
+        # as a file at `${con;ig.xdg.configHome}/zsh` and I'm not sure renaming the filename
+        # from `zsh` to something else would be a good idea.
+        dotDir = config.home.homeDirectory;
       };
       eza = {
         enable = true;
