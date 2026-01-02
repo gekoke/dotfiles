@@ -29,12 +29,6 @@
             };
             keep-sorted.enable = true;
             nixfmt-rfc-style.enable = true;
-            pinact-check-pinned = {
-              enable = true;
-              name = "pinact-check-pinned";
-              entry = "${lib.getExe pkgs.pinact} run --check";
-              pass_filenames = false;
-            };
             prettier.enable = true;
             statix = {
               enable = true;
