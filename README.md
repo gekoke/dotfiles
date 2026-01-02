@@ -8,3 +8,12 @@
     <img alt="Built With Nix" src="https://img.shields.io/static/v1?logo=nixos&logoColor=d8dee9&label=Built%20With&labelColor=5e81ac&message=Nix&color=d8dee9&style=for-the-badge">
     <img alt="License" src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=AGPL-3.0&labelColor=74be88&color=d8dee9"/>
 </div>
+
+# Development
+
+## Updating GitHub Actions
+
+```sh
+pinact run -u
+```
+

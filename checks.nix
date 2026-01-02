@@ -28,6 +28,12 @@
             };
             keep-sorted.enable = true;
             nixfmt-rfc-style.enable = true;
+            pinact-check-pinned = {
+              enable = true;
+              name = "pinact-check-pinned";
+              entry = "${lib.getExe pkgs.pinact} run --check";
+              pass_filenames = false;
+            };
             statix = {
               enable = true;
               settings.ignore = [ "tofu/.terraform/**" ];

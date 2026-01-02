@@ -13,10 +13,13 @@
       devShells = {
         default = pkgs.mkShellNoCC {
           packages = [
+            # keep-sorted start
             inputs'.agenix.packages.agenix
             pkgs.deadnix
             pkgs.opentofu
+            pkgs.pinact
             pkgs.tflint
+            # keep-sorted end
           ];
 
           shellHook = config.pre-commit.installationScript;
