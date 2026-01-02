@@ -40,6 +40,7 @@
               enable = true;
               settings.ignore = [ "tofu/.terraform/**" ];
             };
+            terraform-format.enable = true;
             tflint = {
               enable = true;
               name = "tflint";
