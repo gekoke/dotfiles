@@ -9,24 +9,21 @@ concurrency:
   group: cd
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
-      - name: Nothing but Nix
-        uses: wimpysworld/nothing-but-nix@10c936d9e46521bf923f75458e0cbd4fa309300d # @main (latest version v6)
 
       - name: Setup Nix
         uses: ./.github/actions/setup-nix
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Build
-        run: nix develop "#default" --accept-flake-config --command om ci
+      - name: Run `nix flake check`
+        run: nix flake check -L --accept-flake-config
   deploy:
-    needs: build
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
