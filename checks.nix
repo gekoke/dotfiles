@@ -16,6 +16,7 @@
           hooks = {
             # TODO: use treefmt for these instead, and run treefmt with git-hooks.nix
             # keep-sorted start block=yes
+            actionlint.enable = true;
             deadnix = {
               enable = true;
               settings.edit = true;
