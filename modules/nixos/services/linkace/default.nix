@@ -61,10 +61,16 @@ in
         {
           name = "linkace";
           ensureDBOwnership = true;
+          ensureClauses = {
+            login = true;
+            password = "SCRAM-SHA-256$4096:7sUwTWqRn4M0oJX/zN9Y4w==$febSzasL8KtqmAYwoDdt09cQUVs6k6+xqph+5EQD0mk=:4eWX3Qsw4Foiq7Z6sJpPSCS0Xax363cZom4WdmhizFE=";
+          };
         }
       ];
       authentication = ''
-        host linkace linkace samehost trust
+        #type database    DBuser  auth-method
+        host  sameuser    all     127.0.0.1/32 scram-sha-256
+        host  sameuser    all     ::1/128 scram-sha-256
       '';
     };
   };
