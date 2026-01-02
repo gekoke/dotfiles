@@ -16,4 +16,3 @@
 ```sh
 pinact run -u
 ```
-

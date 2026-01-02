@@ -18,6 +18,7 @@
             pkgs.deadnix
             pkgs.opentofu
             pkgs.pinact
+            pkgs.prettier
             pkgs.tflint
             # keep-sorted end
           ];

@@ -34,6 +34,7 @@
               entry = "${lib.getExe pkgs.pinact} run --check";
               pass_filenames = false;
             };
+            prettier.enable = true;
             statix = {
               enable = true;
               settings.ignore = [ "tofu/.terraform/**" ];
