@@ -167,7 +167,6 @@ rec {
           packages = {
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
             miasma-theme = pkgs.callPackage ./packages/miasma-theme { };
-            typst-ts-mode = pkgs.callPackage ./packages/typst-ts-mode { };
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
           };
         };

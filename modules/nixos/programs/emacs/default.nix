@@ -200,7 +200,6 @@ in
           epkgs.yaml-mode
           epkgs.yasnippet
           self.packages.${pkgs.system}.miasma-theme
-          self.packages.${pkgs.system}.typst-ts-mode
           # keep-sorted end
         ];
       };
