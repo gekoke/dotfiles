@@ -34,6 +34,7 @@ rec {
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
     omnix.url = "github:juspay/omnix";
+    proxytunnel.url = "github:proxytunnel/proxytunnel";
     systems.url = "github:nix-systems/default";
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
     website.url = "github:gekoke/website";
@@ -45,6 +46,7 @@ rec {
     emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
     noshell.inputs.nixpkgs.follows = "nixpkgs";
+    proxytunnel.inputs.nixpkgs.follows = "nixpkgs";
     # keep-sorted end
   };
 
@@ -168,9 +170,12 @@ rec {
         { pkgs, ... }:
         {
           packages = {
+            # keep-sorted start
+            http_proxy_connect_module = pkgs.callPackage ./packages/http_proxy_connect_module { };
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
             miasma-theme = pkgs.callPackage ./packages/miasma-theme { };
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
+            # keep-sorted end
           };
         };
     };

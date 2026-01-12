@@ -41,6 +41,9 @@
       enable = true;
       recommendedTlsSettings = true;
       recommendedProxySettings = true;
+      additionalModules = [
+        inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.http_proxy_connect_module
+      ];
       virtualHosts =
         let
           https = {
@@ -61,6 +64,13 @@
             root = "${inputs.website.packages.${pkgs.stdenv.hostPlatform.system}.default}/public";
             extraConfig = ''
               error_page 404 /404.html;
+            '';
+          };
+          "neon.grigorjan.net" = https // {
+            extraConfig = ''
+              proxy_connect;
+              proxy_connect_allow 22;
+              proxy_connect_address 127.0.0.1;
             '';
           };
         };
