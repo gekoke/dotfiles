@@ -684,6 +684,21 @@
   :init
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
+;; NOTE: login with `gptel-gh-login'
+(use-package gptel
+  :ensure t
+  :custom
+  (gptel-prompt-prefix-alist '((markdown-mode . "> ")))
+  :init
+  ;; FIXME: `:custom' doesn't work
+  ;; See: https://github.com/karthink/gptel/issues/556
+  (setq gptel-model 'gpt-5
+        gptel-backend (gptel-make-gh-copilot "Copilot"))
+  :general
+  (gg/leader
+    "c b" #'gptel
+    "c m" #'gptel-menu))
+
 (use-package vterm
   :custom
   (vterm-max-scrollback 10000))
