@@ -57,7 +57,7 @@
             redirectCode = 302;
           };
           "linkace.grigorjan.net" = https // {
-            locations."/".proxyPass = "http://127.0.0.1:${builtins.toString config.services.linkace.port}";
+            locations."/".proxyPass = "http://127.0.0.1:${toString config.services.linkace.port}";
           };
           "www.grigorjan.net" = https // {
             serverAliases = [ "grigorjan.net" ];
