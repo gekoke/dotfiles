@@ -37,7 +37,6 @@ rec {
     website.url = "github:gekoke/website";
     # keep-sorted end
     # keep-sorted start
-    dank-material-shell.inputs.dgop.follows = "dgop";
     dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
     dgop.inputs.nixpkgs.follows = "nixpkgs";
     emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";

@@ -29,13 +29,13 @@ in
     };
     home-manager = {
       sharedModules = [
-        inputs.dank-material-shell.homeModules.dankMaterialShell.default
-        inputs.dank-material-shell.homeModules.dankMaterialShell.niri
+        inputs.dank-material-shell.homeModules.dank-material-shell
+        inputs.dank-material-shell.homeModules.niri
       ];
       users."${config.elementary.user.name}" = {
         programs = {
           niri.settings = import ./settings.nix;
-          dankMaterialShell = {
+          dank-material-shell = {
             enable = true;
             systemd.enable = true;
           };

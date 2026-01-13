@@ -62,16 +62,22 @@
             let
               pkgs = inputs'.nixpkgs-for-opentofu.legacyPackages;
               openTofuWithPlugins = pkgs.opentofu.withPlugins (p: [
-                p.aws
-                p.cloudflare
-                p.github
-                p.hcloud
-                p.neon
-                p.tls
+                # keep-sorted start
+                p.cloudflare_cloudflare
+                p.hashicorp_aws
+                p.hashicorp_external
+                p.hashicorp_null
+                p.hashicorp_tls
+                p.hetznercloud_hcloud
+                p.integrations_github
+                p.kislerdm_neon
+                # keep-sorted end
 
-                # nixos-anwyhere dependencies
-                p.external
-                p.null
+                # nixos-anwyhere (Git module) dependencies
+                # keep-sorted start
+                p.hashicorp_external
+                p.hashicorp_null
+                # keep-sorted end
               ]);
             in
             [ openTofuWithPlugins ];
