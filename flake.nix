@@ -31,7 +31,6 @@ rec {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
-    omnix.url = "github:juspay/omnix";
     proxytunnel.url = "github:proxytunnel/proxytunnel";
     systems.url = "github:nix-systems/default";
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
