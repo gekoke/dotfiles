@@ -42,10 +42,10 @@ in
           environmentFiles = [ cfg.environmentFile ];
 
           environment = {
-            PORT = builtins.toString cfg.port;
+            PORT = toString cfg.port;
             DB_CONNECTION = "pgsql";
             DB_HOST = "127.0.0.1";
-            DB_PORT = builtins.toString config.services.postgresql.settings.port;
+            DB_PORT = toString config.services.postgresql.settings.port;
             DB_DATABASE = "linkace";
             DB_USERNAME = "linkace";
           };
