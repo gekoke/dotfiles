@@ -91,9 +91,9 @@
 
   users.users.root.openssh.authorizedKeys.keys =
     let
-      publicKey = import ../../../public-key.nix;
+      publicKeys = import ../../../public-keys.nix;
     in
-    publicKey.ofAll.hosts ++ [ publicKey.for.githubActions ];
+    publicKeys.geko ++ publicKeys.githubActions;
 
   system.stateVersion = "25.05";
 }
