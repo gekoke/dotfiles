@@ -37,6 +37,7 @@
     linkace = {
       enable = true;
       environmentFile = config.age.secrets."linkace.env".path;
+      database.scramSha256PasswordHash = "SCRAM-SHA-256$4096:7sUwTWqRn4M0oJX/zN9Y4w==$febSzasL8KtqmAYwoDdt09cQUVs6k6+xqph+5EQD0mk=:4eWX3Qsw4Foiq7Z6sJpPSCS0Xax363cZom4WdmhizFE=";
     };
     abiopetaja = {
       enable = true;

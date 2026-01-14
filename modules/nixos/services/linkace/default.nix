@@ -16,6 +16,13 @@ in
       description = "Path to an environment file for the Linkace container";
     };
 
+    database = {
+      scramSha256PasswordHash = lib.mkOption {
+        type = lib.types.singleLineStr;
+        description = "The SCRAM-SHA-256 hashed password to use for the database";
+      };
+    };
+
     port = lib.mkOption {
       type = lib.types.port;
       default = 3000;
@@ -63,14 +70,14 @@ in
           ensureDBOwnership = true;
           ensureClauses = {
             login = true;
-            password = "SCRAM-SHA-256$4096:7sUwTWqRn4M0oJX/zN9Y4w==$febSzasL8KtqmAYwoDdt09cQUVs6k6+xqph+5EQD0mk=:4eWX3Qsw4Foiq7Z6sJpPSCS0Xax363cZom4WdmhizFE=";
+            password = cfg.database.scramSha256PasswordHash;
           };
         }
       ];
       authentication = ''
-        #type database    DBuser  auth-method
-        host  sameuser    all     127.0.0.1/32 scram-sha-256
-        host  sameuser    all     ::1/128 scram-sha-256
+        #type database   DBuser    auth-method
+        host  linkace    linkace   127.0.0.1/32 scram-sha-256
+        host  linkace    linkace   ::1/128 scram-sha-256
       '';
     };
   };
