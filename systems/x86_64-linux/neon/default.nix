@@ -10,6 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
+    inputs.abiopetaja.nixosModules.default
   ];
 
   programs.nh = {
@@ -36,6 +37,10 @@
     linkace = {
       enable = true;
       environmentFile = config.age.secrets."linkace.env".path;
+    };
+    abiopetaja = {
+      enable = true;
+      domains = [ "abiopetaja.grigorjan.net" ];
     };
     nginx = {
       enable = true;

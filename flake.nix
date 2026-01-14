@@ -14,6 +14,7 @@ rec {
 
   inputs = {
     # keep-sorted start
+    abiopetaja.url = "github:gekoke/abiopetaja";
     agenix-shell.url = "github:aciceri/agenix-shell";
     agenix.url = "github:ryantm/agenix";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
