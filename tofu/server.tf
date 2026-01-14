@@ -28,6 +28,7 @@ module "neon_deploy" {
   source                 = "github.com/nix-community/nixos-anywhere//terraform/all-in-one?ref=37cd5408a443cbba2e377d634e8b161b9a7af64f"
   nixos_system_attr      = ".#nixosConfigurations.neon.config.system.build.toplevel"
   nixos_partitioner_attr = ".#nixosConfigurations.neon.config.system.build.diskoScript"
+  build_on_remote        = true
   target_host            = hcloud_server.neon.ipv4_address
   instance_id            = hcloud_server.neon.id
 }
