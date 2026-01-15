@@ -41,6 +41,7 @@ in
             imageDigest = "sha256:2f562c1527eaa106fca6e5144cd7b0a52edc1634cbd0578826c31ca62057f6db"; # v2.4.2
             sha256 = "sha256-z/BXW23eNCNzTLYnafAeS6a9zEWJhkd1SyURM+PuVp4=";
           };
+          linkacePort = 3000;
         in
         {
           image = "pullimage/linkace/linkace";
@@ -49,15 +50,20 @@ in
           environmentFiles = [ cfg.environmentFile ];
 
           environment = {
-            PORT = toString cfg.port;
+            PORT = toString linkacePort;
             DB_CONNECTION = "pgsql";
-            DB_HOST = "127.0.0.1";
-            DB_PORT = toString config.services.postgresql.settings.port;
+            DB_HOST = "/run/postgresql";
             DB_DATABASE = "linkace";
             DB_USERNAME = "linkace";
           };
 
-          extraOptions = [ "--network=host" ];
+          volumes = [
+            "/run/postgresql:/run/postgresql"
+          ];
+
+          ports = [
+            "${toString cfg.port}:${toString linkacePort}"
+          ];
         };
     };
 
@@ -75,9 +81,7 @@ in
         }
       ];
       authentication = ''
-        #type database   DBuser    auth-method
-        host  linkace    linkace   127.0.0.1/32 scram-sha-256
-        host  linkace    linkace   ::1/128 scram-sha-256
+        local  linkace  linkace  scram-sha-256
       '';
     };
   };
