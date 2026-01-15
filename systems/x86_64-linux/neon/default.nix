@@ -34,6 +34,12 @@
 
   services = {
     openssh.enable = true;
+
+    postgresqlBackup = {
+      enable = true;
+      compression = "none";
+    };
+
     linkace = {
       enable = true;
       environmentFile = config.age.secrets."linkace.env".path;
@@ -43,6 +49,7 @@
       enable = true;
       domains = [ "abiopetaja.grigorjan.net" ];
     };
+
     nginx = {
       enable = true;
       recommendedTlsSettings = true;

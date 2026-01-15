@@ -8,6 +8,12 @@ See https://www.postgresql.org/docs/current/backup-dump.html for more.
 ssh root@neon -o RemoteCommand="sudo -u postgres pg_dumpall > /tmp/dump.sql" && scp root@neon:/tmp/dump.sql ./dump.sql
 ```
 
+Or, if you're okay with the daily dump:
+
+```sh
+scp root@neon:/var/backup/postgresql/all.sql ./dump.sql
+```
+
 ## Restoring
 
 ```sh
