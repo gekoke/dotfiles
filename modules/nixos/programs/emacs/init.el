@@ -1133,7 +1133,8 @@
 
 (gg/leader
   "." #'find-file
-  "x" #'kill-current-buffer
+  "x" #'kill-buffer-and-window
+  "X" #'kill-current-buffer
   "z" #'bury-buffer
   "E e" #'eval-buffer
   "E r" #'eval-region
