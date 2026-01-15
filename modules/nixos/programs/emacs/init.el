@@ -398,11 +398,44 @@
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
 
+(use-package project
+  :after consult
+  :custom
+  (project-switch-commands
+   '((project-find-file "File" "f")
+     (project-find-dir "Directory" "d")
+     (consult-ripgrep "Search" "/")))
+  :general
+  (gg/leader
+    "SPC" #'project-find-file
+    "p p" #'project-switch-project))
+
 (use-package consult
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
   :after remember-last-theme
   :hook (completion-list-mode . consult-preview-at-point-mode)
+  :init
+  (setq project-read-file-name-function #'consult-project-find-file-with-preview)
+
+  (defun consult-project-find-file-with-preview (prompt all-files &optional pred hist _mb)
+    (let ((prompt (if (and all-files
+                           (file-name-absolute-p (car all-files)))
+                      prompt
+                    ( concat prompt
+                      ( format " in %s"
+                        (consult--fast-abbreviate-file-name default-directory)))))
+          (minibuffer-completing-file-name t))
+      (consult--read (mapcar
+                      (lambda (file)
+                        (file-relative-name file))
+                      all-files)
+                     :state (consult--file-preview)
+                     :prompt (concat prompt ": ")
+                     :require-match t
+                     :history hist
+                     :category 'file
+                     :predicate pred)))
   :custom
   (xref-show-xrefs-function #'consult-xref)
   (xref-show-definitions-function #'consult-xref)
@@ -416,6 +449,7 @@
       (remember-last-theme-save)))
   :general
   (gg/leader
+    "b" #'consult-buffer
     "t" '(:ignore t :which-key "Theme")
     "t h" #'gg/consult-theme-and-remember
     "/" #'consult-ripgrep))
@@ -809,35 +843,6 @@
 (use-package hl-todo
   :config
   (global-hl-todo-mode))
-
-(use-package projectile
-  :init
-  (projectile-mode +1)
-  :custom
-  (projectile-track-known-projects-automatically nil)
-  :general
-  (gg/leader
-    "p" '(:keymap projectile-command-map :which-key "Project")
-    "r r" #'projectile-repeat-last-command)
-  (general-def projectile-command-map
-    "a" #'projectile-add-known-project
-    "A" #'projectile-find-other-file))
-
-(use-package consult-projectile
-  :after (projectile eyebrowse)
-  :init
-  (defun gg/rename-window-config-to-project ()
-    (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) (projectile-project-name)))
-  :config
-  (advice-add 'consult-projectile-switch-project :after #'gg/rename-window-config-to-project)
-  :general
-  (gg/leader
-    "SPC" #'consult-projectile
-    "C-SPC" #'consult-projectile
-    "B p" #'consult-projectile-switch-to-buffer
-    "b" #'consult-buffer)
-  (general-def projectile-command-map
-    "p" #'consult-projectile-switch-project))
 
 (use-package envrc
   :config

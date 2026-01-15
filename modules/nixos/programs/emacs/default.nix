@@ -123,7 +123,6 @@ in
           epkgs.catppuccin-theme
           epkgs.consult
           epkgs.consult-lsp
-          epkgs.consult-projectile
           epkgs.corfu
           epkgs.dashboard
           epkgs.diff-hl
@@ -179,7 +178,6 @@ in
           epkgs.package-lint
           epkgs.pdf-tools
           epkgs.powershell
-          epkgs.projectile
           epkgs.python
           epkgs.rainbow-delimiters
           epkgs.remember-last-theme
