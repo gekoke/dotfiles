@@ -1065,7 +1065,10 @@
   :mode
   ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
-(use-package docker)
+(use-package docker
+  :general
+  (gg/leader
+    "k" #'docker))
 
 (use-package yaml-mode
   :hook (yaml-mode . lsp))
