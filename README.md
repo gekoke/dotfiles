@@ -20,3 +20,9 @@ direnv allow
 ```sh
 pinact run -u
 ```
+
+## Updating in-tree package outputs
+
+```sh
+nix-update --build --commit --flake <PKG_OUTPUT_NAME> # e.g. `connections` - must be run in the project's root
+```

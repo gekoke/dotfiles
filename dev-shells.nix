@@ -16,6 +16,7 @@
             # keep-sorted start
             inputs'.agenix.packages.agenix
             pkgs.deadnix
+            pkgs.nix-update
             pkgs.opentofu
             pkgs.pinact
             pkgs.prettier
