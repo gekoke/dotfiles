@@ -873,6 +873,7 @@
                                                #'cape-dabbrev
                                                #'cape-keyword)))
 
+  ;; NOTE: see https://github.com/blahgeek/emacs-lsp-booster?tab=readme-ov-file#configure-lsp-mode
   (defun lsp-booster--advice-json-parse (old-fn &rest args)
     "Try to parse bytecode instead of json."
     (or
