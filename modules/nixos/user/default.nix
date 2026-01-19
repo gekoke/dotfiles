@@ -23,11 +23,6 @@ in
 
   config = mkIf cfg.enable {
     programs.noshell.enable = true;
-    elementary = {
-      home.extraOptions.xdg.userDirs = enabled // {
-        createDirectories = true;
-      };
-    };
 
     users.users.${cfg.name} = {
       inherit (cfg) name;

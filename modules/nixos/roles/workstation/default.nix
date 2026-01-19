@@ -43,6 +43,11 @@ in
       ];
 
       users = genAttrs cfg.forUsers (_: {
+        xdg.userDirs = {
+          enable = true;
+          createDirectories = true;
+        };
+
         cliTools.enable = true;
 
         programs = {
