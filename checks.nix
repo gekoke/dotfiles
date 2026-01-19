@@ -28,7 +28,7 @@
               pass_filenames = false;
             };
             keep-sorted.enable = true;
-            nixfmt-rfc-style.enable = true;
+            nixfmt.enable = true;
             prettier.enable = true;
             statix = {
               enable = true;
