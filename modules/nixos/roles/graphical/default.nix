@@ -14,7 +14,7 @@ let
     mkOption
     genAttrs
     ;
-  inherit (lib.types) listOf str;
+  inherit (lib.types) nonEmptyListOf str;
 in
 {
   imports = [
@@ -25,7 +25,7 @@ in
   options.roles.graphical = {
     enable = mkEnableOption "the graphical role";
     forUsers = mkOption {
-      type = listOf str;
+      type = nonEmptyListOf str;
       default = [ config.constants.default.user.name ];
     };
   };

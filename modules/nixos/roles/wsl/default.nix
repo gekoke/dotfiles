@@ -15,7 +15,7 @@ let
     mkIf
     mkOption
     ;
-  inherit (lib.types) listOf str;
+  inherit (lib.types) nonEmptyListOf str;
 in
 {
   imports = [
@@ -31,7 +31,7 @@ in
       default = config.constants.default.user.name;
     };
     forUsers = mkOption {
-      type = listOf str;
+      type = nonEmptyListOf str;
       default = [ cfg.defaultUser ];
     };
   };

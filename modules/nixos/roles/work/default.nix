@@ -14,7 +14,7 @@ let
     mkIf
     mkOption
     ;
-  inherit (lib.types) listOf str;
+  inherit (lib.types) nonEmptyListOf str;
 in
 {
   imports = [
@@ -25,7 +25,7 @@ in
   options.roles.work = {
     enable = mkEnableOption "the work role";
     forUsers = mkOption {
-      type = listOf str;
+      type = nonEmptyListOf str;
       default = [ config.constants.default.user.name ];
     };
   };
