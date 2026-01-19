@@ -33,8 +33,6 @@ in
       inherit (cfg) name;
       isNormalUser = true;
       initialPassword = "password";
-      createHome = true;
-      group = "users";
       extraGroups = lib.intersectLists (lib.attrNames config.users.groups) [
         # keep-sorted start
         "docker"
