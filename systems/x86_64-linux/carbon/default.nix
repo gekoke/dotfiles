@@ -30,7 +30,13 @@
     programs.emacs.package = pkgs.emacs30-pgtk;
   };
 
-  home-manager.users.geko.programs.git.signing.key = "1E9AFDF3275F99EE";
+  home-manager = {
+    sharedModules = [ self.homeModules."identities.geko" ];
+    users.geko = {
+      programs.git.signing.key = "1E9AFDF3275F99EE";
+      identities.geko.enable = true;
+    };
+  };
 
   boot = {
     loader.grub.gfxmodeEfi = "1920x1080";

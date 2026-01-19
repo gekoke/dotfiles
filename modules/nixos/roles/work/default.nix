@@ -34,13 +34,6 @@ in
     programs.nix-ld.enable = true;
 
     home-manager.users = genAttrs cfg.forUsers (_: {
-      programs.git.includes = [
-        {
-          condition = "gitdir:~/Work/";
-          contents.user.email = "gregor.grigorjan@gamesglobal.com";
-        }
-      ];
-
       home = {
         file."Work/.hmkeep".text = "";
 

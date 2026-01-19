@@ -13,12 +13,21 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.git.settings = {
-      user = {
-        name = "Gregor Grigorjan";
-        email = "gregor@grigorjan.net";
+    programs.git = {
+      settings = {
+        user = {
+          name = "Gregor Grigorjan";
+          email = "gregor@grigorjan.net";
+        };
+        github.user = "gekoke";
       };
-      github.user = "gekoke";
+
+      includes = [
+        {
+          condition = "gitdir:~/Work/";
+          contents.user.email = "gregor.grigorjan@gamesglobal.com";
+        }
+      ];
     };
   };
 }

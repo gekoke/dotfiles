@@ -35,7 +35,6 @@ in
     home-manager = {
       sharedModules = [
         self.homeModules."cliTools"
-        self.homeModules."identities.geko"
         self.homeModules."programs.git"
         self.homeModules."programs.gpg"
         self.homeModules."programs.nh"
@@ -44,7 +43,6 @@ in
 
       users = genAttrs cfg.forUsers (_: {
         cliTools.enable = true;
-        identities.geko.enable = true;
 
         programs = {
           gpg = {

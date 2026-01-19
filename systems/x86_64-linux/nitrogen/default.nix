@@ -21,14 +21,6 @@
 
   elementary.secrets.enable = lib.mkForce false;
 
-  home-manager = {
-    sharedModules = [ self.homeModules."identities.geko" ];
-    users.lev = {
-      identities.geko.enable = lib.mkForce false;
-      programs.git.includes = lib.mkForce [ ];
-    };
-  };
-
   constants.default.user.name = "lev";
 
   time.timeZone = "Europe/Tallinn";
