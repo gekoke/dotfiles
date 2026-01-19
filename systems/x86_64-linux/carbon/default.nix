@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   self,
@@ -32,7 +33,8 @@
 
   home-manager = {
     sharedModules = [ self.homeModules."identities.geko" ];
-    users.geko = {
+
+    users.${config.constants.default.user.name} = {
       programs.git.signing.key = "1E9AFDF3275F99EE";
       identities.geko.enable = true;
     };

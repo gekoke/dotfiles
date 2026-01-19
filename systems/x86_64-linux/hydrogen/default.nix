@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   self,
   ...
@@ -21,7 +22,7 @@
 
   home-manager = {
     sharedModules = [ self.homeModules."identities.geko" ];
-    users.geko.identities.geko.enable = true;
+    users.${config.constants.default.user.name}.identities.geko.enable = true;
   };
 
   time.timeZone = "Europe/Tallinn";
