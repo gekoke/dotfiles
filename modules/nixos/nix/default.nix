@@ -41,7 +41,6 @@ in
         in
         {
           experimental-features = "nix-command flakes";
-          auto-optimise-store = true;
           trusted-users = users;
           allowed-users = users;
           keep-outputs = true;
