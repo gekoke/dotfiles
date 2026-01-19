@@ -894,7 +894,9 @@
     (let ((orig-result (funcall old-fn cmd test?)))
       (if (and (not test?)                             ;; for check lsp-server-present?
                (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-               (-none? (lambda (argv) (string-match ".*jdtls.*" argv)) orig-result) ;; disable for `jdtls' since it doesn't conform to the LSP spec and breaks `emacs-lsp-booster'
+               ;; Disable for `jdtls' since it doesn't conform to the LSP spec and breaks `emacs-lsp-booster'
+               ;; FIXME: remove when https://github.com/eclipse-jdtls/eclipse.jdt.ls/issues/3338 is resolved
+               (-none? (lambda (argv) (string-match ".*jdtls.*" argv)) orig-result)
                lsp-use-plists
                (not (functionp 'json-rpc-connection))  ;; native json-rpc
                (executable-find "emacs-lsp-booster"))
