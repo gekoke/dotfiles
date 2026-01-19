@@ -35,6 +35,7 @@ in
     home-manager = {
       sharedModules = [
         self.homeModules."cliTools"
+        self.homeModules."programs.direnv"
         self.homeModules."programs.git"
         self.homeModules."programs.gpg"
         self.homeModules."programs.nh"
@@ -45,22 +46,23 @@ in
         cliTools.enable = true;
 
         programs = {
-          gpg = {
+          direnv = {
             enable = true;
             elementary.config.enable = true;
           };
-
           git = {
             enable = true;
             elementary.config.enable = true;
           };
-
-          zsh = {
+          gpg = {
             enable = true;
             elementary.config.enable = true;
           };
-
           nh = {
+            enable = true;
+            elementary.config.enable = true;
+          };
+          zsh = {
             enable = true;
             elementary.config.enable = true;
           };
@@ -81,7 +83,6 @@ in
       programs = {
         ssh.enable = true;
         emacs.enable = true;
-        direnv.enable = true;
       };
     };
   };

@@ -80,6 +80,7 @@ rec {
           # keep-sorted start block=yes
           "cliTools" = lib.mkModule ./modules/home/cli-tools;
           "identities.geko" = lib.mkModule ./modules/home/identities/geko;
+          "programs.direnv" = lib.mkModule ./modules/home/programs/direnv;
           "programs.git" = lib.mkModule ./modules/home/programs/git;
           "programs.gpg" = lib.mkModule ./modules/home/programs/gpg;
           "programs.nh" = lib.mkModule ./modules/home/programs/nh;
@@ -105,7 +106,6 @@ rec {
               ./modules/nixos/hardware/nvidia
               ./modules/nixos/home
               ./modules/nixos/nix
-              ./modules/nixos/programs/direnv
               ./modules/nixos/programs/kitty
               ./modules/nixos/programs/ssh
               ./modules/nixos/secrets
