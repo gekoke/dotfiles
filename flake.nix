@@ -86,6 +86,7 @@ rec {
           "programs.nh" = lib.mkModule ./modules/home/programs/nh;
           "programs.noshell" = lib.mkModule ./modules/home/programs/noshell;
           "programs.zsh" = lib.mkModule ./modules/home/programs/zsh;
+          "roles.work" = lib.mkModule ./modules/home/roles/work;
           # keep-sorted end
         };
 

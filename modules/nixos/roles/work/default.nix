@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  pkgs,
   self,
   config,
   ...
@@ -33,19 +32,12 @@ in
   config = mkIf cfg.enable {
     programs.nix-ld.enable = true;
 
-    home-manager.users = genAttrs cfg.forUsers (_: {
-      home = {
-        file."Work/.hmkeep".text = "";
-
-        packages = [
-          # keep-sorted start block=yes
-          pkgs.azure-cli
-          pkgs.bun
-          pkgs.powershell
-          # keep-sorted end
-        ];
-      };
-    });
+    home-manager = {
+      sharedModules = [ self.homeModules."roles.work" ];
+      users = genAttrs cfg.forUsers (_: {
+        roles.work.enable = true;
+      });
+    };
 
     networking.firewall.allowedTCPPorts = [
       1499 # For MSSQL containers -> Windows
