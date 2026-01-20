@@ -42,37 +42,45 @@ in
         self.homeModules."programs.zsh"
       ];
 
-      users = genAttrs cfg.forUsers (_: {
-        xdg.userDirs = {
-          enable = true;
-          createDirectories = true;
-        };
+      users = genAttrs cfg.forUsers (
+        _:
+        { config, ... }:
+        {
+          xdg.userDirs = {
+            enable = true;
+            createDirectories = true;
+          };
 
-        cliTools.enable = true;
+          cliTools.enable = true;
 
-        programs = {
-          direnv = {
-            enable = true;
-            elementary.config.enable = true;
+          # This is cringe beyond belief
+          # See: https://pkg.go.dev/cmd/go#hdr-GOPATH_environment_variable
+          home.sessionVariables.GOPATH = lib.path.append (/. + config.xdg.dataHome) "go";
+
+          programs = {
+            direnv = {
+              enable = true;
+              elementary.config.enable = true;
+            };
+            git = {
+              enable = true;
+              elementary.config.enable = true;
+            };
+            gpg = {
+              enable = true;
+              elementary.config.enable = true;
+            };
+            nh = {
+              enable = true;
+              elementary.config.enable = true;
+            };
+            zsh = {
+              enable = true;
+              elementary.config.enable = true;
+            };
           };
-          git = {
-            enable = true;
-            elementary.config.enable = true;
-          };
-          gpg = {
-            enable = true;
-            elementary.config.enable = true;
-          };
-          nh = {
-            enable = true;
-            elementary.config.enable = true;
-          };
-          zsh = {
-            enable = true;
-            elementary.config.enable = true;
-          };
-        };
-      });
+        }
+      );
     };
 
     virtualisation.docker.enable = true;
