@@ -70,7 +70,6 @@ in
       pkgs.nixfmt
       # JavaScript/TypeScript
       pkgs.nodePackages.typescript
-      pkgs.nodePackages.typescript-language-server
       # Tailwind CSS
       pkgs.nodejs
       # CSharp
@@ -111,6 +110,8 @@ in
           (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
 
           (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
+
+          (setq lsp-clients-typescript-tls-path "${lib.getExe pkgs.nodePackages.typescript-language-server}")
         '';
         extraPackages = epkgs: [
           # keep-sorted start block=yes
