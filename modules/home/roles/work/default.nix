@@ -31,6 +31,7 @@ in
           # keep-sorted start block=yes
           pkgs.azure-cli
           pkgs.bun
+          pkgs.opencode
           pkgs.powershell
           # keep-sorted end
         ];
