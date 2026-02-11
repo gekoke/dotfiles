@@ -52,6 +52,8 @@ in
       pkgs.age
       pkgs.cargo
       pkgs.clippy
+      # CSharp
+      pkgs.dotnet-sdk_10
       # dirvish
       pkgs.fd
       pkgs.ffmpegthumbnailer
@@ -72,7 +74,6 @@ in
       pkgs.nodePackages.typescript
       # Tailwind CSS
       pkgs.nodejs
-      # CSharp
       pkgs.omnisharp-roslyn
       pkgs.poppler-utils # PDF preview
       # Powershell
