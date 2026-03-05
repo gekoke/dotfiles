@@ -21,6 +21,7 @@
             pkgs.pinact
             pkgs.prettier
             pkgs.tflint
+            pkgs.zizmor
             # keep-sorted end
           ];
 

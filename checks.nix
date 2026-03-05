@@ -16,7 +16,6 @@
           hooks = {
             # TODO: use treefmt for these instead, and run treefmt with git-hooks.nix
             # keep-sorted start block=yes
-            actionlint.enable = true;
             deadnix = {
               enable = true;
               settings.edit = true;
@@ -45,6 +44,12 @@
               enable = true;
               name = "tofu-fmt";
               entry = "${lib.getExe pkgs.opentofu} fmt ./tofu";
+              pass_filenames = false;
+            };
+            zizmor = {
+              enable = true;
+              name = "zizmor";
+              entry = "${lib.getExe pkgs.zizmor} ./.github --pedantic --offline";
               pass_filenames = false;
             };
             # keep-sorted end
