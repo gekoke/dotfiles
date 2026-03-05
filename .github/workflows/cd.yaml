@@ -8,12 +8,17 @@ on:
 concurrency:
   group: cd
 
+permissions: {}
+
 jobs:
   check:
+    name: check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Setup Nix
         uses: ./.github/actions/setup-nix
@@ -23,11 +28,14 @@ jobs:
       - name: Run `nix flake check`
         run: nix flake check -L --accept-flake-config
   deploy:
+    name: deploy
     needs: check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Setup Nix
         uses: ./.github/actions/setup-nix
