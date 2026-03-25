@@ -280,6 +280,8 @@
 
 (use-package nyan-mode
   :after doom-modeline
+  :init
+  (nyan-mode)
   :custom
   (nyan-animation-frame-interval (/ 1.0 20)))
 
