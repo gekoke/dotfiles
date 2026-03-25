@@ -32,7 +32,10 @@
   };
 
   home-manager = {
-    sharedModules = [ self.homeModules."identities.geko" ];
+    sharedModules = [
+      self.homeModules."identities.geko"
+      { xdg.userDirs.setSessionVariables = false; }
+    ];
 
     users.${config.constants.default.user.name} = {
       programs.git.signing.key = "1E9AFDF3275F99EE";

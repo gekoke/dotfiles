@@ -33,7 +33,7 @@ rec {
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
     proxytunnel.url = "github:proxytunnel/proxytunnel";
-    systems.url = "github:nix-systems/default";
+    systems.url = "github:nix-systems/default-linux";
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
     website.url = "github:gekoke/website";
     # keep-sorted end

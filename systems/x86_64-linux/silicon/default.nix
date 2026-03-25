@@ -21,7 +21,10 @@
   };
 
   home-manager = {
-    sharedModules = [ self.homeModules."identities.geko" ];
+    sharedModules = [
+      self.homeModules."identities.geko"
+      { xdg.userDirs.setSessionVariables = false; }
+    ];
     users.${config.constants.default.user.name}.identities.geko.enable = true;
   };
 

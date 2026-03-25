@@ -14,7 +14,10 @@ in
 
   config = mkIf cfg.enable {
     programs.git = {
-      signing.signByDefault = true;
+      signing = {
+        signByDefault = true;
+        format = "openpgp";
+      };
       settings = {
         init.defaultBranch = "main";
         pull.rebase = true;

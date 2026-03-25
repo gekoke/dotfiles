@@ -19,6 +19,8 @@
     wsl.enable = true;
   };
 
+  home-manager.sharedModules = [ { xdg.userDirs.setSessionVariables = false; } ];
+
   elementary.secrets.enable = lib.mkForce false;
 
   constants.default.user.name = "lev";
