@@ -70,8 +70,6 @@ in
       # lsp-nix
       pkgs.nixd
       pkgs.nixfmt
-      # JavaScript/TypeScript
-      pkgs.nodePackages.typescript
       # Tailwind CSS
       pkgs.nodejs
       pkgs.omnisharp-roslyn
@@ -105,15 +103,28 @@ in
       programs.emacs = {
         enable = true;
         inherit (cfg) package;
-        extraConfig = ''
-          (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
+        extraConfig =
+          let
+            execPath = pkgs.buildEnv {
+              name = "elementary-emacs-exec-path";
+              pathsToLink = [ "/bin" ];
+              paths = lib.map lib.getBin [
+                # JavaScript/TypeScript
+                pkgs.typescript
+              ];
+            };
+          in
+          ''
+            (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
 
-          (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
+            (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
 
-          (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
+            (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
 
-          (setq lsp-clients-typescript-tls-path "${lib.getExe pkgs.nodePackages.typescript-language-server}")
-        '';
+            (setq lsp-clients-typescript-tls-path "${lib.getExe pkgs.nodePackages.typescript-language-server}")
+
+            (setq exec-path (append '("${execPath}/bin") exec-path))
+          '';
         extraPackages = epkgs: [
           # keep-sorted start block=yes
           (epkgs.lsp-mode.overrideAttrs (_: {
