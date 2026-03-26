@@ -125,11 +125,31 @@ in
 
             (setq exec-path (append '("${execPath}/bin") exec-path))
           '';
+        overrides = _final: prev: {
+          lsp-mode = prev.lsp-mode.override {
+            melpaBuild = args: prev.melpaBuild (args // { env.LSP_USE_PLISTS = "true"; });
+          };
+
+          magit = prev.magit.override {
+            melpaBuild =
+              args:
+              prev.melpaBuild (
+                args
+                // {
+                  # Try out syntax highlighting - see https://github.com/magit/magit/issues/2942#issuecomment-4093865954
+                  # FIXME: remove pin
+                  src = pkgs.fetchFromGitHub {
+                    owner = "gekoke";
+                    repo = "magit";
+                    rev = "c3cb836320d4ec491fa7168718218f46a61293dc";
+                    hash = "sha256-htq1A6lr+iJunhl8mqyKpbAaaNZ2XZoBYDGDqoVtJSg=";
+                  };
+                }
+              );
+          };
+        };
         extraPackages = epkgs: [
           # keep-sorted start block=yes
-          (epkgs.lsp-mode.overrideAttrs (_: {
-            env.LSP_USE_PLISTS = "true";
-          }))
           epkgs.ace-window
           epkgs.age
           epkgs.cape
@@ -173,6 +193,7 @@ in
           epkgs.ligature
           epkgs.link-hint
           epkgs.lsp-java
+          epkgs.lsp-mode
           epkgs.lsp-pyright
           epkgs.lsp-tailwindcss
           epkgs.lsp-ui

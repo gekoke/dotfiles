@@ -787,6 +787,7 @@
   (magit-commit-squash-confirm nil)
   (magit-bury-buffer-function #'magit-restore-window-configuration)
   (magit-revision-show-gravatars t)
+  (magit-diff-fontify-hunk 'all)
   :general
   (gg/leader
     "v" #'magit-status
