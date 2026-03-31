@@ -771,7 +771,6 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (use-package magit
-  :hook (magit-log-mode . magit-diff-show-or-scroll-up)
   :init
   (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
@@ -792,12 +791,7 @@
   (gg/leader
     "v" #'magit-status
     "V" #'magit-status-here
-    "g i" #'magit-init)
-  (general-def
-    :states '(normal visual)
-    :keymaps 'magit-log-mode-map
-    "k" #'magit-section-backward-sibling
-    "j" #'magit-section-forward-sibling))
+    "g i" #'magit-init))
 
 (use-package magit-todos
   :after magit
