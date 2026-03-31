@@ -1,6 +1,6 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-(setq gc-cons-threshold 100000000)
+(setq gc-cons-threshold 1000000000)
 (setq read-process-output-max (* 1024 1024))
 
 (setq use-package-always-demand t)
