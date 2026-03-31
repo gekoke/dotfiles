@@ -449,9 +449,15 @@
     (let ((inhibit-message t)
           (message-log-max nil))
       (remember-last-theme-save)))
+  (defun gg/consult-buffer-vterm ()
+    (interactive)
+    (minibuffer-with-setup-hook
+        (lambda () (insert "vterm"))
+      (consult-buffer)))
   :general
   (gg/leader
     "b" #'consult-buffer
+    "o v" #'gg/consult-buffer-vterm
     "t" '(:ignore t :which-key "Theme")
     "t h" #'gg/consult-theme-and-remember
     "/" #'consult-ripgrep))
