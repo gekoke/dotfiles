@@ -8,7 +8,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Nix
-      uses: cachix/install-nix-action@4e002c8ec80594ecd40e759629461e26c8abed15 # v31.9.0
+      uses: cachix/install-nix-action@96951a368ba55167b55f1c916f7d416bac6505fe # v31.10.3
       with:
         # Avoid rate limits
         github_access_token: "${{ inputs.GITHUB_TOKEN }}"
@@ -19,7 +19,7 @@ runs:
         nix develop "#cache" --accept-flake-config
 
     - name: Set up binary cache
-      uses: cachix/cachix-action@3ba601ff5bbb07c7220846facfa2cd81eeee15a1 # v16
+      uses: cachix/cachix-action@1eb2ef646ac0255473d23a5907ad7b04ce94065c # v17
       with:
         name: gekoke-dotfiles
         authToken: "${{ inputs.CACHIX_AUTH_TOKEN }}"
