@@ -53,7 +53,7 @@ in
       pkgs.cargo
       pkgs.clippy
       # CSharp
-      pkgs.dotnet-sdk_10
+      pkgs.dotnet-sdk_11
       # dirvish
       pkgs.fd
       pkgs.ffmpegthumbnailer
