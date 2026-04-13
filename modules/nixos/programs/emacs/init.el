@@ -678,8 +678,6 @@
   (set-face-attribute 'diredfl-dir-name nil :bold t))
 
 (use-package dired
-  :hook
-  (dired-mode . dired-omit-mode)
   :init
   (setq dired-omit-files (concat dired-omit-files "\\|^\\..*$"))
   (setq dired-deletion-confirmer #'(lambda (_) t)))
