@@ -72,6 +72,7 @@ in
       pkgs.nixfmt
       # Tailwind CSS
       pkgs.nodejs
+      pkgs.omnisharp-roslyn
       pkgs.poppler-utils # PDF preview
       # Powershell
       pkgs.powershell
@@ -79,7 +80,6 @@ in
       pkgs.pyright
       # consult
       pkgs.ripgrep
-      pkgs.roslyn-ls
       pkgs.ruff
       # Rust
       pkgs.rust-analyzer
@@ -115,6 +115,8 @@ in
             };
           in
           ''
+            (setq lsp-csharp-server-path "${pkgs.omnisharp-roslyn}/bin/OmniSharp")
+
             (setq lsp-pwsh-dir "${pkgs.powershell-editor-services}/lib/powershell-editor-services")
 
             (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")

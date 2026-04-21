@@ -1065,16 +1065,9 @@
   (js-indent-level 2))
 
 (use-package emacs
-  :after lsp-mode
   :hook
   (csharp-mode . lsp)
-  (csharp-ts-mode . lsp)
-  :config
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection (list (executable-find "Microsoft.CodeAnalysis.LanguageServer") "--stdio"))
-                    :priority -3
-                    :server-id 'csharp-ls-custom
-                    :activation-fn (lsp-activate-on "csharp"))))
+  (csharp-ts-mode . lsp))
 
 (use-package emacs
   :mode
