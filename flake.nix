@@ -111,6 +111,7 @@ rec {
               ./modules/nixos/programs/ssh
               ./modules/nixos/secrets
               ./modules/nixos/services/linkace
+              ./modules/nixos/services/opengist
               ./modules/nixos/services/tzupdate
               ./modules/nixos/services/udiskie
               ./modules/nixos/suites/desktop

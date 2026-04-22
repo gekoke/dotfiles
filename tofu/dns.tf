@@ -23,6 +23,14 @@ resource "cloudflare_dns_record" "linkace_a" {
   zone_id = local.grigorjan_net_zone_id
 }
 
+resource "cloudflare_dns_record" "opengist_a" {
+  type    = "A"
+  name    = "opengist.grigorjan.net"
+  content = hcloud_server.neon.ipv4_address
+  ttl     = 1
+  zone_id = local.grigorjan_net_zone_id
+}
+
 resource "cloudflare_dns_record" "siege_a" {
   type    = "A"
   name    = "siege.grigorjan.net"
