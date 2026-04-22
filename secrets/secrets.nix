@@ -7,6 +7,7 @@ let
     "aws-secret-key.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
     "cachix-auth-token.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
     "cloudflare-api-token.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
+    "cloudflare-acme.env.age".publicKeys = publicKeys.geko ++ publicKeys.vps;
     "github-token.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
     "neon-api-key.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
   };

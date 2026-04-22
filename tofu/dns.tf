@@ -8,43 +8,48 @@ locals {
 }
 
 resource "cloudflare_dns_record" "abiopetaja_a" {
-  type    = "A"
-  name    = "abiopetaja.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
+  type       = "A"
+  name       = "abiopetaja.grigorjan.net"
+  content    = hcloud_server.neon.ipv4_address
+  ttl        = 1
+  zone_id    = local.grigorjan_net_zone_id
+  depends_on = [module.neon_deploy]
 }
 
 resource "cloudflare_dns_record" "linkace_a" {
-  type    = "A"
-  name    = "linkace.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
+  type       = "A"
+  name       = "linkace.grigorjan.net"
+  content    = hcloud_server.neon.ipv4_address
+  ttl        = 1
+  zone_id    = local.grigorjan_net_zone_id
+  depends_on = [module.neon_deploy]
 }
 
 resource "cloudflare_dns_record" "opengist_a" {
-  type    = "A"
-  name    = "opengist.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
+  type       = "A"
+  name       = "opengist.grigorjan.net"
+  content    = hcloud_server.neon.ipv4_address
+  ttl        = 1
+  zone_id    = local.grigorjan_net_zone_id
+  depends_on = [module.neon_deploy]
 }
 
 resource "cloudflare_dns_record" "siege_a" {
-  type    = "A"
-  name    = "siege.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
+  type       = "A"
+  name       = "siege.grigorjan.net"
+  content    = hcloud_server.neon.ipv4_address
+  ttl        = 1
+  zone_id    = local.grigorjan_net_zone_id
+  depends_on = [module.neon_deploy]
 }
 
 resource "cloudflare_dns_record" "neon_a" {
-  type    = "A"
-  name    = "neon.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
+  type       = "A"
+  name       = "neon.grigorjan.net"
+  content    = hcloud_server.neon.ipv4_address
+  ttl        = 1
+  zone_id    = local.grigorjan_net_zone_id
+  depends_on = [module.neon_deploy]
 }
 
 resource "cloudflare_dns_record" "root_website" {
@@ -56,11 +61,12 @@ resource "cloudflare_dns_record" "root_website" {
 }
 
 resource "cloudflare_dns_record" "www_website" {
-  type    = "A"
-  name    = "www.grigorjan.net"
-  content = hcloud_server.neon.ipv4_address
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
+  type       = "A"
+  name       = "www.grigorjan.net"
+  content    = hcloud_server.neon.ipv4_address
+  ttl        = 1
+  zone_id    = local.grigorjan_net_zone_id
+  depends_on = [module.neon_deploy]
 }
 
 resource "cloudflare_dns_record" "dkim_1" {

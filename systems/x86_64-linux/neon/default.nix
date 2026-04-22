@@ -98,10 +98,15 @@
   };
 
   age.secrets."linkace.env".file = ./../../../secrets/linkace.env.age;
+  age.secrets."cloudflare-acme.env".file = ./../../../secrets/cloudflare-acme.env.age;
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = "acme@grigorjan.net";
+    defaults = {
+      email = "acme@grigorjan.net";
+      dnsProvider = "cloudflare";
+      environmentFile = config.age.secrets."cloudflare-acme.env".path;
+    };
   };
 
   users.users.root.openssh.authorizedKeys.keys =
