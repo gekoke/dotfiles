@@ -3,6 +3,7 @@
   lib,
   osConfig,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -22,6 +23,7 @@ in
         # keep-sorted start
         (hiPrio pkgs.parallel-full) # `pkgs.moreutils` provides `parallel` binary as well
         (mkIf osConfig.virtualisation.docker.enable pkgs.docker-compose)
+        inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.scramsha256
         pkgs.bat
         pkgs.btop
         pkgs.dig
