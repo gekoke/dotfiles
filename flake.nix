@@ -37,14 +37,6 @@ rec {
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
     website.url = "github:gekoke/website";
     # keep-sorted end
-    # keep-sorted start
-    dank-material-shell.inputs.nixpkgs.follows = "nixpkgs";
-    dgop.inputs.nixpkgs.follows = "nixpkgs";
-    emacs-lsp-booster.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
-    noshell.inputs.nixpkgs.follows = "nixpkgs";
-    proxytunnel.inputs.nixpkgs.follows = "nixpkgs";
-    # keep-sorted end
   };
 
   outputs =
