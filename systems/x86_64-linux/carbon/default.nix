@@ -26,9 +26,17 @@
     workstation.enable = true;
   };
 
-  elementary = {
-    hardware.nvidia.enable = true;
-    programs.emacs.package = pkgs.emacs30-pgtk;
+  elementary.programs.emacs.package = pkgs.emacs30-pgtk;
+
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      # Modesetting is required
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      open = false;
+      nvidiaSettings = true;
+    };
   };
 
   home-manager = {

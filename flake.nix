@@ -94,9 +94,6 @@ rec {
               }
               (lib.mkModule ./modules/nixos/programs/firefox)
               ./modules/nixos/desktop/niri
-              ./modules/nixos/hardware/audio
-              ./modules/nixos/hardware/networking
-              ./modules/nixos/hardware/nvidia
               ./modules/nixos/home
               ./modules/nixos/nix
               ./modules/nixos/programs/kitty
@@ -104,10 +101,7 @@ rec {
               ./modules/nixos/secrets
               ./modules/nixos/services/linkace
               ./modules/nixos/services/opengist
-              ./modules/nixos/services/tzupdate
               ./modules/nixos/services/udiskie
-              ./modules/nixos/suites/desktop
-              ./modules/nixos/system/boot
               ./modules/nixos/user/shell/nushell
               inputs.self.nixosModules."elementary.user"
               inputs.self.nixosModules."programs.emacs"
