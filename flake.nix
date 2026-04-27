@@ -101,7 +101,6 @@ rec {
               ./modules/nixos/secrets
               ./modules/nixos/services/linkace
               ./modules/nixos/services/opengist
-              ./modules/nixos/services/udiskie
               ./modules/nixos/user/shell/nushell
               inputs.self.nixosModules."elementary.user"
               inputs.self.nixosModules."programs.emacs"
