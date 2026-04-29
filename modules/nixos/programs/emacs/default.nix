@@ -31,18 +31,7 @@ in
     # LSP optimizations
     environment.sessionVariables.LSP_USE_PLISTS = "true";
 
-    fonts.packages = builtins.attrValues {
-      inherit (pkgs.nerd-fonts)
-        agave
-        blex-mono
-        fira-code
-        iosevka-term
-        jetbrains-mono
-        ;
-      inherit (pkgs)
-        noto-fonts-color-emoji
-        ;
-    };
+    elementary.home.extraOptions.fonts.fontconfig.enable = true;
 
     elementary.home.packages = [
       # keep-sorted start block=yes
@@ -67,11 +56,18 @@ in
       pkgs.jdk25
       pkgs.jdt-language-server
       pkgs.mediainfo
+      # Fonts
+      pkgs.nerd-fonts.agave
+      pkgs.nerd-fonts.blex-mono
+      pkgs.nerd-fonts.fira-code
+      pkgs.nerd-fonts.iosevka-term
+      pkgs.nerd-fonts.jetbrains-mono
       # lsp-nix
       pkgs.nixd
       pkgs.nixfmt
       # Tailwind CSS
       pkgs.nodejs
+      pkgs.noto-fonts-color-emoji
       pkgs.omnisharp-roslyn
       pkgs.poppler-utils # PDF preview
       # Powershell
