@@ -317,9 +317,7 @@
   :config
   (remember-last-theme-enable))
 
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (set-face-attribute 'default nil :family "IosevkaTerm Nerd Font" :height 110 :weight 'semi-bold)))
+(set-frame-font "-IBM -BlexMono Nerd Font-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1" nil t)
 
 (use-package ligature
   :init
