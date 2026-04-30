@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -27,7 +26,6 @@ in
     };
 
     nix = {
-      package = pkgs.lixPackageSets.stable.lix;
       registry = {
         p.flake = inputs.nixpkgs;
         u.flake = inputs.nixpkgs-unfree;
