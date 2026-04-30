@@ -3,27 +3,10 @@
 (setq gc-cons-threshold 1000000000)
 (setq read-process-output-max (* 1024 1024))
 
-(setq use-package-always-demand t)
-
 (setq-default tab-width 4)
 
-(use-package editorconfig
-  :ensure t
-  :init
-  (editorconfig-mode))
-
-(use-package time
-  :init
-  (display-time-mode)
-  :custom
-  (display-time-24hr-format t)
-  (display-time-default-load-average nil))
-
-(use-package calendar
-  :custom
-  (calendar-week-start-day 1))
-
 (use-package general
+  :demand t
   :config
   (general-create-definer gg/leader
     :states '(normal insert visual emacs)
@@ -34,6 +17,21 @@
     :prefix "SPC m"
     :global-prefix "C-SPC m"))
 
+(use-package editorconfig
+  :ensure t
+  :hook (after-init . editorconfig-mode))
+
+(use-package time
+  :hook (after-init . display-time-mode)
+  :custom
+  (display-time-24hr-format t)
+  (display-time-default-load-average nil))
+
+(use-package calendar
+  :defer t
+  :custom
+  (calendar-week-start-day 1))
+
 (use-package emacs
   :init
   (setq kill-buffer-query-functions nil)
@@ -43,8 +41,7 @@
     "B r" #'rename-buffer))
 
 (use-package undo-tree
-  :init
-  (global-undo-tree-mode)
+  :hook (after-init . global-undo-tree-mode)
   :custom
   (undo-tree-enable-undo-in-region t)
   (undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "undo-tree-history")))))
@@ -126,20 +123,20 @@
               (reusable-frames . t)))
 
 (use-package eyebrowse
-  :init
-  (eyebrowse-mode 1)
+  :hook (after-init . eyebrowse-mode)
   :custom
   (eyebrowse-new-workspace #'dashboard-open)
   (eyebrowse-mode-line-left-delimiter "🔨 ")
   (eyebrowse-mode-line-separator " | ")
   (eyebrowse-mode-line-right-delimiter " ")
   (eyebrowse-tagged-slot-format "%s • %t")
-  :general
+  :config
   (with-eval-after-load 'magit
     (general-def
       :states 'normal
       :keymaps 'magit-section-mode-map
       "C-<tab>" #'eyebrowse-last-window-config))
+  :general
   (general-def
     :keymaps 'override
     "C-<tab>" #'eyebrowse-last-window-config)
@@ -158,6 +155,7 @@
     "9" #'eyebrowse-switch-to-window-config-9))
 
 (use-package whitespace
+  :defer t
   :init
   (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
     (lambda ()
@@ -187,6 +185,8 @@
 
 
 (use-package indent-bars
+  :demand t
+  :hook (after-init . gg/global-indent-bars-mode)
   :init
   (define-global-minor-mode gg/global-indent-bars-mode indent-bars-mode
     (lambda ()
@@ -197,7 +197,6 @@
                   'markdown-mode))
         (let ((max-lisp-eval-depth (expt 2 14)))
           (indent-bars-mode)))))
-  (gg/global-indent-bars-mode)
   :config
   (require 'indent-bars-ts)
   :custom
@@ -216,6 +215,7 @@
     "e i" #'gg/global-indent-bars-mode))
 
 (use-package text-mode
+  :defer t
   :custom
   ;; Disable annoying message "can't find dictionary in system default locations"
   (text-mode-ispell-word-completion nil))
@@ -234,41 +234,41 @@
 (gg/leader
   "t o" #'gg/set-background-opacity)
 
-(use-package nerd-icons)
+(use-package nerd-icons
+  :demand t
+  :config
+  (dolist (assoc '(("age" nerd-icons-codicon "nf-cod-gist_secret" :face nil)
+                   ("apk" nerd-icons-devicon "nf-dev-android" :face nerd-icons-green)
+                   ("chs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
+                   ("css" nerd-icons-devicon "nf-dev-css3" :face nerd-icons-blue)
+                   ("hs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
+                   ("hsc" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
+                   ("ico" nerd-icons-sucicon "nf-seti-favicon" :face nerd-icons-yellow)
+                   ("jar" nerd-icons-devicon "nf-dev-java" :face nerd-icons-red)
+                   ("java" nerd-icons-devicon "nf-dev-java" :face nerd-icons-red)
+                   ("json" nerd-icons-codicon "nf-cod-json" :face nerd-icons-yellow)
+                   ("lhs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
+                   ("lock" nerd-icons-faicon "nf-fa-lock" :face nerd-icons-yellow)
+                   ("pdf" nerd-icons-faicon "nf-fa-file_pdf_o" :face nerd-icons-red)
+                   ("svg" nerd-icons-mdicon "nf-md-svg" :face nerd-icons-yellow)
+                   ("ts" nerd-icons-sucicon "nf-seti-typescript" :face nerd-icons-blue)
+                   ("toml" nerd-icons-sucicon "nf-seti-typescript" :face nerd-icons-blue)
+                   ("txt" nerd-icons-sucicon "nf-seti-text" :face nerd-icons-silver)
+                   ("yaml" nerd-icons-sucicon "nf-seti-yml" :face nerd-icons-purple)
+                   ("yml" nerd-icons-sucicon "nf-seti-yml" :face nerd-icons-purple)))
+    (add-to-list 'nerd-icons-extension-icon-alist assoc))
 
-(use-package package-lint)
+  (dolist (regexp '("^TAGS$"
+                    "^TODO$"
+                    "^LICENSE$"
+                    "^readme"))
+    (setf nerd-icons-regexp-icon-alist (assoc-delete-all regexp nerd-icons-regexp-icon-alist))))
 
-(dolist (assoc '(("age" nerd-icons-codicon "nf-cod-gist_secret" :face nil)
-                 ("apk" nerd-icons-devicon "nf-dev-android" :face nerd-icons-green)
-                 ("chs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("css" nerd-icons-devicon "nf-dev-css3" :face nerd-icons-blue)
-                 ("hs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("hsc" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("ico" nerd-icons-sucicon "nf-seti-favicon" :face nerd-icons-yellow)
-                 ("jar" nerd-icons-devicon "nf-dev-java" :face nerd-icons-red)
-                 ("java" nerd-icons-devicon "nf-dev-java" :face nerd-icons-red)
-                 ("json" nerd-icons-codicon "nf-cod-json" :face nerd-icons-yellow)
-                 ("lhs" nerd-icons-devicon "nf-dev-haskell" :face nerd-icons-purple)
-                 ("lock" nerd-icons-faicon "nf-fa-lock" :face nerd-icons-yellow)
-                 ("pdf" nerd-icons-faicon "nf-fa-file_pdf_o" :face nerd-icons-red)
-                 ("svg" nerd-icons-mdicon "nf-md-svg" :face nerd-icons-yellow)
-                 ("ts" nerd-icons-sucicon "nf-seti-typescript" :face nerd-icons-blue)
-                 ("toml" nerd-icons-sucicon "nf-seti-typescript" :face nerd-icons-blue)
-                 ("txt" nerd-icons-sucicon "nf-seti-text" :face nerd-icons-silver)
-                 ("yaml" nerd-icons-sucicon "nf-seti-yml" :face nerd-icons-purple)
-                 ("yml" nerd-icons-sucicon "nf-seti-yml" :face nerd-icons-purple)))
-  (add-to-list 'nerd-icons-extension-icon-alist assoc))
-
-(dolist (regexp '("^TAGS$"
-                  "^TODO$"
-                  "^LICENSE$"
-                  "^readme"))
-  (setf nerd-icons-regexp-icon-alist (assoc-delete-all regexp nerd-icons-regexp-icon-alist)))
+(use-package package-lint
+  :defer t)
 
 (use-package doom-modeline
-  :after nerd-icons
-  :init
-  (doom-modeline-mode 1)
+  :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-height 32)
   (doom-modeline-indent-info t)
@@ -279,13 +279,12 @@
   (doom-modeline-buffer-file-name-style 'relative-from-project))
 
 (use-package nyan-mode
-  :after doom-modeline
-  :init
-  (nyan-mode)
+  :hook (doom-modeline-mode . nyan-mode)
   :custom
   (nyan-animation-frame-interval (/ 1.0 20)))
 
 (use-package dashboard
+  :demand t
   :after (consult nerd-icons)
   :init
   (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
@@ -304,24 +303,25 @@
   (dashboard-setup-startup-hook))
 
 (setq custom-safe-themes t)
-(use-package doom-themes)
-(use-package ef-themes)
-(use-package gruvbox-theme)
-(use-package modus-themes)
+(use-package doom-themes :defer t)
+(use-package ef-themes :defer t)
+(use-package gruvbox-theme :defer t)
+(use-package modus-themes :defer t)
 (use-package catppuccin-theme
+  :defer t
   :custom
   (catppuccin-flavor 'frappe))
-(use-package miasma-theme)
+(use-package miasma-theme :defer t)
 
 (use-package remember-last-theme
+  :demand t
   :config
   (remember-last-theme-enable))
 
 (set-frame-font "-IBM -BlexMono Nerd Font-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1" nil t)
 
 (use-package ligature
-  :init
-  (global-ligature-mode)
+  :hook (after-init . global-ligature-mode)
   :config
   (ligature-set-ligatures 'prog-mode '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
                                        "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
@@ -333,6 +333,7 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package olivetti
+  :commands (olivetti-mode prog-olivetti-mode global-prog-olivetti-mode)
   :init
 ;;;###autoload
   (define-minor-mode prog-olivetti-mode
@@ -353,13 +354,12 @@
     "t C" 'global-prog-olivetti-mode))
 
 (use-package which-key
-  :init
-  (which-key-mode)
+  :hook (after-init . which-key-mode)
   :custom
   (which-key-idle-delay 0.4))
 
-(use-package rg)
-(use-package wgrep)
+(use-package rg :defer t)
+(use-package wgrep :defer t)
 
 (use-package embark
   :general
@@ -367,8 +367,7 @@
     "M-e" #'embark-export))
 
 (use-package vertico
-  :init
-  (vertico-mode)
+  :hook (after-init . vertico-mode)
   :custom
   (enable-recursive-minibuffers t)
   ;; Hide commands in M-x which do not work in the current mode.
@@ -380,9 +379,7 @@
     "M-k" #'previous-line-or-history-element))
 
 (use-package marginalia
-  :init
-  ;; Marginalia must be actived in the :init section
-  (marginalia-mode)
+  :hook (after-init . marginalia-mode)
   :general
   (general-def minibuffer-local-map "M-A" #'marginalia-cycle))
 
@@ -393,13 +390,14 @@
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
 (use-package orderless
+  :defer t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package project
-  :after consult
+  :defer t
   :custom
   (project-switch-commands
    '((project-find-file "File" "f")
@@ -411,9 +409,10 @@
     "p p" #'project-switch-project))
 
 (use-package consult
+  :demand t
+  :after remember-last-theme
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
-  :after remember-last-theme
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :init
   (setq project-read-file-name-function #'consult-project-find-file-with-preview)
@@ -489,7 +488,7 @@
   "C-s" #'avy-goto-char-2)
 
 (use-package evil
-  :after undo-tree
+  :hook (after-init . evil-mode)
   :init
   (add-hook 'wdired-mode-hook #'turn-on-undo-tree-mode)
   :bind
@@ -504,7 +503,6 @@
   (evil-want-minibuffer t)
   (evil-undo-system 'undo-tree)
   :config
-  (evil-mode 1)
   (add-to-list 'evil-jumps-ignored-file-patterns ".*/$")
   :general
   (gg/leader
@@ -527,9 +525,7 @@
   (evil-collection-init))
 
 (use-package evil-anzu
-  :after evil
-  :init
-  (global-anzu-mode))
+  :hook (evil-mode . global-anzu-mode))
 
 (use-package evil-numbers
   :after evil
@@ -544,16 +540,13 @@
     "g C-x" #'evil-numbers/dec-at-pt-incremental))
 
 (use-package evil-surround
-  :config
-  (global-evil-surround-mode 1))
+  :hook (evil-mode . global-evil-surround-mode))
 
 (use-package evil-matchit
-  :init
-  (global-evil-matchit-mode 1))
+  :hook (evil-mode . global-evil-matchit-mode))
 
 (use-package evil-mc
-  :init
-  (global-evil-mc-mode 1)
+  :hook (evil-mode . global-evil-mc-mode)
   :general
   (general-def
     :states 'normal
@@ -563,6 +556,7 @@
     "C-S-k" #'evil-mc-make-and-goto-prev-match))
 
 (use-package evil-textobj-tree-sitter
+  :after evil
   :general
   (general-def
     :keymaps 'evil-outer-text-objects-map
@@ -578,14 +572,12 @@
     "L c" #'link-hint-copy-link))
 
 (use-package pdf-tools
-  :init
-  (pdf-tools-install))
+  :magic ("%PDF" . pdf-view-mode)
+  :config
+  (pdf-tools-install :no-query))
 
 (use-package dirvish
-  :after nerd-icons
-  :init
-  (dirvish-override-dired-mode)
-  (dirvish-side-follow-mode)
+  :hook (after-init . dirvish-override-dired-mode)
   :custom
   (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
    `(("h" "~/"                                     "Home")
@@ -660,13 +652,14 @@
     "f" #'dired-create-empty-file
     "k" #'dired-create-directory))
 
+(use-package dirvish-side
+  :hook (after-init . dirvish-side-follow-mode))
+
 (use-package dired-gitignore
   :general
   (gg/local
     :keymaps 'dirvish-mode-map
     "i" #'dired-gitignore-global-mode))
-
-(use-package dired-x)
 
 (use-package diredfl
   :hook
@@ -676,9 +669,14 @@
   (set-face-attribute 'diredfl-dir-name nil :bold t))
 
 (use-package dired
-  :init
-  (setq dired-omit-files (concat dired-omit-files "\\|^\\..*$"))
-  (setq dired-deletion-confirmer #'(lambda (_) t)))
+  :defer t
+  :custom
+  (dired-deletion-confirmer (lambda (_) t)))
+
+(use-package dired-x
+  :after dired
+  :config
+  (setq dired-omit-files (concat dired-omit-files "\\|^\\..*$")))
 
 (use-package cape
   :init
@@ -687,6 +685,7 @@
                                                #'cape-dabbrev
                                                #'cape-keyword))
   (defun gg/setup-elisp-mode-capf ()
+    (require 'cape)
     (setq-local completion-at-point-functions (list
                                                (cape-capf-nonexclusive #'elisp-completion-at-point)
                                                #'cape-file
@@ -696,6 +695,7 @@
   (emacs-lisp-mode . gg/setup-elisp-mode-capf))
 
 (use-package corfu
+  :hook (after-init . global-corfu-mode)
   :custom
   (completion-ignore-case t)
   (corfu-auto t)
@@ -704,9 +704,7 @@
   (corfu-auto-prefix 1)
   (corfu-popupinfo-mode t)
   (corfu-min-width 40)
-  (corfu-popupinfo-delay '(0 . 0))
-  :init
-  (global-corfu-mode))
+  (corfu-popupinfo-delay '(0 . 0)))
 
 (use-package emacs
   :after corfu
@@ -719,15 +717,16 @@
 
 (use-package nerd-icons-corfu
   :after corfu
-  :init
+  :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 ;; NOTE: login with `gptel-gh-login'
 (use-package gptel
   :ensure t
+  :defer t
   :custom
   (gptel-prompt-prefix-alist '((markdown-mode . "> ")))
-  :init
+  :config
   ;; FIXME: `:custom' doesn't work
   ;; See: https://github.com/karthink/gptel/issues/556
   (setq gptel-model 'gpt-5
@@ -738,10 +737,13 @@
     "c m" #'gptel-menu))
 
 (use-package vterm
+  :defer t
   :custom
   (vterm-max-scrollback 10000))
 
 (use-package vterm-toggle
+  :commands (vterm-toggle-cd vterm-toggle-forward vterm-toggle-backward
+             vterm-toggle--new gg/vterm-new gg/cmatrix)
   :custom
   (vterm-toggle-reset-window-configration-after-exit nil)
   :init
@@ -772,7 +774,14 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (use-package magit
-  :init
+  :custom
+  (magit-format-file-function #'magit-format-file-nerd-icons)
+  (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
+  (magit-commit-squash-confirm nil)
+  (magit-bury-buffer-function #'magit-restore-window-configuration)
+  (magit-revision-show-gravatars t)
+  (magit-diff-fontify-hunk 'all)
+  :config
   (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (defun gg/magit-auto-fetch ()
@@ -781,13 +790,6 @@
     (when (forge-buffer-repository)
       (forge-pull)))
   (advice-add 'magit-status :after #'gg/magit-auto-fetch)
-  :custom
-  (magit-format-file-function #'magit-format-file-nerd-icons)
-  (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
-  (magit-commit-squash-confirm nil)
-  (magit-bury-buffer-function #'magit-restore-window-configuration)
-  (magit-revision-show-gravatars t)
-  (magit-diff-fontify-hunk 'all)
   :general
   (gg/leader
     "v" #'magit-status
@@ -795,13 +797,11 @@
     "g i" #'magit-init))
 
 (use-package magit-todos
-  :after magit
-  :init
-  (magit-todos-mode 1))
+  :hook (magit-mode . magit-todos-mode))
 
 (use-package transient
   :after magit
-  :init
+  :config
   (transient-define-argument magit-tag:--message ()
     :description "Use message"
     :class 'transient-option
@@ -824,13 +824,12 @@
   (add-to-list 'forge-alist '("ssh.github.com" "api.github.com" "github.com" forge-github-repository)))
 
 (use-package diff-hl
+  :hook
+  (after-init . global-diff-hl-mode)
   :custom
   (diff-hl-show-staged-changes nil)
   (diff-hl-ask-before-revert-hunk nil)
   (diff-hl-draw-borders nil)
-  :init
-  (global-diff-hl-mode)
-  (diff-hl-flydiff-mode)
   :general
   (gg/leader
     "g" '(:ignore t :which-key "VC")
@@ -838,27 +837,28 @@
     "g r" #'diff-hl-revert-hunk
     "g h" #'diff-hl-show-hunk))
 
+(use-package diff-hl-flydiff
+  :hook (after-init . diff-hl-flydiff-mode))
+
 (use-package hl-todo
-  :config
-  (global-hl-todo-mode))
+  :hook (after-init . global-hl-todo-mode))
 
 (use-package envrc
-  :config
-  (envrc-global-mode))
+  :hook (after-init . envrc-global-mode))
 
 (use-package flycheck
-  :init
-  (global-flycheck-mode)
+  :hook (after-init . global-flycheck-mode)
   :custom
   (flycheck-indication-mode 'right-fringe))
 
 (use-package treesit-auto
+  :hook (after-init . global-treesit-auto-mode)
   :config
   (delete 'rust treesit-auto-langs) ;; conflicts with mode set up by rustic-mode config
-  (delete 'c-sharp treesit-auto-langs) ;; sucks
-  (global-treesit-auto-mode))
+  (delete 'c-sharp treesit-auto-langs)) ;; sucks
 
-(use-package yasnippet)
+(use-package yasnippet
+  :defer t)
 
 (use-package lsp-mode
   :init
@@ -916,6 +916,8 @@
   (lsp-semantic-tokens-enable t)
   (lsp-semantic-tokens-honor-refresh-requests t)
   (lsp-signature-function #'lsp-signature-posframe)
+  (lsp-go-analyses '((shadow . t)
+                     (simplifycompositelit . :json-false)))
   :general
   (general-def
     :keymaps '(lsp-mode-map)
@@ -970,6 +972,7 @@
   :after lsp-mode)
 
 (use-package python
+  :defer t
   :init
   (add-hook 'before-save-hook (lambda ()
                                 (when (and
@@ -978,7 +981,6 @@
                                   (lsp-format-buffer)))))
 
 (use-package lsp-java
-  :init
   :hook (java-ts-mode . (lambda ()
                           (load "lsp-java.el")
                           (lsp))))
@@ -990,6 +992,7 @@
   (rustic-format-trigger t))
 
 (use-package lsp-rust
+  :after lsp-mode
   :custom
   (lsp-rust-analyzer-lens-references-adt-enable t)
   (lsp-rust-analyzer-lens-references-trait-enable t)
@@ -999,6 +1002,7 @@
   (lsp-rust-clippy-preference "on"))
 
 (use-package markdown-mode
+  :mode ("\\.md\\'" . markdown-mode)
   :custom
   (markdown-fontify-code-blocks-natively t)
   :config
@@ -1006,21 +1010,21 @@
   (add-to-list 'markdown-code-lang-modes '("python" . python-mode)))
 
 (use-package web-mode
+  :mode
+  ("\\.phtml\\'" . web-mode)
+  ("\\.tpl\\.php\\'" . web-mode)
+  ("\\.[agj]sp\\'" . web-mode)
+  ("\\.as[cp]x\\'" . web-mode)
+  ("\\.erb\\'" . web-mode)
+  ("\\.mustache\\'" . web-mode)
+  ("\\.djhtml\\'" . web-mode)
   :hook
   (web-mode . lsp)
   (web-mode . (lambda ()
                 (progn
                   (require 'sgml-mode)
                   (sgml-electric-tag-pair-mode))))
-  :init
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-hook 'web-mode-hook (lambda () (electric-pair-local-mode -1)))
+  (web-mode . (lambda () (electric-pair-local-mode -1)))
   :custom
   (web-mode-script-padding 4)
   (web-mode-enable-auto-pairing t)
@@ -1028,13 +1032,13 @@
   (web-mode-enable-auto-quoting t))
 
 (use-package html-ts-mode
-  :after lsp-mode
   :mode
   ("\\.html\\'" . html-ts-mode)
   :hook
   (html-ts-mode . lsp-deferred))
 
 (use-package lsp-tailwindcss
+  :after lsp-mode
   :init
   (setq lsp-tailwindcss-add-on-mode t))
 
@@ -1045,10 +1049,12 @@
   :hook
   (typescript-ts-mode . lsp)
   (tsx-ts-mode . lsp)
-  :init
-  (add-to-list 'lsp--formatting-indent-alist '(tsx-ts-mode . typescript-ts-mode-indent-offset)))
+  :config
+  (with-eval-after-load 'lsp-mode
+    (add-to-list 'lsp--formatting-indent-alist '(tsx-ts-mode . typescript-ts-mode-indent-offset))))
 
 (use-package lsp-javascript
+  :after lsp-mode
   :custom
   (lsp-typescript-references-code-lens-enabled t)
   (lsp-typescript-implementations-code-lens-enabled t))
@@ -1062,14 +1068,10 @@
   :custom
   (js-indent-level 2))
 
-(use-package emacs
-  :hook
-  (csharp-mode . lsp)
-  (csharp-ts-mode . lsp))
+(add-hook 'csharp-mode-hook #'lsp)
+(add-hook 'csharp-ts-mode-hook #'lsp)
 
-(use-package emacs
-  :mode
-  ("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
+(add-to-list 'auto-mode-alist '("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
 (use-package docker
   :general
@@ -1080,51 +1082,45 @@
   :hook (yaml-mode . lsp))
 
 (use-package terraform-mode
-  :after lsp-mode
   :hook (terraform-mode . lsp-deferred))
 
-(use-package feature-mode)
-
-(use-package lsp-mode
-  :custom
-  (lsp-go-analyses '((shadow . t)
-                     (simplifycompositelit . :json-false))))
+(use-package feature-mode
+  :defer t)
 
 (use-package go-ts-mode
+  :hook (go-ts-mode . lsp)
   :custom
   (go-ts-mode-indent-offset tab-width))
-(use-package lsp-mode
-  :hook
-  (go-ts-mode . lsp))
 
 (use-package typst-ts-mode
   :custom
-  (typst-ts-mode-indent-offset 2))
-(use-package lsp-mode
-  :init
-  (add-to-list 'lsp-language-id-configuration '(typst-ts-mode . "typst"))
+  (typst-ts-mode-indent-offset 2)
   :config
-  (lsp-register-client
-   (make-lsp-client
-    :new-connection (lsp-stdio-connection "tinymist")
-    :activation-fn (lsp-activate-on "typst")
-    :server-id 'typst-lsp)))
+  (with-eval-after-load 'lsp-mode
+    (add-to-list 'lsp-language-id-configuration '(typst-ts-mode . "typst"))
+    (lsp-register-client
+     (make-lsp-client
+      :new-connection (lsp-stdio-connection "tinymist")
+      :activation-fn (lsp-activate-on "typst")
+      :server-id 'typst-lsp))))
 
 (use-package json-ts-mode
   :hook
   (json-ts-mode . lsp))
 
-(use-package powershell)
+(use-package powershell
+  :defer t)
 
 (use-package age
+  :hook (after-init . (lambda ()
+                        (let ((inhibit-message t))
+                          (age-file-enable))))
   :custom
   (age-default-identity "~/.ssh/id_ed25519")
-  (age-default-recipient "~/.ssh/id_ed25519.pub")
-  :init
-  (let ((inhibit-message t))
-    (age-file-enable)))
+  (age-default-recipient "~/.ssh/id_ed25519.pub"))
 
-(use-package hackernews)
+(use-package hackernews
+  :defer t)
 
 (general-def
   "C--" #'text-scale-decrease
