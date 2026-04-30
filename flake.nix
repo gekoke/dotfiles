@@ -158,6 +158,7 @@ rec {
           elementaryEmacsPackages = {
             # keep-sorted start block=yes
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
+            elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             # keep-sorted end
           };
         in

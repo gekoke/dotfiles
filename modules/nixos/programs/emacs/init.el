@@ -1,104 +1,24 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-(setq gc-cons-threshold 1000000000)
-(setq read-process-output-max (* 1024 1024))
-
-(setq-default tab-width 4)
-
 (use-package treesit
   :custom
   (treesit-font-lock-level 4))
 
 (use-package elementary-emacs-keys :ensure nil :demand t)
+(use-package elementary-emacs-prelude :ensure nil :demand t)
 
 (use-package editorconfig
   :ensure t
   :hook (after-init . editorconfig-mode))
 
-(use-package time
-  :hook (after-init . display-time-mode)
-  :custom
-  (display-time-24hr-format t)
-  (display-time-default-load-average nil))
-
-(use-package calendar
-  :defer t
-  :custom
-  (calendar-week-start-day 1))
-
 (use-package emacs
-  :init
-  (setq kill-buffer-query-functions nil)
   :general
   (gg/leader
     "i" #'ibuffer
     "B r" #'rename-buffer))
 
-(use-package undo-tree
-  :hook (after-init . global-undo-tree-mode)
-  :custom
-  (undo-tree-enable-undo-in-region t)
-  (undo-tree-history-directory-alist `(("." . ,(concat user-emacs-directory "undo-tree-history")))))
-
-(let ((backup-dir "~/.local/state/emacs/backups")
-      (auto-saves-dir "~/.local/state/emacs/autosaves"))
-  (dolist (dir (list backup-dir auto-saves-dir))
-    (when (not (file-directory-p dir))
-      (make-directory dir t)))
-  (setq backup-directory-alist `(("." . ,backup-dir))
-        auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
-        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
-        tramp-backup-directory-alist `((".*" . ,backup-dir))
-        tramp-auto-save-directory auto-saves-dir))
-
-(setq backup-by-copying t    ; Don't delink hardlinks
-      delete-old-versions t  ; Clean up the backups
-      version-control t      ; Use version numbers on backups,
-      kept-new-versions 8    ; keep some new versions
-      kept-old-versions 8)   ; and some old ones, too
-
-(setq create-lockfiles nil)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-(setq inhibit-startup-message t)
-(setq use-dialog-box nil)
-(setq initial-scratch-message "")
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(tooltip-mode -1)
-(menu-bar-mode -1)
-(save-place-mode 1)
-(setq-default cursor-in-non-selected-windows nil)
-(recentf-mode 1)
-(savehist-mode 1)
-(global-auto-revert-mode 1)
-(column-number-mode)
 (setq-default left-fringe-width 4)
 (setq-default right-fringe-width 12)
-
-(setq display-line-numbers-type 'relative)
-
-(add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode 1)))
-(add-hook 'conf-mode-hook (lambda () (display-line-numbers-mode 1)))
-(add-hook 'json-ts-mode-hook (lambda () (display-line-numbers-mode 1)))
-(add-hook 'text-mode-hook (lambda () (display-line-numbers-mode 1)))
-
-(add-hook 'prog-mode-hook (lambda () (hl-line-mode 1)))
-(add-hook 'conf-mode-hook (lambda () (hl-line-mode 1)))
-(add-hook 'json-ts-mode-hook (lambda () (hl-line-mode 1)))
-(add-hook 'text-mode-hook (lambda () (hl-line-mode 1)))
-
-(add-hook 'prog-mode-hook (lambda () (hs-minor-mode 1)))
-(add-hook 'conf-mode-hook (lambda () (hs-minor-mode 1)))
-(add-hook 'json-ts-mode-hook (lambda () (hs-minor-mode 1)))
-
-(electric-indent-mode +1)
-(electric-pair-mode +1)
-(setq-default indent-tabs-mode nil)
-(setq-default truncate-lines t)
-(show-paren-mode 1)
-
-(setq even-window-sizes nil)
 
 (use-package ace-window
   :general
@@ -110,11 +30,6 @@
     "C-w C-e" #'ace-swap-window
     "C-w d" #'ace-delete-window
     "C-w C-d" #'ace-delete-window))
-
-(add-to-list 'display-buffer-alist
-            '("\\*compilation*"
-              nil
-              (reusable-frames . t)))
 
 (use-package eyebrowse
   :hook (after-init . eyebrowse-mode)
@@ -474,10 +389,6 @@
     "h c" #'helpful-command
     "h m" #'describe-mode))
 
-(winner-mode +1)
-
-(repeat-mode +1)
-
 (general-def
   "C-s" #'avy-goto-char-2)
 
@@ -753,9 +664,6 @@
     "o n" #'gg/vterm-new
     "o j" #'vterm-toggle-forward
     "o k" #'vterm-toggle-backward))
-
-;; Don't make new frame for ediff - why would I want that?!
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (use-package magit
   :custom
