@@ -22,6 +22,7 @@ let
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-vc
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-visual
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-workspaces
     # keep-sorted end
@@ -161,7 +162,6 @@ in
             # keep-sorted start block=yes
             epkgs.age
             epkgs.consult-lsp
-            epkgs.diff-hl
             epkgs.dired-gitignore
             epkgs.diredfl
             epkgs.dirvish
@@ -170,16 +170,12 @@ in
             epkgs.envrc
             epkgs.feature-mode
             epkgs.flycheck
-            epkgs.forge
             epkgs.hackernews
-            epkgs.hl-todo
             epkgs.lsp-java
             epkgs.lsp-mode
             epkgs.lsp-pyright
             epkgs.lsp-tailwindcss
             epkgs.lsp-ui
-            epkgs.magit
-            epkgs.magit-todos
             epkgs.markdown-mode
             epkgs.nix-ts-mode
             epkgs.package-lint
