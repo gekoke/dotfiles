@@ -21,6 +21,7 @@ let
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-editor
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-files
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-lsp
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-terminal
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
@@ -49,8 +50,6 @@ in
 
     elementary.home.packages = [
       # keep-sorted start block=yes
-      # LSP
-      inputs.emacs-lsp-booster.packages.${pkgs.stdenv.hostPlatform.system}.default
       # age
       pkgs.age
       pkgs.cargo
@@ -155,18 +154,13 @@ in
           [
             # keep-sorted start block=yes
             epkgs.age
-            epkgs.consult-lsp
             epkgs.docker
             epkgs.emacs
-            epkgs.envrc
             epkgs.feature-mode
-            epkgs.flycheck
             epkgs.hackernews
             epkgs.lsp-java
-            epkgs.lsp-mode
             epkgs.lsp-pyright
             epkgs.lsp-tailwindcss
-            epkgs.lsp-ui
             epkgs.markdown-mode
             epkgs.nix-ts-mode
             epkgs.package-lint
@@ -176,12 +170,10 @@ in
             epkgs.rustic
             epkgs.sideline-blame
             epkgs.terraform-mode
-            epkgs.treesit-auto
             epkgs.treesit-grammars.with-all-grammars
             epkgs.typst-ts-mode
             epkgs.web-mode
             epkgs.yaml-mode
-            epkgs.yasnippet
             # keep-sorted end
           ]
           ++ elementaryEmacsPackages;
