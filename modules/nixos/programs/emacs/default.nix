@@ -152,6 +152,7 @@ in
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
+              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-visual
               # keep-sorted end
             ];
           in
@@ -162,13 +163,11 @@ in
             epkgs.cape
             epkgs.consult-lsp
             epkgs.corfu
-            epkgs.dashboard
             epkgs.diff-hl
             epkgs.dired-gitignore
             epkgs.diredfl
             epkgs.dirvish
             epkgs.docker
-            epkgs.doom-modeline
             epkgs.editorconfig
             epkgs.emacs
             epkgs.embark
@@ -189,9 +188,7 @@ in
             epkgs.hackernews
             epkgs.helpful
             epkgs.hl-todo
-            epkgs.indent-bars
             epkgs.jinx
-            epkgs.ligature
             epkgs.link-hint
             epkgs.lsp-java
             epkgs.lsp-mode
@@ -202,18 +199,14 @@ in
             epkgs.magit-todos
             epkgs.marginalia
             epkgs.markdown-mode
-            epkgs.nerd-icons
             epkgs.nerd-icons-completion
             epkgs.nerd-icons-corfu
             epkgs.nix-ts-mode
-            epkgs.nyan-mode
-            epkgs.olivetti
             epkgs.orderless
             epkgs.package-lint
             epkgs.pdf-tools
             epkgs.powershell
             epkgs.python
-            epkgs.rainbow-delimiters
             epkgs.rg
             epkgs.rustic
             epkgs.sideline-blame
