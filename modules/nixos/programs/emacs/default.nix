@@ -22,6 +22,7 @@ let
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-files
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-terminal
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-vc
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-visual
@@ -178,8 +179,6 @@ in
             epkgs.treesit-auto
             epkgs.treesit-grammars.with-all-grammars
             epkgs.typst-ts-mode
-            epkgs.vterm
-            epkgs.vterm-toggle
             epkgs.web-mode
             epkgs.yaml-mode
             epkgs.yasnippet

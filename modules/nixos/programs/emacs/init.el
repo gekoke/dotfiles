@@ -42,26 +42,7 @@
     "c b" #'gptel
     "c m" #'gptel-menu))
 
-(use-package vterm
-  :defer t
-  :custom
-  (vterm-max-scrollback 10000))
-
-(use-package vterm-toggle
-  :commands (vterm-toggle-cd vterm-toggle-forward vterm-toggle-backward
-             vterm-toggle--new gg/vterm-new)
-  :custom
-  (vterm-toggle-reset-window-configration-after-exit nil)
-  :init
-  (defun gg/vterm-new ()
-    (interactive)
-    (vterm-toggle--new))
-  :general
-  (gg/leader
-    "o o" #'vterm-toggle-cd
-    "o n" #'gg/vterm-new
-    "o j" #'vterm-toggle-forward
-    "o k" #'vterm-toggle-backward))
+(use-package elementary-emacs-terminal :ensure nil :demand t)
 
 (use-package elementary-emacs-vc :ensure nil :demand t)
 
