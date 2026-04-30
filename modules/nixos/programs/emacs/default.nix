@@ -150,6 +150,7 @@ in
             elementaryEmacsPackages = [
               # keep-sorted start
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
+              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
               # keep-sorted end
             ];
           in
@@ -226,7 +227,6 @@ in
             epkgs.treesit-auto
             epkgs.treesit-grammars.with-all-grammars
             epkgs.typst-ts-mode
-            epkgs.undo-tree
             epkgs.vertico
             epkgs.vterm
             epkgs.vterm-toggle
