@@ -211,21 +211,7 @@
   :config
   (dashboard-setup-startup-hook))
 
-(setq custom-safe-themes t)
-(use-package doom-themes :defer t)
-(use-package ef-themes :defer t)
-(use-package gruvbox-theme :defer t)
-(use-package modus-themes :defer t)
-(use-package catppuccin-theme
-  :defer t
-  :custom
-  (catppuccin-flavor 'frappe))
-(use-package miasma-theme :defer t)
-
-(use-package remember-last-theme
-  :demand t
-  :config
-  (remember-last-theme-enable))
+(use-package elementary-emacs-themes :ensure nil :demand t)
 
 (set-frame-font "-JB -JetBrainsMono Nerd Font-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1" nil t t)
 
@@ -319,7 +305,6 @@
 
 (use-package consult
   :demand t
-  :after remember-last-theme
   ;; Enable automatic preview at point in the *Completions* buffer. This is
   ;; relevant when you use the default completion UI.
   :hook (completion-list-mode . consult-preview-at-point-mode)
@@ -348,13 +333,6 @@
   (xref-show-xrefs-function #'consult-xref)
   (xref-show-definitions-function #'consult-xref)
   :config
-  (defun gg/consult-theme-and-remember ()
-    "Run consult-theme and remember the last theme used"
-    (interactive)
-    (call-interactively 'consult-theme)
-    (let ((inhibit-message t)
-          (message-log-max nil))
-      (remember-last-theme-save)))
   (defun gg/consult-buffer-vterm ()
     (interactive)
     (minibuffer-with-setup-hook
@@ -364,8 +342,6 @@
   (gg/leader
     "b" #'consult-buffer
     "o v" #'gg/consult-buffer-vterm
-    "t" '(:ignore t :which-key "Theme")
-    "t h" #'gg/consult-theme-and-remember
     "/" #'consult-ripgrep))
 
 (use-package embark-consult

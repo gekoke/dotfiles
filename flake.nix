@@ -159,12 +159,15 @@ rec {
             # keep-sorted start block=yes
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
+            elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
+              inherit (self.packages.${pkgs.stdenv.hostPlatform.system}) miasma-theme;
+            };
             # keep-sorted end
           };
         in
         {
           packages = {
-            # keep-sorted start
+            # keep-sorted start block=yes
             connections = pkgs.callPackage ./packages/connections { };
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
             miasma-theme = pkgs.callPackage ./packages/miasma-theme { };
