@@ -63,9 +63,6 @@
   :after evil
   :custom
   (evil-collection-magit-use-z-for-folds t)
-  (magit-diff-refine-hunk t)
-  (magit-diff-refine-ignore-whitespace nil)
-  (magit-status-margin '(t age magit-log-margin-width t 18))
   :config
   (evil-collection-init))
 

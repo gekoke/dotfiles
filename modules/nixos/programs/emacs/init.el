@@ -166,75 +166,7 @@
     "o j" #'vterm-toggle-forward
     "o k" #'vterm-toggle-backward))
 
-(use-package magit
-  :custom
-  (magit-format-file-function #'magit-format-file-nerd-icons)
-  (magit-no-confirm '(set-and-push stage-all-changes unstage-all-changes))
-  (magit-commit-squash-confirm nil)
-  (magit-bury-buffer-function #'magit-restore-window-configuration)
-  (magit-revision-show-gravatars t)
-  (magit-diff-fontify-hunk 'all)
-  :config
-  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (defun gg/magit-auto-fetch ()
-    (interactive)
-    (magit-fetch-all ())
-    (when (forge-buffer-repository)
-      (forge-pull)))
-  (advice-add 'magit-status :after #'gg/magit-auto-fetch)
-  :general
-  (gg/leader
-    "v" #'magit-status
-    "V" #'magit-status-here
-    "g i" #'magit-init))
-
-(use-package magit-todos
-  :hook (magit-mode . magit-todos-mode))
-
-(use-package transient
-  :after magit
-  :config
-  (transient-define-argument magit-tag:--message ()
-    :description "Use message"
-    :class 'transient-option
-    :shortarg "-m"
-    :argument "--message="
-    ;; Empty (annotated) tag messages must be permitted because it is
-    ;; impossible to create them interactively.
-    :allow-empty t)
-  (transient-append-suffix
-    'magit-tag
-    "-u"
-    '(magit-tag:--message)))
-
-(use-package forge
-  :after magit
-  :custom
-  (forge-add-default-bindings nil) ;; Use evil-collection instead
-  (forge-owned-accounts '(("gekoke")))
-  :config
-  (add-to-list 'forge-alist '("ssh.github.com" "api.github.com" "github.com" forge-github-repository)))
-
-(use-package diff-hl
-  :hook
-  (after-init . global-diff-hl-mode)
-  :custom
-  (diff-hl-show-staged-changes nil)
-  (diff-hl-ask-before-revert-hunk nil)
-  (diff-hl-draw-borders nil)
-  :general
-  (gg/leader
-    "g" '(:ignore t :which-key "VC")
-    "g s" #'diff-hl-stage-current-hunk
-    "g r" #'diff-hl-revert-hunk
-    "g h" #'diff-hl-show-hunk))
-
-(use-package diff-hl-flydiff
-  :hook (after-init . diff-hl-flydiff-mode))
-
-(use-package hl-todo
-  :hook (after-init . global-hl-todo-mode))
+(use-package elementary-emacs-vc :ensure nil :demand t)
 
 (use-package envrc
   :hook (after-init . envrc-global-mode))
