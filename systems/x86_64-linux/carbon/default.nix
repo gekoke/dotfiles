@@ -45,10 +45,16 @@
       { xdg.userDirs.setSessionVariables = false; }
     ];
 
-    users.${config.constants.default.user.name} = {
-      programs.git.signing.key = "1E9AFDF3275F99EE";
-      identities.geko.enable = true;
-    };
+    users.${config.constants.default.user.name} =
+      { config, ... }:
+      {
+        programs = {
+          git.signing.key = "1E9AFDF3275F99EE";
+          # You are currently using the legacy default (`".mozilla/firefox"`) because `home.stateVersion` is less than "26.05".
+          firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
+        };
+        identities.geko.enable = true;
+      };
   };
 
   boot = {

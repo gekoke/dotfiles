@@ -117,7 +117,7 @@ in
 
             (setq lsp-tailwindcss-server-path "${lib.getExe pkgs.tailwindcss-language-server}")
 
-            (setq lsp-clients-typescript-tls-path "${lib.getExe pkgs.nodePackages.typescript-language-server}")
+            (setq lsp-clients-typescript-tls-path "${lib.getExe pkgs.typescript-language-server}")
 
             (setq exec-path (append '("${execPath}/bin") exec-path))
           '';
