@@ -964,7 +964,7 @@
 (use-package lsp-pyright
   :hook (python-ts-mode . (lambda ()
                             (require 'lsp-pyright)
-                            (lsp)))
+                            (lsp-deferred)))
   :custom
   (lsp-pyright-venv-directory "./.venv"))
 
@@ -983,7 +983,7 @@
 (use-package lsp-java
   :hook (java-ts-mode . (lambda ()
                           (load "lsp-java.el")
-                          (lsp))))
+                          (lsp-deferred))))
 
 (use-package rustic
   :mode
@@ -1019,7 +1019,7 @@
   ("\\.mustache\\'" . web-mode)
   ("\\.djhtml\\'" . web-mode)
   :hook
-  (web-mode . lsp)
+  (web-mode . lsp-deferred)
   (web-mode . (lambda ()
                 (progn
                   (require 'sgml-mode)
