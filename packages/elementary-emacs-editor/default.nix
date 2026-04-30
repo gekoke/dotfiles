@@ -26,6 +26,7 @@ emacsPackages.trivialBuild {
     emacsPackages.indent-bars
     emacsPackages.jinx
     emacsPackages.link-hint
+    emacsPackages.treesit-auto
     emacsPackages.undo-tree
   ];
   passthru.runtimeDeps = [

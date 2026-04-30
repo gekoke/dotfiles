@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (editorconfig "0.11") (evil "1.15") (evil-anzu "0.1") (evil-collection "0.1") (evil-matchit "3.0") (evil-mc "0.1") (evil-numbers "0.7") (evil-surround "1.1") (evil-textobj-tree-sitter "0.1") (general "0.1") (helpful "0.21") (indent-bars "0.8") (jinx "1.5") (link-hint "0.2") (undo-tree "0.7") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (editorconfig "0.11") (evil "1.15") (evil-anzu "0.1") (evil-collection "0.1") (evil-matchit "3.0") (evil-mc "0.1") (evil-numbers "0.7") (evil-surround "1.1") (evil-textobj-tree-sitter "0.1") (general "0.1") (helpful "0.21") (indent-bars "0.8") (jinx "1.5") (link-hint "0.2") (treesit-auto "0.4") (undo-tree "0.7") (elementary-emacs-keys "0.1"))
 ;; Keywords: convenience
 
 ;;; Commentary:
@@ -40,6 +40,12 @@
 
 (use-package editorconfig
   :hook (after-init . editorconfig-mode))
+
+(use-package treesit-auto
+  :hook (after-init . global-treesit-auto-mode)
+  :config
+  (delete 'rust treesit-auto-langs) ;; conflicts with mode set up by rustic-mode config
+  (delete 'c-sharp treesit-auto-langs)) ;; sucks
 
 (use-package text-mode
   :defer t
