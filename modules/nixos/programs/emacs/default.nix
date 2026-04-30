@@ -19,6 +19,7 @@ let
     # keep-sorted start
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-completion
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-editor
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-files
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
@@ -55,17 +56,12 @@ in
       pkgs.clippy
       # CSharp
       pkgs.dotnet-sdk_10
-      # dirvish
-      pkgs.fd
-      pkgs.ffmpegthumbnailer
-      pkgs.gnutar
       # Go
       pkgs.go
       pkgs.gopls
       # Java
       pkgs.jdk25
       pkgs.jdt-language-server
-      pkgs.mediainfo
       # Fonts
       pkgs.nerd-fonts.agave
       pkgs.nerd-fonts.blex-mono
@@ -79,7 +75,6 @@ in
       pkgs.nodejs
       pkgs.noto-fonts-color-emoji
       pkgs.omnisharp-roslyn
-      pkgs.poppler-utils # PDF preview
       # Powershell
       pkgs.powershell
       # Python
@@ -95,8 +90,6 @@ in
       pkgs.terraform-ls
       # Typst
       pkgs.tinymist
-      pkgs.unzip
-      pkgs.vips
       # HTML, CSS, JSON, Eslint
       pkgs.vscode-langservers-extracted
       # YAML
@@ -162,9 +155,6 @@ in
             # keep-sorted start block=yes
             epkgs.age
             epkgs.consult-lsp
-            epkgs.dired-gitignore
-            epkgs.diredfl
-            epkgs.dirvish
             epkgs.docker
             epkgs.emacs
             epkgs.envrc
