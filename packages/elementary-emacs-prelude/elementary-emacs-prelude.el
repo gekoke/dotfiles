@@ -9,9 +9,8 @@
 
 ;; Provides the opinionated baseline Emacs defaults shared by all
 ;; Elementary Emacs configurations: backup/autosave layout, GC tuning,
-;; built-in mode tweaks, line numbers and `hl-line-mode' for code
-;; buffers, and lazy activation of `editorconfig', `undo-tree',
-;; `display-time-mode', `winner-mode', and `repeat-mode'.
+;; built-in mode tweaks, persisted history/places, auto-revert, and
+;; lazy activation of `undo-tree', `winner-mode', and `repeat-mode'.
 
 ;;; Code:
 
@@ -19,14 +18,6 @@
 
 (setq gc-cons-threshold 1000000000)
 (setq read-process-output-max (* 1024 1024))
-
-(setq-default tab-width 4)
-
-(use-package time
-  :hook (after-init . display-time-mode)
-  :custom
-  (display-time-24hr-format t)
-  (display-time-default-load-average nil))
 
 (use-package calendar
   :defer t
@@ -64,47 +55,10 @@
 (setq create-lockfiles nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(setq inhibit-startup-message t)
-(setq use-dialog-box nil)
-(setq initial-scratch-message "")
 (save-place-mode 1)
-(setq-default cursor-in-non-selected-windows nil)
 (recentf-mode 1)
 (savehist-mode 1)
 (global-auto-revert-mode 1)
-(column-number-mode)
-
-(setq display-line-numbers-type 'relative)
-
-(defun elementary-emacs-prelude--enable-line-numbers ()
-  "Enable relative `display-line-numbers-mode' in the current buffer."
-  (display-line-numbers-mode 1))
-
-(defun elementary-emacs-prelude--enable-hl-line ()
-  "Enable `hl-line-mode' in the current buffer."
-  (hl-line-mode 1))
-
-(defun elementary-emacs-prelude--enable-hs-minor ()
-  "Enable `hs-minor-mode' in the current buffer."
-  (hs-minor-mode 1))
-
-(dolist (hook '(prog-mode-hook
-                conf-mode-hook
-                json-ts-mode-hook
-                text-mode-hook))
-  (add-hook hook #'elementary-emacs-prelude--enable-line-numbers)
-  (add-hook hook #'elementary-emacs-prelude--enable-hl-line))
-
-(dolist (hook '(prog-mode-hook
-                conf-mode-hook
-                json-ts-mode-hook))
-  (add-hook hook #'elementary-emacs-prelude--enable-hs-minor))
-
-(electric-indent-mode +1)
-(electric-pair-mode +1)
-(setq-default indent-tabs-mode nil)
-(setq-default truncate-lines t)
-(show-paren-mode 1)
 
 (setq even-window-sizes nil)
 

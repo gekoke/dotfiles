@@ -23,6 +23,7 @@ emacsPackages.trivialBuild {
     emacsPackages.evil-textobj-tree-sitter
     emacsPackages.general
     emacsPackages.helpful
+    emacsPackages.indent-bars
     emacsPackages.jinx
     emacsPackages.link-hint
     emacsPackages.undo-tree
