@@ -23,6 +23,7 @@ let
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-visual
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-workspaces
     # keep-sorted end
   ];
 in
@@ -158,7 +159,6 @@ in
           epkgs:
           [
             # keep-sorted start block=yes
-            epkgs.ace-window
             epkgs.age
             epkgs.consult-lsp
             epkgs.diff-hl
@@ -168,7 +168,6 @@ in
             epkgs.docker
             epkgs.emacs
             epkgs.envrc
-            epkgs.eyebrowse
             epkgs.feature-mode
             epkgs.flycheck
             epkgs.forge

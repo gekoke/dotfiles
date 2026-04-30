@@ -165,6 +165,7 @@ rec {
               inherit (self.packages.${pkgs.stdenv.hostPlatform.system}) miasma-theme;
             };
             elementary-emacs-visual = mkElementaryEmacsPackage ./packages/elementary-emacs-visual { };
+            elementary-emacs-workspaces = mkElementaryEmacsPackage ./packages/elementary-emacs-workspaces { };
             # keep-sorted end
           };
         in
