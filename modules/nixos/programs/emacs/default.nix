@@ -151,6 +151,7 @@ in
               # keep-sorted start
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
+              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
               # keep-sorted end
             ];
           in
@@ -159,8 +160,6 @@ in
             epkgs.ace-window
             epkgs.age
             epkgs.cape
-            epkgs.catppuccin-theme
-            epkgs.consult
             epkgs.consult-lsp
             epkgs.corfu
             epkgs.dashboard
@@ -170,9 +169,7 @@ in
             epkgs.dirvish
             epkgs.docker
             epkgs.doom-modeline
-            epkgs.doom-themes
             epkgs.editorconfig
-            epkgs.ef-themes
             epkgs.emacs
             epkgs.embark
             epkgs.embark-consult
@@ -189,7 +186,6 @@ in
             epkgs.feature-mode
             epkgs.flycheck
             epkgs.forge
-            epkgs.gruvbox-theme
             epkgs.hackernews
             epkgs.helpful
             epkgs.hl-todo
@@ -206,7 +202,6 @@ in
             epkgs.magit-todos
             epkgs.marginalia
             epkgs.markdown-mode
-            epkgs.modus-themes
             epkgs.nerd-icons
             epkgs.nerd-icons-completion
             epkgs.nerd-icons-corfu
@@ -219,7 +214,6 @@ in
             epkgs.powershell
             epkgs.python
             epkgs.rainbow-delimiters
-            epkgs.remember-last-theme
             epkgs.rg
             epkgs.rustic
             epkgs.sideline-blame
@@ -235,7 +229,6 @@ in
             epkgs.which-key
             epkgs.yaml-mode
             epkgs.yasnippet
-            self.packages.${pkgs.stdenv.hostPlatform.system}.miasma-theme
             # keep-sorted end
           ]
           ++ elementaryEmacsPackages;
