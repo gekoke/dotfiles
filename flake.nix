@@ -162,6 +162,7 @@ rec {
             elementary-emacs-files = mkElementaryEmacsPackage ./packages/elementary-emacs-files { };
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
+            elementary-emacs-terminal = mkElementaryEmacsPackage ./packages/elementary-emacs-terminal { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
               inherit (self.packages.${pkgs.stdenv.hostPlatform.system}) miasma-theme;
             };
