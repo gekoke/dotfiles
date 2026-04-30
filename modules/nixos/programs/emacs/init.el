@@ -600,6 +600,9 @@
   (dirvish-header-line-format '(:left (path) :right (free-space)))
   (dirvish-path-separators (list "  🏠" "  🔒" " ➤ "))
 
+
+  (dirvish-default-layout '(1 0.11 0.4))
+
   (delete-by-moving-to-trash t)
 
   (dirvish-show-media-properties t)
