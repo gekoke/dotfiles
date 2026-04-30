@@ -50,8 +50,6 @@ in
       # Go
       pkgs.go
       pkgs.gopls
-      # jinx
-      pkgs.hunspellDicts.en_US
       # Java
       pkgs.jdk25
       pkgs.jdt-language-server
@@ -149,6 +147,7 @@ in
           let
             elementaryEmacsPackages = [
               # keep-sorted start
+              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-editor
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
               self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
@@ -168,28 +167,16 @@ in
             epkgs.diredfl
             epkgs.dirvish
             epkgs.docker
-            epkgs.editorconfig
             epkgs.emacs
             epkgs.embark
             epkgs.embark-consult
             epkgs.envrc
-            epkgs.evil
-            epkgs.evil-anzu
-            epkgs.evil-collection
-            epkgs.evil-matchit
-            epkgs.evil-mc
-            epkgs.evil-numbers
-            epkgs.evil-surround
-            epkgs.evil-textobj-tree-sitter
             epkgs.eyebrowse
             epkgs.feature-mode
             epkgs.flycheck
             epkgs.forge
             epkgs.hackernews
-            epkgs.helpful
             epkgs.hl-todo
-            epkgs.jinx
-            epkgs.link-hint
             epkgs.lsp-java
             epkgs.lsp-mode
             epkgs.lsp-pyright

@@ -157,6 +157,7 @@ rec {
             path: extraArgs: pkgs.callPackage path (elementaryEmacsPackages // extraArgs);
           elementaryEmacsPackages = {
             # keep-sorted start block=yes
+            elementary-emacs-editor = mkElementaryEmacsPackage ./packages/elementary-emacs-editor { };
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
