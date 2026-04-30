@@ -6,16 +6,7 @@
 
 (use-package elementary-emacs-keys :ensure nil :demand t)
 (use-package elementary-emacs-prelude :ensure nil :demand t)
-
-(use-package editorconfig
-  :ensure t
-  :hook (after-init . editorconfig-mode))
-
-(use-package emacs
-  :general
-  (gg/leader
-    "i" #'ibuffer
-    "B r" #'rename-buffer))
+(use-package elementary-emacs-editor :ensure nil :demand t)
 
 (setq-default left-fringe-width 4)
 (setq-default right-fringe-width 12)
@@ -62,15 +53,6 @@
     "7" #'eyebrowse-switch-to-window-config-7
     "8" #'eyebrowse-switch-to-window-config-8
      "9" #'eyebrowse-switch-to-window-config-9))
-
-(use-package text-mode
-  :defer t
-  :custom
-  ;; Disable annoying message "can't find dictionary in system default locations"
-  (text-mode-ispell-word-completion nil))
-
-(use-package jinx
-  :hook (text-mode . jinx-mode))
 
 (use-package package-lint
   :defer t)
@@ -177,110 +159,6 @@
 (use-package embark-consult
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
-
-(use-package helpful
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*helpful"
-                 (display-buffer-same-window)))
-  :custom
-  (help-window-select t)
-  :general
-  (gg/leader
-    "h p" #'helpful-at-point
-    "h f" #'helpful-function
-    "h a" #'helpful-callable
-    "h v" #'helpful-variable
-    "h k" #'helpful-key
-    "h c" #'helpful-command
-    "h m" #'describe-mode))
-
-(general-def
-  "C-s" #'avy-goto-char-2)
-
-(use-package evil
-  :hook (after-init . evil-mode)
-  :init
-  (add-hook 'wdired-mode-hook #'turn-on-undo-tree-mode)
-  :bind
-  (:repeat-map evil-window-resizing-repeat-map
-               ("-" . evil-window-decrease-height)
-               ("+" . evil-window-increase-height)
-               (">" . evil-window-increase-width)
-               ("<" . evil-window-decrease-width))
-  :custom
-  (evil-want-keybinding nil)
-  (evil-want-C-u-scroll t)
-  (evil-want-minibuffer t)
-  (evil-undo-system 'undo-tree)
-  :config
-  (add-to-list 'evil-jumps-ignored-file-patterns ".*/$")
-  :general
-  (gg/leader
-    "s" #'save-buffer)
-  (general-def
-    :states '(motion)
-    "C-w u" #'winner-undo
-    "C-w C-u" #'winner-undo
-    "C-w i" #'winner-redo
-    "C-w C-i" #'winner-redo))
-
-(use-package evil-collection
-  :after evil
-  :custom
-  (evil-collection-magit-use-z-for-folds t)
-  (magit-diff-refine-hunk t)
-  (magit-diff-refine-ignore-whitespace nil)
-  (magit-status-margin '(t age magit-log-margin-width t 18))
-  :config
-  (evil-collection-init))
-
-(use-package evil-anzu
-  :hook (evil-mode . global-anzu-mode))
-
-(use-package evil-numbers
-  :after evil
-  :general
-  (general-def
-    :states '(normal visual)
-    "C-a" #'evil-numbers/inc-at-pt
-    "C-x" #'evil-numbers/dec-at-pt)
-  (general-def
-    :states 'visual
-    "g C-a" #'evil-numbers/inc-at-pt-incremental
-    "g C-x" #'evil-numbers/dec-at-pt-incremental))
-
-(use-package evil-surround
-  :hook (evil-mode . global-evil-surround-mode))
-
-(use-package evil-matchit
-  :hook (evil-mode . global-evil-matchit-mode))
-
-(use-package evil-mc
-  :hook (evil-mode . global-evil-mc-mode)
-  :general
-  (general-def
-    :states 'normal
-    "C-M-j" #'evil-mc-make-cursor-move-next-line
-    "C-M-k" #'evil-mc-make-cursor-move-prev-line
-    "C-S-j" #'evil-mc-make-and-goto-next-match
-    "C-S-k" #'evil-mc-make-and-goto-prev-match))
-
-(use-package evil-textobj-tree-sitter
-  :after evil
-  :general
-  (general-def
-    :keymaps 'evil-outer-text-objects-map
-    "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
-  (general-def
-    :keymaps 'evil-inner-text-objects-map
-    "f" (evil-textobj-tree-sitter-get-textobj "function.inner")))
-
-(use-package link-hint
-  :general
-  (gg/leader
-    "L o" #'link-hint-open-link
-    "L c" #'link-hint-copy-link))
 
 (use-package pdf-tools
   :magic ("%PDF" . pdf-view-mode)
