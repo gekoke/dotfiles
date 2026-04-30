@@ -15,6 +15,16 @@ let
     ;
   inherit (lib.types) package;
   cfg = config.elementary.programs.emacs;
+  elementaryEmacsPackages = [
+    # keep-sorted start
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-completion
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-editor
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-visual
+    # keep-sorted end
+  ];
 in
 {
   imports = [ inputs.agenix.nixosModules.default ];
@@ -72,7 +82,6 @@ in
       pkgs.powershell
       # Python
       pkgs.pyright
-      # consult
       pkgs.ripgrep
       pkgs.ruff
       # Rust
@@ -102,10 +111,13 @@ in
             execPath = pkgs.buildEnv {
               name = "elementary-emacs-exec-path";
               pathsToLink = [ "/bin" ];
-              paths = lib.map lib.getBin [
-                # JavaScript/TypeScript
-                pkgs.typescript
-              ];
+              paths = lib.map lib.getBin (
+                [
+                  # JavaScript/TypeScript
+                  pkgs.typescript
+                ]
+                ++ lib.concatMap (p: p.runtimeDeps or [ ]) elementaryEmacsPackages
+              );
             };
           in
           ''
@@ -144,32 +156,17 @@ in
         };
         extraPackages =
           epkgs:
-          let
-            elementaryEmacsPackages = [
-              # keep-sorted start
-              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-editor
-              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-keys
-              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-prelude
-              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-themes
-              self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-visual
-              # keep-sorted end
-            ];
-          in
           [
             # keep-sorted start block=yes
             epkgs.ace-window
             epkgs.age
-            epkgs.cape
             epkgs.consult-lsp
-            epkgs.corfu
             epkgs.diff-hl
             epkgs.dired-gitignore
             epkgs.diredfl
             epkgs.dirvish
             epkgs.docker
             epkgs.emacs
-            epkgs.embark
-            epkgs.embark-consult
             epkgs.envrc
             epkgs.eyebrowse
             epkgs.feature-mode
@@ -184,29 +181,21 @@ in
             epkgs.lsp-ui
             epkgs.magit
             epkgs.magit-todos
-            epkgs.marginalia
             epkgs.markdown-mode
-            epkgs.nerd-icons-completion
-            epkgs.nerd-icons-corfu
             epkgs.nix-ts-mode
-            epkgs.orderless
             epkgs.package-lint
             epkgs.pdf-tools
             epkgs.powershell
             epkgs.python
-            epkgs.rg
             epkgs.rustic
             epkgs.sideline-blame
             epkgs.terraform-mode
             epkgs.treesit-auto
             epkgs.treesit-grammars.with-all-grammars
             epkgs.typst-ts-mode
-            epkgs.vertico
             epkgs.vterm
             epkgs.vterm-toggle
             epkgs.web-mode
-            epkgs.wgrep
-            epkgs.which-key
             epkgs.yaml-mode
             epkgs.yasnippet
             # keep-sorted end
