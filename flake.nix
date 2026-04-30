@@ -159,6 +159,7 @@ rec {
             # keep-sorted start block=yes
             elementary-emacs-completion = mkElementaryEmacsPackage ./packages/elementary-emacs-completion { };
             elementary-emacs-editor = mkElementaryEmacsPackage ./packages/elementary-emacs-editor { };
+            elementary-emacs-files = mkElementaryEmacsPackage ./packages/elementary-emacs-files { };
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
