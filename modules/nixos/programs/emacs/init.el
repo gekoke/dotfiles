@@ -9,17 +9,7 @@
   :custom
   (treesit-font-lock-level 4))
 
-(use-package general
-  :demand t
-  :config
-  (general-create-definer gg/leader
-    :states '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-  (general-create-definer gg/local
-    :states '(normal insert visual emacs)
-    :prefix "SPC m"
-    :global-prefix "C-SPC m"))
+(use-package elementary-emacs-keys :ensure nil :demand t)
 
 (use-package editorconfig
   :ensure t

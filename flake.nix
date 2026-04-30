@@ -152,6 +152,15 @@ rec {
 
       perSystem =
         { pkgs, ... }:
+        let
+          mkElementaryEmacsPackage =
+            path: extraArgs: pkgs.callPackage path (elementaryEmacsPackages // extraArgs);
+          elementaryEmacsPackages = {
+            # keep-sorted start block=yes
+            elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
+            # keep-sorted end
+          };
+        in
         {
           packages = {
             # keep-sorted start
@@ -162,7 +171,8 @@ rec {
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
             wsl-notify-send = pkgs.callPackage ./packages/wsl-notify-send { };
             # keep-sorted end
-          };
+          }
+          // elementaryEmacsPackages;
         };
     };
 }
