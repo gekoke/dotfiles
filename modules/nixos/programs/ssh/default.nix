@@ -1,8 +1,6 @@
 {
   config,
   lib,
-  pkgs,
-  inputs,
   ...
 }:
 with lib;
@@ -26,14 +24,6 @@ in
         };
         "github.com" = {
           identitiesOnly = true;
-        };
-        "neonproxy" = {
-          user = "root";
-          proxyCommand =
-            let
-              proxytunnel = inputs.proxytunnel.packages.${pkgs.stdenv.hostPlatform.system}.default;
-            in
-            "${proxytunnel}/bin/proxytunnel -z -E -p neon.grigorjan.net:443 -d 127.0.0.1:22";
         };
       };
     };

@@ -156,7 +156,6 @@ rec {
           packages = {
             # keep-sorted start
             connections = pkgs.callPackage ./packages/connections { };
-            http_proxy_connect_module = pkgs.callPackage ./packages/http_proxy_connect_module { };
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
             miasma-theme = pkgs.callPackage ./packages/miasma-theme { };
             scramsha256 = pkgs.callPackage ./packages/scramsha256 { };
