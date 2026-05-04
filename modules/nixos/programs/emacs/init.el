@@ -5,6 +5,10 @@
 
 (setq-default tab-width 4)
 
+(use-package treesit
+  :custom
+  (treesit-font-lock-level 4))
+
 (use-package general
   :demand t
   :config
