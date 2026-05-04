@@ -1071,8 +1071,9 @@
   :custom
   (js-indent-level 2))
 
-(add-hook 'csharp-mode-hook #'lsp)
-(add-hook 'csharp-ts-mode-hook #'lsp)
+(use-package csharp-ts-mode
+  :mode ("\\.cs\\'" . csharp-ts-mode)
+  :hook (csharp-ts-mode . lsp-deferred))
 
 (add-to-list 'auto-mode-alist '("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
