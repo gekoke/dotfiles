@@ -750,26 +750,13 @@
 
 (use-package vterm-toggle
   :commands (vterm-toggle-cd vterm-toggle-forward vterm-toggle-backward
-             vterm-toggle--new gg/vterm-new gg/cmatrix)
+             vterm-toggle--new gg/vterm-new)
   :custom
   (vterm-toggle-reset-window-configration-after-exit nil)
   :init
   (defun gg/vterm-new ()
     (interactive)
     (vterm-toggle--new))
-  (defun gg/cmatrix ()
-    "Set up terminal emulators in a nice layout."
-    (interactive)
-    (delete-other-windows)
-    (vterm-toggle--new)
-    (delete-other-windows)
-    (evil-window-split)
-    (evil-window-down 1)
-    (vterm-toggle--new)
-    (evil-window-vsplit)
-    (evil-window-right 1)
-    (vterm-toggle--new)
-    (evil-window-up 1))
   :general
   (gg/leader
     "o o" #'vterm-toggle-cd
