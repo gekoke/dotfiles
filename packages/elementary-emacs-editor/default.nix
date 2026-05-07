@@ -13,6 +13,7 @@ emacsPackages.trivialBuild {
   packageRequires = [
     elementary-emacs-keys
     emacsPackages.editorconfig
+    emacsPackages.envrc
     emacsPackages.evil
     emacsPackages.evil-anzu
     emacsPackages.evil-collection

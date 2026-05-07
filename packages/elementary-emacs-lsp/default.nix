@@ -13,12 +13,10 @@ emacsPackages.trivialBuild {
     elementary-emacs-keys
     emacsPackages.cape
     emacsPackages.consult-lsp
-    emacsPackages.envrc
     emacsPackages.flycheck
     emacsPackages.general
     emacsPackages.lsp-mode
     emacsPackages.lsp-ui
-    emacsPackages.yasnippet
   ];
   passthru.runtimeDeps = [
     emacs-lsp-booster

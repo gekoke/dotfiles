@@ -2,28 +2,21 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (cape "1.0") (consult-lsp "0.1") (envrc "0.10") (flycheck "32") (general "0.1") (lsp-mode "9.0") (lsp-ui "9.0") (yasnippet "0.14") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (cape "1.0") (consult-lsp "0.1") (flycheck "32") (general "0.1") (lsp-mode "9.0") (lsp-ui "9.0") (elementary-emacs-keys "0.1"))
 ;; Keywords: tools
 
 ;;; Commentary:
 
-;; Language-agnostic LSP support: lsp-mode (with `emacs-lsp-booster' integration), lsp-ui, consult-lsp, flycheck, yasnippet, and envrc.
+;; Language-agnostic LSP support: lsp-mode (with `emacs-lsp-booster' integration), lsp-ui, consult-lsp, and flycheck.
 
 ;;; Code:
 
 (require 'elementary-emacs-keys)
 
-(use-package envrc
-  :demand t
-  :hook (after-init . envrc-global-mode))
-
 (use-package flycheck
   :hook (after-init . global-flycheck-mode)
   :custom
   (flycheck-indication-mode 'right-fringe))
-
-(use-package yasnippet
-  :defer t)
 
 (use-package lsp-mode
   :init
@@ -83,7 +76,6 @@
   (setq lsp-semantic-tokens-honor-refresh-requests t)
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
-  (lsp-mode . yas-minor-mode)
   (lsp-completion-mode . gg/setup-lsp-mode-capf)
   :custom
   (lsp-signature-function #'lsp-signature-posframe)
