@@ -14,7 +14,6 @@ emacsPackages.trivialBuild {
     emacsPackages.cape
     emacsPackages.consult-lsp
     emacsPackages.flycheck
-    emacsPackages.general
     emacsPackages.lsp-mode
     emacsPackages.lsp-ui
   ];

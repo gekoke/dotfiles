@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (consult "1.0") (dashboard "1.8") (doom-modeline "4.0") (general "0.1") (ligature "1.0") (nerd-icons "0.1") (nyan-mode "1.1") (olivetti "2.0") (rainbow-delimiters "2.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (consult "1.0") (dashboard "1.8") (doom-modeline "4.0") (ligature "1.0") (nerd-icons "0.1") (nyan-mode "1.1") (olivetti "2.0") (rainbow-delimiters "2.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: faces, frames, mode-line
 
 ;;; Commentary:

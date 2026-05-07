@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (dired-gitignore "0.4") (diredfl "0.6") (dirvish "2.2") (general "0.1") (nerd-icons "0.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (dired-gitignore "0.4") (diredfl "0.6") (dirvish "2.2") (nerd-icons "0.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: files, convenience
 
 ;;; Commentary:

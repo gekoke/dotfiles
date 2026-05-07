@@ -15,7 +15,6 @@ emacsPackages.trivialBuild {
     emacsPackages.consult
     emacsPackages.doom-themes
     emacsPackages.ef-themes
-    emacsPackages.general
     emacsPackages.gruvbox-theme
     emacsPackages.modus-themes
     emacsPackages.remember-last-theme

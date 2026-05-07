@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (evil "1.15") (general "0.1") (vterm "0.0.2") (vterm-toggle "0.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (evil "1.15") (vterm "0.0.2") (vterm-toggle "0.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: terminals
 
 ;;; Commentary:

@@ -13,7 +13,6 @@ emacsPackages.trivialBuild {
     emacsPackages.ace-window
     emacsPackages.dashboard
     emacsPackages.eyebrowse
-    emacsPackages.general
   ];
   meta = {
     description = "Window and workspace management for Elementary Emacs";

@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (cape "1.0") (consult-lsp "0.1") (flycheck "32") (general "0.1") (lsp-mode "9.0") (lsp-ui "9.0") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (cape "1.0") (consult-lsp "0.1") (flycheck "32") (lsp-mode "9.0") (lsp-ui "9.0") (elementary-emacs-keys "0.1"))
 ;; Keywords: tools
 
 ;;; Commentary:

@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (diff-hl "1.10") (forge "0.4") (general "0.1") (hl-todo "3.7") (magit "4.3") (magit-todos "1.7") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (diff-hl "1.10") (forge "0.4") (hl-todo "3.7") (magit "4.3") (magit-todos "1.7") (elementary-emacs-keys "0.1"))
 ;; Keywords: vc, tools
 
 ;;; Commentary:

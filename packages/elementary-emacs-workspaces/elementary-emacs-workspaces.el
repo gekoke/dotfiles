@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (ace-window "0.10") (dashboard "1.8") (eyebrowse "0.7") (general "0.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (ace-window "0.10") (dashboard "1.8") (eyebrowse "0.7") (elementary-emacs-keys "0.1"))
 ;; Keywords: convenience, frames
 
 ;;; Commentary:

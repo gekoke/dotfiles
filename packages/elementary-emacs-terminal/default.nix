@@ -11,7 +11,6 @@ emacsPackages.trivialBuild {
   packageRequires = [
     elementary-emacs-keys
     emacsPackages.evil
-    emacsPackages.general
     emacsPackages.vterm
     emacsPackages.vterm-toggle
   ];

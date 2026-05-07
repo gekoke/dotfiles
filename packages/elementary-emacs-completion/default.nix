@@ -16,7 +16,6 @@ emacsPackages.trivialBuild {
     emacsPackages.corfu
     emacsPackages.embark
     emacsPackages.embark-consult
-    emacsPackages.general
     emacsPackages.marginalia
     emacsPackages.nerd-icons-completion
     emacsPackages.nerd-icons-corfu

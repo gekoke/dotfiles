@@ -13,7 +13,6 @@ emacsPackages.trivialBuild {
     emacsPackages.consult
     emacsPackages.dashboard
     emacsPackages.doom-modeline
-    emacsPackages.general
     emacsPackages.ligature
     emacsPackages.nerd-icons
     emacsPackages.nyan-mode

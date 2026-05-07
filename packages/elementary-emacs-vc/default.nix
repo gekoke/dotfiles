@@ -12,7 +12,6 @@ emacsPackages.trivialBuild {
     elementary-emacs-keys
     emacsPackages.diff-hl
     emacsPackages.forge
-    emacsPackages.general
     emacsPackages.hl-todo
     emacsPackages.magit
     emacsPackages.magit-todos

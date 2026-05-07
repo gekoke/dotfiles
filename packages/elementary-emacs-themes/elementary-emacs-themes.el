@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (catppuccin-theme "2.0") (consult "1.0") (doom-themes "2.3") (ef-themes "1.0") (general "0.1") (gruvbox-theme "1.30") (modus-themes "4.0") (remember-last-theme "0.1") (miasma-theme "0.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (catppuccin-theme "2.0") (consult "1.0") (doom-themes "2.3") (ef-themes "1.0") (gruvbox-theme "1.30") (modus-themes "4.0") (remember-last-theme "0.1") (miasma-theme "0.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: faces
 
 ;;; Commentary:

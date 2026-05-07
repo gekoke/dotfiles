@@ -20,7 +20,6 @@ emacsPackages.trivialBuild {
     emacsPackages.dired-gitignore
     emacsPackages.diredfl
     emacsPackages.dirvish
-    emacsPackages.general
     emacsPackages.nerd-icons
   ];
   passthru.runtimeDeps = [

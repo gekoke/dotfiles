@@ -22,7 +22,6 @@ emacsPackages.trivialBuild {
     emacsPackages.evil-numbers
     emacsPackages.evil-surround
     emacsPackages.evil-textobj-tree-sitter
-    emacsPackages.general
     emacsPackages.helpful
     emacsPackages.indent-bars
     emacsPackages.jinx
