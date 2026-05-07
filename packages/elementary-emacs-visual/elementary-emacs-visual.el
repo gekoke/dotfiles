@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (consult "1.0") (dashboard "1.8") (doom-modeline "4.0") (general "0.1") (indent-bars "0.8") (ligature "1.0") (nerd-icons "0.1") (nyan-mode "1.1") (olivetti "2.0") (rainbow-delimiters "2.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (consult "1.0") (dashboard "1.8") (doom-modeline "4.0") (general "0.1") (ligature "1.0") (nerd-icons "0.1") (nyan-mode "1.1") (olivetti "2.0") (rainbow-delimiters "2.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: faces, frames, mode-line
 
 ;;; Commentary:
@@ -13,6 +13,25 @@
 ;;; Code:
 
 (require 'elementary-emacs-keys)
+
+(use-package emacs
+  :custom
+  (inhibit-startup-message t)
+  (use-dialog-box nil)
+  (initial-scratch-message "")
+  (cursor-in-non-selected-windows nil))
+
+(use-package paren
+  :hook (after-init . show-paren-mode))
+
+(use-package simple
+  :hook (after-init . column-number-mode))
+
+(use-package time
+  :hook (after-init . display-time-mode)
+  :custom
+  (display-time-24hr-format t)
+  (display-time-default-load-average nil))
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
@@ -83,65 +102,6 @@
   (gg/leader
     "t c" 'olivetti-mode
     "t C" 'global-prog-olivetti-mode))
-
-(use-package whitespace
-  :defer t
-  :init
-  (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
-    (lambda ()
-      (when (derived-mode-p
-             'prog-mode
-             'yaml-mode
-             'markdown-mode)
-        (whitespace-mode))))
-  :custom
-  (whitespace-display-mappings
-   '((space-mark 32
-                [183]
-                [46])
-    (space-mark 160
-                [164]
-                [95])
-    (newline-mark 10
-                  [8629 10])
-    (tab-mark 9
-              [187 9]
-              [92 9])))
-  (whitespace-style
-   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark))
-  :general
-  (gg/leader
-    "e w" #'gg/global-whitespace-mode))
-
-(use-package indent-bars
-  :demand t
-  :hook (after-init . gg/global-indent-bars-mode)
-  :init
-  (define-global-minor-mode gg/global-indent-bars-mode indent-bars-mode
-    (lambda ()
-      (when (and (not (derived-mode-p 'emacs-lisp-mode))
-                 (derived-mode-p
-                  'prog-mode
-                  'yaml-mode
-                  'markdown-mode))
-        (let ((max-lisp-eval-depth (expt 2 14)))
-          (indent-bars-mode)))))
-  :config
-  (require 'indent-bars-ts)
-  :custom
-  (indent-bars-pattern ".")
-  (indent-bars-highlight-current-depth '(:face default :blend 0.4))
-  (indent-bars-width-frac 0.1)
-  (indent-bars-pad-frac 0.1)
-  (indent-bars-zigzag nil)
-  (indent-bars-color-by-depth nil)
-
-  (indent-bars-display-on-blank-lines t)
-  (indent-bars-starting-column 0)
-  (indent-bars-treesit-support t)
-  :general
-  (gg/leader
-    "e i" #'gg/global-indent-bars-mode))
 
 (use-package nerd-icons
   :demand t

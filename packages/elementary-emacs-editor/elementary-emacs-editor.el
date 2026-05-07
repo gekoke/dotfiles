@@ -2,16 +2,43 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (editorconfig "0.11") (evil "1.15") (evil-anzu "0.1") (evil-collection "0.1") (evil-matchit "3.0") (evil-mc "0.1") (evil-numbers "0.7") (evil-surround "1.1") (evil-textobj-tree-sitter "0.1") (general "0.1") (helpful "0.21") (jinx "1.5") (link-hint "0.2") (undo-tree "0.7") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (editorconfig "0.11") (evil "1.15") (evil-anzu "0.1") (evil-collection "0.1") (evil-matchit "3.0") (evil-mc "0.1") (evil-numbers "0.7") (evil-surround "1.1") (evil-textobj-tree-sitter "0.1") (general "0.1") (helpful "0.21") (indent-bars "0.8") (jinx "1.5") (link-hint "0.2") (undo-tree "0.7") (elementary-emacs-keys "0.1"))
 ;; Keywords: convenience
 
 ;;; Commentary:
 
-;; Editing experience: evil suite, editorconfig, spell-check, and richer help.
+;; Editing experience: evil suite, editorconfig, spell-check, richer help, line numbers, indent bars, and whitespace visualization.
 
 ;;; Code:
 
 (require 'elementary-emacs-keys)
+
+(use-package emacs
+  :custom
+  (tab-width 4)
+  (indent-tabs-mode nil)
+  (truncate-lines t)
+  (display-line-numbers-type 'relative)
+  :general
+  (gg/leader
+    "i" #'ibuffer
+    "B r" #'rename-buffer
+    "s" #'save-buffer))
+
+(use-package display-line-numbers
+  :hook ((prog-mode conf-mode json-ts-mode text-mode) . display-line-numbers-mode))
+
+(use-package hl-line
+  :hook ((prog-mode conf-mode json-ts-mode text-mode) . hl-line-mode))
+
+(use-package hideshow
+  :hook ((prog-mode conf-mode json-ts-mode) . hs-minor-mode))
+
+(use-package electric
+  :hook (after-init . electric-indent-mode))
+
+(use-package elec-pair
+  :hook (after-init . electric-pair-mode))
 
 (use-package editorconfig
   :hook (after-init . editorconfig-mode))
@@ -20,13 +47,6 @@
   :defer t
   :custom
   (text-mode-ispell-word-completion nil))
-
-(use-package emacs
-  :general
-  (gg/leader
-    "i" #'ibuffer
-    "B r" #'rename-buffer
-    "s" #'save-buffer))
 
 (general-def
   "C-s" #'avy-goto-char-2)
@@ -129,6 +149,65 @@
     "h k" #'helpful-key
     "h c" #'helpful-command
     "h m" #'describe-mode))
+
+(use-package whitespace
+  :defer t
+  :init
+  (define-global-minor-mode gg/global-whitespace-mode whitespace-mode
+    (lambda ()
+      (when (derived-mode-p
+             'prog-mode
+             'yaml-mode
+             'markdown-mode)
+        (whitespace-mode))))
+  :custom
+  (whitespace-display-mappings
+   '((space-mark 32
+                [183]
+                [46])
+    (space-mark 160
+                [164]
+                [95])
+    (newline-mark 10
+                  [8629 10])
+    (tab-mark 9
+              [187 9]
+              [92 9])))
+  (whitespace-style
+   '(face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark))
+  :general
+  (gg/leader
+    "e w" #'gg/global-whitespace-mode))
+
+(use-package indent-bars
+  :demand t
+  :hook (after-init . gg/global-indent-bars-mode)
+  :init
+  (define-global-minor-mode gg/global-indent-bars-mode indent-bars-mode
+    (lambda ()
+      (when (and (not (derived-mode-p 'emacs-lisp-mode))
+                 (derived-mode-p
+                  'prog-mode
+                  'yaml-mode
+                  'markdown-mode))
+        (let ((max-lisp-eval-depth (expt 2 14)))
+          (indent-bars-mode)))))
+  :config
+  (require 'indent-bars-ts)
+  :custom
+  (indent-bars-pattern ".")
+  (indent-bars-highlight-current-depth '(:face default :blend 0.4))
+  (indent-bars-width-frac 0.1)
+  (indent-bars-pad-frac 0.1)
+  (indent-bars-zigzag nil)
+  (indent-bars-color-by-depth nil)
+
+  (indent-bars-display-on-blank-lines t)
+  (indent-bars-starting-column 0)
+  (indent-bars-treesit-support t)
+  :general
+  (gg/leader
+    "e i" #'gg/global-indent-bars-mode))
 
 (provide 'elementary-emacs-editor)
 ;;; elementary-emacs-editor.el ends here

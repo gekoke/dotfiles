@@ -17,25 +17,11 @@
   :custom
   (gc-cons-threshold 1000000000)
   (read-process-output-max (* 1024 1024))
-  (inhibit-startup-message t)
-  (use-dialog-box nil)
-  (initial-scratch-message "")
-  (cursor-in-non-selected-windows nil)
-  (truncate-lines t)
-  (indent-tabs-mode nil)
-  (tab-width 4)
   (create-lockfiles nil)
-  (display-line-numbers-type 'relative)
   (even-window-sizes nil)
   (kill-buffer-query-functions nil)
   :init
   (defalias 'yes-or-no-p 'y-or-n-p))
-
-(use-package time
-  :hook (after-init . display-time-mode)
-  :custom
-  (display-time-24hr-format t)
-  (display-time-default-load-average nil))
 
 (use-package calendar
   :defer t
@@ -72,10 +58,6 @@
 (use-package recentf        :hook (after-init . recentf-mode))
 (use-package savehist       :hook (after-init . savehist-mode))
 (use-package autorevert     :hook (after-init . global-auto-revert-mode))
-(use-package simple         :hook (after-init . column-number-mode))
-(use-package elec-pair      :hook (after-init . electric-pair-mode))
-(use-package electric       :hook (after-init . electric-indent-mode))
-(use-package paren          :hook (after-init . show-paren-mode))
 (use-package winner         :hook (after-init . winner-mode))
 (use-package repeat         :hook (after-init . repeat-mode))
 
@@ -83,15 +65,6 @@
 (use-package tool-bar       :hook (after-init . (lambda () (tool-bar-mode -1))))
 (use-package tooltip        :hook (after-init . (lambda () (tooltip-mode -1))))
 (use-package menu-bar       :hook (after-init . (lambda () (menu-bar-mode -1))))
-
-(use-package display-line-numbers
-  :hook ((prog-mode conf-mode json-ts-mode text-mode) . display-line-numbers-mode))
-
-(use-package hl-line
-  :hook ((prog-mode conf-mode json-ts-mode text-mode) . hl-line-mode))
-
-(use-package hideshow
-  :hook ((prog-mode conf-mode json-ts-mode) . hs-minor-mode))
 
 (use-package window
   :custom

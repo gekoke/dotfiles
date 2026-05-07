@@ -14,7 +14,6 @@ emacsPackages.trivialBuild {
     emacsPackages.dashboard
     emacsPackages.doom-modeline
     emacsPackages.general
-    emacsPackages.indent-bars
     emacsPackages.ligature
     emacsPackages.nerd-icons
     emacsPackages.nyan-mode
