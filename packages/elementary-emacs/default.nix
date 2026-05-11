@@ -81,7 +81,6 @@ let
     epkgs.docker
     epkgs.emacs
     epkgs.gptel
-    epkgs.hackernews
     epkgs.lsp-java
     epkgs.lsp-pyright
     epkgs.lsp-tailwindcss

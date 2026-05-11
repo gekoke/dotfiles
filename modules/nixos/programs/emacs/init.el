@@ -216,9 +216,6 @@
   (age-default-identity "~/.ssh/id_ed25519")
   (age-default-recipient "~/.ssh/id_ed25519.pub"))
 
-(use-package hackernews
-  :defer t)
-
 (general-def
   "C--" #'text-scale-decrease
   "C-=" #'text-scale-increase)
