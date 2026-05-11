@@ -15,6 +15,11 @@ let
     ;
   inherit (lib.types) package;
   cfg = config.elementary.programs.emacs;
+  pkgs-emacs = import inputs.nixpkgs-emacs {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    overlays = [ (import ../../../../packages/elementary-emacs/overlay.nix) ];
+    config.allowUnfree = true;
+  };
   elementaryEmacsPackages = [
     # keep-sorted start
     self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-completion
@@ -38,7 +43,7 @@ in
     enable = mkEnableOption "GNU Emacs";
     package = mkOption {
       type = package;
-      default = pkgs.emacs;
+      default = pkgs-emacs.emacs;
     };
   };
 

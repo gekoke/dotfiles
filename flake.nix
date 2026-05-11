@@ -152,10 +152,22 @@ rec {
       };
 
       perSystem =
-        { pkgs, ... }:
+        { pkgs, system, ... }:
         let
+          pkgs-emacs = import inputs.nixpkgs-emacs {
+            inherit system;
+            overlays = [ (import ./packages/elementary-emacs/overlay.nix) ];
+            config.allowUnfree = true;
+          };
           mkElementaryEmacsPackage =
-            path: extraArgs: pkgs.callPackage path (elementaryEmacsPackages // extraArgs);
+            path: extraArgs:
+            pkgs-emacs.callPackage path (
+              {
+                inherit (pkgs-emacs) emacsPackages;
+              }
+              // elementaryEmacsPackages
+              // extraArgs
+            );
           elementaryEmacsPackages = {
             # keep-sorted start block=yes
             elementary-emacs-completion = mkElementaryEmacsPackage ./packages/elementary-emacs-completion { };
@@ -166,7 +178,7 @@ rec {
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-terminal = mkElementaryEmacsPackage ./packages/elementary-emacs-terminal { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
-              inherit (self.packages.${pkgs.stdenv.hostPlatform.system}) miasma-theme;
+              miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
             };
             elementary-emacs-vc = mkElementaryEmacsPackage ./packages/elementary-emacs-vc { };
             elementary-emacs-visual = mkElementaryEmacsPackage ./packages/elementary-emacs-visual { };
@@ -179,7 +191,7 @@ rec {
             # keep-sorted start block=yes
             connections = pkgs.callPackage ./packages/connections { };
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
-            miasma-theme = pkgs.callPackage ./packages/miasma-theme { };
+            miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
             scramsha256 = pkgs.callPackage ./packages/scramsha256 { };
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
             wsl-notify-send = pkgs.callPackage ./packages/wsl-notify-send { };
