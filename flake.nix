@@ -27,6 +27,7 @@ rec {
     nix-pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixpkgs-emacs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
