@@ -14,6 +14,7 @@
   elementary-emacs-nix,
   elementary-emacs-prelude,
   elementary-emacs-python,
+  elementary-emacs-rust,
   elementary-emacs-terminal,
   elementary-emacs-themes,
   elementary-emacs-vc,
@@ -21,8 +22,6 @@
   elementary-emacs-workspaces,
   # keep-sorted start
   age,
-  cargo,
-  clippy,
   dotnet-sdk_10,
   fd,
   ffmpegthumbnailer,
@@ -38,9 +37,6 @@
   powershell,
   powershell-editor-services,
   ripgrep,
-  rust-analyzer,
-  rustc,
-  rustfmt,
   tailwindcss-language-server,
   terraform,
   terraform-ls,
@@ -66,6 +62,7 @@ let
     elementary-emacs-nix
     elementary-emacs-prelude
     elementary-emacs-python
+    elementary-emacs-rust
     elementary-emacs-terminal
     elementary-emacs-themes
     elementary-emacs-vc
@@ -83,7 +80,6 @@ let
     epkgs.markdown-mode
     epkgs.pdf-tools
     epkgs.powershell
-    epkgs.rustic
     epkgs.sideline-blame
     epkgs.terraform-mode
     epkgs.treesit-grammars.with-all-grammars
@@ -98,8 +94,6 @@ let
   runtimeBins = [
     # keep-sorted start
     age
-    cargo
-    clippy
     dotnet-sdk_10
     fd
     ffmpegthumbnailer
@@ -114,9 +108,6 @@ let
     poppler-utils
     powershell
     ripgrep
-    rust-analyzer
-    rustc
-    rustfmt
     tailwindcss-language-server
     terraform
     terraform-ls

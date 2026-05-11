@@ -181,6 +181,7 @@ rec {
             elementary-emacs-nix = mkElementaryEmacsPackage ./packages/elementary-emacs-nix { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-python = mkElementaryEmacsPackage ./packages/elementary-emacs-python { };
+            elementary-emacs-rust = mkElementaryEmacsPackage ./packages/elementary-emacs-rust { };
             elementary-emacs-terminal = mkElementaryEmacsPackage ./packages/elementary-emacs-terminal { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
               miasma-theme = emacsPackages.callPackage ./packages/miasma-theme { };

@@ -57,21 +57,7 @@
 
 (use-package elementary-emacs-java :ensure nil :demand t)
 
-(use-package rustic
-  :mode
-  ("\\.rs\\'" . rustic-mode)
-  :custom
-  (rustic-format-trigger t))
-
-(use-package lsp-rust
-  :after lsp-mode
-  :custom
-  (lsp-rust-analyzer-lens-references-adt-enable t)
-  (lsp-rust-analyzer-lens-references-trait-enable t)
-  (lsp-rust-analyzer-lens-references-enum-variant-enable t)
-  (lsp-rust-analyzer-max-inlay-hint-length 15)
-  (lsp-rust-analyzer-diagnostics-enable-experimental t)
-  (lsp-rust-clippy-preference "on"))
+(use-package elementary-emacs-rust :ensure nil :demand t)
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . markdown-mode)
