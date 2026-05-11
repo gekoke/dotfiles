@@ -184,9 +184,6 @@
 (use-package terraform-mode
   :hook (terraform-mode . lsp-deferred))
 
-(use-package feature-mode
-  :defer t)
-
 (use-package go-ts-mode
   :hook (go-ts-mode . lsp)
   :custom

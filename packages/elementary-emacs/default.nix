@@ -80,7 +80,6 @@ let
     epkgs.age
     epkgs.docker
     epkgs.emacs
-    epkgs.feature-mode
     epkgs.gptel
     epkgs.hackernews
     epkgs.lsp-java
