@@ -53,24 +53,7 @@
 
 (use-package elementary-emacs-nix :ensure nil :demand t)
 
-(use-package lsp-pyright
-  :hook (python-ts-mode . (lambda ()
-                            (require 'lsp-pyright)
-                            (lsp-deferred)))
-  :custom
-  (lsp-pyright-venv-directory "./.venv"))
-
-(use-package lsp-ruff
-  :after lsp-mode)
-
-(use-package python
-  :defer t
-  :init
-  (add-hook 'before-save-hook (lambda ()
-                                (when (and
-                                       (eq major-mode 'python-ts-mode)
-                                       (bound-and-true-p lsp-mode))
-                                  (lsp-format-buffer)))))
+(use-package elementary-emacs-python :ensure nil :demand t)
 
 (use-package lsp-java
   :hook (java-ts-mode . (lambda ()

@@ -13,6 +13,7 @@
   elementary-emacs-lsp,
   elementary-emacs-nix,
   elementary-emacs-prelude,
+  elementary-emacs-python,
   elementary-emacs-terminal,
   elementary-emacs-themes,
   elementary-emacs-vc,
@@ -39,9 +40,7 @@
   poppler-utils,
   powershell,
   powershell-editor-services,
-  pyright,
   ripgrep,
-  ruff,
   rust-analyzer,
   rustc,
   rustfmt,
@@ -68,6 +67,7 @@ let
     elementary-emacs-lsp
     elementary-emacs-nix
     elementary-emacs-prelude
+    elementary-emacs-python
     elementary-emacs-terminal
     elementary-emacs-themes
     elementary-emacs-vc
@@ -82,12 +82,10 @@ let
     epkgs.emacs
     epkgs.gptel
     epkgs.lsp-java
-    epkgs.lsp-pyright
     epkgs.lsp-tailwindcss
     epkgs.markdown-mode
     epkgs.pdf-tools
     epkgs.powershell
-    epkgs.python
     epkgs.rustic
     epkgs.sideline-blame
     epkgs.terraform-mode
@@ -120,9 +118,7 @@ let
     omnisharp-roslyn
     poppler-utils
     powershell
-    pyright
     ripgrep
-    ruff
     rust-analyzer
     rustc
     rustfmt
