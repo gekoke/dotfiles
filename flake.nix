@@ -175,6 +175,7 @@ rec {
             elementary-emacs-completion = mkElementaryEmacsPackage ./packages/elementary-emacs-completion { };
             elementary-emacs-editor = mkElementaryEmacsPackage ./packages/elementary-emacs-editor { };
             elementary-emacs-files = mkElementaryEmacsPackage ./packages/elementary-emacs-files { };
+            elementary-emacs-java = mkElementaryEmacsPackage ./packages/elementary-emacs-java { };
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-lsp = mkElementaryEmacsPackage ./packages/elementary-emacs-lsp { };
             elementary-emacs-nix = mkElementaryEmacsPackage ./packages/elementary-emacs-nix { };

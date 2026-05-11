@@ -5,10 +5,10 @@
   makeWrapper,
   runCommand,
   replaceVars,
-  # Elementary elisp packages
   elementary-emacs-completion,
   elementary-emacs-editor,
   elementary-emacs-files,
+  elementary-emacs-java,
   elementary-emacs-keys,
   elementary-emacs-lsp,
   elementary-emacs-nix,
@@ -19,7 +19,6 @@
   elementary-emacs-vc,
   elementary-emacs-visual,
   elementary-emacs-workspaces,
-  # Loose elisp deps (transitionally used until extracted to lang/tier packages)
   # keep-sorted start
   age,
   cargo,
@@ -32,8 +31,6 @@
   gopls,
   hunspell,
   hunspellDicts,
-  jdk25,
-  jdt-language-server,
   mediainfo,
   nodejs,
   omnisharp-roslyn,
@@ -63,6 +60,7 @@ let
     elementary-emacs-completion
     elementary-emacs-editor
     elementary-emacs-files
+    elementary-emacs-java
     elementary-emacs-keys
     elementary-emacs-lsp
     elementary-emacs-nix
@@ -81,7 +79,6 @@ let
     epkgs.docker
     epkgs.emacs
     epkgs.gptel
-    epkgs.lsp-java
     epkgs.lsp-tailwindcss
     epkgs.markdown-mode
     epkgs.pdf-tools
@@ -111,8 +108,6 @@ let
     gopls
     hunspell
     hunspellDicts.en_US
-    jdk25
-    jdt-language-server
     mediainfo
     nodejs
     omnisharp-roslyn

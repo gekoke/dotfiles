@@ -55,10 +55,7 @@
 
 (use-package elementary-emacs-python :ensure nil :demand t)
 
-(use-package lsp-java
-  :hook (java-ts-mode . (lambda ()
-                          (load "lsp-java.el")
-                          (lsp-deferred))))
+(use-package elementary-emacs-java :ensure nil :demand t)
 
 (use-package rustic
   :mode
