@@ -159,11 +159,13 @@ rec {
             overlays = [ (import ./packages/elementary-emacs/overlay.nix) ];
             config.allowUnfree = true;
           };
+          emacs = pkgs-emacs.emacs30-pgtk;
+          emacsPackages = pkgs-emacs.emacsPackagesFor emacs;
           mkElementaryEmacsPackage =
             path: extraArgs:
             pkgs-emacs.callPackage path (
               {
-                inherit (pkgs-emacs) emacsPackages;
+                inherit emacsPackages;
               }
               // elementaryEmacsPackages
               // extraArgs
@@ -178,18 +180,25 @@ rec {
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-terminal = mkElementaryEmacsPackage ./packages/elementary-emacs-terminal { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
-              miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
+              miasma-theme = emacsPackages.callPackage ./packages/miasma-theme { };
             };
             elementary-emacs-vc = mkElementaryEmacsPackage ./packages/elementary-emacs-vc { };
             elementary-emacs-visual = mkElementaryEmacsPackage ./packages/elementary-emacs-visual { };
             elementary-emacs-workspaces = mkElementaryEmacsPackage ./packages/elementary-emacs-workspaces { };
             # keep-sorted end
           };
+          elementary-emacs = pkgs-emacs.callPackage ./packages/elementary-emacs (
+            elementaryEmacsPackages
+            // {
+              inherit emacs emacsPackages;
+            }
+          );
         in
         {
           packages = {
             # keep-sorted start block=yes
             connections = pkgs.callPackage ./packages/connections { };
+            inherit elementary-emacs;
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
             miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
             scramsha256 = pkgs.callPackage ./packages/scramsha256 { };

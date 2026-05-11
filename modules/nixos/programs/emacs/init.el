@@ -1,5 +1,11 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+;; Server paths injected at build time by the `elementary-emacs' package.
+(setq lsp-csharp-server-path "@omnisharp@/bin/OmniSharp")
+(setq lsp-pwsh-dir "@pwshDir@")
+(setq lsp-tailwindcss-server-path "@tailwindcssLs@")
+(setq lsp-clients-typescript-tls-path "@typescriptLs@")
+
 (use-package treesit
   :custom
   (treesit-font-lock-level 4))
@@ -268,4 +274,4 @@
 (gg/leader
   "j d" #'gg/jwt-decode-clipboard)
 
-(load custom-file)
+(load custom-file t)
