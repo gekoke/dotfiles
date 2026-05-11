@@ -11,6 +11,7 @@
   elementary-emacs-files,
   elementary-emacs-keys,
   elementary-emacs-lsp,
+  elementary-emacs-nix,
   elementary-emacs-prelude,
   elementary-emacs-terminal,
   elementary-emacs-themes,
@@ -33,8 +34,6 @@
   jdk25,
   jdt-language-server,
   mediainfo,
-  nixd,
-  nixfmt-rfc-style,
   nodejs,
   omnisharp-roslyn,
   poppler-utils,
@@ -67,6 +66,7 @@ let
     elementary-emacs-files
     elementary-emacs-keys
     elementary-emacs-lsp
+    elementary-emacs-nix
     elementary-emacs-prelude
     elementary-emacs-terminal
     elementary-emacs-themes
@@ -85,7 +85,6 @@ let
     epkgs.lsp-pyright
     epkgs.lsp-tailwindcss
     epkgs.markdown-mode
-    epkgs.nix-ts-mode
     epkgs.pdf-tools
     epkgs.powershell
     epkgs.python
@@ -117,8 +116,6 @@ let
     jdk25
     jdt-language-server
     mediainfo
-    nixd
-    nixfmt-rfc-style
     nodejs
     omnisharp-roslyn
     poppler-utils
@@ -140,7 +137,8 @@ let
     vscode-langservers-extracted
     yaml-language-server
     # keep-sorted end
-  ];
+  ]
+  ++ lib.concatMap (p: p.passthru.runtimeDeps or [ ]) elementaryPackages;
   initFile = replaceVars (initSrcDir + "/init.el") {
     omnisharp = "${omnisharp-roslyn}";
     pwshDir = "${powershell-editor-services}/lib/powershell-editor-services";

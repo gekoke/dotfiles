@@ -51,14 +51,7 @@
 
 (use-package elementary-emacs-lsp :ensure nil :demand t)
 
-(use-package lsp-nix
-  :after lsp-mode
-  :custom
-  (lsp-nix-nil-formatter ["nixfmt"]))
-
-(use-package nix-ts-mode
-  :mode "\\.nix\\'"
-  :hook (nix-ts-mode . lsp-deferred))
+(use-package elementary-emacs-nix :ensure nil :demand t)
 
 (use-package lsp-pyright
   :hook (python-ts-mode . (lambda ()

@@ -177,6 +177,7 @@ rec {
             elementary-emacs-files = mkElementaryEmacsPackage ./packages/elementary-emacs-files { };
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-lsp = mkElementaryEmacsPackage ./packages/elementary-emacs-lsp { };
+            elementary-emacs-nix = mkElementaryEmacsPackage ./packages/elementary-emacs-nix { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-terminal = mkElementaryEmacsPackage ./packages/elementary-emacs-terminal { };
             elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
