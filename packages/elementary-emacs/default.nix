@@ -88,7 +88,6 @@ let
     epkgs.lsp-tailwindcss
     epkgs.markdown-mode
     epkgs.nix-ts-mode
-    epkgs.package-lint
     epkgs.pdf-tools
     epkgs.powershell
     epkgs.python

@@ -17,9 +17,6 @@
 (setq-default left-fringe-width 4)
 (setq-default right-fringe-width 12)
 
-(use-package package-lint
-  :defer t)
-
 (use-package elementary-emacs-themes :ensure nil :demand t)
 (use-package elementary-emacs-visual :ensure nil :demand t)
 (use-package elementary-emacs-completion :ensure nil :demand t)
