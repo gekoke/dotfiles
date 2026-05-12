@@ -11,6 +11,7 @@
   elementary-emacs-java,
   elementary-emacs-keys,
   elementary-emacs-lsp,
+  elementary-emacs-markdown,
   elementary-emacs-nix,
   elementary-emacs-prelude,
   elementary-emacs-python,
@@ -59,6 +60,7 @@ let
     elementary-emacs-java
     elementary-emacs-keys
     elementary-emacs-lsp
+    elementary-emacs-markdown
     elementary-emacs-nix
     elementary-emacs-prelude
     elementary-emacs-python
@@ -77,7 +79,6 @@ let
     epkgs.emacs
     epkgs.gptel
     epkgs.lsp-tailwindcss
-    epkgs.markdown-mode
     epkgs.pdf-tools
     epkgs.powershell
     epkgs.sideline-blame

@@ -178,6 +178,7 @@ rec {
             elementary-emacs-java = mkElementaryEmacsPackage ./packages/elementary-emacs-java { };
             elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
             elementary-emacs-lsp = mkElementaryEmacsPackage ./packages/elementary-emacs-lsp { };
+            elementary-emacs-markdown = mkElementaryEmacsPackage ./packages/elementary-emacs-markdown { };
             elementary-emacs-nix = mkElementaryEmacsPackage ./packages/elementary-emacs-nix { };
             elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
             elementary-emacs-python = mkElementaryEmacsPackage ./packages/elementary-emacs-python { };

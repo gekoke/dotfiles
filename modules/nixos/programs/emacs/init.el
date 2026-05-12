@@ -59,13 +59,7 @@
 
 (use-package elementary-emacs-rust :ensure nil :demand t)
 
-(use-package markdown-mode
-  :mode ("\\.md\\'" . markdown-mode)
-  :custom
-  (markdown-fontify-code-blocks-natively t)
-  :config
-  (add-to-list 'markdown-code-lang-modes '("py" . python-mode))
-  (add-to-list 'markdown-code-lang-modes '("python" . python-mode)))
+(use-package elementary-emacs-markdown :ensure nil :demand t)
 
 (use-package web-mode
   :mode
