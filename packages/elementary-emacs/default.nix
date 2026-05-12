@@ -5,6 +5,7 @@
   makeWrapper,
   runCommand,
   replaceVars,
+  elementary-emacs-agents,
   elementary-emacs-completion,
   elementary-emacs-csharp,
   elementary-emacs-editor,
@@ -50,6 +51,7 @@
 let
   elementaryPackages = [
     # keep-sorted start
+    elementary-emacs-agents
     elementary-emacs-completion
     elementary-emacs-csharp
     elementary-emacs-editor

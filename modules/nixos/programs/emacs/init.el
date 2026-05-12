@@ -65,6 +65,8 @@
 
 (use-package elementary-emacs-csharp :ensure nil :demand t)
 
+(use-package elementary-emacs-agents :ensure nil :demand t)
+
 (add-to-list 'auto-mode-alist '("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
 (use-package docker
