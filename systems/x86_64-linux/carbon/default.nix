@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  pkgs,
   self,
   ...
 }:
@@ -24,6 +25,9 @@
     graphical.enable = true;
     workstation.enable = true;
   };
+
+  elementary.programs.emacs.package =
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-pgtk;
 
   hardware = {
     graphics.enable = true;
