@@ -6,6 +6,7 @@
   runCommand,
   replaceVars,
   elementary-emacs-completion,
+  elementary-emacs-csharp,
   elementary-emacs-editor,
   elementary-emacs-files,
   elementary-emacs-java,
@@ -24,7 +25,6 @@
   elementary-emacs-workspaces,
   # keep-sorted start
   age,
-  dotnet-sdk_10,
   fd,
   ffmpegthumbnailer,
   gnutar,
@@ -53,6 +53,7 @@ let
   elementaryPackages = [
     # keep-sorted start
     elementary-emacs-completion
+    elementary-emacs-csharp
     elementary-emacs-editor
     elementary-emacs-files
     elementary-emacs-java
@@ -92,7 +93,6 @@ let
   runtimeBins = [
     # keep-sorted start
     age
-    dotnet-sdk_10
     fd
     ffmpegthumbnailer
     gnutar
@@ -101,7 +101,6 @@ let
     hunspell
     hunspellDicts.en_US
     mediainfo
-    omnisharp-roslyn
     poppler-utils
     powershell
     ripgrep

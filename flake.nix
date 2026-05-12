@@ -173,6 +173,7 @@ rec {
           elementaryEmacsPackages = {
             # keep-sorted start block=yes
             elementary-emacs-completion = mkElementaryEmacsPackage ./packages/elementary-emacs-completion { };
+            elementary-emacs-csharp = mkElementaryEmacsPackage ./packages/elementary-emacs-csharp { };
             elementary-emacs-editor = mkElementaryEmacsPackage ./packages/elementary-emacs-editor { };
             elementary-emacs-files = mkElementaryEmacsPackage ./packages/elementary-emacs-files { };
             elementary-emacs-java = mkElementaryEmacsPackage ./packages/elementary-emacs-java { };

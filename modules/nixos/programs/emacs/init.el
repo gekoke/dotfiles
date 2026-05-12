@@ -63,9 +63,7 @@
 
 (use-package elementary-emacs-web :ensure nil :demand t)
 
-(use-package csharp-ts-mode
-  :mode ("\\.cs\\'" . csharp-ts-mode)
-  :hook (csharp-ts-mode . lsp-deferred))
+(use-package elementary-emacs-csharp :ensure nil :demand t)
 
 (add-to-list 'auto-mode-alist '("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
 
