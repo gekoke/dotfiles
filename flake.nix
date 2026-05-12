@@ -159,52 +159,51 @@ rec {
             overlays = [ (import ./packages/elementary-emacs/overlay.nix) ];
             config.allowUnfree = true;
           };
-          emacs = pkgs-emacs.emacs30-pgtk;
-          emacsPackages = pkgs-emacs.emacsPackagesFor emacs;
-          mkElementaryEmacsPackage =
-            path: extraArgs:
-            pkgs-emacs.callPackage path (
-              {
-                inherit emacsPackages;
-              }
-              // elementaryEmacsPackages
-              // extraArgs
+
+          mkElementaryEmacs =
+            emacs:
+            let
+              emacsPackages = pkgs-emacs.emacsPackagesFor emacs;
+              callPackage =
+                path: extraArgs:
+                pkgs-emacs.callPackage path ({ inherit emacsPackages; } // elementaryPackages // extraArgs);
+              elementaryPackages = {
+                # keep-sorted start block=yes
+                elementary-emacs-completion = callPackage ./packages/elementary-emacs-completion { };
+                elementary-emacs-csharp = callPackage ./packages/elementary-emacs-csharp { };
+                elementary-emacs-editor = callPackage ./packages/elementary-emacs-editor { };
+                elementary-emacs-files = callPackage ./packages/elementary-emacs-files { };
+                elementary-emacs-java = callPackage ./packages/elementary-emacs-java { };
+                elementary-emacs-keys = callPackage ./packages/elementary-emacs-keys { };
+                elementary-emacs-lsp = callPackage ./packages/elementary-emacs-lsp { };
+                elementary-emacs-markdown = callPackage ./packages/elementary-emacs-markdown { };
+                elementary-emacs-nix = callPackage ./packages/elementary-emacs-nix { };
+                elementary-emacs-prelude = callPackage ./packages/elementary-emacs-prelude { };
+                elementary-emacs-python = callPackage ./packages/elementary-emacs-python { };
+                elementary-emacs-rust = callPackage ./packages/elementary-emacs-rust { };
+                elementary-emacs-terminal = callPackage ./packages/elementary-emacs-terminal { };
+                elementary-emacs-themes = callPackage ./packages/elementary-emacs-themes {
+                  miasma-theme = emacsPackages.callPackage ./packages/miasma-theme { };
+                };
+                elementary-emacs-vc = callPackage ./packages/elementary-emacs-vc { };
+                elementary-emacs-visual = callPackage ./packages/elementary-emacs-visual { };
+                elementary-emacs-web = callPackage ./packages/elementary-emacs-web { };
+                elementary-emacs-workspaces = callPackage ./packages/elementary-emacs-workspaces { };
+                # keep-sorted end
+              };
+            in
+            pkgs-emacs.callPackage ./packages/elementary-emacs (
+              elementaryPackages // { inherit emacs emacsPackages; }
             );
-          elementaryEmacsPackages = {
-            # keep-sorted start block=yes
-            elementary-emacs-completion = mkElementaryEmacsPackage ./packages/elementary-emacs-completion { };
-            elementary-emacs-csharp = mkElementaryEmacsPackage ./packages/elementary-emacs-csharp { };
-            elementary-emacs-editor = mkElementaryEmacsPackage ./packages/elementary-emacs-editor { };
-            elementary-emacs-files = mkElementaryEmacsPackage ./packages/elementary-emacs-files { };
-            elementary-emacs-java = mkElementaryEmacsPackage ./packages/elementary-emacs-java { };
-            elementary-emacs-keys = mkElementaryEmacsPackage ./packages/elementary-emacs-keys { };
-            elementary-emacs-lsp = mkElementaryEmacsPackage ./packages/elementary-emacs-lsp { };
-            elementary-emacs-markdown = mkElementaryEmacsPackage ./packages/elementary-emacs-markdown { };
-            elementary-emacs-nix = mkElementaryEmacsPackage ./packages/elementary-emacs-nix { };
-            elementary-emacs-prelude = mkElementaryEmacsPackage ./packages/elementary-emacs-prelude { };
-            elementary-emacs-python = mkElementaryEmacsPackage ./packages/elementary-emacs-python { };
-            elementary-emacs-rust = mkElementaryEmacsPackage ./packages/elementary-emacs-rust { };
-            elementary-emacs-terminal = mkElementaryEmacsPackage ./packages/elementary-emacs-terminal { };
-            elementary-emacs-themes = mkElementaryEmacsPackage ./packages/elementary-emacs-themes {
-              miasma-theme = emacsPackages.callPackage ./packages/miasma-theme { };
-            };
-            elementary-emacs-vc = mkElementaryEmacsPackage ./packages/elementary-emacs-vc { };
-            elementary-emacs-visual = mkElementaryEmacsPackage ./packages/elementary-emacs-visual { };
-            elementary-emacs-web = mkElementaryEmacsPackage ./packages/elementary-emacs-web { };
-            elementary-emacs-workspaces = mkElementaryEmacsPackage ./packages/elementary-emacs-workspaces { };
-            # keep-sorted end
-          };
-          elementary-emacs = pkgs-emacs.callPackage ./packages/elementary-emacs (
-            elementaryEmacsPackages
-            // {
-              inherit emacs emacsPackages;
-            }
-          );
+
+          elementary-emacs = mkElementaryEmacs pkgs-emacs.emacs;
+          elementary-emacs-pgtk = mkElementaryEmacs pkgs-emacs.emacs30-pgtk;
         in
         {
           packages = {
             # keep-sorted start block=yes
             connections = pkgs.callPackage ./packages/connections { };
+            inherit elementary-emacs-pgtk;
             inherit elementary-emacs;
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
             miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
@@ -212,8 +211,7 @@ rec {
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
             wsl-notify-send = pkgs.callPackage ./packages/wsl-notify-send { };
             # keep-sorted end
-          }
-          // elementaryEmacsPackages;
+          };
         };
     };
 }
