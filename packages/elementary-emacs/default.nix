@@ -35,7 +35,6 @@
   mediainfo,
   omnisharp-roslyn,
   poppler-utils,
-  powershell,
   powershell-editor-services,
   ripgrep,
   tailwindcss-language-server,
@@ -49,7 +48,6 @@
   # keep-sorted end
 }:
 let
-  initSrcDir = ../../modules/nixos/programs/emacs;
   elementaryPackages = [
     # keep-sorted start
     elementary-emacs-completion
@@ -72,24 +70,25 @@ let
     elementary-emacs-workspaces
     # keep-sorted end
   ];
+
   loosePackages = epkgs: [
     # keep-sorted start
     epkgs.age
     epkgs.docker
-    epkgs.emacs
     epkgs.gptel
     epkgs.pdf-tools
     epkgs.powershell
     epkgs.sideline-blame
     epkgs.terraform-mode
-    epkgs.treesit-grammars.with-all-grammars
     epkgs.typst-ts-mode
     epkgs.yaml-mode
     # keep-sorted end
   ];
+
   emacsWithPackages = emacsPackages.emacsWithPackages (
-    epkgs: elementaryPackages ++ (loosePackages epkgs)
+    epkgs: elementaryPackages ++ loosePackages epkgs
   );
+
   runtimeBins = [
     # keep-sorted start
     age
@@ -102,7 +101,6 @@ let
     hunspellDicts.en_US
     mediainfo
     poppler-utils
-    powershell
     ripgrep
     terraform
     terraform-ls
@@ -113,34 +111,18 @@ let
     # keep-sorted end
   ]
   ++ lib.concatMap (p: p.passthru.runtimeDeps or [ ]) elementaryPackages;
-  initFile = replaceVars (initSrcDir + "/init.el") {
+
+  initFile = replaceVars ../../modules/nixos/programs/emacs/init.el {
     omnisharp = "${omnisharp-roslyn}";
     pwshDir = "${powershell-editor-services}/lib/powershell-editor-services";
     tailwindcssLs = lib.getExe tailwindcss-language-server;
     typescriptLs = lib.getExe typescript-language-server;
   };
-  earlyInitFile = runCommand "elementary-emacs-early-init.el" { } ''
-    cat ${initSrcDir}/early-init.el \
-        ${initSrcDir}/early-init-pgtk-fixes.el \
-        > $out
-    cat >> $out <<'EOF'
-
-    ;; Redirect runtime writes off the read-only Nix store.
-    (setq user-emacs-directory
-          (expand-file-name "elementary-emacs/"
-                            (or (getenv "XDG_DATA_HOME")
-                                "~/.local/share")))
-    (make-directory user-emacs-directory t)
-    EOF
-  '';
+  earlyInitFile = ./early-init.el;
 in
 runCommand "elementary-emacs"
   {
     nativeBuildInputs = [ makeWrapper ];
-    passthru = {
-      inherit emacs emacsPackages emacsWithPackages;
-      unwrapped = emacsWithPackages;
-    };
     meta = {
       description = "Elementary Emacs: opinionated GNU Emacs distribution";
       license = lib.licenses.gpl3Plus;
@@ -149,23 +131,22 @@ runCommand "elementary-emacs"
     };
   }
   ''
-    mkdir -p $out/bin $out/share/elementary-emacs
-    cp ${initFile} $out/share/elementary-emacs/init.el
-    cp ${earlyInitFile} $out/share/elementary-emacs/early-init.el
+    mkdir -p $out/bin
+    install -Dm644 ${initFile} $out/share/elementary-emacs/init.el
+    install -Dm644 ${earlyInitFile} $out/share/elementary-emacs/early-init.el
 
-    for bin in ${emacsWithPackages}/bin/*; do
-      name=$(basename "$bin")
-      makeWrapper "$bin" "$out/bin/$name" \
-        --set LSP_USE_PLISTS true \
-        --prefix PATH : ${lib.makeBinPath runtimeBins} \
-        --add-flags "--init-directory=$out/share/elementary-emacs"
-    done
+    makeWrapper ${emacsWithPackages}/bin/emacs $out/bin/emacs \
+      --set LSP_USE_PLISTS true \
+      --prefix PATH : ${lib.makeBinPath runtimeBins} \
+      --add-flags "--init-directory=$out/share/elementary-emacs"
 
-    # Pass-through extra resources from emacsWithPackages where useful.
-    for d in share/applications share/icons share/info share/man; do
-      if [ -d ${emacsWithPackages}/$d ]; then
-        mkdir -p $out/$d
-        ln -s ${emacsWithPackages}/$d/* $out/$d/
-      fi
-    done
+    makeWrapper ${emacsWithPackages}/bin/emacsclient $out/bin/emacsclient \
+      --prefix PATH : ${lib.makeBinPath runtimeBins}
+
+    if [ -d ${emacsWithPackages}/share/applications ]; then
+      ln -s ${emacsWithPackages}/share/applications $out/share/applications
+    fi
+    if [ -d ${emacsWithPackages}/share/icons ]; then
+      ln -s ${emacsWithPackages}/share/icons $out/share/icons
+    fi
   ''
