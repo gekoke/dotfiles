@@ -2,6 +2,7 @@
   self,
   config,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -19,6 +20,9 @@
     workstation.enable = true;
     wsl.enable = true;
   };
+
+  elementary.programs.emacs.package =
+    self.packages.${pkgs.stdenv.hostPlatform.system}.elementary-emacs-pgtk;
 
   home-manager = {
     sharedModules = [
