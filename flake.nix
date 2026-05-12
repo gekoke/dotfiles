@@ -20,7 +20,6 @@ rec {
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     dgop.url = "github:AvengeMedia/dgop";
     disko.url = "github:nix-community/disko";
-    emacs-lsp-booster.url = "github:slotThe/emacs-lsp-booster-flake";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.url = "github:nix-community/home-manager";
     niri-flake.url = "github:sodiboo/niri-flake";

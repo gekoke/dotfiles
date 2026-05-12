@@ -1,10 +1,6 @@
 _final: prev: {
   emacsPackages = prev.emacsPackages.overrideScope (
     _epkgsFinal: epkgsPrev: {
-      lsp-mode = epkgsPrev.lsp-mode.override {
-        melpaBuild = args: epkgsPrev.melpaBuild (args // { env.LSP_USE_PLISTS = "true"; });
-      };
-
       magit = epkgsPrev.magit.override {
         melpaBuild =
           args:

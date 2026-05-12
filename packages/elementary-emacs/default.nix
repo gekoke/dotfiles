@@ -136,7 +136,6 @@ runCommand "elementary-emacs"
     install -Dm644 ${earlyInitFile} $out/share/elementary-emacs/early-init.el
 
     makeWrapper ${emacsWithPackages}/bin/emacs $out/bin/emacs \
-      --set LSP_USE_PLISTS true \
       --prefix PATH : ${lib.makeBinPath runtimeBins} \
       --add-flags "--init-directory=$out/share/elementary-emacs"
 

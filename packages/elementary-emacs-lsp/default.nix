@@ -1,6 +1,5 @@
 {
   lib,
-  emacs-lsp-booster,
   emacsPackages,
   elementary-emacs-keys,
   ...
@@ -16,9 +15,6 @@ emacsPackages.trivialBuild {
     emacsPackages.flycheck
     emacsPackages.lsp-mode
     emacsPackages.lsp-ui
-  ];
-  passthru.runtimeDeps = [
-    emacs-lsp-booster
   ];
   meta = {
     description = "LSP support for Elementary Emacs";
