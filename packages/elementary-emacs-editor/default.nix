@@ -24,7 +24,6 @@ emacsPackages.trivialBuild {
     emacsPackages.evil-textobj-tree-sitter
     emacsPackages.helpful
     emacsPackages.indent-bars
-    emacsPackages.jinx
     emacsPackages.link-hint
     emacsPackages.treesit-auto
     emacsPackages.treesit-grammars.with-all-grammars
