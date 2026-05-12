@@ -189,6 +189,7 @@ rec {
             };
             elementary-emacs-vc = mkElementaryEmacsPackage ./packages/elementary-emacs-vc { };
             elementary-emacs-visual = mkElementaryEmacsPackage ./packages/elementary-emacs-visual { };
+            elementary-emacs-web = mkElementaryEmacsPackage ./packages/elementary-emacs-web { };
             elementary-emacs-workspaces = mkElementaryEmacsPackage ./packages/elementary-emacs-workspaces { };
             # keep-sorted end
           };

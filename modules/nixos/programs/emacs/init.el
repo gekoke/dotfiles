@@ -61,64 +61,7 @@
 
 (use-package elementary-emacs-markdown :ensure nil :demand t)
 
-(use-package web-mode
-  :mode
-  ("\\.phtml\\'" . web-mode)
-  ("\\.tpl\\.php\\'" . web-mode)
-  ("\\.[agj]sp\\'" . web-mode)
-  ("\\.as[cp]x\\'" . web-mode)
-  ("\\.erb\\'" . web-mode)
-  ("\\.mustache\\'" . web-mode)
-  ("\\.djhtml\\'" . web-mode)
-  :hook
-  (web-mode . lsp-deferred)
-  (web-mode . (lambda ()
-                (progn
-                  (require 'sgml-mode)
-                  (sgml-electric-tag-pair-mode))))
-  (web-mode . (lambda () (electric-pair-local-mode -1)))
-  :custom
-  (web-mode-script-padding 4)
-  (web-mode-enable-auto-pairing t)
-  (web-mode-enable-auto-opening t)
-  (web-mode-enable-auto-quoting t))
-
-(use-package html-ts-mode
-  :mode
-  ("\\.html\\'" . html-ts-mode)
-  :hook
-  (html-ts-mode . lsp-deferred))
-
-(use-package lsp-tailwindcss
-  :after lsp-mode
-  :init
-  (setq lsp-tailwindcss-add-on-mode t))
-
-(use-package typescript-ts-mode
-  :mode
-  ("\\.ts\\'" . typescript-ts-mode)
-  ("\\.tsx\\'" . tsx-ts-mode)
-  :hook
-  (typescript-ts-mode . lsp)
-  (tsx-ts-mode . lsp)
-  :config
-  (with-eval-after-load 'lsp-mode
-    (add-to-list 'lsp--formatting-indent-alist '(tsx-ts-mode . typescript-ts-mode-indent-offset))))
-
-(use-package lsp-javascript
-  :after lsp-mode
-  :custom
-  (lsp-typescript-references-code-lens-enabled t)
-  (lsp-typescript-implementations-code-lens-enabled t))
-
-(use-package js
-  :hook
-  (js-ts-mode . lsp)
-  :mode
-  ("\\.mjs\\'" . js-ts-mode)
-  ("\\.js\\'" . js-ts-mode)
-  :custom
-  (js-indent-level 2))
+(use-package elementary-emacs-web :ensure nil :demand t)
 
 (use-package csharp-ts-mode
   :mode ("\\.cs\\'" . csharp-ts-mode)
@@ -153,10 +96,6 @@
       :new-connection (lsp-stdio-connection "tinymist")
       :activation-fn (lsp-activate-on "typst")
       :server-id 'typst-lsp))))
-
-(use-package json-ts-mode
-  :hook
-  (json-ts-mode . lsp))
 
 (use-package powershell
   :defer t)

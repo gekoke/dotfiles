@@ -20,6 +20,7 @@
   elementary-emacs-themes,
   elementary-emacs-vc,
   elementary-emacs-visual,
+  elementary-emacs-web,
   elementary-emacs-workspaces,
   # keep-sorted start
   age,
@@ -32,7 +33,6 @@
   hunspell,
   hunspellDicts,
   mediainfo,
-  nodejs,
   omnisharp-roslyn,
   poppler-utils,
   powershell,
@@ -42,11 +42,9 @@
   terraform,
   terraform-ls,
   tinymist,
-  typescript,
   typescript-language-server,
   unzip,
   vips,
-  vscode-langservers-extracted,
   yaml-language-server,
   # keep-sorted end
 }:
@@ -69,6 +67,7 @@ let
     elementary-emacs-themes
     elementary-emacs-vc
     elementary-emacs-visual
+    elementary-emacs-web
     elementary-emacs-workspaces
     # keep-sorted end
   ];
@@ -78,14 +77,12 @@ let
     epkgs.docker
     epkgs.emacs
     epkgs.gptel
-    epkgs.lsp-tailwindcss
     epkgs.pdf-tools
     epkgs.powershell
     epkgs.sideline-blame
     epkgs.terraform-mode
     epkgs.treesit-grammars.with-all-grammars
     epkgs.typst-ts-mode
-    epkgs.web-mode
     epkgs.yaml-mode
     # keep-sorted end
   ];
@@ -104,20 +101,15 @@ let
     hunspell
     hunspellDicts.en_US
     mediainfo
-    nodejs
     omnisharp-roslyn
     poppler-utils
     powershell
     ripgrep
-    tailwindcss-language-server
     terraform
     terraform-ls
     tinymist
-    typescript
-    typescript-language-server
     unzip
     vips
-    vscode-langservers-extracted
     yaml-language-server
     # keep-sorted end
   ]
