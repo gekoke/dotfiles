@@ -34,6 +34,7 @@ in
         pkgs.jwt-cli
         pkgs.moreutils # -> `sponge` et al
         pkgs.p7zip
+        pkgs.rsbkb
         pkgs.tldr
         pkgs.units
         pkgs.wget
