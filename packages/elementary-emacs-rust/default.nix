@@ -4,6 +4,7 @@
   elementary-emacs-lsp,
   cargo,
   clippy,
+  gcc,
   rust-analyzer,
   rustc,
   rustfmt,
@@ -20,6 +21,7 @@ emacsPackages.trivialBuild {
   passthru.runtimeDeps = [
     cargo
     clippy
+    gcc
     rust-analyzer
     rustc
     rustfmt
