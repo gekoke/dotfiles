@@ -1,8 +1,7 @@
 {
   lib,
-  eca,
+  opencode,
   emacsPackages,
-  elementary-emacs-keys,
   ...
 }:
 emacsPackages.trivialBuild {
@@ -10,10 +9,9 @@ emacsPackages.trivialBuild {
   version = "0.1.0";
   src = ./.;
   packageRequires = [
-    elementary-emacs-keys
-    emacsPackages.eca
+    emacsPackages.agent-shell
   ];
-  passthru.runtimeDeps = [ eca ];
+  passthru.runtimeDeps = [ opencode ];
   meta = {
     description = "AI coding agent support for Elementary Emacs";
     license = lib.licenses.gpl3Plus;

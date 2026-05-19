@@ -7,23 +7,11 @@
 
 ;;; Commentary:
 
-;; ECA (Editor Code Assistant) integration: editor-agnostic LLM server with
-;; tool/MCP support, exposed through the `eca-emacs' client.
+;; Elementary agents
 
 ;;; Code:
 
-(require 'elementary-emacs-keys)
-
-(use-package eca
-  :general
-  (gg/leader
-    "a"  '(:ignore t :which-key "Agents")
-    "a a" #'eca
-    "a c" #'eca-chat-select-agent
-    "a m" #'eca-chat-select-model
-    "a s" #'eca-stop
-    "a r" #'eca-restart
-    "a w" #'eca-workspaces))
+(use-package agent-shell)
 
 (provide 'elementary-emacs-agents)
 ;;; elementary-emacs-agents.el ends here
