@@ -14,6 +14,7 @@ emacsPackages.trivialBuild {
     emacsPackages.cape
     emacsPackages.consult
     emacsPackages.corfu
+    emacsPackages.corfu-terminal
     emacsPackages.embark
     emacsPackages.embark-consult
     emacsPackages.marginalia

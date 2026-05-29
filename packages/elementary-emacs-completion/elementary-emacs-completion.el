@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (cape "1.5") (consult "1.0") (corfu "1.5") (embark "1.0") (embark-consult "1.0") (marginalia "1.6") (nerd-icons-completion "0.1") (nerd-icons-corfu "0.2") (orderless "1.1") (rg "2.3") (vertico "1.7") (wgrep "3.0") (which-key "3.6") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (cape "1.5") (consult "1.0") (corfu "1.5") (corfu-terminal "0.7") (embark "1.0") (embark-consult "1.0") (marginalia "1.6") (nerd-icons-completion "0.1") (nerd-icons-corfu "0.2") (orderless "1.1") (rg "2.3") (vertico "1.7") (wgrep "3.0") (which-key "3.6") (elementary-emacs-keys "0.1"))
 ;; Keywords: convenience, abbrev
 
 ;;; Commentary:
@@ -149,6 +149,12 @@
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+(use-package corfu-terminal
+  :unless (display-graphic-p)
+  :after corfu
+  :config
+  (corfu-terminal-mode +1))
 
 (provide 'elementary-emacs-completion)
 ;;; elementary-emacs-completion.el ends here
