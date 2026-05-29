@@ -26,8 +26,6 @@ rec {
     nix-pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    # FIXME: drop `nixpkgs-eca` once https://github.com/NixOS/nixpkgs/pull/479537 lands in `nixos-unstable`
-    nixpkgs-eca.url = "github:crimeminister/nixpkgs/eca-dev";
     nixpkgs-emacs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
@@ -161,12 +159,6 @@ rec {
             config.allowUnfree = true;
           };
 
-          # FIXME: drop `pkgs-eca` once https://github.com/NixOS/nixpkgs/pull/479537 lands in `nixos-unstable`
-          pkgs-eca = import inputs.nixpkgs-eca {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
           mkElementaryEmacs =
             emacs:
             let
@@ -176,9 +168,7 @@ rec {
                 pkgs-emacs.callPackage path ({ inherit emacsPackages; } // elementaryPackages // extraArgs);
               elementaryPackages = {
                 # keep-sorted start block=yes
-                elementary-emacs-agents = callPackage ./packages/elementary-emacs-agents {
-                  inherit (pkgs-eca) eca;
-                };
+                elementary-emacs-agents = callPackage ./packages/elementary-emacs-agents { };
                 elementary-emacs-completion = callPackage ./packages/elementary-emacs-completion { };
                 elementary-emacs-csharp = callPackage ./packages/elementary-emacs-csharp { };
                 elementary-emacs-editor = callPackage ./packages/elementary-emacs-editor { };

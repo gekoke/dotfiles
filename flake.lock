@@ -757,22 +757,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-eca": {
-      "locked": {
-        "lastModified": 1771983677,
-        "narHash": "sha256-9ONowBwpbijwl3XlN36Nkonmkyl08rC+e/ic5anSYQo=",
-        "owner": "crimeminister",
-        "repo": "nixpkgs",
-        "rev": "87a4c9d81a49698a32c2938c7ef6005d8f4df188",
-        "type": "github"
-      },
-      "original": {
-        "owner": "crimeminister",
-        "ref": "eca-dev",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-emacs": {
       "locked": {
         "lastModified": 1778443072,
@@ -1454,7 +1438,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_14",
-        "nixpkgs-eca": "nixpkgs-eca",
         "nixpkgs-emacs": "nixpkgs-emacs",
         "nixpkgs-for-opentofu": "nixpkgs-for-opentofu",
         "nixpkgs-unfree": "nixpkgs-unfree",
