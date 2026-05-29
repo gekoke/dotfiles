@@ -1,6 +1,5 @@
 {
   lib,
-  opencode,
   emacsPackages,
   ...
 }:
@@ -11,7 +10,6 @@ emacsPackages.trivialBuild {
   packageRequires = [
     emacsPackages.agent-shell
   ];
-  passthru.runtimeDeps = [ opencode ];
   meta = {
     description = "AI coding agent support for Elementary Emacs";
     license = lib.licenses.gpl3Plus;
