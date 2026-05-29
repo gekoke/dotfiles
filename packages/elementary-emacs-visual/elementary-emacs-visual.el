@@ -45,6 +45,7 @@
   (doom-modeline-buffer-file-name-style 'relative-from-project))
 
 (use-package nyan-mode
+  :if (display-graphic-p)
   :hook (doom-modeline-mode . nyan-mode)
   :custom
   (nyan-animation-frame-interval (/ 1.0 20)))
