@@ -32,6 +32,7 @@ in
           pkgs.azure-cli
           pkgs.bun
           pkgs.opencode
+          pkgs.pi-coding-agent
           pkgs.powershell
           # keep-sorted end
         ];
