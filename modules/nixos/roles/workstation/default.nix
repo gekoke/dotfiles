@@ -39,6 +39,7 @@ in
         self.homeModules."programs.git"
         self.homeModules."programs.gpg"
         self.homeModules."programs.nh"
+        self.homeModules."programs.zellij"
         self.homeModules."programs.zsh"
       ];
 
@@ -71,6 +72,10 @@ in
               elementary.config.enable = true;
             };
             nh = {
+              enable = true;
+              elementary.config.enable = true;
+            };
+            zellij = {
               enable = true;
               elementary.config.enable = true;
             };
