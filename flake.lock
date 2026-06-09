@@ -1622,11 +1622,11 @@
         "resume": "resume"
       },
       "locked": {
-        "lastModified": 1781011397,
-        "narHash": "sha256-P31Vm8/ku7dCCH9TIrdMTg753naW23oYkhokLHbvbkI=",
+        "lastModified": 1781012225,
+        "narHash": "sha256-5VFV+vGXfc0N47tP54zJ7Cx/mE4oXJpFNAbkvdbAEtE=",
         "owner": "gekoke",
         "repo": "website",
-        "rev": "d06ff9ebcea5ea0260e4a2fe423d3255be2546b3",
+        "rev": "c1b9dcb3134603668f3e23c052c778e4ca2d3ca4",
         "type": "github"
       },
       "original": {
