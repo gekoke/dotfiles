@@ -27,6 +27,8 @@ in
       home = {
         file."${workDir}/.hmkeep".text = "";
 
+        sessionVariables.PI_OFFLINE = 1;
+
         packages = [
           # keep-sorted start block=yes
           pkgs.azure-cli
