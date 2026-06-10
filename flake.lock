@@ -1410,11 +1410,11 @@
         "typix": "typix"
       },
       "locked": {
-        "lastModified": 1737217271,
-        "narHash": "sha256-oXUl8Diqinw+rBj3As/t1f9y879XV18MBnyNfKnqyk4=",
+        "lastModified": 1781085770,
+        "narHash": "sha256-0QuNr8m4oUcqTXub0wweMdguiURHmihDdhY3+2mDnMk=",
         "owner": "gekoke",
         "repo": "resume",
-        "rev": "d6c16e906e65263405da21e3c8bb3359c9952c07",
+        "rev": "0ff5d9b2b4e1727718e7281645b4c80f10b96da5",
         "type": "github"
       },
       "original": {
@@ -1622,11 +1622,11 @@
         "resume": "resume"
       },
       "locked": {
-        "lastModified": 1781084983,
-        "narHash": "sha256-5VFV+vGXfc0N47tP54zJ7Cx/mE4oXJpFNAbkvdbAEtE=",
+        "lastModified": 1781085818,
+        "narHash": "sha256-1buL4EcCvBgQ3cw651bgYe8yz2pvA4Tv1+AhcVdWtQo=",
         "owner": "gekoke",
         "repo": "website",
-        "rev": "39b756c10d3303780d9131b9a9d2ec2faf03690c",
+        "rev": "d9f1d2f21b5275664230b9fd862344edefdded26",
         "type": "github"
       },
       "original": {
