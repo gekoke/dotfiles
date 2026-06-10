@@ -183,9 +183,7 @@ rec {
                 elementary-emacs-python = callPackage ./packages/elementary-emacs-python { };
                 elementary-emacs-rust = callPackage ./packages/elementary-emacs-rust { };
                 elementary-emacs-terminal = callPackage ./packages/elementary-emacs-terminal { };
-                elementary-emacs-themes = callPackage ./packages/elementary-emacs-themes {
-                  miasma-theme = emacsPackages.callPackage ./packages/miasma-theme { };
-                };
+                elementary-emacs-themes = callPackage ./packages/elementary-emacs-themes { };
                 elementary-emacs-vc = callPackage ./packages/elementary-emacs-vc { };
                 elementary-emacs-visual = callPackage ./packages/elementary-emacs-visual { };
                 elementary-emacs-web = callPackage ./packages/elementary-emacs-web { };
@@ -207,7 +205,6 @@ rec {
             inherit elementary-emacs-pgtk;
             inherit elementary-emacs;
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
-            miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
             scramsha256 = pkgs.callPackage ./packages/scramsha256 { };
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
             # keep-sorted end

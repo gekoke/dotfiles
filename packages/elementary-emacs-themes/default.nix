@@ -2,7 +2,6 @@
   lib,
   emacsPackages,
   elementary-emacs-keys,
-  miasma-theme,
   ...
 }:
 emacsPackages.trivialBuild {
@@ -18,7 +17,6 @@ emacsPackages.trivialBuild {
     emacsPackages.gruvbox-theme
     emacsPackages.modus-themes
     emacsPackages.remember-last-theme
-    miasma-theme
   ];
   meta = {
     description = "Themes for Elementary Emacs";
