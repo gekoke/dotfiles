@@ -210,7 +210,6 @@ rec {
             miasma-theme = pkgs-emacs.callPackage ./packages/miasma-theme { };
             scramsha256 = pkgs.callPackage ./packages/scramsha256 { };
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
-            wsl-notify-send = pkgs.callPackage ./packages/wsl-notify-send { };
             # keep-sorted end
           };
         };

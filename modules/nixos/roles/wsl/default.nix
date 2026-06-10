@@ -51,12 +51,9 @@ in
     };
 
     home-manager.users = genAttrs cfg.forUsers (_: {
-      home = {
-        packages = [ self.packages.${pkgs.stdenv.hostPlatform.system}.wsl-notify-send ];
-        shellAliases = {
-          "cb" = "clip.exe";
-          "cbo" = "powershell.exe Get-ClipBoard";
-        };
+      home.shellAliases = {
+        "cb" = "clip.exe";
+        "cbo" = "powershell.exe Get-ClipBoard";
       };
       services.gpg-agent.pinentry.package = pkgs.pinentry-gtk2;
     });
