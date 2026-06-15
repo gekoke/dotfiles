@@ -2,14 +2,18 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 let
   cfg = config.roles.work;
   inherit (lib) mkEnableOption mkOption;
   inherit (lib.types) nullOr nonEmptyStr;
+  inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
+  imports = [ inputs.pi.homeModules.default ];
+
   options.roles.work = {
     enable = mkEnableOption "work role";
     email = mkOption {
@@ -34,9 +38,15 @@ in
           pkgs.azure-cli
           pkgs.bun
           pkgs.opencode
-          pkgs.pi-coding-agent
           pkgs.powershell
           # keep-sorted end
+        ];
+      };
+
+      programs.pi.coding-agent = {
+        enable = true;
+        extensions = [
+          "${inputs.self.packages.${system}.pi-anthropic-auth}/pi-anthropic-auth/index.js"
         ];
       };
 

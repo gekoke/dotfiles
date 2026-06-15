@@ -32,6 +32,8 @@ rec {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     noshell.url = "github:viperML/noshell";
     nur.url = "github:nix-community/NUR";
+    pi.inputs.nixpkgs.follows = "nixpkgs";
+    pi.url = "github:lukasl-dev/pi.nix";
     proxytunnel.url = "github:proxytunnel/proxytunnel";
     systems.url = "github:nix-systems/default-linux";
     # TODO: move `inputs.website` and `inputs.resume` in-tree?
@@ -205,6 +207,7 @@ rec {
             inherit elementary-emacs-pgtk;
             inherit elementary-emacs;
             lombok-jar = pkgs.callPackage ./packages/lombok-jar { };
+            pi-anthropic-auth = pkgs.callPackage ./packages/pi-anthropic-auth { };
             scramsha256 = pkgs.callPackage ./packages/scramsha256 { };
             wallpapers = pkgs.callPackage ./packages/wallpapers { };
             # keep-sorted end
