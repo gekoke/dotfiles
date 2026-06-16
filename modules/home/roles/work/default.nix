@@ -31,8 +31,6 @@ in
       home = {
         file."${workDir}/.hmkeep".text = "";
 
-        sessionVariables.PI_OFFLINE = 1;
-
         packages = [
           # keep-sorted start block=yes
           pkgs.azure-cli
@@ -45,6 +43,7 @@ in
 
       programs.pi.coding-agent = {
         enable = true;
+        extraArgs = [ "--offline" ];
         extensions = [
           "${inputs.self.packages.${system}.pi-anthropic-auth}/pi-anthropic-auth/index.js"
         ];
