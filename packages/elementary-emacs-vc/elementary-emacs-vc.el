@@ -13,6 +13,14 @@
 
 (require 'elementary-emacs-keys)
 
+(defun gg/magit-window-config ()
+  "Set window fringes for magit buffers."
+  (set-window-fringes nil 24 24))
+
+(defun gg/magit-mode-hook ()
+  "Custom `magit-mode' behaviours."
+  (add-hook 'window-configuration-change-hook 'gg/magit-window-config nil :local))
+
 (use-package magit
   :defer t
   :custom
@@ -26,6 +34,7 @@
   (magit-diff-refine-ignore-whitespace nil)
   (magit-status-margin '(t age magit-log-margin-width t 18))
   :config
+  (add-hook 'magit-mode-hook 'gg/magit-mode-hook)
   (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (defun gg/magit-auto-fetch ()
