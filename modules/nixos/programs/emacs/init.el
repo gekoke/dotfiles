@@ -15,7 +15,7 @@
 (use-package elementary-emacs-editor :ensure nil :demand t)
 
 (setq-default left-fringe-width 4)
-(setq-default right-fringe-width 12)
+(setq-default right-fringe-width 4)
 
 (use-package elementary-emacs-themes :ensure nil :demand t)
 (use-package elementary-emacs-visual :ensure nil :demand t)
