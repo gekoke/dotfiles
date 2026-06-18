@@ -69,7 +69,7 @@
   :config
   (dashboard-setup-startup-hook))
 
-(set-frame-font "-IBM -BlexMono Nerd Font-bold-normal-normal-*-*-*-*-*-m-0-iso10646-1" nil t)
+(set-frame-font "BlexMono Nerd Font-10:weight=bold" nil t)
 
 (use-package ligature
   :hook (after-init . global-ligature-mode)
