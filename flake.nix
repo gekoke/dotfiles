@@ -187,7 +187,9 @@ rec {
                 elementary-emacs-terminal = callPackage ./packages/elementary-emacs-terminal { };
                 elementary-emacs-themes = callPackage ./packages/elementary-emacs-themes { };
                 elementary-emacs-vc = callPackage ./packages/elementary-emacs-vc { };
-                elementary-emacs-visual = callPackage ./packages/elementary-emacs-visual { };
+                elementary-emacs-visual = callPackage ./packages/elementary-emacs-visual {
+                  auto-olivetti = emacsPackages.callPackage ./packages/auto-olivetti { };
+                };
                 elementary-emacs-web = callPackage ./packages/elementary-emacs-web { };
                 elementary-emacs-workspaces = callPackage ./packages/elementary-emacs-workspaces { };
                 # keep-sorted end
@@ -203,6 +205,7 @@ rec {
         {
           packages = {
             # keep-sorted start block=yes
+            auto-olivetti = pkgs-emacs.emacsPackages.callPackage ./packages/auto-olivetti { };
             connections = pkgs.callPackage ./packages/connections { };
             inherit elementary-emacs-pgtk;
             inherit elementary-emacs;

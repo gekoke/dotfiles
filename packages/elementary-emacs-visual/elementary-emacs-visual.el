@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (consult "1.0") (dashboard "1.8") (doom-modeline "4.0") (ligature "1.0") (nerd-icons "0.1") (nyan-mode "1.1") (olivetti "2.0") (rainbow-delimiters "2.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (auto-olivetti "1.0") (consult "1.0") (dashboard "1.8") (doom-modeline "4.0") (ligature "1.0") (nerd-icons "0.1") (nyan-mode "1.1") (olivetti "2.0") (rainbow-delimiters "2.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: faces, frames, mode-line
 
 ;;; Commentary:
@@ -84,25 +84,19 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package olivetti
-  :commands (olivetti-mode prog-olivetti-mode global-prog-olivetti-mode)
-  :init
-;;;###autoload
-  (define-minor-mode prog-olivetti-mode
-    "Minor mode to enable `olivetti-mode' in `prog-mode' derived buffers."
-    (add-hook 'prog-mode-hook #'olivetti-mode))
-
-;;;###autoload
-  (define-globalized-minor-mode global-prog-olivetti-mode
-    prog-olivetti-mode
-    (lambda ()
-      (when (derived-mode-p 'prog-mode)
-        (olivetti-mode 1))))
+  :commands (olivetti-mode)
   :custom
   (olivetti-body-width 220)
   :general
   (gg/leader
-    "t c" 'olivetti-mode
-    "t C" 'global-prog-olivetti-mode))
+    "t c" 'olivetti-mode))
+
+(use-package auto-olivetti
+  :custom
+  (auto-olivetti-enabled-modes '(text-mode prog-mode))
+  :general
+  (gg/leader
+    "t C" 'auto-olivetti-mode))
 
 (use-package nerd-icons
   :demand t

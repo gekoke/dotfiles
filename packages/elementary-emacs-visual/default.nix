@@ -2,6 +2,7 @@
   lib,
   emacsPackages,
   elementary-emacs-keys,
+  auto-olivetti,
   ...
 }:
 emacsPackages.trivialBuild {
@@ -10,6 +11,7 @@ emacsPackages.trivialBuild {
   src = ./.;
   packageRequires = [
     elementary-emacs-keys
+    auto-olivetti
     emacsPackages.consult
     emacsPackages.dashboard
     emacsPackages.doom-modeline
