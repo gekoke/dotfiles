@@ -11,7 +11,7 @@
 
 ;;; Code:
 
-(use-package agent-shell)
+(use-package pi-coding-agent)
 
 (provide 'elementary-emacs-agents)
 ;;; elementary-emacs-agents.el ends here

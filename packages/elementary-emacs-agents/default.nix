@@ -8,7 +8,7 @@ emacsPackages.trivialBuild {
   version = "0.1.0";
   src = ./.;
   packageRequires = [
-    emacsPackages.agent-shell
+    emacsPackages.pi-coding-agent
   ];
   meta = {
     description = "AI coding agent support for Elementary Emacs";
