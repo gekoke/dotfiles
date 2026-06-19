@@ -123,7 +123,7 @@ val shadowJar = tasks.register<Jar>("shadowJar") {
 
     group = BasePlugin.BUILD_GROUP
     archiveClassifier = "shadow"
-    archiveFileName = project.name + "-" + project.version + "-shaded.jar"
+    archiveFileName = "client-gekoke.jar"
 }
 tasks.assemble { dependsOn(shadowJar) }
 

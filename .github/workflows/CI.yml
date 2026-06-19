@@ -13,7 +13,15 @@ jobs:
       GRADLE_OPTS: "-Dfile:encoding=UTF-8"
 
     steps:
+      - name: Cache client JAR
+        id: client-jar
+        uses: actions/cache@v5
+        with:
+          path: runelite-client/build/libs/client-gekoke.jar
+          key: ${{ github.sha }}
+
       - name: Cache glslang
+        if: steps.client-jar.outputs.cache-hit != 'true'
         uses: actions/cache@v5
         with:
           path: |
@@ -23,18 +31,47 @@ jobs:
             ${{ runner.os }}-cache-
 
       - name: Checkout
+        if: steps.client-jar.outputs.cache-hit != 'true'
         uses: actions/checkout@v4
 
       - name: Set up JDK 11
+        if: steps.client-jar.outputs.cache-hit != 'true'
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 11
 
       - name: Setup Gradle
+        if: steps.client-jar.outputs.cache-hit != 'true'
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: wrapper
 
       - name: Build and Test
+        if: steps.client-jar.outputs.cache-hit != 'true'
         run: ./ci/build.sh
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore client JAR
+        uses: actions/cache@v5
+        with:
+          path: runelite-client/build/libs/client-gekoke.jar
+          key: ${{ github.sha }}
+
+      - name: Release
+        uses: ghalactic/github-release-from-tag@v6
+        with:
+          checksumGenerateAssets: "false"
+          assets: |
+            - path: runelite-client/build/libs/client-gekoke.jar
