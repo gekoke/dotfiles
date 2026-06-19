@@ -1,25 +1,24 @@
-![](https://runelite.net/img/logo.png)
-# runelite [![CI](https://github.com/runelite/runelite/workflows/CI/badge.svg)](https://github.com/runelite/runelite/actions?query=workflow%3ACI+branch%3Amaster) [![Discord](https://img.shields.io/discord/301497432909414422.svg)](https://discord.gg/ArdAhnN)
+# runelite [![CI](https://github.com/runelite/runelite/workflows/CI/badge.svg)](https://github.com/gekoke/runelite/actions?query=workflow%3ACI+branch%3Amaster)
 
-RuneLite is a free, open source OldSchool RuneScape client.
-
-If you have any questions, please join our IRC channel on [irc.rizon.net #runelite](http://qchat.rizon.net/?channels=runelite&uio=d4) or alternatively our [Discord](https://runelite.net/discord) server.
-
-## Project Layout
-
-- [cache](cache/src/main/java/net/runelite/cache) - Libraries used for reading/writing cache files, as well as the data in it
-- [runelite-api](runelite-api/src/main/java/net/runelite/api) - RuneLite API, interfaces for accessing the client
-- [runelite-client](runelite-client/src/main/java/net/runelite/client) - Game client with plugins
+A [RuneLite](https://github.com/runelite/runelite/) build with [`ClickToMinimize`](https://github.com/WaylonJ/OSRS_ClickToMinimize) built in, developer mode gates removed, and plugin side-loading enabled by default.
 
 ## Usage
 
-Open the project in your IDE as a Gradle project, and then run the RuneLite class in runelite-client.  
-For more information visit the [RuneLite Wiki](https://github.com/runelite/runelite/wiki).
+Get the latest version of `client-gekoke.jar` from [Releases](https://github.com/gekoke/runelite/releases/).
 
-### License
+### RuneLite Launcher
 
-RuneLite is licensed under the BSD 2-clause license. See the license header in the respective file to be sure.
+If you have an existing RuneLite installation, you just have to point the launcher to the the custom client `.jar` file:
 
-## Contribute and Develop
+- Move `client-gekoke.jar` to `$RUNELITE_DIR/repository2`
+  - On Windows, this defaults to `%USERPROFILE%\.runelite\repository2\`
+- Pass `--classpath client-gekoke.jar` when running the RuneLite launcher (`RuneLite.exe` on Windows)
+  - On Windows, you can edit the existing `RuneLite` shortcut: *right click -> Properties -> Shortcut -> `[...] --classpath client-gekoke.jar`* - or, just create a new shortcut.
 
-Please view our [Developer Guide](https://github.com/runelite/runelite/wiki/Developer-Guide) on the RuneLite Wiki.
+### Standalone
+
+Alternatively, just run `java -jar client-gekoke.jar`. This bypasses the launcher shenanigans entirely, but requires a `java` installation.
+
+## Sideloading Plugins
+
+Simply place plugin `.jar` files in (defaults to `%USERPROFILE%\.runelite\sideloaded-plugins` on Windows).
