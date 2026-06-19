@@ -2,6 +2,8 @@
 
 A [RuneLite](https://github.com/runelite/runelite/) build with [`ClickToMinimize`](https://github.com/WaylonJ/OSRS_ClickToMinimize) built in, developer mode gates removed, and plugin side-loading enabled by default.
 
+![A screenshot of the patched client](./screenshot.png)
+
 ## Usage
 
 Get the latest version of `client-gekoke.jar` from [Releases](https://github.com/gekoke/runelite/releases/).
@@ -21,4 +23,4 @@ Alternatively, just run `java -jar client-gekoke.jar`. This bypasses the launche
 
 ## Sideloading Plugins
 
-Simply place plugin `.jar` files in (defaults to `%USERPROFILE%\.runelite\sideloaded-plugins` on Windows).
+Simply place plugin `.jar` files in `$RUNELITE_DIR/sideloaded-plugins` (defaults to `%USERPROFILE%\.runelite\sideloaded-plugins` on Windows).
