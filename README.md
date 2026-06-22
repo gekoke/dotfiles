@@ -4,6 +4,21 @@ A [RuneLite](https://github.com/runelite/runelite/) build with [`ClickToMinimize
 
 ![A screenshot of the patched client](./screenshot.png)
 
+## Changelog
+
+### `1.0.0` - 2026-06-25
+
+Upstream client version: `1.12.31`
+
+#### Added
+
+- [`ClickToMinimize`](https://github.com/WaylonJ/OSRS_ClickToMinimize) as a built-in plugin
+
+#### Changed
+
+- Allow `--developer-mode` to be used
+- Enable plugin side-loading by default
+
 ## Usage
 
 Get the latest version of `client-gekoke.jar` from [Releases](https://github.com/gekoke/runelite/releases/).
