@@ -64,7 +64,22 @@
   (transient-append-suffix
     'magit-tag
     "-u"
-    '(magit-tag:--message)))
+    '(magit-tag:--message))
+  (transient-define-argument magit-tag:--cleanup ()
+    :description "Cleanup"
+    :class 'transient-switches
+    :key "-c"
+    :argument-format "--cleanup=%s"
+    :argument-regexp "\\(--cleanup=\\(strip\\|whitespace\\|verbatim\\|default\\)\\)"
+    :choices '("strip"
+               "whitespace"
+               "verbatim"
+               "scissors"
+               "default"))
+  (transient-append-suffix
+    'magit-tag
+    "-s"
+    '(magit-tag:--cleanup)))
 
 (use-package forge
   :after magit
