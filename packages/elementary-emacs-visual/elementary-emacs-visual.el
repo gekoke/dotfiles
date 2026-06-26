@@ -69,7 +69,7 @@
   :config
   (dashboard-setup-startup-hook))
 
-(set-frame-font "BlexMono Nerd Font-10:weight=bold" nil t)
+(set-frame-font "VictorMono Nerd Font:size=14:weight=semibold" nil t)
 
 (use-package ligature
   :hook (after-init . global-ligature-mode)
