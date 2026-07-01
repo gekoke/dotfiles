@@ -32,10 +32,13 @@
   hardware = {
     graphics.enable = true;
     nvidia = {
+      # GTX 1080
+      open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+
       # Modesetting is required
       modesetting.enable = true;
       powerManagement.enable = true;
-      open = false;
       nvidiaSettings = true;
     };
   };
