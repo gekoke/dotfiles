@@ -160,6 +160,21 @@
         "type": "github"
       }
     },
+    "den": {
+      "locked": {
+        "lastModified": 1794889876,
+        "narHash": "sha256-4RqSFoccwakuCWob78d28kUOjuHdhT1TVETLNaX8NdA=",
+        "owner": "denful",
+        "repo": "den",
+        "rev": "12b2146708a7bc96f26604ae6dd4fd1d0c0d4691",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "den",
+        "type": "github"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -635,6 +650,21 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "jail-nix": {
       "locked": {
         "lastModified": 1776230864,
@@ -824,6 +854,38 @@
       }
     },
     "nixpkgs-emacs": {
+      "locked": {
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-emacs-packages": {
+      "locked": {
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-emacs-runtime": {
       "locked": {
         "lastModified": 1794537146,
         "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
@@ -1539,16 +1601,20 @@
         "agenix": "agenix",
         "agenix-shell": "agenix-shell",
         "dank-material-shell": "dank-material-shell",
+        "den": "den",
         "dgop": "dgop",
         "disko": "disko",
         "flake-parts": "flake-parts_3",
         "home-manager": "home-manager",
+        "import-tree": "import-tree",
         "niri-flake": "niri-flake",
         "nix-pre-commit-hooks": "nix-pre-commit-hooks",
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_15",
         "nixpkgs-emacs": "nixpkgs-emacs",
+        "nixpkgs-emacs-packages": "nixpkgs-emacs-packages",
+        "nixpkgs-emacs-runtime": "nixpkgs-emacs-runtime",
         "nixpkgs-for-opentofu": "nixpkgs-for-opentofu",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "noshell": "noshell",

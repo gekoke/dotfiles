@@ -113,7 +113,7 @@ let
   ]
   ++ lib.concatMap (p: p.passthru.runtimeDeps or [ ]) elementaryPackages;
 
-  initFile = replaceVars ../../modules/nixos/programs/emacs/init.el {
+  initFile = replaceVars ./init.el {
     pwshDir = "${powershell-editor-services}/lib/powershell-editor-services";
     tailwindcssLs = lib.getExe tailwindcss-language-server;
     tsgo = lib.getExe' typescript "tsc";
