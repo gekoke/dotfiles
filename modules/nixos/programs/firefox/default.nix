@@ -39,6 +39,7 @@ in
           "browser.tabs.firefox-view" = false; # Disable "Firefox View" button on home bar
           "browser.uidensity" = 1; # Set UI density to compact
           "extensions.pocket.enabled" = false; # Disable "pocket" button on home bar
+          "extensions.update.enabled" = false;
           "full-screen-api.warning.timeout" = 0; # Disable "You're in fullscreen" message
           "media.hardwaremediakeys.enabled" = false; # Disable media keys in Firefox - conflicts with Spotify etc. when audio is playing in browser
           "signon.rememberSignons" = false; # Don't use Firefox password manager
