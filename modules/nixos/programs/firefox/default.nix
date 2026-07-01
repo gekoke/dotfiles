@@ -32,6 +32,7 @@ in
         };
         settings = {
           "browser.aboutconfig.showwarning" = false; # Don't show warning when opening about:config
+          "browser.aboutwelcome.enabled" = false; # Onboarding - "You’re in safe paws" yada yada yada
           "browser.contentblocking.category" = "strict"; # Set Firefox Tracking Protection to "Strict"
           "browser.disableResetPrompt" = true; # Disable "Looks like you haven't started Firefox in a while."
           "browser.onboarding.enabled" = false; # Disable "New to Firefox? Let's get started!" tour
