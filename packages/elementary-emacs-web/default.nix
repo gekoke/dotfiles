@@ -15,7 +15,6 @@ emacsPackages.trivialBuild {
   src = ./.;
   packageRequires = [
     elementary-emacs-lsp
-    emacsPackages.lsp-tailwindcss
     emacsPackages.web-mode
   ];
   passthru.runtimeDeps = [
