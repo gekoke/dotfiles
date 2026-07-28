@@ -6,6 +6,12 @@ A [RuneLite](https://github.com/runelite/runelite/) build with [`ClickToMinimize
 
 ## Changelog
 
+### `2.0.0` - 2026-07-28
+
+Upstream client version: `1.12.33`
+
+*This version is a client version bump with no other changes.*
+
 ### `1.0.0` - 2026-06-25
 
 Upstream client version: `1.12.31`
