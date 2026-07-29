@@ -158,7 +158,6 @@ rec {
         let
           pkgs-emacs = import inputs.nixpkgs-emacs {
             inherit system;
-            overlays = [ (import ./packages/elementary-emacs/overlay.nix) ];
             config.allowUnfree = true;
           };
 
