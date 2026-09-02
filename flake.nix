@@ -30,7 +30,7 @@ rec {
     nixpkgs-for-opentofu.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    noshell.url = "github:viperML/noshell";
+    noshell.url = "git+https://codeberg.org/viperML/noshell";
     nur.url = "github:nix-community/NUR";
     pi.inputs.nixpkgs.follows = "nixpkgs";
     pi.url = "github:lukasl-dev/pi.nix";
@@ -199,7 +199,7 @@ rec {
             );
 
           elementary-emacs = mkElementaryEmacs pkgs-emacs.emacs;
-          elementary-emacs-pgtk = mkElementaryEmacs pkgs-emacs.emacs30-pgtk;
+          elementary-emacs-pgtk = mkElementaryEmacs pkgs-emacs.emacs-pgtk;
         in
         {
           packages = {

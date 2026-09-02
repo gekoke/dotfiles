@@ -55,7 +55,7 @@ in
         "cb" = "clip.exe";
         "cbo" = "powershell.exe Get-ClipBoard";
       };
-      services.gpg-agent.pinentry.package = pkgs.pinentry-gtk2;
+      services.gpg-agent.pinentry.package = pkgs.pinentry-qt;
     });
   };
 }

@@ -77,6 +77,11 @@
   (evil-want-minibuffer t)
   (evil-undo-system 'undo-tree)
   :config
+  ;; FIXME: remove when issue is resolved
+  ;; https://github.com/emacs-evil/evil/issues/2034
+  (put 'evil-default-state 'permanent-local t)
+  (put 'evil-echo-state 'permanent-local t)
+
   (add-to-list 'evil-jumps-ignored-file-patterns ".*/$")
   :general
   (general-def

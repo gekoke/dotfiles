@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Server paths injected at build time by the `elementary-emacs' package.
