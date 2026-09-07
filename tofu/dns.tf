@@ -5,33 +5,6 @@ provider "cloudflare" {
 
 locals {
   grigorjan_net_zone_id = "031954488928102b0936fee7bd9d3312"
-  neon_vhosts = toset([
-    "abiopetaja.grigorjan.net",
-    "linkace.grigorjan.net",
-    "neon.grigorjan.net",
-    "opengist.grigorjan.net",
-    "siege.grigorjan.net",
-    "www.grigorjan.net",
-  ])
-}
-
-resource "cloudflare_dns_record" "neon_a" {
-  for_each = local.neon_vhosts
-
-  type       = "A"
-  name       = each.key
-  content    = hcloud_server.neon.ipv4_address
-  ttl        = 1
-  zone_id    = local.grigorjan_net_zone_id
-  depends_on = [module.neon_deploy]
-}
-
-resource "cloudflare_dns_record" "root_website" {
-  type    = "CNAME"
-  name    = "grigorjan.net"
-  content = "www.grigorjan.net"
-  ttl     = 1
-  zone_id = local.grigorjan_net_zone_id
 }
 
 resource "cloudflare_dns_record" "dkim_1" {
