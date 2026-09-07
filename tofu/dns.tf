@@ -7,6 +7,30 @@ locals {
   grigorjan_net_zone_id = "031954488928102b0936fee7bd9d3312"
 }
 
+resource "cloudflare_dns_record" "root_website" {
+  type    = "CNAME"
+  name    = "grigorjan.net"
+  content = "gekoke.github.io"
+  ttl     = 1
+  zone_id = local.grigorjan_net_zone_id
+}
+
+resource "cloudflare_dns_record" "www_website" {
+  type    = "CNAME"
+  name    = "www.grigorjan.net"
+  content = "gekoke.github.io"
+  ttl     = 1
+  zone_id = local.grigorjan_net_zone_id
+}
+
+resource "cloudflare_dns_record" "github_pages_challenge" {
+  type    = "TXT"
+  name    = "_github-pages-challenge-gekoke.grigorjan.net"
+  content = "\"58f1b8d27a8c74074eee8d2296fe9b\""
+  ttl     = 1
+  zone_id = local.grigorjan_net_zone_id
+}
+
 resource "cloudflare_dns_record" "dkim_1" {
   type    = "CNAME"
   name    = "fm1._domainkey.grigorjan.net"
