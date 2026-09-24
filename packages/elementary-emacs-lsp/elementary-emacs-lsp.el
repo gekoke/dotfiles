@@ -71,8 +71,28 @@
     "g n" #'lsp-ui-find-next-reference
     "g N" #'lsp-ui-find-prev-reference))
 
+(define-advice lsp-diagnostics--flycheck-level
+    (:around (fn flycheck-level tags) gg/drop-unknown-tags)
+  "Ignore diagnostic tags lsp-mode does not know about.
+It turns them into nil and then builds an undefined face name like
+`lsp-flycheck-error-nil-nil'.  Roslyn, for example, sends Visual Studio tags.
+https://github.com/emacs-lsp/lsp-mode/blob/6bfc593d7b1bc0dd656f09ffce52cc085ebced05/lsp-diagnostics.el#L141"
+  (if-let* ((tags (seq-remove #'null tags)))
+      (funcall fn flycheck-level tags)
+    flycheck-level))
+
 (use-package consult-lsp
   :after lsp-mode
+  :config
+  (define-advice consult-lsp--diagnostics--source
+      (:override (diag) gg/source-or-code)
+    "Show the diagnostic source, or its code when there is no source.
+Roslyn sends no source, which upstream hands straight to `propertize' and
+crashes the diagnostic list.
+https://github.com/gagbo/consult-lsp/blob/f41a3946987a3880068f95f3725bbb7b0d4b0b22/consult-lsp.el#L255"
+    (when-let* ((label (or (lsp:diagnostic-source? diag)
+                           (lsp:diagnostic-code? diag))))
+      (propertize (format "%s" label) 'face 'success)))
   :general
   (general-def lsp-command-map
     "s s" #'consult-lsp-symbols
