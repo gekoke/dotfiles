@@ -34,7 +34,6 @@
   hunspell,
   hunspellDicts,
   mediainfo,
-  omnisharp-roslyn,
   poppler-utils,
   powershell-editor-services,
   ripgrep,
@@ -115,7 +114,6 @@ let
   ++ lib.concatMap (p: p.passthru.runtimeDeps or [ ]) elementaryPackages;
 
   initFile = replaceVars ../../modules/nixos/programs/emacs/init.el {
-    omnisharp = "${omnisharp-roslyn}";
     pwshDir = "${powershell-editor-services}/lib/powershell-editor-services";
     tailwindcssLs = lib.getExe tailwindcss-language-server;
     typescriptLs = lib.getExe typescript-language-server;
