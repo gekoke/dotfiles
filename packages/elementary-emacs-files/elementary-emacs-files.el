@@ -53,6 +53,21 @@
 
   (dirvish-side-attributes
    '(nerd-icons subtree-state vc-state git-msg))
+
+  (dirvish-preview-dispatchers
+   '(mnt-dired video image gif audio epub archive font pdf))
+  :config
+  ;; Emacs 31 Dired aborts on any `ls' stderr, and Windows-locked files
+  ;; on /mnt always produce some.  Directory previews run as
+  ;; `emacs -Q -batch --eval FORM', so the fix goes inside FORM.
+  (dirvish-define-preview mnt-dired (file ext preview-window dv)
+    "Preview /mnt directory FILE despite `ls' errors."
+    (when (and (string-prefix-p "/mnt/" file) (file-directory-p file))
+      `(dired . (progn
+                  (setq dired-use-ls-dired t)
+                  (advice-add 'insert-directory :after
+                              (lambda (&rest _) (setq dired--ls-error-buffer nil)))
+                  ,(cdr (dirvish-dired-dp file ext preview-window dv))))))
   :general
   (general-def
     :states 'normal
@@ -108,7 +123,15 @@
 (use-package dired
   :defer t
   :custom
-  (dired-deletion-confirmer (lambda (_) t)))
+  (dired-deletion-confirmer (lambda (_) t))
+  (dired-use-ls-dired t)
+  :config
+  ;; Windows-locked files (pagefile.sys etc.) make `ls' write to stderr,
+  ;; which Emacs 31 Dired treats as an error.
+  (advice-add 'insert-directory :after
+              (lambda (file &rest _)
+                (when (string-prefix-p "/mnt/" (expand-file-name file))
+                  (setq dired--ls-error-buffer nil)))))
 
 (use-package dired-x
   :after dired
