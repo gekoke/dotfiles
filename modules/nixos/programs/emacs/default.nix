@@ -8,13 +8,10 @@
 }:
 let
   inherit (lib)
-    attrValues
-    filter
     mkEnableOption
     mkIf
     mkOption
     ;
-  inherit (lib.attrsets) isDerivation;
   inherit (lib.types) package;
   cfg = config.elementary.programs.emacs;
 in
@@ -32,17 +29,18 @@ in
   config = mkIf cfg.enable {
     elementary.home.extraOptions.fonts.fontconfig.enable = true;
 
-    elementary.home.packages =
-      let
-        allNerdFonts = filter isDerivation (attrValues pkgs.nerd-fonts);
-      in
-      [
-        cfg.package
-        # keep-sorted start block=yes
-        pkgs.noto-fonts-color-emoji
-        # keep-sorted end
-      ]
-      ++ allNerdFonts;
+    elementary.home.packages = [
+      cfg.package
+      # keep-sorted start block=yes
+      pkgs.nerd-fonts.blex-mono
+      pkgs.nerd-fonts.caskaydia-cove
+      pkgs.nerd-fonts.fira-code
+      pkgs.nerd-fonts.iosevka
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts.victor-mono
+      # keep-sorted end
+      pkgs.noto-fonts-color-emoji
+    ];
 
     age.secrets.emacsAuthinfo = lib.mkIf config.elementary.secrets.enable {
       file = ./../../../../secrets/authinfo.age;
