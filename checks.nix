@@ -20,12 +20,7 @@
               enable = true;
               settings.edit = true;
             };
-            gitleaks = {
-              enable = true;
-              name = "gitleaks";
-              entry = "${lib.getExe pkgs.gitleaks} protect --verbose --redact --staged";
-              pass_filenames = false;
-            };
+            gitleaks.enable = true;
             keep-sorted.enable = true;
             nixfmt.enable = true;
             prettier.enable = true;

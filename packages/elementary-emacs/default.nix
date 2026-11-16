@@ -41,7 +41,7 @@
   terraform,
   terraform-ls,
   tinymist,
-  typescript-language-server,
+  typescript,
   unzip,
   vips,
   yaml-language-server,
@@ -116,7 +116,7 @@ let
   initFile = replaceVars ../../modules/nixos/programs/emacs/init.el {
     pwshDir = "${powershell-editor-services}/lib/powershell-editor-services";
     tailwindcssLs = lib.getExe tailwindcss-language-server;
-    typescriptLs = lib.getExe typescript-language-server;
+    tsgo = lib.getExe' typescript "tsc";
   };
   earlyInitFile = ./early-init.el;
 in

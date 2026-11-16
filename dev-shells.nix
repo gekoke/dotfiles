@@ -53,7 +53,6 @@
                   TF_VAR_cloudflare_api_token.file = ./secrets/cloudflare-api-token.age;
                   TF_VAR_github_token.file = ./secrets/github-token.age;
                   TF_VAR_hcloud_token.file = ./secrets/hcloud-token.age;
-                  TF_VAR_neon_api_key.file = ./secrets/neon-api-key.age;
                 };
               };
             in
@@ -72,7 +71,6 @@
                 p.hashicorp_tls
                 p.hetznercloud_hcloud
                 p.integrations_github
-                p.kislerdm_neon
                 # keep-sorted end
 
                 # nixos-anwyhere (Git module) dependencies

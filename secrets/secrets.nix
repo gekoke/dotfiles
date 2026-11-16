@@ -9,7 +9,6 @@ let
     "cloudflare-api-token.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
     "cloudflare-acme.env.age".publicKeys = publicKeys.geko ++ publicKeys.vps;
     "github-token.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
-    "neon-api-key.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
   };
 in
 builtins.mapAttrs (_: rule: rule // { armor = true; }) rules

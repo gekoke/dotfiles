@@ -26,9 +26,3 @@ variable "github_token" {
   sensitive   = true
   description = "The GitHub personal access token"
 }
-
-variable "neon_api_key" {
-  type        = string
-  sensitive   = true
-  description = "The Neon API key"
-}

@@ -5,7 +5,6 @@
   nodejs,
   tailwindcss-language-server,
   typescript,
-  typescript-language-server,
   vscode-langservers-extracted,
   ...
 }:
@@ -21,7 +20,6 @@ emacsPackages.trivialBuild {
     nodejs
     tailwindcss-language-server
     typescript
-    typescript-language-server
     vscode-langservers-extracted
   ];
   meta = {

@@ -13,6 +13,11 @@
 
 (require 'elementary-emacs-lsp)
 
+;; `tsgo' has a lower priority than `ts-ls' and `jsts-ls', so they must be disabled for it to be picked.
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-disabled-clients 'ts-ls)
+  (add-to-list 'lsp-disabled-clients 'jsts-ls))
+
 (use-package web-mode
   :mode
   ("\\.phtml\\'" . web-mode)

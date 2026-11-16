@@ -4,7 +4,7 @@
 ;; Server paths injected at build time by the `elementary-emacs' package.
 (setq lsp-pwsh-dir "@pwshDir@")
 (setq lsp-tailwindcss-server-path "@tailwindcssLs@")
-(setq lsp-clients-typescript-tls-path "@typescriptLs@")
+(setq lsp-clients-tsgo-path "@tsgo@")
 
 (use-package treesit
   :custom

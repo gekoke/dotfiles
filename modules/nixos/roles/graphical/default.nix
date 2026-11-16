@@ -35,7 +35,7 @@ in
       services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
       home.packages = [
         # pinentry-gnome3
-        pkgs.gcr
+        pkgs.gcr_4
 
         pkgs.discord
         pkgs.mpv

@@ -38,7 +38,10 @@ in
           ];
         in
         {
-          experimental-features = "nix-command flakes";
+          experimental-features = [
+            "nix-command"
+            "flakes"
+          ];
           trusted-users = users;
           allowed-users = users;
           keep-outputs = true;
