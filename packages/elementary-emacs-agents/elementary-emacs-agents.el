@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (agent-shell "0.70") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (gptel "0.9") (agent-shell "0.70") (elementary-emacs-keys "0.1"))
 ;; Keywords: tools
 
 ;;; Commentary:
@@ -36,6 +36,19 @@
     :states '(normal insert)
     :keymaps 'agent-shell-mode-map
     "C-<return>" #'agent-shell-submit))
+
+(use-package gptel
+  :ensure t
+  :defer t
+  :custom
+  (gptel-prompt-prefix-alist '((markdown-mode . "> ")))
+  :config
+  (setq gptel-model 'gpt-5
+        gptel-backend (gptel-make-gh-copilot "Copilot"))
+  :general
+  (gg/leader
+    "c b" #'gptel
+    "c m" #'gptel-menu))
 
 (provide 'elementary-emacs-agents)
 ;;; elementary-emacs-agents.el ends here

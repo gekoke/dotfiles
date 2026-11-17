@@ -1,6 +1,7 @@
 {
   lib,
   emacsPackages,
+  age,
   elementary-emacs-keys,
   fd,
   ffmpegthumbnailer,
@@ -17,13 +18,16 @@ emacsPackages.trivialBuild {
   src = ./.;
   packageRequires = [
     elementary-emacs-keys
+    emacsPackages.age
     emacsPackages.dired-gitignore
     emacsPackages.diredfl
     emacsPackages.dirvish
     emacsPackages.nerd-icons
+    emacsPackages.pdf-tools
   ];
   passthru.runtimeDeps = [
     # keep-sorted start
+    age
     fd
     ffmpegthumbnailer
     gnutar

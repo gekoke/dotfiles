@@ -4,47 +4,30 @@
   emacsPackages,
   makeWrapper,
   runCommand,
-  replaceVars,
   elementary-emacs-agents,
   elementary-emacs-completion,
   elementary-emacs-csharp,
+  elementary-emacs-docker,
   elementary-emacs-editor,
   elementary-emacs-files,
+  elementary-emacs-go,
   elementary-emacs-keys,
   elementary-emacs-lsp,
   elementary-emacs-markdown,
   elementary-emacs-nix,
+  elementary-emacs-powershell,
   elementary-emacs-prelude,
   elementary-emacs-python,
   elementary-emacs-rust,
+  elementary-emacs-terraform,
   elementary-emacs-terminal,
   elementary-emacs-themes,
+  elementary-emacs-typst,
   elementary-emacs-vc,
   elementary-emacs-visual,
   elementary-emacs-web,
   elementary-emacs-workspaces,
-  # keep-sorted start
-  age,
-  fd,
-  ffmpegthumbnailer,
-  gnutar,
-  go,
-  gopls,
-  hunspell,
-  hunspellDicts,
-  mediainfo,
-  poppler-utils,
-  powershell-editor-services,
-  ripgrep,
-  tailwindcss-language-server,
-  terraform,
-  terraform-ls,
-  tinymist,
-  typescript,
-  unzip,
-  vips,
-  yaml-language-server,
-  # keep-sorted end
+  elementary-emacs-yaml,
 }:
 let
   elementaryPackages = [
@@ -52,70 +35,35 @@ let
     elementary-emacs-agents
     elementary-emacs-completion
     elementary-emacs-csharp
+    elementary-emacs-docker
     elementary-emacs-editor
     elementary-emacs-files
+    elementary-emacs-go
     elementary-emacs-keys
     elementary-emacs-lsp
     elementary-emacs-markdown
     elementary-emacs-nix
+    elementary-emacs-powershell
     elementary-emacs-prelude
     elementary-emacs-python
     elementary-emacs-rust
     elementary-emacs-terminal
+    elementary-emacs-terraform
     elementary-emacs-themes
+    elementary-emacs-typst
     elementary-emacs-vc
     elementary-emacs-visual
     elementary-emacs-web
     elementary-emacs-workspaces
+    elementary-emacs-yaml
     # keep-sorted end
   ];
 
-  loosePackages = epkgs: [
-    # keep-sorted start
-    epkgs.age
-    epkgs.docker
-    epkgs.gptel
-    epkgs.pdf-tools
-    epkgs.powershell
-    epkgs.sideline-blame
-    epkgs.terraform-mode
-    epkgs.typst-ts-mode
-    epkgs.yaml-mode
-    # keep-sorted end
-  ];
+  emacsWithPackages = emacsPackages.emacsWithPackages (_: elementaryPackages);
 
-  emacsWithPackages = emacsPackages.emacsWithPackages (
-    epkgs: elementaryPackages ++ loosePackages epkgs
-  );
+  runtimeBins = lib.concatMap (p: p.passthru.runtimeDeps or [ ]) elementaryPackages;
 
-  runtimeBins = [
-    # keep-sorted start
-    age
-    fd
-    ffmpegthumbnailer
-    gnutar
-    go
-    gopls
-    hunspell
-    hunspellDicts.en_US
-    mediainfo
-    poppler-utils
-    ripgrep
-    terraform
-    terraform-ls
-    tinymist
-    unzip
-    vips
-    yaml-language-server
-    # keep-sorted end
-  ]
-  ++ lib.concatMap (p: p.passthru.runtimeDeps or [ ]) elementaryPackages;
-
-  initFile = replaceVars ./init.el {
-    pwshDir = "${powershell-editor-services}/lib/powershell-editor-services";
-    tailwindcssLs = lib.getExe tailwindcss-language-server;
-    tsgo = lib.getExe' typescript "tsc";
-  };
+  initFile = ./init.el;
   earlyInitFile = ./early-init.el;
 in
 runCommand "elementary-emacs"

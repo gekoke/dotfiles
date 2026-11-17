@@ -13,6 +13,9 @@
 
 (require 'elementary-emacs-lsp)
 
+(setq lsp-tailwindcss-server-path "@tailwindcssLs@")
+(setq lsp-clients-tsgo-path "@tsgo@")
+
 ;; `tsgo' has a lower priority than `ts-ls' and `jsts-ls', so they must be disabled for it to be picked.
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp-disabled-clients 'ts-ls)

@@ -12,6 +12,7 @@ emacsPackages.trivialBuild {
   packageRequires = [
     elementary-emacs-keys
     emacsPackages.agent-shell
+    emacsPackages.gptel
   ];
   passthru.runtimeDeps = [ claude-agent-acp ];
   meta = {

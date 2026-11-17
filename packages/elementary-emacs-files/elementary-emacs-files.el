@@ -2,7 +2,7 @@
 
 ;; Author: Gregor Grigorjan <gregor@grigorjan.net>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "30.1") (dired-gitignore "0.4") (diredfl "0.6") (dirvish "2.2") (nerd-icons "0.1") (elementary-emacs-keys "0.1"))
+;; Package-Requires: ((emacs "30.1") (pdf-tools "1.0") (age "0.5") (dired-gitignore "0.4") (diredfl "0.6") (dirvish "2.2") (nerd-icons "0.1") (elementary-emacs-keys "0.1"))
 ;; Keywords: files, convenience
 
 ;;; Commentary:
@@ -137,6 +137,19 @@
   :after dired
   :config
   (setq dired-omit-files (concat dired-omit-files "\\|^\\..*$")))
+
+(use-package pdf-tools
+  :magic ("%PDF" . pdf-view-mode)
+  :config
+  (pdf-tools-install :no-query))
+
+(use-package age
+  :hook (after-init . (lambda ()
+                        (let ((inhibit-message t))
+                          (age-file-enable))))
+  :custom
+  (age-default-identity "~/.ssh/id_ed25519")
+  (age-default-recipient "~/.ssh/id_ed25519.pub"))
 
 (provide 'elementary-emacs-files)
 ;;; elementary-emacs-files.el ends here

@@ -1,11 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-;; Server paths injected at build time by the `elementary-emacs' package.
-(setq lsp-pwsh-dir "@pwshDir@")
-(setq lsp-tailwindcss-server-path "@tailwindcssLs@")
-(setq lsp-clients-tsgo-path "@tsgo@")
-
 (use-package treesit
   :custom
   (treesit-font-lock-level 4))
@@ -22,28 +17,7 @@
 (use-package elementary-emacs-completion :ensure nil :demand t)
 (use-package elementary-emacs-workspaces :ensure nil :demand t)
 
-(use-package pdf-tools
-  :magic ("%PDF" . pdf-view-mode)
-  :config
-  (pdf-tools-install :no-query))
-
 (use-package elementary-emacs-files :ensure nil :demand t)
-
-;; NOTE: login with `gptel-gh-login'
-(use-package gptel
-  :ensure t
-  :defer t
-  :custom
-  (gptel-prompt-prefix-alist '((markdown-mode . "> ")))
-  :config
-  ;; FIXME: `:custom' doesn't work
-  ;; See: https://github.com/karthink/gptel/issues/556
-  (setq gptel-model 'gpt-5
-        gptel-backend (gptel-make-gh-copilot "Copilot"))
-  :general
-  (gg/leader
-    "c b" #'gptel
-    "c m" #'gptel-menu))
 
 (use-package elementary-emacs-terminal :ensure nil :demand t)
 
@@ -66,46 +40,17 @@
 
 (use-package elementary-emacs-agents :ensure nil :demand t)
 
-(add-to-list 'auto-mode-alist '("\\(Containerfile\\|Dockerfile\\).*" . dockerfile-ts-mode))
+(use-package elementary-emacs-docker :ensure nil :demand t)
 
-(use-package docker
-  :general
-  (gg/leader
-    "k" #'docker))
+(use-package elementary-emacs-terraform :ensure nil :demand t)
 
-(use-package yaml-mode
-  :hook (yaml-mode . lsp))
+(use-package elementary-emacs-yaml :ensure nil :demand t)
 
-(use-package terraform-mode
-  :hook (terraform-mode . lsp-deferred))
+(use-package elementary-emacs-go :ensure nil :demand t)
 
-(use-package go-ts-mode
-  :hook (go-ts-mode . lsp)
-  :custom
-  (go-ts-mode-indent-offset tab-width))
+(use-package elementary-emacs-powershell :ensure nil :demand t)
 
-(use-package typst-ts-mode
-  :custom
-  (typst-ts-mode-indent-offset 2)
-  :config
-  (with-eval-after-load 'lsp-mode
-    (add-to-list 'lsp-language-id-configuration '(typst-ts-mode . "typst"))
-    (lsp-register-client
-     (make-lsp-client
-      :new-connection (lsp-stdio-connection "tinymist")
-      :activation-fn (lsp-activate-on "typst")
-      :server-id 'typst-lsp))))
-
-(use-package powershell
-  :defer t)
-
-(use-package age
-  :hook (after-init . (lambda ()
-                        (let ((inhibit-message t))
-                          (age-file-enable))))
-  :custom
-  (age-default-identity "~/.ssh/id_ed25519")
-  (age-default-recipient "~/.ssh/id_ed25519.pub"))
+(use-package elementary-emacs-typst :ensure nil :demand t)
 
 (general-def
   "C--" #'text-scale-decrease
