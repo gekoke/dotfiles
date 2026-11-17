@@ -2,7 +2,6 @@ let
   publicKeys = import ../public-keys.nix;
   rules = {
     "authinfo.age".publicKeys = publicKeys.geko;
-    "linkace.env.age".publicKeys = publicKeys.geko ++ publicKeys.vps;
     # Deploy secrets
     "aws-secret-key.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;
     "cachix-auth-token.age".publicKeys = publicKeys.geko ++ publicKeys.githubActions;

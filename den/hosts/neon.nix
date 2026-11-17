@@ -1,12 +1,8 @@
-{ inputs, den, ... }:
+{ inputs, ... }:
 {
   den.hosts.x86_64-linux.neon = { };
 
   den.aspects.neon = {
-    includes = [
-      den.aspects.linkace
-    ];
-
     nixos =
       {
         config,
@@ -41,16 +37,6 @@
         services = {
           openssh.enable = true;
 
-          postgresqlBackup = {
-            enable = true;
-            compression = "none";
-          };
-
-          linkace = {
-            enable = true;
-            environmentFile = config.age.secrets."linkace.env".path;
-            database.scramSha256PasswordHash = "SCRAM-SHA-256$4096:7sUwTWqRn4M0oJX/zN9Y4w==$febSzasL8KtqmAYwoDdt09cQUVs6k6+xqph+5EQD0mk=:4eWX3Qsw4Foiq7Z6sJpPSCS0Xax363cZom4WdmhizFE=";
-          };
           abiopetaja = {
             enable = true;
             domains = [ "abiopetaja.grigorjan.net" ];
@@ -72,9 +58,6 @@
                   globalRedirect = "docs.google.com/document/d/18rH8YFU7kuXRncqRFWnMZK3eEMBk6Vpz2nYOL5u_WZY";
                   redirectCode = 302;
                 };
-                "linkace.grigorjan.net" = https // {
-                  locations."/".proxyPass = "http://127.0.0.1:${toString config.services.linkace.port}";
-                };
                 "www.grigorjan.net" = https // {
                   serverAliases = [ "grigorjan.net" ];
                   root = "${inputs.website.packages.${pkgs.stdenv.hostPlatform.system}.default}/public";
@@ -86,7 +69,6 @@
           };
         };
 
-        age.secrets."linkace.env".file = ../../secrets/linkace.env.age;
         age.secrets."cloudflare-acme.env".file = ../../secrets/cloudflare-acme.env.age;
 
         security.acme = {
