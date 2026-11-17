@@ -55,7 +55,6 @@
 
 (use-package elementary-emacs-python :ensure nil :demand t)
 
-(use-package elementary-emacs-java :ensure nil :demand t)
 
 (use-package elementary-emacs-rust :ensure nil :demand t)
 

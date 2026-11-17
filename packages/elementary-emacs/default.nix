@@ -10,7 +10,6 @@
   elementary-emacs-csharp,
   elementary-emacs-editor,
   elementary-emacs-files,
-  elementary-emacs-java,
   elementary-emacs-keys,
   elementary-emacs-lsp,
   elementary-emacs-markdown,
@@ -55,7 +54,6 @@ let
     elementary-emacs-csharp
     elementary-emacs-editor
     elementary-emacs-files
-    elementary-emacs-java
     elementary-emacs-keys
     elementary-emacs-lsp
     elementary-emacs-markdown

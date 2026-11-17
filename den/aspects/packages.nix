@@ -35,7 +35,6 @@
             elementary-emacs-csharp = callPackage ../../packages/elementary-emacs-csharp { };
             elementary-emacs-editor = callPackage ../../packages/elementary-emacs-editor { };
             elementary-emacs-files = callPackage ../../packages/elementary-emacs-files { };
-            elementary-emacs-java = callPackage ../../packages/elementary-emacs-java { };
             elementary-emacs-keys = callPackage ../../packages/elementary-emacs-keys { };
             elementary-emacs-lsp = callPackage ../../packages/elementary-emacs-lsp { };
             elementary-emacs-markdown = callPackage ../../packages/elementary-emacs-markdown { };
@@ -63,7 +62,6 @@
       auto-olivetti = pkgs-emacs-packages.emacsPackages.callPackage ../../packages/auto-olivetti { };
       elementary-emacs = mkElementaryEmacs pkgs-emacs.emacs;
       elementary-emacs-pgtk = mkElementaryEmacs pkgs-emacs.emacs-pgtk;
-      lombok-jar = pkgs.callPackage ../../packages/lombok-jar { };
       wallpapers = pkgs.callPackage ../../packages/wallpapers { };
       # keep-sorted end
     };
