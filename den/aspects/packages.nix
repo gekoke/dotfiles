@@ -61,7 +61,6 @@
     {
       # keep-sorted start block=yes
       auto-olivetti = pkgs-emacs-packages.emacsPackages.callPackage ../../packages/auto-olivetti { };
-      connections = pkgs.callPackage ../../packages/connections { };
       elementary-emacs = mkElementaryEmacs pkgs-emacs.emacs;
       elementary-emacs-pgtk = mkElementaryEmacs pkgs-emacs.emacs-pgtk;
       lombok-jar = pkgs.callPackage ../../packages/lombok-jar { };
