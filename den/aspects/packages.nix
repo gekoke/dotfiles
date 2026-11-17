@@ -64,7 +64,6 @@
       elementary-emacs = mkElementaryEmacs pkgs-emacs.emacs;
       elementary-emacs-pgtk = mkElementaryEmacs pkgs-emacs.emacs-pgtk;
       lombok-jar = pkgs.callPackage ../../packages/lombok-jar { };
-      scramsha256 = pkgs.callPackage ../../packages/scramsha256 { };
       wallpapers = pkgs.callPackage ../../packages/wallpapers { };
       # keep-sorted end
     };

@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+_: {
   den.aspects.cli-tools.provides.to-users.homeManager =
     {
       osConfig,
@@ -31,7 +30,6 @@
         pkgs.wget
         pkgs.xxd
         pkgs.zip
-        self.packages.${pkgs.stdenv.hostPlatform.system}.scramsha256
         # keep-sorted end
       ];
     };
