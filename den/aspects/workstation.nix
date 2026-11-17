@@ -9,7 +9,6 @@
       den.aspects.gpg
       den.aspects.nh
       den.aspects.ssh
-      den.aspects.zellij
       den.aspects.zsh
     ];
 
