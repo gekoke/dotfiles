@@ -36,8 +36,6 @@ rec {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     noshell.url = "git+https://codeberg.org/viperML/noshell";
     nur.url = "github:nix-community/NUR";
-    pi.inputs.nixpkgs.follows = "nixpkgs";
-    pi.url = "github:lukasl-dev/pi.nix";
     proxytunnel.url = "github:proxytunnel/proxytunnel";
     systems.url = "github:nix-systems/default-linux";
     website.url = "github:gekoke/website";
