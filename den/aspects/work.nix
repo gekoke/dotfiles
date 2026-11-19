@@ -1,5 +1,8 @@
-_: {
+{ den, ... }:
+{
   den.aspects.work = {
+    includes = [ den.aspects.agents ];
+
     nixos = {
       programs.nix-ld.enable = true;
       networking.firewall.allowedTCPPorts = [

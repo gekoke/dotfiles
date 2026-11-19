@@ -17,6 +17,9 @@ rec {
     abiopetaja.url = "github:gekoke/abiopetaja";
     agenix-shell.url = "github:aciceri/agenix-shell";
     agenix.url = "github:ryantm/agenix";
+    agent-skills.url = "github:Kyure-A/agent-skills-nix";
+    asd-ste100-skill.flake = false;
+    asd-ste100-skill.url = "github:danyuchn/asd-ste100-skill";
     dank-material-shell.url = "github:AvengeMedia/DankMaterialShell";
     den.url = "github:denful/den";
     dgop.url = "github:AvengeMedia/dgop";
